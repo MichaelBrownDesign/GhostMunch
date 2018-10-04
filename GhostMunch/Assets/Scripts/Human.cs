@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Human : MonoBehaviour
 { 
+    // This object.
     private PlayerInput m_input;
     private PlayerMovement m_movement;
     private CharacterController m_controller;
 
+    // Possessor
     private Player m_ownerPScript;
 
     // Determines if the human is susceptible to posession.
@@ -68,7 +70,7 @@ public class Human : MonoBehaviour
         m_bSusceptible = true;
 
         // Kick player out of human.
-        m_ownerPScript.KickFromHuman();
+        m_ownerPScript.KickFromHuman(transform.position);
 
         m_ownerPScript = null;
     }

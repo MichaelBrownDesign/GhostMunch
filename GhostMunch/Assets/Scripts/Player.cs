@@ -20,6 +20,13 @@ public class Player : MonoBehaviour
     private float m_fBobProgress;
     private float m_fTiltProgress;
 
+    // Damage
+    [Header("Damage")]
+    public float m_fStunTime = 2.0f;
+    public float m_fStunForce = 10.0f;
+    private float m_fCurrentStunTime;
+    private bool m_bStunned;
+
     // This object.
     private MeshRenderer m_renderer;
     private PlayerInput m_input;
@@ -93,6 +100,18 @@ public class Player : MonoBehaviour
                     ThrowPossessed();
                 }
             }
+        }
+
+        m_fCurrentStunTime -= Time.deltaTime;
+
+        // Player stunning
+        if(m_fCurrentStunTime < 0.0f && m_bStunned)
+        {
+            // Unfreeze player input.
+            m_movement.Freeze(false);
+
+            // No longer stunned.
+            m_bStunned = false;
         }
 
     }
@@ -179,7 +198,7 @@ public class Player : MonoBehaviour
         m_humanScript.SetOwner(this, m_input.GetPlayer());
     }
 
-    public void KickFromHuman()
+    public void KickFromHuman(Vector3 v3StartPos)
     {
         // Enable the player's renderer.
         m_renderer.enabled = true;
@@ -187,8 +206,12 @@ public class Player : MonoBehaviour
         // Enable player input.
         m_input.enabled = true;
 
-        // Enable movement.
-        m_movement.Freeze(false);
+        // Stun player.
+        Stun();
+
+        // Throw player
+        transform.position = v3StartPos;
+        m_movement.AddForce(Vector3.up * m_fStunForce);
 
         m_possessedObj = null;
     }
@@ -220,6 +243,13 @@ public class Player : MonoBehaviour
         m_objectRigidbody = null;
         m_objectCollider = null;
         m_possessedObj = null;
+    }
+
+    void Stun()
+    {
+        m_movement.Freeze(true);
+        m_fCurrentStunTime = m_fStunTime;
+        m_bStunned = true;
     }
 
     private void OnTriggerStay(Collider other)
