@@ -38,11 +38,11 @@ GameObject:
   - component: {fileID: 4379351353462370}
   - component: {fileID: 33438280399600302}
   - component: {fileID: 23023309348056954}
-  - component: {fileID: 114536446022693868}
-  - component: {fileID: 114160857113930744}
-  - component: {fileID: 114024302964468792}
   - component: {fileID: 143565065052806404}
   - component: {fileID: 65877495452171820}
+  - component: {fileID: 114266760848409238}
+  - component: {fileID: 114060590698039856}
+  - component: {fileID: 114093975557817152}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -171,7 +171,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4, y: 1, z: 5}
   m_Center: {x: 0, y: 0, z: 2.5}
---- !u!114 &114024302964468792
+--- !u!114 &114060590698039856
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -179,41 +179,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1590286385899266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46dacbb5fd825940bd1ea552b860725, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fThrowForce: 500
-  m_fThrowCooldown: 0.1
-  m_fBobSpeed: 3
-  m_fTiltSpeed: 4
-  m_fBobMoveSpeedInc: 0.1
-  m_fTiltMoveSpeedInc: 0.1
-  m_fTiltStrength: 5
---- !u!114 &114160857113930744
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590286385899266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4b72baad6dabf48b1d8e7261138420, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_bUsePCControls: 0
-  m_fGravityScale: 30
+  m_bUsePCControls: 1
+  m_fGravityScale: 9.81
   m_fTerminalFallVelocity: 53
-  m_fMoveSpeed: 4
-  m_fAcceleration: 10
-  m_fDecelleration: 4
+  m_fMoveSpeed: 5
+  m_fAcceleration: 30
+  m_fDecelleration: 15
   m_bAllowJump: 1
   m_fJumpForce: 5
-  m_fRollSpeed: 18
-  m_fRollTime: 0.2
+  m_fRollSpeed: 5
+  m_fRollTime: 1
   m_fRotationLerpT: 0.2
   m_fFreeLookDeadZone: 0.2
   m_bAllowFreeLook: 0
---- !u!114 &114536446022693868
+--- !u!114 &114093975557817152
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -221,12 +203,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1590286385899266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7411004920bcc4a4b800bd76d87f4640, type: 3}
+  m_Script: {fileID: 11500000, guid: b9be7891f1a5b7e4093a6ec9c1498df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_fThrowForce: 5
+  m_fThrowCooldown: 0.5
+  m_fBobSpeed: 1
+  m_fTiltSpeed: 1
+  m_fBobMoveSpeedInc: 1
+  m_fTiltMoveSpeedInc: 1
+  m_fTiltStrength: 5
+--- !u!114 &114266760848409238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1590286385899266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3fbb01c5044a94da1252a2b62a8ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_ePlayerIndex: 0
   m_buttonBindings: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
-  m_buttonKeyBindings: 2000000065000000660000007100000077000000610000007300000064000000090000001b000000
+  m_buttonKeyBindings: 2000000077000000610000007300000064000000650000006600000071000000090000001b000000
   m_axisBindings: 010000000000000002000000040000000300000005000000
 --- !u!143 &143565065052806404
 CharacterController:

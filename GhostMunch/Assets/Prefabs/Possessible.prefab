@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65112875551470492}
   - component: {fileID: 23858248148311570}
   - component: {fileID: 54628023098227798}
-  - component: {fileID: 114144704738778720}
+  - component: {fileID: 114022504364448202}
   m_Layer: 0
   m_Name: Possessible
   m_TagString: Possessible
@@ -112,7 +112,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114144704738778720
+--- !u!114 &114022504364448202
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426214897894572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e296e1f21e3dae74285af0c0fc3e3ab0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5451e3043cb73704194e7e2ae34ef35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fRespawnTime: 5
+  m_fRespawnTime: 0

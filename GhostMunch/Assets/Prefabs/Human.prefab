@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4158375214341262}
   - component: {fileID: 33883911758025286}
   - component: {fileID: 23267144785561108}
-  - component: {fileID: 114980115745209856}
-  - component: {fileID: 114966208136693156}
-  - component: {fileID: 114141819178139932}
   - component: {fileID: 143664068684749566}
+  - component: {fileID: 114017360891575604}
+  - component: {fileID: 114443574009810736}
+  - component: {fileID: 114259197223554738}
   m_Layer: 0
   m_Name: Human
   m_TagString: Human
@@ -158,7 +158,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890164657601380}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114141819178139932
+--- !u!114 &114017360891575604
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -166,10 +166,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1032320988731412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56731a30897f09240b335afea32fd223, type: 3}
+  m_Script: {fileID: 11500000, guid: ef3fbb01c5044a94da1252a2b62a8ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114966208136693156
+  m_ePlayerIndex: 0
+  m_buttonBindings: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
+  m_buttonKeyBindings: 2000000077000000610000007300000064000000650000006600000071000000090000001b000000
+  m_axisBindings: 010000000000000002000000040000000300000005000000
+--- !u!114 &114259197223554738
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -177,37 +181,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1032320988731412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4b72baad6dabf48b1d8e7261138420, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fca9311ebbc0d64ea21d87a330317c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114443574009810736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032320988731412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_bUsePCControls: 0
-  m_fGravityScale: 30
+  m_fGravityScale: 9.81
   m_fTerminalFallVelocity: 53
-  m_fMoveSpeed: 6
-  m_fAcceleration: 50
-  m_fDecelleration: 20
+  m_fMoveSpeed: 5
+  m_fAcceleration: 30
+  m_fDecelleration: 15
   m_bAllowJump: 1
   m_fJumpForce: 5
-  m_fRollSpeed: 18
-  m_fRollTime: 0.2
+  m_fRollSpeed: 5
+  m_fRollTime: 1
   m_fRotationLerpT: 0.2
   m_fFreeLookDeadZone: 0.2
   m_bAllowFreeLook: 0
---- !u!114 &114980115745209856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1032320988731412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7411004920bcc4a4b800bd76d87f4640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ePlayerIndex: 1
-  m_buttonBindings: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
-  m_buttonKeyBindings: 2000000065000000660000007100000077000000610000007300000064000000090000001b000000
-  m_axisBindings: 010000000000000002000000040000000300000005000000
 --- !u!143 &143664068684749566
 CharacterController:
   m_ObjectHideFlags: 1
