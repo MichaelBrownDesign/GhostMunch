@@ -64,6 +64,9 @@ public class Human : MonoBehaviour
 
     public void Separate()
     {
+        if (m_bSusceptible)
+            return;
+
         // Disable human player controls.
         m_input.enabled = false;
         m_movement.enabled = false;

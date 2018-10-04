@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ePlayerIndex: 0
-  m_buttonBindings: 00000000000000000200000003000000040000000500000006000000070000000800000009000000
+  m_buttonBindings: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
   m_buttonKeyBindings: 2000000000000000610000007300000077000000610000007300000064000000090000001b000000
   m_axisBindings: 010000000000000002000000040000000300000005000000
 --- !u!114 &114537140422579376
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bUsePCControls: 1
+  m_bUsePCControls: 0
   m_fGravityScale: 9.81
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 5
@@ -221,13 +221,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9be7891f1a5b7e4093a6ec9c1498df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fThrowForce: 5
+  m_fThrowForce: 500
   m_fThrowCooldown: 0.5
-  m_fBobSpeed: 1
-  m_fTiltSpeed: 1
-  m_fBobMoveSpeedInc: 1
-  m_fTiltMoveSpeedInc: 1
+  m_fBobSpeed: 4
+  m_fTiltSpeed: 3
+  m_fBobMoveSpeedInc: 0.15
+  m_fTiltMoveSpeedInc: 0.15
   m_fTiltStrength: 5
+  m_fStunTime: 2
+  m_fStunForce: 10
 --- !u!143 &143565065052806404
 CharacterController:
   m_ObjectHideFlags: 1
