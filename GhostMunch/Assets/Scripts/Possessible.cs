@@ -14,6 +14,7 @@ public class Possessible : MonoBehaviour
     private Vector3 m_v3RespawnPosition;
     private float m_fCurrentRespawnTimer;
     private bool m_bThown;
+    private bool m_bPossessed;
 
     private GameObject m_human;
     private Human m_humanScript;
@@ -68,6 +69,7 @@ public class Possessible : MonoBehaviour
             m_fCurrentRespawnTimer = m_fRespawnTime;
             m_rigidbody.isKinematic = true;
             m_renderer.enabled = false;
+            m_collider.enabled = false;
 
             // Separate ghost from human if the collision is with the human.
             if(collision.gameObject == m_human)
@@ -96,7 +98,25 @@ public class Possessible : MonoBehaviour
         // Enable rendering.
         m_renderer.enabled = true;
 
+        // Enable collision.
+        m_collider.enabled = true;
+
+        // Mark as possessed no longer.
+        m_bPossessed = false;
+
         // Mark as thrown no longer.
         m_bThown = false;
+    }
+
+    // Sets whether or not the human is currently unavailable due to being possessed.
+    public void SetPossessed(bool bPossessed)
+    {
+        m_bPossessed = bPossessed;
+    }
+
+    // Returns whether or not the human is currently unavailable due to being possessed.
+    public bool GetPossessed()
+    {
+        return m_bPossessed;
     }
 }

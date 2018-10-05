@@ -38,12 +38,14 @@ public class Player : MonoBehaviour
 
     // Possessed object.
     private GameObject m_possessedObj;
+    private Possessible m_possessedScript;
     private Rigidbody m_objectRigidbody;
     private Collider m_objectCollider;
     private float m_fObjectHeight;
 
     // Human
     private GameObject m_human;
+    private CharacterController m_humanController;
     private Human m_humanScript;
 
     // Use this for initialization
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
         m_collider = GetComponent<BoxCollider>();
 
         m_human = GameObject.FindGameObjectWithTag("Human");
+        m_humanController = m_human.GetComponent<CharacterController>();
         m_humanScript = m_human.GetComponent<Human>();
     }
 
@@ -112,6 +115,11 @@ public class Player : MonoBehaviour
 
             // No longer stunned.
             m_bStunned = false;
+            m_input.enabled = true;
+
+            // Can collide with human again.
+            Physics.IgnoreCollision(m_controller, m_humanController, false);
+            Physics.IgnoreCollision(m_collider, m_humanController, false);
         }
 
     }
@@ -127,6 +135,23 @@ public class Player : MonoBehaviour
             return;
 
         m_possessedObj = obj;
+
+        // Get possessible script of object. (Will be NULL for human).
+        m_possessedScript = m_possessedObj.GetComponent<Possessible>();
+
+        // If the object or human is already possessed, bail out.
+        if((m_possessedScript != null && m_possessedScript.GetPossessed()) || (m_possessedObj == m_human && m_humanScript.GetPossessed()))
+        {
+            m_possessedObj = null;
+            m_possessedScript = null;
+            return;
+        }
+
+        if (m_possessedScript != null)
+            m_possessedScript.SetPossessed(true);
+        else
+            m_humanScript.SetPossessed(true);
+        
         m_objectCollider = m_possessedObj.GetComponent<Collider>();
 
         // Prevent object from colliding with it's thrower.
@@ -203,15 +228,19 @@ public class Player : MonoBehaviour
         // Enable the player's renderer.
         m_renderer.enabled = true;
 
-        // Enable player input.
-        m_input.enabled = true;
-
         // Stun player.
         Stun();
 
+        // Disable collision between this player and the human.
+        Physics.IgnoreCollision(m_controller, m_humanController);
+        Physics.IgnoreCollision(m_collider, m_humanController);
+
         // Throw player
-        transform.position = v3StartPos;
-        m_movement.AddForce(Vector3.up * m_fStunForce);
+        transform.position = m_human.transform.position;
+        //m_movement.AddForce(Vector3.up * m_fStunForce);
+
+        // Mark human as not possessed.
+        m_humanScript.SetPossessed(false);
 
         m_possessedObj = null;
     }
@@ -225,7 +254,7 @@ public class Player : MonoBehaviour
         m_renderer.enabled = true;
 
         // Free object.
-        m_possessedObj.GetComponent<Possessible>().SetThown(m_controller, m_collider);
+        m_possessedScript.SetThown(m_controller, m_collider);
         m_possessedObj.transform.localPosition = Vector3.zero;
         m_possessedObj.transform.localRotation = Quaternion.Euler(Vector3.zero);
         m_possessedObj.transform.parent = null;
@@ -245,9 +274,9 @@ public class Player : MonoBehaviour
         m_possessedObj = null;
     }
 
+    // Suspends player movement input for a short period of time.
     void Stun()
     {
-        m_movement.Freeze(true);
         m_fCurrentStunTime = m_fStunTime;
         m_bStunned = true;
     }

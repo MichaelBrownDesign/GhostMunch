@@ -8,6 +8,7 @@ public class Human : MonoBehaviour
     private PlayerInput m_input;
     private PlayerMovement m_movement;
     private CharacterController m_controller;
+    private bool m_bPossessed;
 
     // Possessor
     private Player m_ownerPScript;
@@ -31,7 +32,9 @@ public class Human : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		
+        // Ensure ghost player is at the same position as the human for the camera.
+        if(m_ownerPScript != null)
+            m_ownerPScript.gameObject.transform.position = transform.position;
 	}
 
     // Returns if the Human is susceptible to getting possessed.
@@ -76,5 +79,17 @@ public class Human : MonoBehaviour
         m_ownerPScript.KickFromHuman(transform.position);
 
         m_ownerPScript = null;
+    }
+
+    // Sets whether or not the human is currently unavailable due to being possessed.
+    public void SetPossessed(bool bPossessed)
+    {
+        m_bPossessed = bPossessed;
+    }
+
+    // Returns whether or not the human is currently unavailable due to being possessed.
+    public bool GetPossessed()
+    {
+        return m_bPossessed;
     }
 }
