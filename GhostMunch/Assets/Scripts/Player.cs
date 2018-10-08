@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        m_renderer = GetComponent<MeshRenderer>();
+        m_renderer = GetComponentInChildren<MeshRenderer>();
         m_input = GetComponent<PlayerInput>();
         m_movement = GetComponent<PlayerMovement>();
         m_controller = GetComponent<CharacterController>();
@@ -98,7 +98,9 @@ public class Player : MonoBehaviour
                 m_possessedObj.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Sin(m_fTiltProgress) * m_fTiltStrength);
 
                 // Thowing input.
-                if (m_input.GetAxisLast(0) < 0.2f && m_possessedObj != m_human && m_input.GetAxis(0) >= 0.2f && m_fCurrentThrowCD < 0.0f)
+                bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
+
+                if (m_input.GetAxisLast(0) < 0.2f && m_possessedObj != m_human && bInputPassed)
                 {
                     ThrowPossessed();
                 }
@@ -220,7 +222,7 @@ public class Player : MonoBehaviour
         Physics.IgnoreCollision(m_collider, m_objectCollider, false);
 
         // Make this player have ownership of the human and control him.
-        m_humanScript.SetOwner(this, m_input.GetPlayer());
+        m_humanScript.SetOwner(this, m_input, m_input.GetPlayer());
     }
 
     public void KickFromHuman(Vector3 v3StartPos)
@@ -283,12 +285,14 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
+
         // Detect targets using trigger collider and allow posession if the input and misc conditions are corret.
-        if(other.gameObject.tag == "Possessible" && m_possessedObj == null && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f)
+        if (other.gameObject.tag == "Possessible" && m_possessedObj == null && bInputPassed)
         {
             PursuePossess(other.gameObject);
         }
-        else if(other.gameObject == m_human && m_possessedObj == null && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f)
+        else if(other.gameObject == m_human && m_possessedObj == null && bInputPassed)
         {
             // Human cannot be possessed if there is another ghost in him that has not been knocked out.
             if(m_humanScript.GetIsSusceptible())

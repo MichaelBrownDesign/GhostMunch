@@ -32,6 +32,7 @@ public class PlayerInput : MonoBehaviour
 
     // General input
     [Header("General")]
+    public bool m_bUseKeyboard;
     public PlayerIndex m_ePlayerIndex;
 
     private GamePadState m_prevGpdState;
@@ -189,6 +190,10 @@ public class PlayerInput : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        // If the player is using the keyboard, they will be set to player 4's controller input.
+        if(m_bUseKeyboard)
+            m_ePlayerIndex = PlayerIndex.Four;
+
         m_buttons = new Dictionary<EGamePadButton, GPDButton>();
         m_axes = new Dictionary<EGamePadAxis, GPDAxis>();
 
@@ -217,20 +222,20 @@ public class PlayerInput : MonoBehaviour
     // Returns true when the specified button is held down.
     public bool GetButtonPressed(int nButtonIndex)
     {
-        return m_buttons[m_buttonBindings[nButtonIndex]](m_gpdState) || (Input.GetKey(m_buttonKeyBindings[nButtonIndex]) && m_ePlayerIndex == PlayerIndex.One);
+        return m_buttons[m_buttonBindings[nButtonIndex]](m_gpdState) || (Input.GetKey(m_buttonKeyBindings[nButtonIndex]) && m_bUseKeyboard);
     }
 
     // Returns true when the specified button is NOT held down.
     public bool GetButtonReleased(int nButtonIndex)
     {
-        return !(m_buttons[m_buttonBindings[nButtonIndex]](m_gpdState) || (Input.GetKey(m_buttonKeyBindings[nButtonIndex]) && m_ePlayerIndex == PlayerIndex.One));
+        return !(m_buttons[m_buttonBindings[nButtonIndex]](m_gpdState) || (Input.GetKey(m_buttonKeyBindings[nButtonIndex]) && m_bUseKeyboard));
     }
 
     // Returns true when the specified button is pressed and released. (PC buttons activate when first pressed but that usually makes little difference).
     public bool GetButton(int nButtonIndex)
     {
         return (!m_buttons[m_buttonBindings[nButtonIndex]](m_prevGpdState) && m_buttons[m_buttonBindings[nButtonIndex]](m_gpdState)) 
-            || (Input.GetKeyDown(m_buttonKeyBindings[nButtonIndex]) && m_ePlayerIndex == PlayerIndex.One);
+            || (Input.GetKeyDown(m_buttonKeyBindings[nButtonIndex]) && m_bUseKeyboard);
     }
     // -------------------------------------------------------------------------------
 

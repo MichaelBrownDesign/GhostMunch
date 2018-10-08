@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Input")]
-    public bool m_bUsePCControls = false;
-
     [Header("Movement")]
     [Tooltip("The rate of increase in falling velocity due to gravity in m/s")]
     public float m_fGravityScale = 9.81f;
@@ -65,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         // Look direction this frame.
         m_v2InputLook = Vector2.zero;
 
-        if(!m_bUsePCControls)
+        if(!m_input.m_bUseKeyboard)
         {
             // Controller input...
             // Move direction

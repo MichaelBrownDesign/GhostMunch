@@ -48,7 +48,7 @@ public class Human : MonoBehaviour
     Params:
         int nIndex: The PlayerIndex of the player to take control.
     */
-    public void SetOwner(Player ownerPScript, int nIndex)
+    public void SetOwner(Player ownerPScript, PlayerInput ownerInput, int nIndex)
     {
         // Set owner script.
         m_ownerPScript = ownerPScript;
@@ -61,6 +61,7 @@ public class Human : MonoBehaviour
 
         // Enable human input script.
         m_input.enabled = true;
+        m_input.m_bUseKeyboard = ownerInput.m_bUseKeyboard;
         m_movement.enabled = true;
         m_controller.enabled = true;
     }
