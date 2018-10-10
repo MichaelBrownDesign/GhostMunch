@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9be7891f1a5b7e4093a6ec9c1498df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nScore: 0
   m_fThrowForce: 500
   m_fThrowCooldown: 0.5
   m_fBobSpeed: 3
@@ -216,7 +217,7 @@ MonoBehaviour:
   m_fBobMoveSpeedInc: 0.15
   m_fTiltMoveSpeedInc: 0.15
   m_fTiltStrength: 5
-  m_fStunTime: 20
+  m_fStunTime: 2
   m_fStunForce: 10
 --- !u!143 &143565065052806404
 CharacterController:

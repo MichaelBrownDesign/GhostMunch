@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Human : MonoBehaviour
-{ 
+{
     // This object.
     private PlayerInput m_input;
     private PlayerMovement m_movement;
@@ -92,5 +92,19 @@ public class Human : MonoBehaviour
     public bool GetPossessed()
     {
         return m_bPossessed;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        // Detect food items and query if they are within eating range. If they are within range, eat them.
+        if (other.gameObject.tag == "Food")
+        {
+            // Get food item script.
+            FoodScript script = other.GetComponent<FoodScript>();
+
+            // Eat item and add score.
+            script.Eat();
+            m_ownerPScript.AddToScore(script.GetScoreValue());
+        }
     }
 }

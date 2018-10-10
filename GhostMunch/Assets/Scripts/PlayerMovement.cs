@@ -232,6 +232,12 @@ public class PlayerMovement : MonoBehaviour
         return m_fInputMagnitude;
     }
 
+    public void ResetVelocity()
+    {
+        m_v3Velocity = Vector3.zero;
+        m_fCurrentSpeed = 0.0f;
+    }
+
     public void AddForce(Vector3 v3Force)
     {
         m_v3Velocity += v3Force;

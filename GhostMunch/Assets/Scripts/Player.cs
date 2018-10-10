@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Score
+    [Header("Score")]
+    public int m_nScore;
+
     // Throwing
     [Header("Throwing")]
     public float m_fThrowForce = 5.0f;
@@ -75,7 +79,7 @@ public class Player : MonoBehaviour
                 float fDistanceToObj = (m_possessedObj.transform.position - transform.position).magnitude;
 
                 // Take control of object once within range.
-                if(fDistanceToObj < 1.0f)
+                if(fDistanceToObj < 1.1f)
                 {
                     if (m_possessedObj != m_human)
                         PossessObject();
@@ -244,6 +248,7 @@ public class Player : MonoBehaviour
         v3PropDirection.y = 1.0f;
 
         // Add direction vector to up force, normalize and multiply by stun force and add the force.
+        m_movement.ResetVelocity(); // Ensure any previouse velocity of the ghost doesn't remain.
         m_movement.AddForce(v3PropDirection * m_fStunForce);
 
         // Mark human as not possessed.
@@ -305,5 +310,17 @@ public class Player : MonoBehaviour
                 PursuePossess(m_human);
             }
         }
+    }
+
+    // Set the score of the individual player.
+    public void SetScore(int nScore)
+    {
+        m_nScore = nScore;
+    }
+
+    // Add to the score of the individual player.
+    public void AddToScore(int nScore)
+    {
+        m_nScore += nScore;
     }
 }
