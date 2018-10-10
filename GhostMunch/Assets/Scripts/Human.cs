@@ -94,7 +94,7 @@ public class Human : MonoBehaviour
         return m_bPossessed;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         // Detect food items and query if they are within eating range. If they are within range, eat them.
         if (other.gameObject.tag == "Food")
