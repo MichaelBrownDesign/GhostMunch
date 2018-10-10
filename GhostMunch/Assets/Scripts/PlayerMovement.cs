@@ -235,5 +235,6 @@ public class PlayerMovement : MonoBehaviour
     public void AddForce(Vector3 v3Force)
     {
         m_v3Velocity += v3Force;
+        m_fCurrentSpeed = v3Force.magnitude;
     }
 }
