@@ -148,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // Clamp velocity to current speed...
-            if (m_v3Velocity.magnitude > m_fCurrentSpeed && m_bUseInput)
+            if (m_v3Velocity.magnitude > m_fCurrentSpeed)
             {
                 Vector3 v3ClampedVelocity = m_v3Velocity.normalized * m_fCurrentSpeed;
 

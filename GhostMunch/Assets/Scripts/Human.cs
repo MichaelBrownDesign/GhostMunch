@@ -66,7 +66,7 @@ public class Human : MonoBehaviour
         m_controller.enabled = true;
     }
 
-    public void Separate()
+    public void Separate(Vector3 v3PropDirectopn)
     {
         if (m_bSusceptible)
             return;
@@ -77,7 +77,7 @@ public class Human : MonoBehaviour
         m_bSusceptible = true;
 
         // Kick player out of human.
-        m_ownerPScript.KickFromHuman(transform.position);
+        m_ownerPScript.KickFromHuman(v3PropDirectopn);
 
         m_ownerPScript = null;
     }

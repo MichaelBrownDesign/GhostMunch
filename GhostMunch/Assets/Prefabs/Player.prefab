@@ -216,7 +216,7 @@ MonoBehaviour:
   m_fBobMoveSpeedInc: 0.15
   m_fTiltMoveSpeedInc: 0.15
   m_fTiltStrength: 5
-  m_fStunTime: 2
+  m_fStunTime: 20
   m_fStunForce: 10
 --- !u!143 &143565065052806404
 CharacterController:

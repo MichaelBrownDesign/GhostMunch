@@ -6,26 +6,29 @@ public class Possessible : MonoBehaviour
 {
     public float m_fRespawnTime;
 
-
+    // Self
     private Rigidbody m_rigidbody;
     private Collider m_collider;
     private MeshRenderer m_renderer;
 
     private Vector3 m_v3RespawnPosition;
+    private Vector3 m_v3ThrowDirection;
     private float m_fCurrentRespawnTimer;
     private bool m_bThown;
     private bool m_bPossessed;
 
+    // Human
     private GameObject m_human;
     private Human m_humanScript;
 
+    // Ghost
     private CharacterController m_ownerController;
     private BoxCollider m_ownerDetector;
 
     // Use this for initialization
     void Awake()
     {
-        m_renderer = GetComponent<MeshRenderer>();
+        m_renderer = GetComponentInChildren<MeshRenderer>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_collider = GetComponent<Collider>();
 
@@ -49,7 +52,7 @@ public class Possessible : MonoBehaviour
 	}
 
     // Marks this object as thrown so it will respawn after colliding.
-    public void SetThown(CharacterController ownerController, BoxCollider ownerDetector)
+    public void SetThown(CharacterController ownerController, BoxCollider ownerDetector, Vector3 v3ThrowDir)
     {
         // Set player colliders. (Used for respawning)
         m_ownerController = ownerController;
@@ -57,6 +60,9 @@ public class Possessible : MonoBehaviour
 
         // Mark as thown.
         m_bThown = true;
+
+        // Set throw direction used for knock-out knockback.
+        m_v3ThrowDirection = v3ThrowDir;
 
         // Set respawn timer.
         m_fCurrentRespawnTimer = 5.0f;
@@ -74,7 +80,7 @@ public class Possessible : MonoBehaviour
             // Separate ghost from human if the collision is with the human.
             if(collision.gameObject == m_human)
             {
-                m_humanScript.Separate();
+                m_humanScript.Separate(m_v3ThrowDirection);
             }
         }
     }

@@ -110,7 +110,7 @@ public class Player : MonoBehaviour
         m_fCurrentStunTime -= Time.deltaTime;
 
         // Player stunning
-        if(m_fCurrentStunTime < 0.0f && m_bStunned)
+        if (m_fCurrentStunTime < 0.0f && m_bStunned)
         {
             // Unfreeze player input.
             m_movement.Freeze(false);
@@ -225,7 +225,7 @@ public class Player : MonoBehaviour
         m_humanScript.SetOwner(this, m_input, m_input.GetPlayer());
     }
 
-    public void KickFromHuman(Vector3 v3StartPos)
+    public void KickFromHuman(Vector3 v3PropDirection)
     {
         // Enable the player's renderer.
         m_renderer.enabled = true;
@@ -234,12 +234,17 @@ public class Player : MonoBehaviour
         Stun();
 
         // Disable collision between this player and the human.
-        Physics.IgnoreCollision(m_controller, m_humanController);
-        Physics.IgnoreCollision(m_collider, m_humanController);
+        Physics.IgnoreCollision(m_controller, m_humanController, true);
+        Physics.IgnoreCollision(m_collider, m_humanController, true);
 
-        // Throw player
+        // Throw player:
+        // Ensure ghost position is equal to the human's position.
         transform.position = m_human.transform.position;
-        //m_movement.AddForce(Vector3.up * m_fStunForce);
+
+        v3PropDirection.y = 1.0f;
+
+        // Add direction vector to up force, normalize and multiply by stun force and add the force.
+        m_movement.AddForce(v3PropDirection * m_fStunForce);
 
         // Mark human as not possessed.
         m_humanScript.SetPossessed(false);
@@ -256,7 +261,7 @@ public class Player : MonoBehaviour
         m_renderer.enabled = true;
 
         // Free object.
-        m_possessedScript.SetThown(m_controller, m_collider);
+        m_possessedScript.SetThown(m_controller, m_collider, transform.forward);
         m_possessedObj.transform.localPosition = Vector3.zero;
         m_possessedObj.transform.localRotation = Quaternion.Euler(Vector3.zero);
         m_possessedObj.transform.parent = null;
