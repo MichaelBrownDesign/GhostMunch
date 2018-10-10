@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraDissolve : MonoBehaviour {
 
-    public Transform target;
-    public GameObject currentPlane;
+    public Transform[] m_targets;
+    //public GameObject currentPlane;
 
     public LayerMask playerMask;
     public LayerMask planeMask;
@@ -13,13 +13,13 @@ public class CameraDissolve : MonoBehaviour {
     private float f_dissolveAmount;
     private bool isFaded = false;
 
-    RaycastHit hit;
 //    private CheckFaded faded;
 	// Use this for initialization
 	void Start ()
     {
-//        faded = GetComponent<CheckFaded>();
-        currentPlane = GameObject.FindWithTag("Dissolvable");	
+        //faded = GetComponent<CheckFaded>();
+        
+        //currentPlane = GameObject.FindWithTag("Dissolvable");	
 	}
 	
 	// Update is called once per frame
@@ -27,61 +27,67 @@ public class CameraDissolve : MonoBehaviour {
     {
         float timer = Time.deltaTime;
 
-        this.transform.LookAt(target);
-
-        Debug.DrawRay(transform.position, transform.forward * 1000.0f, Color.red);
-
-        // if the raycast is hitting the plane then dissolve it
-        if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, planeMask))
+        for (int i = 0; i < m_targets.Length; ++i)
         {
-            currentPlane = hit.transform.gameObject;
-            if (!isFaded)
+            Transform currentTarget = m_targets[i];
+
+            Vector3 v3TargetDir = (currentTarget.position - transform.position).normalized;
+
+            RaycastHit hit;
+            Physics.Raycast(transform.position, v3TargetDir, out hit);
+
+            float fDistToHit = Vector3.Distance(transform.position, hit.point);
+
+            Debug.DrawRay(transform.position, v3TargetDir * fDistToHit, Color.red);
+
+            if (hit.collider != null)
             {
-                StartCoroutine(FadingOut());
-                if (f_dissolveAmount <= 0)
-                    isFaded = true;
+                GameObject currentHitObject = hit.transform.gameObject;
+
+                if(currentHitObject != currentTarget.gameObject)
+                {
+                    // Object is not the player, fade it.
+                    currentHitObject.GetComponent<IsFaded>().SetFade(true);
+                }
             }
-            currentPlane.GetComponent<Renderer>().material.SetFloat("_DissolveRatio", f_dissolveAmount);
-            Debug.Log("Plane");
         }
 
-        // if the raycast is NOT hitting the plane then stop dissolving
-        else /*if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))*/
-        {
-            if (f_dissolveAmount < 5)
-            { 
-                StartCoroutine(FadingIn());
-            }
-            if (isFaded)
-            {
-                StartCoroutine(FadingIn());
-                if (f_dissolveAmount >= 5)
-                    isFaded = false;
-
-            }
-            currentPlane.GetComponent<Renderer>().material.SetFloat("_DissolveRatio", f_dissolveAmount);
-            Debug.Log("Player");
-
-        }
-
-    }
-    // used to change the value of dissolve percentage over time
-    IEnumerator FadingOut()
-    {
-        f_dissolveAmount -= 0.25f;
-        //for (f_dissolveAmount = 0; f_dissolveAmount < 1; f_dissolveAmount += 0.02f)
+        //Debug.DrawRay(transform.position, transform.forward * Vector3.Distance(transform.position, target.position), Color.red);
+        //
+        //// if the raycast is hitting the plane then dissolve it
+        //if (Physics.Raycast(transform.position, transform.forward, out hit, Vector3.Distance(transform.position, target.position), planeMask))
         //{
-            yield return new WaitForSeconds(0.01f);
+        //    
+        //
+        //    if (!isFaded)
+        //    {
+        //        StartCoroutine(FadingOut());
+        //        if (f_dissolveAmount <= 0)
+        //            isFaded = true;
+        //    }
+        //    currentPlane.GetComponent<Renderer>().material.SetFloat("_ClipThreshold", f_dissolveAmount);
+        //    Debug.Log("Plane");
         //}
-    }
-    
-    IEnumerator FadingIn()
-    {
-        f_dissolveAmount += 0.35f;
-        //for (f_dissolveAmount = 1; f_dissolveAmount > 0; f_dissolveAmount -= 0.01f)
+        //
+        //// if the raycast is NOT hitting the plane then stop dissolving
+        //else if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, playerMask))
         //{
-            yield return new WaitForSeconds(0.01f);
+        //    if (f_dissolveAmount < 1.1f)
+        //    { 
+        //        StartCoroutine(FadingIn());
+        //    }
+        //    if (isFaded)
+        //    {
+        //        StartCoroutine(FadingIn());
+        //        if (f_dissolveAmount >= 1.1f)
+        //            isFaded = false;
+        //
+        //    }
+        //    currentPlane.GetComponent<Renderer>().material.SetFloat("_ClipThreshold", f_dissolveAmount);
+        //    Debug.Log("Player");
+        //
         //}
+
     }
 
 
