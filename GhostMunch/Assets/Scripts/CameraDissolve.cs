@@ -10,17 +10,39 @@ public class CameraDissolve : MonoBehaviour {
     public LayerMask playerMask;
     public LayerMask planeMask;
 
+    public float dissolveSpeed;
+    public float undissolveSpeed;
+
+    private static float dissolveSpeedStatic;
+    private static float undissolveSpeedStatic;
+
+    public static float DissolveSpeed
+    {
+        get { return dissolveSpeedStatic; }
+    }
+
+    public static float UnDissolveSpeed
+    {
+        get { return undissolveSpeedStatic; }
+    }
+
+//   public static float dissolveSpeedStatic;
+//   public static float undissolveSpeedStatic;
+
     private float f_dissolveAmount;
     private bool isFaded = false;
 
-//    private CheckFaded faded;
-	// Use this for initialization
-	void Start ()
+    //    private CheckFaded faded;
+    // Use this for initialization
+    void Awake()
     {
+        dissolveSpeedStatic = dissolveSpeed;
+        undissolveSpeedStatic = undissolveSpeed;
+
         //faded = GetComponent<CheckFaded>();
-        
+
         //currentPlane = GameObject.FindWithTag("Dissolvable");	
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()

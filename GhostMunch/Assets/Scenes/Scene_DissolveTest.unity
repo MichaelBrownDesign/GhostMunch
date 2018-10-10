@@ -311,6 +311,8 @@ MonoBehaviour:
   planeMask:
     serializedVersion: 2
     m_Bits: 512
+  dissolveSpeed: 0
+  undissolveSpeed: 0
 --- !u!1 &573677381
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +346,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 465cdbdb67d195343a5b15e7c1ea6c0b, type: 2}
+  - {fileID: 2100000, guid: 0f390cf4f7fafe04392886d7da6ff059, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -440,7 +442,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 465cdbdb67d195343a5b15e7c1ea6c0b, type: 2}
+  - {fileID: 2100000, guid: 0f390cf4f7fafe04392886d7da6ff059, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -536,7 +538,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 465cdbdb67d195343a5b15e7c1ea6c0b, type: 2}
+  - {fileID: 2100000, guid: 0f390cf4f7fafe04392886d7da6ff059, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -646,6 +648,8 @@ MonoBehaviour:
   planeMask:
     serializedVersion: 2
     m_Bits: 512
+  dissolveSpeed: 0
+  undissolveSpeed: 0
 --- !u!1 &1539148300
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,6 +830,7 @@ GameObject:
   - component: {fileID: 2103720044}
   - component: {fileID: 2103720043}
   - component: {fileID: 2103720047}
+  - component: {fileID: 2103720048}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -889,7 +894,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2103720042}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -897,7 +902,7 @@ Transform:
   - {fileID: 1400982325}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!114 &2103720047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,3 +923,24 @@ MonoBehaviour:
   planeMask:
     serializedVersion: 2
     m_Bits: 0
+  dissolveSpeed: 2
+  undissolveSpeed: 2
+--- !u!114 &2103720048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2103720042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94849f76978a9be4eb96b618014fa65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1: {fileID: 1539148304}
+  Player2: {fileID: 1566095157}
+  Player3: {fileID: 0}
+  Player4: {fileID: 0}
+  lerpSpeed: 2
+  DISTANCE_MARGIN: 10
+  zCorrection: 15
+  yCorrection: 20

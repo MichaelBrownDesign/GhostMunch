@@ -13,13 +13,17 @@ public class IsFaded : MonoBehaviour
         m_fFadeLevel = 1.1f;
 
         m_fadeMat = GetComponent<Renderer>().material;
+
     }
+
+
 
     private void Update()
     {
+
         if(!m_bFading)
         {
-            m_fFadeLevel += Time.deltaTime;
+            m_fFadeLevel += Time.deltaTime * CameraDissolve.UnDissolveSpeed;
             m_fadeMat.SetFloat("_ClipThreshold", m_fFadeLevel);
 
             if (m_fFadeLevel >= 1.1f)
@@ -39,11 +43,12 @@ public class IsFaded : MonoBehaviour
     */
     public void FadeOut()
     {
+
         enabled = true;
         m_bFading = true;
 
         if(m_fFadeLevel > 0.0f)
-            m_fFadeLevel -= Time.deltaTime;
+            m_fFadeLevel -= Time.deltaTime * CameraDissolve.DissolveSpeed;
 
         m_fadeMat.SetFloat("_ClipThreshold", m_fFadeLevel);
     }
