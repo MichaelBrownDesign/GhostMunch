@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(Collider))]
+
 public class FoodScript : MonoBehaviour
 {
     // Respawning
