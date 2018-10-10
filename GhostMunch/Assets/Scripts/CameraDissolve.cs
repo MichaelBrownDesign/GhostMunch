@@ -44,10 +44,10 @@ public class CameraDissolve : MonoBehaviour {
             {
                 GameObject currentHitObject = hit.transform.gameObject;
 
-                if(currentHitObject != currentTarget.gameObject)
+                if(currentHitObject != currentTarget.gameObject && currentHitObject.tag != "Player" && currentHitObject.tag != "Human" && currentHitObject.tag != "Possessible")
                 {
                     // Object is not the player, fade it.
-                    currentHitObject.GetComponent<IsFaded>().SetFade(true);
+                    currentHitObject.GetComponent<IsFaded>().FadeOut();
                 }
             }
         }
