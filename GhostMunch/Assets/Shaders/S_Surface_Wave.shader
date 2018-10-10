@@ -53,8 +53,7 @@ Shader "Shader Forge/S_Surface_Wave" {
                 o.normalDir = UnityObjectToWorldNormal(v.normal);
                 float node_8195 = 0.0;
                 float4 node_9306 = _Time + _TimeEditor;
-                float node_5460 = (_WorldPosition.b-mul(unity_ObjectToWorld, v.vertex).b);
-                v.vertex.xyz += float3(node_8195,(sin((node_9306.g+node_5460))*_Amplitude),node_8195);
+                v.vertex.xyz += float3(node_8195,(sin((node_9306.g+(_WorldPosition.b-mul(unity_ObjectToWorld, v.vertex).b)))*_Amplitude),node_8195);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
@@ -124,8 +123,7 @@ Shader "Shader Forge/S_Surface_Wave" {
                 o.normalDir = UnityObjectToWorldNormal(v.normal);
                 float node_8195 = 0.0;
                 float4 node_9306 = _Time + _TimeEditor;
-                float node_5460 = (_WorldPosition.b-mul(unity_ObjectToWorld, v.vertex).b);
-                v.vertex.xyz += float3(node_8195,(sin((node_9306.g+node_5460))*_Amplitude),node_8195);
+                v.vertex.xyz += float3(node_8195,(sin((node_9306.g+(_WorldPosition.b-mul(unity_ObjectToWorld, v.vertex).b)))*_Amplitude),node_8195);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
@@ -187,8 +185,7 @@ Shader "Shader Forge/S_Surface_Wave" {
                 VertexOutput o = (VertexOutput)0;
                 float node_8195 = 0.0;
                 float4 node_9306 = _Time + _TimeEditor;
-                float node_5460 = (_WorldPosition.b-mul(unity_ObjectToWorld, v.vertex).b);
-                v.vertex.xyz += float3(node_8195,(sin((node_9306.g+node_5460))*_Amplitude),node_8195);
+                v.vertex.xyz += float3(node_8195,(sin((node_9306.g+(_WorldPosition.b-mul(unity_ObjectToWorld, v.vertex).b)))*_Amplitude),node_8195);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 o.pos = UnityObjectToClipPos( v.vertex );
                 TRANSFER_SHADOW_CASTER(o)

@@ -143,8 +143,7 @@ Shader "Shader Forge/S_Dissolve_001" {
                 indirectDiffuse += UNITY_LIGHTMODEL_AMBIENT.rgb; // Ambient Light
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
-                float node_6417 = (node_7232-step(_Noise_var.r,(_ClipThreshold-_EdgeThreshold)));
-                float3 emissive = (node_6417*_EdgeColor.rgb);
+                float3 emissive = ((node_7232-step(_Noise_var.r,(_ClipThreshold-_EdgeThreshold)))*_EdgeColor.rgb);
 /// Final Color:
                 float3 finalColor = diffuse + specular + emissive;
                 fixed4 finalRGBA = fixed4(finalColor,1);
