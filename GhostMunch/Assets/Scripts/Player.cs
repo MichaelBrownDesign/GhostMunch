@@ -89,6 +89,10 @@ public class Player : MonoBehaviour
         // If a player is using the keyboard and this is not that player. Add 1 to the ID.
         if (bHasKeyboardPlayer && !m_input.m_bUseKeyboard)
             m_nID++;
+
+        // Set to player 4 for controller input if using keyboard.
+        if (m_input.m_bUseKeyboard)
+            m_input.m_ePlayerIndex = XInputDotNetPure.PlayerIndex.Four;
     }
 
     // Update is called once per frame

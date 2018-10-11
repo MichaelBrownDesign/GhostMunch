@@ -190,12 +190,6 @@ public class PlayerInput : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        // If the player is using the keyboard, they will be set to player 4's controller input.
-        if(m_bUseKeyboard)
-        {
-            m_ePlayerIndex = PlayerIndex.One;
-        }
-
         m_buttons = new Dictionary<EGamePadButton, GPDButton>();
         m_axes = new Dictionary<EGamePadAxis, GPDAxis>();
 

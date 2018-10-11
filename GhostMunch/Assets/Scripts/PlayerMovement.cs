@@ -219,9 +219,6 @@ public class PlayerMovement : MonoBehaviour
         {
             m_bIsRolling = true;
 
-            Debug.Log(m_controller.velocity.magnitude);
-
-            //m_rollCurve.keys[0].value = m_controller.velocity.magnitude / m_fMoveSpeed;
             m_fCurrentRollDelay = m_fRollDelay;
             m_fCurrentRollTime = m_fRollTime;
             m_v2RollDirection = m_v2InputMovement;
