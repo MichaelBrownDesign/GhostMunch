@@ -562,16 +562,6 @@ Prefab:
       propertyPath: m_Name
       value: Player_1
       objectReference: {fileID: 0}
-    - target: {fileID: 114147787179354672, guid: 535017c21dda6a342be70bf1aaf40a2c,
-        type: 2}
-      propertyPath: m_bUseKeyboard
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114579618105040150, guid: 535017c21dda6a342be70bf1aaf40a2c,
-        type: 2}
-      propertyPath: m_fStunTime
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 535017c21dda6a342be70bf1aaf40a2c, type: 2}
   m_IsPrefabParent: 0

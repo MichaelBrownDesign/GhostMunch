@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float m_fJumpForce = 5.0f;
 
     [Header("Rolling")]
+    public AnimationCurve m_rollCurve;
     public float m_fRollSpeed = 5.0f;
     public float m_fRollTime = 1.0f;
     public float m_fRollDelay = 1.0f;
@@ -115,8 +116,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else // Rolling movement
         {
-            m_v3Velocity.x = m_v2RollDirection.y * m_fRollSpeed;
-            m_v3Velocity.z = m_v2RollDirection.x * m_fRollSpeed;
+            float fRollProgress = 1.0f - (m_fCurrentRollTime / m_fRollTime);
+            float fRollVal = m_fMoveSpeed + m_rollCurve.Evaluate(fRollProgress) * m_fRollSpeed;
+
+            m_v2RollDirection.Normalize();
+
+            m_v3Velocity.x = m_v2RollDirection.y * fRollVal;
+            m_v3Velocity.z = m_v2RollDirection.x * fRollVal;
 
             m_fCurrentRollTime -= Time.deltaTime;
             m_bIsRolling = m_fCurrentRollTime > 0.0f;
@@ -212,9 +218,15 @@ public class PlayerMovement : MonoBehaviour
         if(!m_bIsRolling && m_bIsGrounded && m_bIsMoving && m_bUseInput && m_fCurrentRollDelay <= 0.0f && m_input.GetButton(0))
         {
             m_bIsRolling = true;
+
+            Debug.Log(m_controller.velocity.magnitude);
+
+            //m_rollCurve.keys[0].value = m_controller.velocity.magnitude / m_fMoveSpeed;
             m_fCurrentRollDelay = m_fRollDelay;
             m_fCurrentRollTime = m_fRollTime;
             m_v2RollDirection = m_v2InputMovement;
+
+            
         }
 
         // Update rotation.
