@@ -68,12 +68,12 @@ public class GameGUI : MonoBehaviour
         }
 
         // Get scale vector of bar.
-        Vector2 v2BarScale = m_fullHungerBars[0].sizeDelta;
+        Vector2 v2BarScale = m_fullHungerBars[nPlayerIndex].sizeDelta;
 
         // Set x value based on hunger value.
         v2BarScale.x = (m_nHungerValues[nPlayerIndex] / m_nMaxHungerValue) * m_fBarWidth;
 
         // Apply changes.
-        m_fullHungerBars[0].sizeDelta = v2BarScale;
+        m_fullHungerBars[nPlayerIndex].sizeDelta = v2BarScale;
     }
 }

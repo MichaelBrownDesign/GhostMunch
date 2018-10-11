@@ -26,6 +26,8 @@ public class FoodScript : MonoBehaviour
     private MeshRenderer m_renderer;
     private Collider m_collider;
     private Vector3 m_v3RespawnPosition;
+    private GameObject m_eatEffectInstance;
+    private ParticleSystem m_eatPS;
 
 	// Use this for initialization
 	void Awake()
@@ -39,7 +41,17 @@ public class FoodScript : MonoBehaviour
         m_collider = GetComponent<Collider>();
 
         m_v3RespawnPosition = transform.position;
-	}
+
+        // Get instance of particle effect.
+        m_eatEffectInstance = Instantiate(m_eatEffect);
+
+        // Get particle instance component.
+        m_eatPS = m_eatEffectInstance.GetComponent<ParticleSystem>();
+
+        // Parent eat effect to food item and set local position to zero.
+        m_eatEffectInstance.transform.SetParent(transform);
+        m_eatEffectInstance.transform.localPosition = Vector3.zero;
+    }
 	
 	// Update is called once per frame
 	void Update()
@@ -54,7 +66,7 @@ public class FoodScript : MonoBehaviour
             m_renderer.enabled = true;
             m_collider.enabled = true;
 
-            m_bEaten = true;
+            m_bEaten = false;
 
             // Reset position to respawn position.
             transform.position = m_v3RespawnPosition;
@@ -74,9 +86,8 @@ public class FoodScript : MonoBehaviour
         m_renderer.enabled = false;
         m_collider.enabled = false;
 
-        // Instantiate the particle effect.
-        GameObject particleInstance = Instantiate(m_eatEffect);
-        particleInstance.transform.position = transform.position;
+        // Emmitt particles.
+        m_eatPS.Play();
 
         // Mark as eaten.
         m_bEaten = true;

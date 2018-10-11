@@ -97,7 +97,7 @@ public class Human : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Detect food items and query if they are within eating range. If they are within range, eat them.
-        if (other.gameObject.tag == "Food")
+        if (other.gameObject.tag == "Food" && m_ownerPScript != null)
         {
             // Get food item script.
             FoodScript script = other.GetComponent<FoodScript>();
