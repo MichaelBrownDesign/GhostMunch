@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Rolling")]
     public float m_fRollSpeed = 5.0f;
     public float m_fRollTime = 1.0f;
+    public float m_fRollDelay = 1.0f;
 
     [Header("Rotation")]
     [Tooltip("Enables use of the right thumbstick to look around in a twin-stick shooter fashion.")]
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 m_v2RollDirection;
     private float m_fCurrentSpeed;
     private float m_fCurrentRollTime;
+    private float m_fCurrentRollDelay;
     private float m_fInputMagnitude;
     private bool m_bIsGrounded;
     private bool m_bIsMoving;
@@ -203,10 +205,14 @@ public class PlayerMovement : MonoBehaviour
             m_v3Velocity.y = m_fJumpForce;
         }
 
+        // Count down roll delay.
+        m_fCurrentRollDelay -= Time.deltaTime;
+
         // Rolling...
-        if(!m_bIsRolling && m_bIsGrounded && m_bIsMoving && m_bUseInput && m_input.GetButton(0))
+        if(!m_bIsRolling && m_bIsGrounded && m_bIsMoving && m_bUseInput && m_fCurrentRollDelay <= 0.0f && m_input.GetButton(0))
         {
             m_bIsRolling = true;
+            m_fCurrentRollDelay = m_fRollDelay;
             m_fCurrentRollTime = m_fRollTime;
             m_v2RollDirection = m_v2InputMovement;
         }

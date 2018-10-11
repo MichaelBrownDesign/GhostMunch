@@ -8,6 +8,10 @@ using UnityEngine;
 
 public class FoodScript : MonoBehaviour
 {
+    // Effects
+    [Header("Effects")]
+    public GameObject m_eatEffect;
+
     // Respawning
     [Header("Respawning")]
     public float m_fRespawnTime;
@@ -69,6 +73,10 @@ public class FoodScript : MonoBehaviour
         // Disable collision and rendering.
         m_renderer.enabled = false;
         m_collider.enabled = false;
+
+        // Instantiate the particle effect.
+        GameObject particleInstance = Instantiate(m_eatEffect);
+        particleInstance.transform.position = transform.position;
 
         // Mark as eaten.
         m_bEaten = true;

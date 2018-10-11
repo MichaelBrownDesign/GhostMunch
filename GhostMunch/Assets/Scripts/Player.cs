@@ -52,6 +52,9 @@ public class Player : MonoBehaviour
     private CharacterController m_humanController;
     private Human m_humanScript;
 
+    // GUI
+    GameGUI m_gui;
+
     // Use this for initialization
     void Awake()
     {
@@ -64,6 +67,8 @@ public class Player : MonoBehaviour
         m_human = GameObject.FindGameObjectWithTag("Human");
         m_humanController = m_human.GetComponent<CharacterController>();
         m_humanScript = m_human.GetComponent<Human>();
+
+        m_gui = GameObject.Find("GameGUI").GetComponent<GameGUI>();
     }
 
     // Update is called once per frame
@@ -312,15 +317,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Set the score of the individual player.
+    // Set the score of the individual player and update GUI.
     public void SetScore(int nScore)
     {
         m_nScore = nScore;
+        m_gui.SetHunger((int)m_input.m_ePlayerIndex, m_nScore);
     }
 
-    // Add to the score of the individual player.
+    // Add to the score of the individual player and update GUI.
     public void AddToScore(int nScore)
     {
         m_nScore += nScore;
+        m_gui.SetHunger((int)m_input.m_ePlayerIndex, m_nScore);
     }
 }
