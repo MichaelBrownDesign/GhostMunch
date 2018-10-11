@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     private BoxCollider m_collider;
     private float m_fCurrentThrowCD;
     private bool m_bIsPossessing;
+    public int m_nID;
 
     // Possessed object.
     private GameObject m_possessedObj;
@@ -69,6 +70,25 @@ public class Player : MonoBehaviour
         m_humanScript = m_human.GetComponent<Human>();
 
         m_gui = GameObject.Find("GameGUI").GetComponent<GameGUI>();
+
+        // Find player ID.
+        m_nID = (int)m_input.m_ePlayerIndex;
+
+        // Find all players...
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+
+        bool bHasKeyboardPlayer = false;
+
+        // Detect if any player is using the keyboard.
+        for(int i = 0; i < allPlayers.Length; ++i)
+        {
+            if (allPlayers[i].GetComponent<PlayerInput>().m_bUseKeyboard)
+                bHasKeyboardPlayer = true;
+        }
+
+        // If a player is using the keyboard and this is not that player. Add 1 to the ID.
+        if (bHasKeyboardPlayer && !m_input.m_bUseKeyboard)
+            m_nID++;
     }
 
     // Update is called once per frame
@@ -321,13 +341,13 @@ public class Player : MonoBehaviour
     public void SetScore(int nScore)
     {
         m_nScore = nScore;
-        m_gui.SetHunger((int)m_input.m_ePlayerIndex, m_nScore);
+        m_gui.SetHunger(m_nID, m_nScore);
     }
 
     // Add to the score of the individual player and update GUI.
     public void AddToScore(int nScore)
     {
         m_nScore += nScore;
-        m_gui.SetHunger((int)m_input.m_ePlayerIndex, m_nScore);
+        m_gui.SetHunger(m_nID, m_nScore);
     }
 }

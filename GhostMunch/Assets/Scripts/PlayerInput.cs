@@ -192,7 +192,9 @@ public class PlayerInput : MonoBehaviour
     {
         // If the player is using the keyboard, they will be set to player 4's controller input.
         if(m_bUseKeyboard)
-            m_ePlayerIndex = PlayerIndex.Four;
+        {
+            m_ePlayerIndex = PlayerIndex.One;
+        }
 
         m_buttons = new Dictionary<EGamePadButton, GPDButton>();
         m_axes = new Dictionary<EGamePadAxis, GPDAxis>();

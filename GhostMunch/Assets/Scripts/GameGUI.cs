@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameGUI : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class GameGUI : MonoBehaviour
     // Widgets
     [Header("Widgets")]
     public GameObject[] m_hungerBars;
+    public GameObject m_gameOverPanel;
+    public GameObject m_gameOverTextObj;
+    private Text m_gameOverText;
     private RectTransform[] m_fullHungerBars;
 
 	// Use this for initialization
@@ -21,6 +25,8 @@ public class GameGUI : MonoBehaviour
     {
         m_fullHungerBars = new RectTransform[4];
         m_nHungerValues = new float[4];
+
+        m_gameOverText = m_gameOverTextObj.GetComponent<Text>();
 
         // Get hunger bar width...
         m_fBarWidth = m_hungerBars[0].GetComponent<RectTransform>().sizeDelta.x;
@@ -58,9 +64,14 @@ public class GameGUI : MonoBehaviour
     public void SetHunger(int nPlayerIndex, float nNewHunger)
     {
         // Clamp value to max hunger value.
-        if(nNewHunger > m_nMaxHungerValue)
+        if(nNewHunger >= m_nMaxHungerValue)
         {
             m_nHungerValues[nPlayerIndex] = m_nMaxHungerValue;
+
+            // Since a player has reached full hunger, it is game over.
+            m_gameOverPanel.SetActive(true);
+            m_gameOverTextObj.SetActive(true);
+            m_gameOverText.text = "Player " + (nPlayerIndex + 1) + " is victorious!";
         }
         else
         {
