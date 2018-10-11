@@ -73,7 +73,7 @@ Transform:
   m_GameObject: {fileID: 1544277492175866}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000002905726}
   m_LocalPosition: {x: 0, y: 0, z: -0.275}
-  m_LocalScale: {x: 25, y: 25, z: 25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4379351353462370}
   m_RootOrder: 0
@@ -98,14 +98,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590286385899266}
   m_LocalRotation: {x: -0, y: 0.0000056326385, z: -0, w: 1}
-  m_LocalPosition: {x: -10.100046, y: 1.027, z: -15.55}
+  m_LocalPosition: {x: 1.8999548, y: 1.027, z: -16.630001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4082463367926398}
   - {fileID: 4154625607677888}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.001, z: 0}
 --- !u!23 &23221223100349992
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -146,7 +146,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544277492175866}
-  m_Mesh: {fileID: 4300000, guid: 0d016667c1a9a4842ba4bc0aaeb2cc2e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: a15d56b6969c83b448ad49d8487b09a4, type: 3}
 --- !u!65 &65877495452171820
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3fbb01c5044a94da1252a2b62a8ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bUseKeyboard: 0
-  m_ePlayerIndex: 0
+  m_bUseKeyboard: 1
+  m_ePlayerIndex: 1
   m_buttonBindings: 00000000010000000400000004000000040000000500000006000000070000000800000009000000
   m_buttonKeyBindings: 2000000065000000300100007300000077000000610000007300000064000000090000001b000000
   m_axisBindings: 010000000000000002000000040000000300000005000000
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_fJumpForce: 5
   m_fRollSpeed: 25
   m_fRollTime: 0.15
+  m_fRollDelay: 1
   m_fRotationLerpT: 0.3
   m_fFreeLookDeadZone: 0.2
   m_bAllowFreeLook: 0
