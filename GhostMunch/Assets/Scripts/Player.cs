@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
 
     // Possession bobbing animation.
     [Header("Animation")]
+    public GameObject m_pointer;
     public float m_fBobSpeed = 1.0f;
     public float m_fTiltSpeed = 1.0f;
     public float m_fBobMoveSpeedInc = 1.0f;
@@ -39,7 +41,7 @@ public class Player : MonoBehaviour
     private BoxCollider m_collider;
     private float m_fCurrentThrowCD;
     private bool m_bIsPossessing;
-    public int m_nID;
+    private int m_nID;
 
     // Possessed object.
     private GameObject m_possessedObj;
@@ -156,7 +158,6 @@ public class Player : MonoBehaviour
             Physics.IgnoreCollision(m_controller, m_humanController, false);
             Physics.IgnoreCollision(m_collider, m_humanController, false);
         }
-
     }
 
     /*
@@ -247,6 +248,9 @@ public class Player : MonoBehaviour
         // Disable the player's renderer.
         m_renderer.enabled = false;
 
+        // Disable look pointer.
+        m_pointer.SetActive(false);
+
         // Disable the player's input.
         m_input.enabled = false;
 
@@ -262,6 +266,9 @@ public class Player : MonoBehaviour
     {
         // Enable the player's renderer.
         m_renderer.enabled = true;
+
+        // Enable look pointer.
+        m_pointer.SetActive(true);
 
         // Stun player.
         Stun();

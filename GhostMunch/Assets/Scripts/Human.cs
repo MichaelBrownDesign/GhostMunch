@@ -5,6 +5,9 @@ using UnityEngine;
 public class Human : MonoBehaviour
 {
     // This object.
+    [Header("Display")]
+    public GameObject m_pointer;
+
     private PlayerInput m_input;
     private PlayerMovement m_movement;
     private CharacterController m_controller;
@@ -64,6 +67,9 @@ public class Human : MonoBehaviour
         m_input.m_bUseKeyboard = ownerInput.m_bUseKeyboard;
         m_movement.enabled = true;
         m_controller.enabled = true;
+
+        // Enable look pointer.
+        m_pointer.SetActive(true);
     }
 
     public void Separate(Vector3 v3PropDirectopn)
@@ -78,6 +84,9 @@ public class Human : MonoBehaviour
 
         // Kick player out of human.
         m_ownerPScript.KickFromHuman(v3PropDirectopn);
+
+        // Disable look pointer.
+        m_pointer.SetActive(false);
 
         m_ownerPScript = null;
     }
