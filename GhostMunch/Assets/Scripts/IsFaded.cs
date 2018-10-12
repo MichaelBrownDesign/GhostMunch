@@ -12,7 +12,7 @@ public class IsFaded : MonoBehaviour
     {
         m_fFadeLevel = 1.1f;
 
-        m_fadeMat = GetComponent<Renderer>().material;
+        m_fadeMat = GetComponent<Renderer>().materials[1];
 
     }
 
