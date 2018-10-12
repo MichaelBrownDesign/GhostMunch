@@ -1,17 +1,18 @@
 fileFormatVersion: 2
-guid: b2e12272a3106be4db8c5e66a2b17517
-timeCreated: 1538634745
+guid: 6fba17f988f214e4c9d1c67574bf26ad
+timeCreated: 1539313722
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: StingrayPBS10
+    2100000: lambert1
+    2100002: SM_SkullLow_000_Default1
+    2100004: SM_SkullLow_001_Default1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Rug
-    9500000: //RootNode
+    4300000: SM_BookShelf_000
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -86,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

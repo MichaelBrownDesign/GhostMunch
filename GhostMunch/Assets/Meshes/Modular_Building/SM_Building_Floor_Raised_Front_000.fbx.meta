@@ -1,16 +1,18 @@
 fileFormatVersion: 2
-guid: b2e12272a3106be4db8c5e66a2b17517
-timeCreated: 1538634745
+guid: 426ea470c7bf60146b8113c87561c063
+timeCreated: 1539234220
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: StingrayPBS10
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Rug
+    100000: polySurface51
+    100002: //RootNode
+    400000: polySurface51
+    400002: //RootNode
+    2100000: lambert3
+    2300000: polySurface51
+    3300000: polySurface51
+    4300000: polySurface51
     9500000: //RootNode
   externalObjects: {}
   materials:

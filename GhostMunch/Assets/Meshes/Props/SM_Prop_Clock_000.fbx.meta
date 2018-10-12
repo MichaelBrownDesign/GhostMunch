@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: b2e12272a3106be4db8c5e66a2b17517
-timeCreated: 1538634745
+guid: 5fc74e8900fe735449033719a571651c
+timeCreated: 1538636425
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: StingrayPBS10
+    2100000: StingrayPBS3
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Rug
+    4300000: Clock
     9500000: //RootNode
   externalObjects: {}
   materials:

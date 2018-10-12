@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: b2e12272a3106be4db8c5e66a2b17517
-timeCreated: 1538634745
+guid: 9fc318ebeba17ef47ade9d3bbec04699
+timeCreated: 1539234220
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: StingrayPBS10
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Rug
+    100000: polySurface57
+    100002: //RootNode
+    400000: polySurface57
+    400002: //RootNode
+    2100000: lambert3
+    2100002: lambert5
+    2300000: polySurface57
+    2300002: //RootNode
+    3300000: polySurface57
+    3300002: //RootNode
+    4300000: polySurface57
+    4300002: SM_Building_Floor_Raised_90_000
     9500000: //RootNode
   externalObjects: {}
   materials:

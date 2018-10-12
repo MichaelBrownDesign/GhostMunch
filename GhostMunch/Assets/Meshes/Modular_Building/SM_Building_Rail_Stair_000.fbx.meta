@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: b2e12272a3106be4db8c5e66a2b17517
-timeCreated: 1538634745
+guid: ad0df2838f8f8ff47b63a00e85128654
+timeCreated: 1539234220
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: StingrayPBS10
+    2100000: Stair_Rail
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Rug
+    4300000: SM_StairRail_000
     9500000: //RootNode
   externalObjects: {}
   materials:

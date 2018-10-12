@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: b2e12272a3106be4db8c5e66a2b17517
-timeCreated: 1538634745
+guid: 4d59c2519b510c643a1dae1b72cbe502
+timeCreated: 1539234220
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: StingrayPBS10
+    2100000: Railing_0
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Rug
+    4300000: polySurface94
     9500000: //RootNode
   externalObjects: {}
   materials:
