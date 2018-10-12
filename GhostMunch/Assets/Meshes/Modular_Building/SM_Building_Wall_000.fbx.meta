@@ -17,6 +17,8 @@ ModelImporter:
     2100002: SM_Wall_000
     2100004: StingrayPBS2
     2100006: StingrayPBS1
+    2100008: blinn6
+    2100010: blinn5
     2300000: //RootNode
     2300002: polySurface16
     3300000: //RootNode
@@ -25,6 +27,7 @@ ModelImporter:
     4300002: polySurface16
     4300004: SM_Wall0_000
     4300006: SM_Cornice_000:SM_Wall0_001
+    4300008: SM_Building_Wall_000
     9500000: //RootNode
   externalObjects: {}
   materials:

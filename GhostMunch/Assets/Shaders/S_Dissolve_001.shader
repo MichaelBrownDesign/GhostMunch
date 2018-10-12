@@ -1,7 +1,7 @@
 // Shader created with Shader Forge v1.37 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.37;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:2,rntp:3,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:4013,x:33051,y:32706,varname:node_4013,prsc:2|diff-1304-RGB,spec-7922-OUT,gloss-7922-OUT,emission-3819-OUT,clip-7232-OUT;n:type:ShaderForge.SFN_Color,id:1304,x:32443,y:32712,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Step,id:7232,x:31900,y:32882,varname:node_7232,prsc:2|A-3556-R,B-4204-OUT;n:type:ShaderForge.SFN_Tex2d,id:3556,x:31565,y:32683,ptovrint:False,ptlb:Noise,ptin:_Noise,varname:_Noise,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:28c7aad1372ff114b90d330f8a2dd938,ntxv:3,isnm:False;n:type:ShaderForge.SFN_Slider,id:4204,x:31374,y:32945,ptovrint:False,ptlb:ClipThreshold,ptin:_ClipThreshold,varname:_ClipThreshold,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.3208107,max:1.1;n:type:ShaderForge.SFN_Slider,id:2088,x:31391,y:33127,ptovrint:False,ptlb:EdgeThreshold,ptin:_EdgeThreshold,varname:_EdgeThreshold,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.05926815,max:1;n:type:ShaderForge.SFN_Subtract,id:4069,x:31744,y:33061,varname:node_4069,prsc:2|A-4204-OUT,B-2088-OUT;n:type:ShaderForge.SFN_Step,id:8999,x:31910,y:33030,varname:node_8999,prsc:2|A-3556-R,B-4069-OUT;n:type:ShaderForge.SFN_Subtract,id:6417,x:32135,y:32955,varname:node_6417,prsc:2|A-7232-OUT,B-8999-OUT;n:type:ShaderForge.SFN_Multiply,id:3819,x:32403,y:33000,varname:node_3819,prsc:2|A-6417-OUT,B-8160-RGB;n:type:ShaderForge.SFN_Color,id:8160,x:32176,y:33122,ptovrint:False,ptlb:EdgeColor,ptin:_EdgeColor,varname:_EdgeColor,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Vector1,id:7922,x:32731,y:32806,varname:node_7922,prsc:2,v1:0.25;proporder:1304-3556-4204-2088-8160;pass:END;sub:END;*/
+/*SF_DATA;ver:1.37;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:2,rntp:3,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:4013,x:33051,y:32706,varname:node_4013,prsc:2|diff-5296-OUT,spec-7922-OUT,gloss-7922-OUT,emission-3819-OUT,clip-7232-OUT;n:type:ShaderForge.SFN_Color,id:1304,x:32443,y:32712,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:1,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Step,id:7232,x:31900,y:32882,varname:node_7232,prsc:2|A-3556-R,B-4204-OUT;n:type:ShaderForge.SFN_Tex2d,id:3556,x:31565,y:32683,ptovrint:False,ptlb:Noise,ptin:_Noise,varname:_Noise,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,tex:28c7aad1372ff114b90d330f8a2dd938,ntxv:3,isnm:False;n:type:ShaderForge.SFN_Slider,id:4204,x:31374,y:32945,ptovrint:False,ptlb:ClipThreshold,ptin:_ClipThreshold,varname:_ClipThreshold,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.3208107,max:1.1;n:type:ShaderForge.SFN_Slider,id:2088,x:31391,y:33127,ptovrint:False,ptlb:EdgeThreshold,ptin:_EdgeThreshold,varname:_EdgeThreshold,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0.05926815,max:1;n:type:ShaderForge.SFN_Subtract,id:4069,x:31744,y:33061,varname:node_4069,prsc:2|A-4204-OUT,B-2088-OUT;n:type:ShaderForge.SFN_Step,id:8999,x:31910,y:33030,varname:node_8999,prsc:2|A-3556-R,B-4069-OUT;n:type:ShaderForge.SFN_Subtract,id:6417,x:32135,y:32955,varname:node_6417,prsc:2|A-7232-OUT,B-8999-OUT;n:type:ShaderForge.SFN_Multiply,id:3819,x:32403,y:33000,varname:node_3819,prsc:2|A-6417-OUT,B-8160-RGB;n:type:ShaderForge.SFN_Color,id:8160,x:32176,y:33122,ptovrint:False,ptlb:EdgeColor,ptin:_EdgeColor,varname:_EdgeColor,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:1,c3:1,c4:1;n:type:ShaderForge.SFN_Vector1,id:7922,x:32731,y:32806,varname:node_7922,prsc:2,v1:0.25;n:type:ShaderForge.SFN_Tex2d,id:5827,x:32443,y:32530,ptovrint:False,ptlb:Albedo,ptin:_Albedo,varname:node_5827,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Multiply,id:5296,x:32657,y:32576,varname:node_5296,prsc:2|A-5827-RGB,B-1304-RGB;proporder:1304-3556-4204-2088-8160-5827;pass:END;sub:END;*/
 
 Shader "Shader Forge/S_Dissolve_001" {
     Properties {
@@ -10,6 +10,7 @@ Shader "Shader Forge/S_Dissolve_001" {
         _ClipThreshold ("ClipThreshold", Range(0, 1.1)) = 0.3208107
         _EdgeThreshold ("EdgeThreshold", Range(0, 1)) = 0.05926815
         _EdgeColor ("EdgeColor", Color) = (0,1,1,1)
+        _Albedo ("Albedo", 2D) = "white" {}
         [HideInInspector]_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
     }
     SubShader {
@@ -41,6 +42,7 @@ Shader "Shader Forge/S_Dissolve_001" {
             uniform float _ClipThreshold;
             uniform float _EdgeThreshold;
             uniform float4 _EdgeColor;
+            uniform sampler2D _Albedo; uniform float4 _Albedo_ST;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -114,7 +116,8 @@ Shader "Shader Forge/S_Dissolve_001" {
                 float LdotH = saturate(dot(lightDirection, halfDirection));
                 float3 specularColor = node_7922;
                 float specularMonochrome;
-                float3 diffuseColor = _Color.rgb; // Need this for specular when using metallic
+                float4 _Albedo_var = tex2D(_Albedo,TRANSFORM_TEX(i.uv0, _Albedo));
+                float3 diffuseColor = (_Albedo_var.rgb*_Color.rgb); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -177,6 +180,7 @@ Shader "Shader Forge/S_Dissolve_001" {
             uniform float _ClipThreshold;
             uniform float _EdgeThreshold;
             uniform float4 _EdgeColor;
+            uniform sampler2D _Albedo; uniform float4 _Albedo_ST;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -227,7 +231,8 @@ Shader "Shader Forge/S_Dissolve_001" {
                 float LdotH = saturate(dot(lightDirection, halfDirection));
                 float3 specularColor = node_7922;
                 float specularMonochrome;
-                float3 diffuseColor = _Color.rgb; // Need this for specular when using metallic
+                float4 _Albedo_var = tex2D(_Albedo,TRANSFORM_TEX(i.uv0, _Albedo));
+                float3 diffuseColor = (_Albedo_var.rgb*_Color.rgb); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));

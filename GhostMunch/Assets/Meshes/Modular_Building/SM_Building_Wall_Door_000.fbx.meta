@@ -10,10 +10,12 @@ ModelImporter:
     2100000: SM_WallDoor_001
     2100002: Wall_Door_Lower
     2100004: Wall_Door_Top
+    2100006: blinn4
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_WallDoor_000
     4300002: polySurface3
+    4300004: SM_Building_Wall_Door_000
     9500000: //RootNode
   externalObjects: {}
   materials:

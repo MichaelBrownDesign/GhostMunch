@@ -11,6 +11,8 @@ ModelImporter:
     2100002: SM_Wall_000
     2100004: StingrayPBS23
     2100006: StingrayPBS24
+    2100008: phong1
+    2100010: blinn1
     2300000: //RootNode
     3300000: //RootNode
     4300000: polySurface25

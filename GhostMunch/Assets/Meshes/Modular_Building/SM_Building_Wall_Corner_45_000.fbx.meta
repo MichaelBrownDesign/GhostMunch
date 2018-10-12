@@ -10,6 +10,7 @@ ModelImporter:
     2100000: SM_Wall45_001
     2100002: Wall_Lower
     2100004: Wall_Top
+    2100006: blinn2
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_Wall45_000
