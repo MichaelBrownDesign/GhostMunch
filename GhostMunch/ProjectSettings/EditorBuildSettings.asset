@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Greybox/Scene_Greybox_002.unity
     guid: 5873ef625a3f8d3469a9075f253a6976
+  - enabled: 1
+    path: Assets/Scenes/Menus/Scene_LevelSelect_001.unity
+    guid: 323dd5f75c9aa76439a2bbc523c5f1c0
