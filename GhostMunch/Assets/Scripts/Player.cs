@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     [Header("Score")]
     public int m_nScore;
 
+    // Possession
+    [Header("Possession")]
+    public float m_fPossessionRange;
+
     // Throwing
     [Header("Throwing")]
     public float m_fThrowForce = 5.0f;
@@ -120,17 +124,42 @@ public class Player : MonoBehaviour
             }
             else if(m_possessedObj != m_human)// Runs while the object is possessed...
             {
-                // Thow cooldown.
-                m_fCurrentThrowCD -= Time.deltaTime;
+                Vector3 v3LocalPos = m_possessedObj.transform.localPosition;
+                Vector3 v3EulerRotation = m_possessedObj.transform.localRotation.eulerAngles;
+                float fFinalPosY = 0.0f;
+                float fFinalRotationZ = 0.0f;
 
                 // Bobbing effect.
-                float fMovementMag = m_movement.GetMovementMagnitude();
+                if (m_movement.GetIsMoving())
+                {
+                    float fMovementMag = m_movement.GetMovementMagnitude();
 
-                m_fBobProgress += Time.deltaTime * m_fBobSpeed + (m_fBobMoveSpeedInc * fMovementMag);
-                m_fTiltProgress += Time.deltaTime * m_fTiltSpeed + (m_fTiltMoveSpeedInc * fMovementMag);
+                    // Animation progression...
+                    m_fBobProgress += Time.deltaTime * m_fBobSpeed + (m_fBobMoveSpeedInc * fMovementMag);
+                    m_fTiltProgress += Time.deltaTime * m_fTiltSpeed + (m_fTiltMoveSpeedInc * fMovementMag);
 
-                m_possessedObj.transform.localPosition = new Vector3(0.0f, Mathf.Sin(m_fBobProgress) * (m_fObjectHeight * 0.25f), 0.0f);
-                m_possessedObj.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Sin(m_fTiltProgress) * m_fTiltStrength);
+                    // Calculate sin values and apply animation to Pos Y.
+                    fFinalPosY = Mathf.Lerp(v3LocalPos.y, Mathf.Sin(m_fBobProgress) * (m_fObjectHeight * 0.25f), 0.2f);
+
+                    // Calculate sin of Z rotation and apply.
+                    float fFinalRotation = Mathf.Sin(m_fTiltProgress) * m_fTiltStrength;
+
+                    fFinalRotationZ = Mathf.LerpAngle(v3EulerRotation.z, fFinalRotation, 0.2f);
+
+                    // Show pointer when the player is moving.
+                    m_pointer.SetActive(true);
+                }
+                else
+                {
+                    fFinalPosY = Mathf.Lerp(v3LocalPos.y, -1.0f, 0.1f);
+                    fFinalRotationZ = Mathf.LerpAngle(v3EulerRotation.z, 0.0f, 0.05f);
+
+                    // Hide pointer when the player is still.
+                    m_pointer.SetActive(false);
+                }
+
+                m_possessedObj.transform.localPosition = new Vector3(v3LocalPos.x, fFinalPosY, v3LocalPos.z);
+                m_possessedObj.transform.localRotation = Quaternion.Euler(new Vector3(v3EulerRotation.x, v3EulerRotation.y, fFinalRotationZ));
 
                 // Thowing input.
                 bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
@@ -141,6 +170,9 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        // Thow cooldown.
+        m_fCurrentThrowCD -= Time.deltaTime;
 
         m_fCurrentStunTime -= Time.deltaTime;
 
@@ -157,6 +189,36 @@ public class Player : MonoBehaviour
             // Can collide with human again.
             Physics.IgnoreCollision(m_controller, m_humanController, false);
             Physics.IgnoreCollision(m_collider, m_humanController, false);
+        }
+
+        // Perform a box cast to check for the closest possessible object.
+        RaycastHit hit;
+
+        bool bHit = Physics.BoxCast
+        (
+            transform.position, new Vector3(0.25f, 0.9f, 0.5f), 
+            transform.forward, 
+            out hit, 
+            Quaternion.LookRotation(transform.forward), m_fPossessionRange / 2.5f, -1, QueryTriggerInteraction.Collide
+        );
+
+        if(bHit)
+        {
+            bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
+
+            // Detect targets using trigger collider and allow posession if the input and misc conditions are corret.
+            if (hit.collider.tag == "Possessible" && m_possessedObj == null && m_fCurrentThrowCD <= 0.0f && bInputPassed)
+            {
+                PursuePossess(hit.collider.gameObject);
+            }
+            else if (hit.collider.gameObject == m_human && m_fCurrentThrowCD <= 0.0f && m_possessedObj == null && bInputPassed)
+            {
+                // Human cannot be possessed if there is another ghost in him that has not been knocked out.
+                if (m_humanScript.GetIsSusceptible())
+                {
+                    PursuePossess(m_human);
+                }
+            }
         }
     }
 
@@ -301,6 +363,9 @@ public class Player : MonoBehaviour
         // Re-enable object renderer.
         m_renderer.enabled = true;
 
+        // Ensure the pointer is active when the object is thrown.
+        m_pointer.SetActive(true);
+
         // Free object.
         m_possessedScript.SetThown(m_controller, m_collider, transform.forward);
         m_possessedObj.transform.localPosition = Vector3.zero;
@@ -315,6 +380,9 @@ public class Player : MonoBehaviour
         // Thow object.
         m_objectRigidbody.AddForce(transform.forward * m_fThrowForce);
         m_objectRigidbody.AddTorque(Vector3.one * m_fThrowForce, ForceMode.VelocityChange);
+
+        // Reset throw cooldown.
+        m_fCurrentThrowCD = m_fThrowCooldown;
 
         // Set object values to null.
         m_objectRigidbody = null;
@@ -331,21 +399,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
-
-        // Detect targets using trigger collider and allow posession if the input and misc conditions are corret.
-        if (other.gameObject.tag == "Possessible" && m_possessedObj == null && bInputPassed)
-        {
-            PursuePossess(other.gameObject);
-        }
-        else if(other.gameObject == m_human && m_possessedObj == null && bInputPassed)
-        {
-            // Human cannot be possessed if there is another ghost in him that has not been knocked out.
-            if(m_humanScript.GetIsSusceptible())
-            {
-                PursuePossess(m_human);
-            }
-        }
+        
     }
 
     // Set the score of the individual player and update GUI.

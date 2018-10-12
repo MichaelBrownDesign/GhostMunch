@@ -28,6 +28,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1559673914619668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4697635758975664}
+  - component: {fileID: 33783211875971118}
+  - component: {fileID: 23009757618296780}
+  m_Layer: 0
+  m_Name: SM_Pointer_001_P1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1590286385899266
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,8 +89,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544277492175866}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000002905726}
-  m_LocalPosition: {x: 0, y: 0, z: -0.275}
-  m_LocalScale: {x: 25, y: 25, z: 25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4379351353462370}
   m_RootOrder: 0
@@ -97,15 +114,63 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590286385899266}
-  m_LocalRotation: {x: -0, y: 0.0000056326385, z: -0, w: 1}
-  m_LocalPosition: {x: -7.96, y: 1.027, z: 2.78}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4082463367926398}
   - {fileID: 4154625607677888}
+  - {fileID: 4697635758975664}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 179.99998, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4697635758975664
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1559673914619668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 150, y: 150, z: 150}
+  m_Children: []
+  m_Father: {fileID: 4379351353462370}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23009757618296780
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1559673914619668}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: e6ab94a345aa9d04ea68dac0ae4ecc43, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23221223100349992
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -120,7 +185,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f8880cf882f231e4f8a43260e171b431, type: 2}
+  - {fileID: 2100000, guid: 521b8456c0df56a40910c9d21ec546d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,7 +211,14 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544277492175866}
-  m_Mesh: {fileID: 4300000, guid: 0d016667c1a9a4842ba4bc0aaeb2cc2e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 1527a705a26397642bf18a94c5a4f897, type: 3}
+--- !u!33 &33783211875971118
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1559673914619668}
+  m_Mesh: {fileID: 4300000, guid: 1333502b7290547409648694d6632d6d, type: 3}
 --- !u!65 &65877495452171820
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -170,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3fbb01c5044a94da1252a2b62a8ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bUseKeyboard: 0
+  m_bUseKeyboard: 1
   m_ePlayerIndex: 0
   m_buttonBindings: 00000000010000000400000004000000040000000500000006000000070000000800000009000000
   m_buttonKeyBindings: 2000000065000000300100007300000077000000610000007300000064000000090000001b000000
@@ -197,35 +269,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: -0.0011863708
-      value: 0.9976196
-      inSlope: 0
-      outSlope: 0
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.55932486
-      value: 0.44385898
-      inSlope: 0
-      outSlope: 0
+      time: 0.48871928
+      value: 0.7243928
+      inSlope: 0.047709458
+      outSlope: 0.047709458
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.6554652
-      value: 0.44535717
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.99938965
-      value: 0.020184398
-      inSlope: 0
-      outSlope: 0
+      time: 0.99542236
+      value: 0.0070381165
+      inSlope: -3.214866
+      outSlope: -3.214866
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  m_fRollSpeed: 10
+  m_fRollSpeed: 30
   m_fRollTime: 0.5
-  m_fRollDelay: 1
+  m_fRollDelay: 0.5
   m_fRotationLerpT: 0.3
   m_fFreeLookDeadZone: 0.2
   m_bAllowFreeLook: 0
@@ -241,8 +307,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nScore: 0
+  m_fPossessionRange: 7
   m_fThrowForce: 500
   m_fThrowCooldown: 0.5
+  m_pointer: {fileID: 1559673914619668}
   m_fBobSpeed: 3
   m_fTiltSpeed: 2
   m_fBobMoveSpeedInc: 0.15
@@ -327,7 +395,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1955350823
+  randomSeed: -829485200
   InitialModule:
     serializedVersion: 3
     enabled: 1

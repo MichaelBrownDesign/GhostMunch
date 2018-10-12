@@ -258,4 +258,9 @@ public class PlayerMovement : MonoBehaviour
         m_v3Velocity += v3Force;
         m_fCurrentSpeed = v3Force.magnitude;
     }
+
+    public bool GetIsMoving()
+    {
+        return m_bIsMoving;
+    }
 }
