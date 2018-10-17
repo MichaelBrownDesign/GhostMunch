@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 915e9f0abae31524fb9b81908705ff7f
-timeCreated: 1539306756
+guid: 8ba8b004526d5a249bf1a5b97bb6dc5c
+timeCreated: 1539745514
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -8,9 +8,10 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert1
+    2100002: StingrayPBS1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Ghost_low
+    4300000: SM_Couch_000
   externalObjects: {}
   materials:
     importMaterials: 1

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 135596326410484954}
   - component: {fileID: 54309225536968542}
   - component: {fileID: 114950351074793602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Food_Cake
   m_TagString: Food
   m_Icon: {fileID: 0}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 915e9f0abae31524fb9b81908705ff7f
-timeCreated: 1539306756
+guid: ccdf51f76caa8094097bb68dd9292aa0
+timeCreated: 1539747776
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -8,9 +8,10 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: lambert1
+    2100002: lambert2
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Ghost_low
+    4300000: SM_CoffeeTable_000
   externalObjects: {}
   materials:
     importMaterials: 1
