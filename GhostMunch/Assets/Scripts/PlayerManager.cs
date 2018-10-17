@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using XInputDotNetPure;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -8,9 +9,10 @@ public class PlayerManager : MonoBehaviour
 
     private GameGUI m_gui;
     private static int m_nPlayerCount = 0;
+    private static bool m_bKeyboardUsed;
 
-	// Use this for initialization
-	void Awake()
+    // Use this for initialization
+    void Awake()
     {
         m_nPlayerCount = 2;
 
@@ -30,6 +32,27 @@ public class PlayerManager : MonoBehaviour
             // Check if this player exceeds the player count, and if so, disable them.
             if (i + 1 > m_nPlayerCount)
                 m_players[i].SetActive(false);
+
+            // Set player input indices.
+            PlayerInput input = m_players[i].GetComponent<PlayerInput>();
+
+            if(m_bKeyboardUsed && i == 0)
+            {
+                input.m_ePlayerIndex = PlayerIndex.Four;
+                input.m_bUseKeyboard = true;
+            }
+            else
+            {
+                int nKeyboard = 0;
+
+                if (m_bKeyboardUsed)
+                    nKeyboard = 1;
+
+                input.m_ePlayerIndex = (PlayerIndex)(i - nKeyboard);
+                input.m_bUseKeyboard = false;
+            }
+            
+            
         }
 
         // Access GUI script...
@@ -47,5 +70,11 @@ public class PlayerManager : MonoBehaviour
     public static void SetPlayerCount(int nPlayerCount)
     {
         m_nPlayerCount = nPlayerCount;
+    }
+
+    public static void SetPlayerCount(int nPlayerCount, bool bUseKeyboard)
+    {
+        m_nPlayerCount = nPlayerCount;
+        m_bKeyboardUsed = bUseKeyboard;
     }
 }

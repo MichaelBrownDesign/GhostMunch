@@ -6,12 +6,21 @@ public class Possessible : MonoBehaviour
 {
     public float m_fRespawnTime;
 
+    // Particle effects
+    [Header("Effects")]
+    public GameObject m_possessEffect;
+    public GameObject m_breakEffect;
+
+    private ParticleSystem m_possessEffectInst;
+    private ParticleSystem m_breakEffectInst;
+
     // Self
     private Rigidbody m_rigidbody;
     private Collider m_collider;
     private MeshRenderer m_renderer;
 
     private Vector3 m_v3RespawnPosition;
+    private Quaternion m_respawnRotation;
     private Vector3 m_v3ThrowDirection;
     private float m_fCurrentRespawnTimer;
     private bool m_bThown;
@@ -36,7 +45,11 @@ public class Possessible : MonoBehaviour
         m_humanScript = m_human.GetComponent<Human>();
 
         m_v3RespawnPosition = transform.position;
+        m_respawnRotation = transform.rotation;
         m_fCurrentRespawnTimer = m_fRespawnTime;
+
+        m_possessEffectInst = Instantiate(m_possessEffect).GetComponent<ParticleSystem>();
+        m_breakEffectInst = Instantiate(m_breakEffect).GetComponent<ParticleSystem>();
 	}
 	
 	// Update is called once per frame
@@ -77,6 +90,13 @@ public class Possessible : MonoBehaviour
             m_renderer.enabled = false;
             m_collider.enabled = false;
 
+            if(m_breakEffect != null)
+            {
+                // Play break effect.
+                m_breakEffectInst.gameObject.transform.position = transform.position;
+                m_breakEffectInst.Play();
+            }
+
             // Separate ghost from human if the collision is with the human.
             if(collision.gameObject == m_human)
             {
@@ -89,7 +109,7 @@ public class Possessible : MonoBehaviour
     {
         // Reset position and rotation.
         transform.position = m_v3RespawnPosition;
-        transform.rotation = Quaternion.Euler(Vector3.zero);
+        transform.rotation = m_respawnRotation;
 
         // Re-enable collisions between previous owner and this object.
         Physics.IgnoreCollision(m_ownerController, m_collider, false);
@@ -118,6 +138,13 @@ public class Possessible : MonoBehaviour
     public void SetPossessed(bool bPossessed)
     {
         m_bPossessed = bPossessed;
+
+        if(bPossessed && m_possessEffect != null)
+        {
+            // Play Possession effect.
+            m_possessEffectInst.gameObject.transform.position = transform.position;
+            m_possessEffectInst.Play();
+        }
     }
 
     // Returns whether or not the human is currently unavailable due to being possessed.
