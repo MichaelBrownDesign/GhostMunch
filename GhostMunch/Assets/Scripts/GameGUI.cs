@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class GameGUI : MonoBehaviour
 {
     // Stats
-    [Range(1, 4)]
-    public int m_nPlayerCount;
     public int m_nMaxHungerValue;
     private float m_fBarWidth;
     private float[] m_nHungerValues;
+    private int m_nPlayerCount;
 
     // Widgets
     [Header("Widgets")]
@@ -86,5 +85,10 @@ public class GameGUI : MonoBehaviour
 
         // Apply changes.
         m_fullHungerBars[nPlayerIndex].sizeDelta = v2BarScale;
+    }
+
+    public void SetPlayerCount(int nPlayerCount)
+    {
+        m_nPlayerCount = nPlayerCount;
     }
 }

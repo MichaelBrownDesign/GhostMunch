@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
 
     // Possession
     [Header("Possession")]
-    public float m_fPossessionRange;
+    public float m_fPossessionRange = 7.0f;
+    public Vector3 m_v3PossessionBox = Vector3.one;
 
     // Throwing
     [Header("Throwing")]
@@ -99,6 +100,9 @@ public class Player : MonoBehaviour
         // Set to player 4 for controller input if using keyboard.
         if (m_input.m_bUseKeyboard)
             m_input.m_ePlayerIndex = XInputDotNetPure.PlayerIndex.Four;
+
+        // Ensure the possession box z is 0.1, otherwise the box cast may behave incorrectly.
+        m_v3PossessionBox.z = 0.1f;
     }
 
     // Update is called once per frame
@@ -188,7 +192,6 @@ public class Player : MonoBehaviour
 
             // Can collide with human again.
             Physics.IgnoreCollision(m_controller, m_humanController, false);
-            Physics.IgnoreCollision(m_collider, m_humanController, false);
         }
 
         // Perform a box cast to check for the closest possessible object.
@@ -196,14 +199,16 @@ public class Player : MonoBehaviour
 
         bool bHit = Physics.BoxCast
         (
-            transform.position, new Vector3(0.25f, 0.9f, 0.5f), 
+            transform.position, m_v3PossessionBox, 
             transform.forward, 
             out hit, 
-            Quaternion.LookRotation(transform.forward), m_fPossessionRange / 2.5f, -1, QueryTriggerInteraction.Collide
+            Quaternion.LookRotation(transform.forward), m_fPossessionRange / 2.5f, -1, QueryTriggerInteraction.Ignore
         );
 
         if(bHit)
         {
+            Debug.DrawLine(transform.position, hit.point);
+
             bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
 
             // Detect targets using trigger collider and allow posession if the input and misc conditions are corret.
@@ -254,7 +259,6 @@ public class Player : MonoBehaviour
 
         // Prevent object from colliding with it's thrower.
         Physics.IgnoreCollision(m_controller, m_objectCollider);
-        Physics.IgnoreCollision(m_collider, m_objectCollider);
 
         // Mark player as possessing an object.
         m_bIsPossessing = true;
@@ -318,7 +322,6 @@ public class Player : MonoBehaviour
 
         // Re-enable collision between player and human.
         Physics.IgnoreCollision(m_controller, m_objectCollider, false);
-        Physics.IgnoreCollision(m_collider, m_objectCollider, false);
 
         // Make this player have ownership of the human and control him.
         m_humanScript.SetOwner(this, m_input, m_input.GetPlayer());
@@ -337,7 +340,6 @@ public class Player : MonoBehaviour
 
         // Disable collision between this player and the human.
         Physics.IgnoreCollision(m_controller, m_humanController, true);
-        Physics.IgnoreCollision(m_collider, m_humanController, true);
 
         // Throw player:
         // Ensure ghost position is equal to the human's position.
@@ -395,11 +397,6 @@ public class Player : MonoBehaviour
     {
         m_fCurrentStunTime = m_fStunTime;
         m_bStunned = true;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        
     }
 
     // Set the score of the individual player and update GUI.
