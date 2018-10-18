@@ -9,6 +9,8 @@ public class MenuActor : MonoBehaviour
     public Scene[] scenes;
     
 
+    public GameObject m_lobbyCanvas;
+
     // Use this for initialization
     void Start()
     {
@@ -21,10 +23,11 @@ public class MenuActor : MonoBehaviour
         
     }
 
-    public void LoadScene(string scene_Name)
+    public void OnPlayClick()
     {
-        SceneManager.LoadScene(scene_Name);
-        Time.timeScale = 1.0f;
+        // Swap between main menu and lobby interfaces.
+        m_lobbyCanvas.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void Quit()

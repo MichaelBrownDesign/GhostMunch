@@ -48,8 +48,11 @@ public class Possessible : MonoBehaviour
         m_respawnRotation = transform.rotation;
         m_fCurrentRespawnTimer = m_fRespawnTime;
 
-        m_possessEffectInst = Instantiate(m_possessEffect).GetComponent<ParticleSystem>();
-        m_breakEffectInst = Instantiate(m_breakEffect).GetComponent<ParticleSystem>();
+        if(m_possessEffect != null)
+            m_possessEffectInst = Instantiate(m_possessEffect).GetComponent<ParticleSystem>();
+
+        if(m_breakEffect != null)
+            m_breakEffectInst = Instantiate(m_breakEffect).GetComponent<ParticleSystem>();
 	}
 	
 	// Update is called once per frame
