@@ -4,48 +4,59 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor;
+
  
 
 public class LevelSelect : MonoBehaviour
 {
     public Text textSceneName;
-    public int numOfScenes;
+    private int numOfScenes;
     public string subFolder;
 
     private string selectedString;
     private int selectionNumber = 0;
-   
+  //  private string[] scenes = new string[sceneCount];
 
-    private List<string> greyboxList = new List<string>();
+    private List<string> sceneList = new List<string>();
     // Use this for initialization
     void Awake()
     {
-        string[] GUID = AssetDatabase.FindAssets("Scene", new[] { "Assets/Scenes/"+subFolder });
-        for (int i = 0; i < GUID.Length; i++)
+
+        // string[] GUID = AssetDatabase.FindAssets("Scene", new[] { "Assets/Scenes/"+subFolder });
+        // for (int i = 0; i < GUID.Length; i++)
+        // {
+        //     greyboxList.Add(AssetDatabase.GUIDToAssetPath(GUID[i]));
+        //     greyboxList[i] = greyboxList[i].Replace("Assets/Scenes/"+subFolder+"/", "");
+        //     greyboxList[i] = greyboxList[i].Replace(".unity", "");
+        // }
+        //
+        // selectedString = greyboxList[selectionNumber];
+        // textSceneName.text = greyboxList[selectionNumber];
+
+
+        numOfScenes = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
+       
+
+        for (int i = 0; i < numOfScenes; i++)
         {
-            greyboxList.Add(AssetDatabase.GUIDToAssetPath(GUID[i]));
-            greyboxList[i] = greyboxList[i].Replace("Assets/Scenes/"+subFolder+"/", "");
-            greyboxList[i] = greyboxList[i].Replace(".unity", "");
+            sceneList.Add(System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i)));
         }
 
-        selectedString = greyboxList[selectionNumber];
-        textSceneName.text = greyboxList[selectionNumber];
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        textSceneName.text = greyboxList[selectionNumber];
-        selectedString = greyboxList[selectionNumber];
+        textSceneName.text = sceneList[selectionNumber];
+        selectedString = sceneList[selectionNumber];
     }
 
     public void LeftButton()
     {
         if(selectionNumber == 0)
         {
-            selectionNumber = numOfScenes;
+            selectionNumber = numOfScenes -1;
         }
         else
         {
@@ -55,7 +66,7 @@ public class LevelSelect : MonoBehaviour
 
     public void RightButton()
     {
-        if (selectionNumber == numOfScenes)
+        if (selectionNumber == numOfScenes -1)
         {
             selectionNumber = 0;
         }

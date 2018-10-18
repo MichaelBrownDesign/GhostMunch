@@ -1112,7 +1112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textSceneName: {fileID: 1149032459}
-  numOfScenes: 10
   subFolder: Greybox
 --- !u!4 &1877961925
 Transform:
