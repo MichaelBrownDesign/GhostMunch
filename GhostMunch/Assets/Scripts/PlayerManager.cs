@@ -8,14 +8,13 @@ public class PlayerManager : MonoBehaviour
     public GameObject[] m_players;
 
     private GameGUI m_gui;
+    private static int[] m_nPlayerIndices = new int[4];
     private static int m_nPlayerCount = 0;
-    private static bool m_bKeyboardUsed;
+    private static bool m_bUseKeyboard;
 
     // Use this for initialization
     void Awake()
-    {
-        m_nPlayerCount = 2;
-
+    { 
         // Check if player objects are valid.
 		for(int i = 0; i < m_players.Length; ++i)
         {
@@ -27,6 +26,7 @@ public class PlayerManager : MonoBehaviour
                 || m_players[i].GetComponent<PlayerMovement>() == null || m_players[i].GetComponent<CharacterController>() == null)
             {
                 Debug.LogError("Player: " + m_players[i].name + " is not a valid player!");
+                continue;
             }
 
             // Check if this player exceeds the player count, and if so, disable them.
@@ -36,23 +36,21 @@ public class PlayerManager : MonoBehaviour
             // Set player input indices.
             PlayerInput input = m_players[i].GetComponent<PlayerInput>();
 
-            if(m_bKeyboardUsed && i == 0)
+            if(m_nPlayerIndices[i] == 4)
             {
                 input.m_ePlayerIndex = PlayerIndex.Four;
                 input.m_bUseKeyboard = true;
             }
-            else
+            else if(!m_bUseKeyboard)
             {
-                int nKeyboard = 0;
-
-                if (m_bKeyboardUsed)
-                    nKeyboard = 1;
-
-                input.m_ePlayerIndex = (PlayerIndex)(i - nKeyboard);
+                input.m_ePlayerIndex = (PlayerIndex)i;
                 input.m_bUseKeyboard = false;
             }
-            
-            
+            else
+            {
+                input.m_ePlayerIndex = (PlayerIndex)(i - 1);
+                input.m_bUseKeyboard = false;
+            }
         }
 
         // Access GUI script...
@@ -72,9 +70,13 @@ public class PlayerManager : MonoBehaviour
         m_nPlayerCount = nPlayerCount;
     }
 
-    public static void SetPlayerCount(int nPlayerCount, bool bUseKeyboard)
+    public static void SetPlayerIndex(int nLocation, int nIndex)
     {
-        m_nPlayerCount = nPlayerCount;
-        m_bKeyboardUsed = bUseKeyboard;
+        m_nPlayerIndices[nLocation] = nIndex;
+    }
+
+    public static void SetUsesKeyboard(bool bUseKeyboard)
+    {
+        m_bUseKeyboard = bUseKeyboard;
     }
 }
