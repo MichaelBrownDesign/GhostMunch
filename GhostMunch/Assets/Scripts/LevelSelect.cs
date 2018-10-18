@@ -12,6 +12,8 @@ public class LevelSelect : MonoBehaviour
     public Text textSceneName;
     public int numOfScenes;
     public string subFolder;
+
+    private string selectedString;
     private int selectionNumber = 0;
    
 
@@ -27,6 +29,7 @@ public class LevelSelect : MonoBehaviour
             greyboxList[i] = greyboxList[i].Replace(".unity", "");
         }
 
+        selectedString = greyboxList[selectionNumber];
         textSceneName.text = greyboxList[selectionNumber];
         
     }
@@ -35,13 +38,14 @@ public class LevelSelect : MonoBehaviour
     void Update()
     {
         textSceneName.text = greyboxList[selectionNumber];
+        selectedString = greyboxList[selectionNumber];
     }
 
     public void LeftButton()
     {
         if(selectionNumber == 0)
         {
-            selectionNumber = 5;
+            selectionNumber = numOfScenes;
         }
         else
         {
@@ -63,7 +67,7 @@ public class LevelSelect : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(textSceneName.text);
+        SceneManager.LoadScene(selectedString);
         Time.timeScale = 1.0f;
     }
 
