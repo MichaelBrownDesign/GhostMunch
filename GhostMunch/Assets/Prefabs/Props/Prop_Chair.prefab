@@ -124,3 +124,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
+  m_possessEffect: {fileID: 0}
+  m_breakEffect: {fileID: 0}

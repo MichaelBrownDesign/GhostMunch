@@ -661,7 +661,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1747318443517042}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.69565135, y: 1.57, z: -1.1074097}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224742388180746040}
@@ -1690,6 +1690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
+  m_possessEffect: {fileID: 0}
+  m_breakEffect: {fileID: 0}
 --- !u!114 &114114480815912046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1703,7 +1705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
-  m_fMoveSpeed: 3
+  m_fMoveSpeed: 6
   m_fAcceleration: 30
   m_fDecelleration: 15
   m_bAllowJump: 1
@@ -1718,10 +1720,10 @@ MonoBehaviour:
       outSlope: 2
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.19395407
-      value: 0.6654176
-      inSlope: -2.4820085
-      outSlope: -2.4820085
+      time: 0.0011745244
+      value: 0.69805616
+      inSlope: -1.1801764
+      outSlope: -1.1801764
       tangentMode: 0
     - serializedVersion: 2
       time: 0.99542236
@@ -1804,6 +1806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
+  m_possessEffect: {fileID: 0}
+  m_breakEffect: {fileID: 0}
 --- !u!114 &114263127436783456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1816,6 +1820,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
+  m_possessEffect: {fileID: 0}
+  m_breakEffect: {fileID: 0}
 --- !u!114 &114350606845729120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1972,6 +1978,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
+  m_possessEffect: {fileID: 0}
+  m_breakEffect: {fileID: 0}
 --- !u!114 &114606867650523364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2087,6 +2095,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 15
+  m_possessEffect: {fileID: 0}
+  m_breakEffect: {fileID: 0}
 --- !u!114 &114713789617062384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2100,7 +2110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nScore: 0
   m_fPossessionRange: 7
-  m_fThrowForce: 500
+  m_v3PossessionBox: {x: 1, y: 1, z: 1}
+  m_fThrowForce: 750
   m_fThrowCooldown: 0.5
   m_pointer: {fileID: 1338709825450494}
   m_fBobSpeed: 3
@@ -2140,7 +2151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4430f750fa9b0d84f9921e35c64182d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_nPlayerCount: 4
   m_nMaxHungerValue: 100
   m_hungerBars:
   - {fileID: 1599828239752190}
@@ -2162,7 +2172,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nScore: 0
   m_fPossessionRange: 7
-  m_fThrowForce: 500
+  m_v3PossessionBox: {x: 1, y: 1, z: 1}
+  m_fThrowForce: 750
   m_fThrowCooldown: 0.5
   m_pointer: {fileID: 1517644173857102}
   m_fBobSpeed: 3
@@ -2185,7 +2196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
-  m_fMoveSpeed: 3
+  m_fMoveSpeed: 6
   m_fAcceleration: 30
   m_fDecelleration: 15
   m_bAllowJump: 1
@@ -2200,10 +2211,10 @@ MonoBehaviour:
       outSlope: 2
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.19395407
-      value: 0.6654176
-      inSlope: -2.4820085
-      outSlope: -2.4820085
+      time: 0.0011745244
+      value: 0.69805616
+      inSlope: -1.1801764
+      outSlope: -1.1801764
       tangentMode: 0
     - serializedVersion: 2
       time: 0.99542236
