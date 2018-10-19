@@ -31855,6 +31855,11 @@ Prefab:
       propertyPath: m_human
       value: 
       objectReference: {fileID: 793958719}
+    - target: {fileID: 114020045493124840, guid: 476ed334f02d0eb4d87b5b3649d6120b,
+        type: 2}
+      propertyPath: m_bDebugMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 476ed334f02d0eb4d87b5b3649d6120b, type: 2}
   m_IsPrefabParent: 0

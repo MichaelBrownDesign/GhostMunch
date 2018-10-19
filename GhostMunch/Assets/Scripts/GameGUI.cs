@@ -42,7 +42,7 @@ public class GameGUI : MonoBehaviour
             m_fullHungerBars[i].sizeDelta = new Vector2(0.0f, m_fullHungerBars[i].sizeDelta.y);
         }
 
-        //// Disable unused widgets.
+        // Disable unused widgets.
         for(int i = 3; i > m_nPlayerCount - 1; --i)
         {
             m_hungerBars[i].GetComponent<RectTransform>().localScale = Vector3.zero;

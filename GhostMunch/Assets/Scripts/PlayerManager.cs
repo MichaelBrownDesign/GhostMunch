@@ -10,14 +10,13 @@ public class PlayerManager : MonoBehaviour
     public GameObject m_human;
 
     private static int[] m_nPlayerIndices = new int[4];
-    private static int m_nPlayerCount = 0;
+    private static int m_nPlayerCount = 4;
 
     // Use this for initialization
     void Awake()
     {
         if (m_bDebugMode)
         {
-            m_nPlayerCount = m_players.Length;
             return;
         }
 
