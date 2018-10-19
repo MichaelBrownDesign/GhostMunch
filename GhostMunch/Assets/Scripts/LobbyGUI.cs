@@ -56,6 +56,9 @@ public class LobbyGUI : MonoBehaviour
             }
 
             // Joining and leaving...
+            if (EventSystem.current.currentSelectedGameObject != m_joinButton.gameObject)
+                continue;
+
             if (!m_players.Contains(i) && m_players.Count < 4) // Ensure existing players can't be added again and the max player count of 4 is not exceeded.
             {
                 if (bSpacePressed && i == 4) // If potential keyboard player...
@@ -131,9 +134,6 @@ public class LobbyGUI : MonoBehaviour
         LinkedListNode<int> m_currentNode = m_players.First;
         for (int i = 0; i < m_players.Count; ++i)
         {
-            if (m_currentNode.Value == 4)
-                PlayerManager.SetUsesKeyboard(true);
-
             PlayerManager.SetPlayerIndex(i, m_currentNode.Value);
 
             m_currentNode = m_currentNode.Next;

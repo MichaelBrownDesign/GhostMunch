@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     // Throwing
     [Header("Throwing")]
-    public float m_fThrowForce = 5.0f;
+    public float m_fThrowForce = 1.0f;
     public float m_fThrowCooldown = 0.5f;
 
     // Possession bobbing animation.
@@ -320,6 +320,14 @@ public class Player : MonoBehaviour
         // Disable the player's input.
         m_input.enabled = false;
 
+        // Parent this ghost to the human.
+        transform.SetParent(m_human.transform);
+        transform.localPosition = Vector3.zero;
+
+        // Disable movement and character controller scripts.
+        m_movement.enabled = false;
+        m_controller.enabled = false;
+
         // Re-enable collision between player and human.
         Physics.IgnoreCollision(m_controller, m_objectCollider, false);
 
@@ -343,7 +351,12 @@ public class Player : MonoBehaviour
 
         // Throw player:
         // Ensure ghost position is equal to the human's position.
+        transform.parent = null;
         transform.position = m_human.transform.position;
+
+        // Enable movement.
+        m_movement.enabled = true;
+        m_controller.enabled = true;
 
         v3PropDirection.y = 1.0f;
 
@@ -370,7 +383,7 @@ public class Player : MonoBehaviour
 
         // Free object.
         m_possessedScript.SetThown(m_controller, m_collider, transform.forward);
-        m_possessedObj.transform.localPosition = Vector3.zero;
+        m_possessedObj.transform.localPosition = new Vector3(0.0f, m_possessedScript.GetHeightOffset(), m_possessedScript.GetThrowZOffset());
         m_possessedObj.transform.localRotation = Quaternion.Euler(Vector3.zero);
         m_possessedObj.transform.parent = null;
         m_objectRigidbody.isKinematic = false;
@@ -380,8 +393,8 @@ public class Player : MonoBehaviour
         m_objectCollider.enabled = true;
 
         // Thow object.
-        m_objectRigidbody.AddForce(transform.forward * m_fThrowForce);
-        m_objectRigidbody.AddTorque(Vector3.one * m_fThrowForce, ForceMode.VelocityChange);
+        m_objectRigidbody.velocity = transform.forward * m_fThrowForce;
+        m_objectRigidbody.AddTorque(m_possessedScript.GetRotations() * m_possessedScript.GetRotationSpeed(), ForceMode.VelocityChange);
 
         // Reset throw cooldown.
         m_fCurrentThrowCD = m_fThrowCooldown;

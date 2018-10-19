@@ -14,6 +14,16 @@ public class Possessible : MonoBehaviour
     private ParticleSystem m_possessEffectInst;
     private ParticleSystem m_breakEffectInst;
 
+    // Object flight
+    [Header("Flight")]
+    public float m_fHeightOffset;
+    public float m_fRotationSpeed = 5.0f;
+    public bool m_bRotateX = true;
+    public bool m_bRotateY = true;
+    public bool m_bRotateZ = true;
+
+    private float m_fThrowZOffset;
+
     // Self
     private Rigidbody m_rigidbody;
     private Collider m_collider;
@@ -40,6 +50,8 @@ public class Possessible : MonoBehaviour
         m_renderer = GetComponentInChildren<MeshRenderer>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_collider = GetComponent<Collider>();
+
+        m_fThrowZOffset = m_collider.bounds.extents.z;
 
         m_human = GameObject.FindGameObjectWithTag("Human");
         m_humanScript = m_human.GetComponent<Human>();
@@ -154,5 +166,37 @@ public class Possessible : MonoBehaviour
     public bool GetPossessed()
     {
         return m_bPossessed;
+    }
+
+    // Returns a vector representing what axes are used for throw rotation.
+    public Vector3 GetRotations()
+    {
+        Vector3 v3Result = Vector3.zero;
+
+        if (m_bRotateX)
+            v3Result.x = 1.0f;
+
+        if (m_bRotateY)
+            v3Result.y = 1.0f;
+
+        if (m_bRotateZ)
+            v3Result.z = 1.0f;
+
+        return v3Result;
+    }
+
+    public float GetHeightOffset()
+    {
+        return m_fHeightOffset;
+    }
+
+    public float GetRotationSpeed()
+    {
+        return m_fRotationSpeed;
+    }
+
+    public float GetThrowZOffset()
+    {
+        return m_fThrowZOffset;
     }
 }

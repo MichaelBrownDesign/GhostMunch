@@ -5,16 +5,22 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public bool m_bDebugMode;
     public GameObject[] m_players;
+    public GameObject m_human;
 
-    private GameGUI m_gui;
     private static int[] m_nPlayerIndices = new int[4];
     private static int m_nPlayerCount = 0;
-    private static bool m_bUseKeyboard;
 
     // Use this for initialization
     void Awake()
-    { 
+    {
+        if (m_bDebugMode)
+        {
+            m_nPlayerCount = m_players.Length;
+            return;
+        }
+
         // Check if player objects are valid.
 		for(int i = 0; i < m_players.Length; ++i)
         {
@@ -36,27 +42,9 @@ public class PlayerManager : MonoBehaviour
             // Set player input indices.
             PlayerInput input = m_players[i].GetComponent<PlayerInput>();
 
-            if(m_nPlayerIndices[i] == 4)
-            {
-                input.m_ePlayerIndex = PlayerIndex.Four;
-                input.m_bUseKeyboard = true;
-            }
-            else if(!m_bUseKeyboard)
-            {
-                input.m_ePlayerIndex = (PlayerIndex)i;
-                input.m_bUseKeyboard = false;
-            }
-            else
-            {
-                input.m_ePlayerIndex = (PlayerIndex)(i - 1);
-                input.m_bUseKeyboard = false;
-            }
+            input.m_ePlayerIndex = (PlayerIndex)m_nPlayerIndices[i];
+            input.m_bUseKeyboard = m_nPlayerIndices[i] == 4;
         }
-
-        // Access GUI script...
-        m_gui = GameObject.Find("GameGUI").GetComponent<GameGUI>();
-
-        m_gui.SetPlayerCount(m_nPlayerCount);
 	}
 	
 	// Update is called once per frame
@@ -68,6 +56,7 @@ public class PlayerManager : MonoBehaviour
     public static void SetPlayerCount(int nPlayerCount)
     {
         m_nPlayerCount = nPlayerCount;
+        GameGUI.SetPlayerCount(nPlayerCount);
     }
 
     public static void SetPlayerIndex(int nLocation, int nIndex)
@@ -75,8 +64,21 @@ public class PlayerManager : MonoBehaviour
         m_nPlayerIndices[nLocation] = nIndex;
     }
 
-    public static void SetUsesKeyboard(bool bUseKeyboard)
+    public static int GetPlayerCount()
     {
-        m_bUseKeyboard = bUseKeyboard;
+        return m_nPlayerCount;
+    }
+
+    // Disables input on all active players.
+    public void DisablePlayerInput()
+    {
+        for(int i = 0; i < m_players.Length; ++i)
+        {
+            m_players[i].GetComponent<PlayerInput>().enabled = false;
+            m_players[i].GetComponent<PlayerMovement>().enabled = false;
+        }
+
+        m_human.GetComponent<PlayerInput>().enabled = false;
+        m_human.GetComponent<PlayerMovement>().enabled = false;
     }
 }
