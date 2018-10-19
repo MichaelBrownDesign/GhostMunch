@@ -225,6 +225,14 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        // Pause
+        if(m_input.StartPressed() || Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu pauseScript = m_gui.GetComponent<PauseMenu>();
+
+            pauseScript.SetPaused(!pauseScript.GetIsPaused());
+        }
     }
 
     /*
