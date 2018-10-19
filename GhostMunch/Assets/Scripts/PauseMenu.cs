@@ -28,6 +28,18 @@ public class PauseMenu : MonoBehaviour {
         SetPaused(false);
     }
 
+    public void RestartButton()
+    {
+        SetPaused(false);
+        SceneManager.LoadScene(1);
+    }
+
+    public void MainMenuButton()
+    {
+        SetPaused(false);
+        SceneManager.LoadScene(0);
+    }
+
     public void LoadScene(string scene_Name)
     {
         SceneManager.LoadScene(scene_Name);

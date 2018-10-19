@@ -107,6 +107,9 @@ public class LobbyGUI : MonoBehaviour
             if (m_currentNode != null)
                 m_currentNode = m_currentNode.Next;
         }
+
+        // Play button management
+        m_playButton.interactable = m_players.Count > 1;
     }
 
     public void BackButton()

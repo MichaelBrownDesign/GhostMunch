@@ -271,7 +271,8 @@ public class Player : MonoBehaviour
         // Mark player as possessing an object.
         m_bIsPossessing = true;
 
-        m_movement.Freeze(true);
+        // Disable player movement.
+        m_movement.enabled = false;
     }
 
     /*
@@ -287,7 +288,7 @@ public class Player : MonoBehaviour
         m_renderer.enabled = false;
 
         // Allow player movement again.
-        m_movement.Freeze(false);
+        m_movement.enabled = true;
 
         // Set object's parent to this and zero it's local offset.
         m_possessedObj.transform.SetParent(transform);
