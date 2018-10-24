@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(AudioSource))]
 
 public class FoodScript : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class FoodScript : MonoBehaviour
 
     [Header("Score")]
     public int m_nScoreValue;
+
+    [Header("Audio")]
+    public AudioClip m_audioOnEat;
+    private AudioSource m_audioSource;
 
     // Self
     private MeshRenderer m_renderer;
@@ -51,10 +56,13 @@ public class FoodScript : MonoBehaviour
         // Parent eat effect to food item and set local position to zero.
         m_eatEffectInstance.transform.SetParent(transform);
         m_eatEffectInstance.transform.localPosition = Vector3.zero;
+
+        m_audioSource = GetComponent<AudioSource>();
+
     }
-	
-	// Update is called once per frame
-	void Update()
+
+    // Update is called once per frame
+    void Update()
     {
         // Respawning...
         m_fCurrentRspwnTime -= Time.deltaTime;
@@ -88,6 +96,9 @@ public class FoodScript : MonoBehaviour
 
         // Emmitt particles.
         m_eatPS.Play();
+        
+        // play eaten sound
+        m_audioSource.PlayOneShot(m_audioOnEat);
 
         // Mark as eaten.
         m_bEaten = true;

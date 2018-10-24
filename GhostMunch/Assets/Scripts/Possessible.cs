@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Possessible : MonoBehaviour
 {
     public float m_fRespawnTime;
@@ -24,6 +25,11 @@ public class Possessible : MonoBehaviour
 
     private float m_fThrowZOffset;
 
+    //audio
+    [Header("Audio")]
+    public AudioClip m_audioOnBreak;
+    private AudioSource m_audioSource;    
+    
     // Self
     private Rigidbody m_rigidbody;
     private Collider m_collider;
@@ -65,6 +71,8 @@ public class Possessible : MonoBehaviour
 
         if(m_breakEffect != null)
             m_breakEffectInst = Instantiate(m_breakEffect).GetComponent<ParticleSystem>();
+
+        m_audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -110,6 +118,9 @@ public class Possessible : MonoBehaviour
                 // Play break effect.
                 m_breakEffectInst.gameObject.transform.position = transform.position;
                 m_breakEffectInst.Play();
+
+                //play break audio
+                m_audioSource.PlayOneShot(m_audioOnBreak);
             }
 
             // Separate ghost from human if the collision is with the human.
