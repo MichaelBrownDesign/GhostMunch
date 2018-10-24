@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1669444517626092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.0000005, y: 2, z: 2.0000005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1669444517626092}
-  m_Mesh: {fileID: 4300000, guid: 301f9f22918d90f40aa101cc16e22e93, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 241b9e67ca23c594a9bdd7d1d2781315, type: 3}
 --- !u!54 &54175470097768462
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -110,8 +110,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.29, y: 1, z: 0.37}
-  m_Center: {x: 0.11, y: 0.5, z: -0.16}
+  m_Size: {x: 0.65, y: 2.08, z: 0.89}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &114031818440967824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,3 +126,9 @@ MonoBehaviour:
   m_fRespawnTime: 5
   m_possessEffect: {fileID: 0}
   m_breakEffect: {fileID: 0}
+  m_fHeightOffset: 0
+  m_fRotationSpeed: 5
+  m_bRotateX: 1
+  m_bRotateY: 1
+  m_bRotateZ: 1
+  m_audioOnBreak: {fileID: 0}

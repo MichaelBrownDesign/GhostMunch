@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524162183304846}
-  m_Mesh: {fileID: 4300000, guid: 35e0a7b7f73cddf4a8ffb3380d092a8c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 6e1b4f4f5049be84cb05c4c8a7817040, type: 3}
 --- !u!54 &54506204997671196
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -129,3 +129,9 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_fHeightOffset: 0
+  m_fRotationSpeed: 5
+  m_bRotateX: 1
+  m_bRotateY: 1
+  m_bRotateZ: 1
+  m_audioOnBreak: {fileID: 0}

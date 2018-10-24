@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 82846667af1a3f54a8478f7a9a6129fa
-timeCreated: 1538636425
+guid: 24e0956cf0fdc4f4a8878f5ef642cfee
+timeCreated: 1540358725
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,8 +10,7 @@ ModelImporter:
     2100000: StingrayPBS6
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Table
-    9500000: //RootNode
+    4300000: SM_Table_000
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -86,7 +85,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
