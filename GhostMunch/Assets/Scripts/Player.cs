@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[
+RequireComponent(typeof(MeshRenderer)),
+RequireComponent(typeof(PlayerInput)),
+RequireComponent(typeof(PlayerMovement)),
+RequireComponent(typeof(CharacterController)),
+RequireComponent(typeof(BoxCollider)),
+RequireComponent(typeof(AudioSource))
+]
+
 public class Player : MonoBehaviour
 {
     // Score
@@ -38,12 +47,18 @@ public class Player : MonoBehaviour
     private float m_fCurrentStunTime;
     private bool m_bStunned;
 
+    // Audio
+    [Header("Audio")]
+    public AudioClip m_possessClip;
+    public AudioClip m_throwClip;
+
     // This object.
     private MeshRenderer m_renderer;
     private PlayerInput m_input;
     private PlayerMovement m_movement;
     private CharacterController m_controller;
     private BoxCollider m_collider;
+    private AudioSource m_audio;
     private float m_fCurrentThrowCD;
     private bool m_bIsPossessing;
     private int m_nID;
@@ -71,6 +86,7 @@ public class Player : MonoBehaviour
         m_movement = GetComponent<PlayerMovement>();
         m_controller = GetComponent<CharacterController>();
         m_collider = GetComponent<BoxCollider>();
+        m_audio = GetComponent<AudioSource>();
 
         m_human = GameObject.FindGameObjectWithTag("Human");
         m_humanController = m_human.GetComponent<CharacterController>();
@@ -273,6 +289,10 @@ public class Player : MonoBehaviour
 
         // Disable player movement.
         m_movement.enabled = false;
+
+        // Play possess sound.
+        if (m_possessClip != null)
+            m_audio.PlayOneShot(m_possessClip);
     }
 
     /*
@@ -412,6 +432,9 @@ public class Player : MonoBehaviour
         m_objectRigidbody = null;
         m_objectCollider = null;
         m_possessedObj = null;
+
+        if (m_throwClip != null)
+            m_audio.PlayOneShot(m_throwClip);
     }
 
     // Suspends player movement input for a short period of time.

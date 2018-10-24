@@ -2,16 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[
+    RequireComponent(typeof(PlayerInput)),
+    RequireComponent(typeof(PlayerMovement)),
+    RequireComponent(typeof(CharacterController)),
+    RequireComponent(typeof(AudioSource))
+]
+
 public class Human : MonoBehaviour
 {
     // This object.
     [Header("Display")]
     public GameObject m_pointer;
 
+    // Audio
+    [Header("Audio")]
+    public AudioClip[] m_footsteps;
+    public AudioClip m_hitClip;
+    [Tooltip("The amount of time waited between footstep sounds when running.")]
+    public float m_fFootstepInterval;
+    public float m_fMinPitch = 0.8f;
+    public float m_fMaxPitch = 1.0f;
+
+    // This object.
     private PlayerInput m_input;
     private PlayerMovement m_movement;
     private CharacterController m_controller;
+    private AudioSource m_audio;
     private bool m_bPossessed;
+    private float m_fFootstepTime;
+    
 
     // Possessor
     private Player m_ownerPScript;
@@ -25,11 +45,14 @@ public class Human : MonoBehaviour
         m_input = GetComponent<PlayerInput>();
         m_movement = GetComponent<PlayerMovement>();
         m_controller = GetComponent<CharacterController>();
+        m_audio = GetComponent<AudioSource>();
 
         // Human starts off not possessed, and simply dead on the floor.
         m_input.enabled = false;
         m_movement.enabled = false;
         m_bSusceptible = true;
+
+        m_fFootstepTime = m_fFootstepInterval;
 	}
 	
 	// Update is called once per frame
@@ -37,7 +60,26 @@ public class Human : MonoBehaviour
     {
         // Ensure ghost player is at the same position as the human for the camera.
         if(m_ownerPScript != null)
+        {
             m_ownerPScript.gameObject.transform.position = transform.position;
+
+            // Footstep effects.
+            m_fFootstepTime -= m_movement.GetMovementMagnitude() * Time.deltaTime;
+
+            if (m_fFootstepTime <= 0.0f)
+            {
+                // Play random sound from footstep sound array.
+                int nRandSoundIndex = Random.Range(0, m_footsteps.Length);
+                float fRandPitch = Random.Range(m_fMinPitch, m_fMaxPitch);
+
+                m_audio.pitch = fRandPitch;
+                m_audio.PlayOneShot(m_footsteps[nRandSoundIndex]);
+
+                // Reset timer.
+                m_fFootstepTime = m_fFootstepInterval;
+            }
+        }
+            
 	}
 
     // Returns if the Human is susceptible to getting possessed.
@@ -89,6 +131,10 @@ public class Human : MonoBehaviour
         m_pointer.SetActive(false);
 
         m_ownerPScript = null;
+
+        // Play hit sound.
+        if (m_hitClip != null)
+            m_audio.PlayOneShot(m_hitClip);
     }
 
     // Sets whether or not the human is currently unavailable due to being possessed.
