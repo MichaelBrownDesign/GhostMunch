@@ -29,9 +29,20 @@ public class PostEffect : MonoBehaviour
     const int m_BoxUpPass = 2;
     const int m_ApplyBloomPass = 3;
 
+    Camera m_Camera;
+
+    private void Start()
+    {
+        m_Camera = GetComponent<Camera>();
+        m_Camera.depthTextureMode = DepthTextureMode.DepthNormals;
+    }
+
     void OnRenderImage(RenderTexture _source, RenderTexture _destination)
     {
-        if(m_Bloom == null)
+        Graphics.Blit(_source, _destination, m_PostEffect);
+
+        /*
+        if (m_Bloom == null)
         {
             m_Bloom = new Material(m_BloomShader);
             m_Bloom.hideFlags = HideFlags.HideAndDontSave;
@@ -91,7 +102,8 @@ public class PostEffect : MonoBehaviour
 
 
         ///////
-        //Graphics.Blit(_source, _destination, m_PostEffect);
+
+    */
     }
 	
 }
