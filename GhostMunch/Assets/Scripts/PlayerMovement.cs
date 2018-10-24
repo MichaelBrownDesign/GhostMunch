@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Rolling")]
     public AnimationCurve m_rollCurve;
     public float m_fRollSpeed = 5.0f;
+    [Tooltip("The percentage of time passed when the player recovers control during rolling.")]
+    public float m_fRecoveryPoint = 75;
+    public float m_fRecoveryStrength = 1.0f;
     public float m_fRollTime = 1.0f;
     public float m_fRollDelay = 1.0f;
 
@@ -39,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private float m_fCurrentRollTime;
     private float m_fCurrentRollDelay;
     private float m_fInputMagnitude;
+    private float m_fRollRecoveryPoint;
     private bool m_bIsGrounded;
     private bool m_bIsMoving;
     private bool m_bIsRolling;
@@ -52,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
     {
         m_controller = GetComponent<CharacterController>();
         m_input = GetComponent<PlayerInput>();
+
+        m_fRollRecoveryPoint = m_fRollTime - ((m_fRecoveryPoint / 100.0f) * m_fRollTime);
 
         m_bUseInput = true;
 	}
@@ -114,18 +120,35 @@ public class PlayerMovement : MonoBehaviour
             // Horizontal
             m_v3Velocity += Vector3.right * m_v2InputMovement.y * m_fAcceleration * Time.deltaTime;
         }
-        else // Rolling movement
+
+        if(m_bIsRolling) // Rolling movement
         {
             float fRollProgress = 1.0f - (m_fCurrentRollTime / m_fRollTime);
             float fRollVal = m_fMoveSpeed + m_rollCurve.Evaluate(fRollProgress) * m_fRollSpeed;
+
+            if (m_fCurrentRollTime <= m_fRollRecoveryPoint)
+            {
+                m_v2RollDirection += m_v2InputMovement * m_fRecoveryStrength * Time.fixedDeltaTime;
+            }
 
             m_v2RollDirection.Normalize();
 
             m_v3Velocity.x = m_v2RollDirection.y * fRollVal;
             m_v3Velocity.z = m_v2RollDirection.x * fRollVal;
 
-            m_fCurrentRollTime -= Time.deltaTime;
+            m_fCurrentRollTime -= Time.fixedDeltaTime;
             m_bIsRolling = m_fCurrentRollTime > 0.0f;
+
+            //if (m_fCurrentRollTime < 1.0f)
+            //{
+            //    m_fMoveWeight = 5.0f;
+            //
+            //    // Vertical
+            //    m_v3Velocity += Vector3.forward * m_v2InputMovement.x * m_fAcceleration * m_fMoveWeight * Time.deltaTime;
+            //
+            //    // Horizontal
+            //    m_v3Velocity += Vector3.right * m_v2InputMovement.y * m_fAcceleration * m_fMoveWeight * Time.deltaTime;
+            //}
         }
 
         // Clamp input magnitude to 1..
@@ -222,8 +245,6 @@ public class PlayerMovement : MonoBehaviour
             m_fCurrentRollDelay = m_fRollDelay;
             m_fCurrentRollTime = m_fRollTime;
             m_v2RollDirection = m_v2InputMovement;
-
-            
         }
 
         // Update rotation.
