@@ -261,8 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94849f76978a9be4eb96b618014fa65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Player1: {fileID: 564170801}
+  Player2: {fileID: 814882536}
   Player3: {fileID: 0}
   Player4: {fileID: 0}
   lerpSpeed: 2
@@ -516,6 +516,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4448053524205218, guid: 601685e0f96ceda4db3da935d4cb4eab,
     type: 2}
   m_PrefabInternal: {fileID: 521723476}
+--- !u!4 &564170801 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4379351353462370, guid: 535017c21dda6a342be70bf1aaf40a2c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2086707840}
 --- !u!1001 &623181393
 Prefab:
   m_ObjectHideFlags: 0
@@ -736,6 +741,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 266ce4b4212e18f43abc3bac6bc100c3, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &814882536 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4379351353462370, guid: 535017c21dda6a342be70bf1aaf40a2c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2021523955}
 --- !u!1001 &907627434
 Prefab:
   m_ObjectHideFlags: 0
@@ -1983,7 +1993,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4379351353462370, guid: 535017c21dda6a342be70bf1aaf40a2c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 13.226223
+      value: 5.2305684
       objectReference: {fileID: 0}
     - target: {fileID: 4379351353462370, guid: 535017c21dda6a342be70bf1aaf40a2c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2008,6 +2018,56 @@ Prefab:
     - target: {fileID: 1590286385899266, guid: 535017c21dda6a342be70bf1aaf40a2c, type: 2}
       propertyPath: m_Name
       value: Player_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114579618105040150, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_v3PossessionBox.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[1].time
+      value: 0.027315488
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[1].value
+      value: 0.9946745
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[1].inSlope
+      value: -2.451779
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[1].outSlope
+      value: -2.451779
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[2].inSlope
+      value: 0.0050482797
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[2].outSlope
+      value: 0.0050482797
+      objectReference: {fileID: 0}
+    - target: {fileID: 114147787179354672, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_bUseKeyboard
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_fRecoveryPoint
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_fRecoveryStrength
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 535017c21dda6a342be70bf1aaf40a2c, type: 2}
@@ -2089,7 +2149,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4379351353462370, guid: 535017c21dda6a342be70bf1aaf40a2c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 13.555655
+      value: 5.56
       objectReference: {fileID: 0}
     - target: {fileID: 4379351353462370, guid: 535017c21dda6a342be70bf1aaf40a2c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2114,6 +2174,41 @@ Prefab:
     - target: {fileID: 1590286385899266, guid: 535017c21dda6a342be70bf1aaf40a2c, type: 2}
       propertyPath: m_Name
       value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114579618105040150, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_v3PossessionBox.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[1].time
+      value: 0.027315488
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[1].value
+      value: 0.9946745
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[1].inSlope
+      value: -2.451779
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[1].outSlope
+      value: -2.451779
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[2].inSlope
+      value: 0.0050482797
+      objectReference: {fileID: 0}
+    - target: {fileID: 114537140422579376, guid: 535017c21dda6a342be70bf1aaf40a2c,
+        type: 2}
+      propertyPath: m_rollCurve.m_Curve.Array.data[2].outSlope
+      value: 0.0050482797
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 535017c21dda6a342be70bf1aaf40a2c, type: 2}
