@@ -120,7 +120,8 @@ public class Possessible : MonoBehaviour
                 m_breakEffectInst.Play();
 
                 //play break audio
-                m_audioSource.PlayOneShot(m_audioOnBreak);
+                if(m_audioOnBreak != null)
+                    m_audioSource.PlayOneShot(m_audioOnBreak);
             }
 
             // Separate ghost from human if the collision is with the human.

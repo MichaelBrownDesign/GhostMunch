@@ -98,7 +98,8 @@ public class FoodScript : MonoBehaviour
         m_eatPS.Play();
         
         // play eaten sound
-        m_audioSource.PlayOneShot(m_audioOnEat);
+        if(m_audioOnEat != null)
+            m_audioSource.PlayOneShot(m_audioOnEat);
 
         // Mark as eaten.
         m_bEaten = true;
