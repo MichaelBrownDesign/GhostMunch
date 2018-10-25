@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraMovement : MonoBehaviour {
 
     public Transform[] m_players;
@@ -34,11 +35,15 @@ public class CameraMovement : MonoBehaviour {
 
     //private float 
 
+    private Camera m_Camera;
+
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        m_Camera = GetComponent<Camera>();
         aspectRatio = Screen.width / Screen.height;
-        tanFov = Mathf.Tan(Mathf.Deg2Rad * Camera.main.fieldOfView / 2.0f);
+        tanFov = Mathf.Tan(Mathf.Deg2Rad * m_Camera.fieldOfView / 2.0f);
 	}
 	
 	// Update is called once per frame
@@ -46,7 +51,7 @@ public class CameraMovement : MonoBehaviour {
         m_timer = Time.deltaTime;
         float interpolation = lerpSpeed * m_timer;
         //positioning the camera
-        Vector3 newCameraPos = Camera.main.transform.position;
+        Vector3 newCameraPos = transform.position;
 
 
         newCameraPos.x = Mathf.Lerp(this.transform.position.x, middlePoint.x, interpolation);
@@ -54,7 +59,7 @@ public class CameraMovement : MonoBehaviour {
         newCameraPos.y = Mathf.Lerp(this.transform.position.y, middlePoint.y + yCorrection, interpolation);
 
 
-        Camera.main.transform.position = newCameraPos;
+        transform.position = newCameraPos;
 
         //finding the middlepoint between players
 
@@ -106,12 +111,12 @@ public class CameraMovement : MonoBehaviour {
         //calculating the new distance
         cameraDistance = (m_fzoom / 2.0f / aspectRatio) / tanFov;
         //setting the camera to the new position
-        Vector3 dir = (Camera.main.transform.position - middlePoint).normalized;
+        Vector3 dir = (transform.position - middlePoint).normalized;
 
         Vector3 v3FinalTarget = middlePoint + dir * (cameraDistance + DISTANCE_MARGIN);
 
 
-        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, v3FinalTarget, interpolation); 
+        transform.position = Vector3.Lerp(transform.position, v3FinalTarget, interpolation); 
 
 
     }

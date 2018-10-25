@@ -37,12 +37,12 @@ public class PostEffect : MonoBehaviour
         m_Camera.depthTextureMode = DepthTextureMode.DepthNormals;
     }
 
-    /*
+    
     void OnRenderImage(RenderTexture _source, RenderTexture _destination)
     {
-        Graphics.Blit(_source, _destination, m_PostEffect);
+        //Graphics.Blit(_source, _destination, m_PostEffect);
 
-        /*
+        
         if (m_Bloom == null)
         {
             m_Bloom = new Material(m_BloomShader);
@@ -104,8 +104,8 @@ public class PostEffect : MonoBehaviour
 
         ///////
 
-    */
-    //}
+    
+    }
 
 	
 }
