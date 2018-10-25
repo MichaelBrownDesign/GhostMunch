@@ -49,18 +49,14 @@ public class PauseMenu : MonoBehaviour {
     public void SetPaused(bool bPause)
     {
         m_bPaused = bPause;
+        pausePanel.SetActive(m_bPaused);
 
         if (bPause)
-        {
-            pausePanel.SetActive(true);
             Time.timeScale = 0.0f;
-        }
         else
-        {
-            pausePanel.SetActive(false);
             Time.timeScale = 1.0f;
-        }
     }
+
     public bool GetIsPaused()
     {
         return m_bPaused;

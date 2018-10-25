@@ -37,6 +37,7 @@ public class PostEffect : MonoBehaviour
         m_Camera.depthTextureMode = DepthTextureMode.DepthNormals;
     }
 
+    /*
     void OnRenderImage(RenderTexture _source, RenderTexture _destination)
     {
         Graphics.Blit(_source, _destination, m_PostEffect);
@@ -104,6 +105,7 @@ public class PostEffect : MonoBehaviour
         ///////
 
     */
-    }
+    //}
+
 	
 }

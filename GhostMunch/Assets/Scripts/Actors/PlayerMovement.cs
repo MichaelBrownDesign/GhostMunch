@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 m_v3Velocity;
     private Vector3 m_v3TargetRotation;
     private Vector2 m_v2RollDirection;
+    private Vector2 m_v2RollRecoveryVel;
     private float m_fCurrentSpeed;
     private float m_fCurrentRollTime;
     private float m_fCurrentRollDelay;
@@ -128,27 +129,18 @@ public class PlayerMovement : MonoBehaviour
 
             if (m_fCurrentRollTime <= m_fRollRecoveryPoint)
             {
-                m_v2RollDirection += m_v2InputMovement * m_fRecoveryStrength * Time.fixedDeltaTime;
+                m_v2RollRecoveryVel += m_v2InputMovement * m_fRecoveryStrength * Time.fixedDeltaTime;
             }
 
             m_v2RollDirection.Normalize();
+
+            m_v2RollDirection += m_v2RollRecoveryVel;
 
             m_v3Velocity.x = m_v2RollDirection.y * fRollVal;
             m_v3Velocity.z = m_v2RollDirection.x * fRollVal;
 
             m_fCurrentRollTime -= Time.fixedDeltaTime;
             m_bIsRolling = m_fCurrentRollTime > 0.0f;
-
-            //if (m_fCurrentRollTime < 1.0f)
-            //{
-            //    m_fMoveWeight = 5.0f;
-            //
-            //    // Vertical
-            //    m_v3Velocity += Vector3.forward * m_v2InputMovement.x * m_fAcceleration * m_fMoveWeight * Time.deltaTime;
-            //
-            //    // Horizontal
-            //    m_v3Velocity += Vector3.right * m_v2InputMovement.y * m_fAcceleration * m_fMoveWeight * Time.deltaTime;
-            //}
         }
 
         // Clamp input magnitude to 1..
@@ -245,6 +237,7 @@ public class PlayerMovement : MonoBehaviour
             m_fCurrentRollDelay = m_fRollDelay;
             m_fCurrentRollTime = m_fRollTime;
             m_v2RollDirection = m_v2InputMovement;
+            m_v2RollRecoveryVel = Vector2.zero;
         }
 
         // Update rotation.
