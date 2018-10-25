@@ -243,12 +243,13 @@ public class Player : MonoBehaviour
         }
 
         // Pause
-        if(m_input.StartPressed() || Input.GetKeyDown(KeyCode.Escape))
+        if(m_input.StartPressed())
         {
             PauseMenu pauseScript = m_gui.GetComponent<PauseMenu>();
-
+            Debug.Log("its working");
             pauseScript.SetPaused(!pauseScript.GetIsPaused());
         }
+
     }
 
     /*
