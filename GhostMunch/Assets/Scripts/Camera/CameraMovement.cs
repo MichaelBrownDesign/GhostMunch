@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
 
-    public Transform Player1;
-    public Transform Player2;
-    public Transform Player3;
-    public Transform Player4;
+    public Transform[] m_players;
+//    public Transform Player2;
+//    public Transform Player3;
+//    public Transform Player4;
 
     public float lerpSpeed = 2.0f;
 
@@ -55,40 +55,42 @@ public class CameraMovement : MonoBehaviour {
 
 
         Camera.main.transform.position = newCameraPos;
-      
+
         //finding the middlepoint between players
-      
+
+
         //if 2 player
-        middlePoint = (Player1.position + Player2.position) / 2;
-      
-        float f_dist1_2 = Vector3.Distance(Player1.position, Player2.position);
-      
-        m_fzoom = f_dist1_2;
-      
-      
+            //middlePoint = (m_players[0].position + m_players[1].position) / 2;
+
+            //float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
+
+            //m_fzoom = f_dist1_2;
+
+
+
         //if 3 player
-    //    middlePoint = (Player1.position + Player2.position + Player3.position) / 3;
-    //  
-    //    float f_dist1_2 = Vector3.Distance(Player1.position, Player2.position);
-    //    float f_dist1_3 = Vector3.Distance(Player1.position, Player3.position);
-    //    float f_dist1_4 = Vector3.Distance(Player1.position, Player4.position);
-    //    float f_dist2_3 = Vector3.Distance(Player2.position, Player3.position);
-    //    float f_dist2_4 = Vector3.Distance(Player2.position, Player4.position);
-    //  
-    //    m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist1_4, f_dist2_3, f_dist2_4);
-      
-      
+        //    middlePoint = (m_players[0].position + m_players[1].position + m_players[2].position) / 3;
+        //  
+        //    float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
+        //    float f_dist1_3 = Vector3.Distance(m_players[0].position, m_players[2].position);
+        //    float f_dist1_4 = Vector3.Distance(m_players[1].position, m_players[2].position);
+
+        //  
+        //    m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist2_3);
+
+
+
         //if 4 player
-    //    middlePoint = (Player1.position + Player2.position + Player1.position + Player3.position) / 4;
-    //   
-    //    float f_dist1_2 = Vector3.Distance(Player1.position, Player2.position);
-    //    float f_dist1_3 = Vector3.Distance(Player1.position, Player3.position);
-    //    float f_dist1_4 = Vector3.Distance(Player1.position, Player4.position);
-    //    float f_dist2_3 = Vector3.Distance(Player2.position, Player3.position);
-    //    float f_dist2_4 = Vector3.Distance(Player2.position, Player4.position);
-    //    float f_dist3_4 = Vector3.Distance(Player3.position, Player4.position);
-    //  
-    //    m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist1_4, f_dist2_3, f_dist2_4, f_dist3_4);
+//        middlePoint = (m_players[0].position + m_players[1].position + m_players[2].position + m_players[3].position) / 4;
+//       
+//        float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
+//        float f_dist1_3 = Vector3.Distance(m_players[0].position, m_players[2].position);
+//        float f_dist1_4 = Vector3.Distance(m_players[0].position, m_players[3].position);
+//        float f_dist2_3 = Vector3.Distance(m_players[1].position, m_players[2].position);
+//        float f_dist2_4 = Vector3.Distance(m_players[1].position, m_players[3].position);
+//        float f_dist3_4 = Vector3.Distance(m_players[2].position, m_players[3].position);
+//      
+//        m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist1_4, f_dist2_3, f_dist2_4, f_dist3_4);
       
 
 
