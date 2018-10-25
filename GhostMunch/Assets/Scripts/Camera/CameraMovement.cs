@@ -59,38 +59,47 @@ public class CameraMovement : MonoBehaviour {
         //finding the middlepoint between players
 
 
+
+
         //if 2 player
-            //middlePoint = (m_players[0].position + m_players[1].position) / 2;
+        if (m_players.Length == 2)
+        {
+            middlePoint = (m_players[0].position + m_players[1].position) / 2;
 
-            //float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
+            float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
 
-            //m_fzoom = f_dist1_2;
-
-
+            m_fzoom = f_dist1_2;
+        }
 
         //if 3 player
-        //    middlePoint = (m_players[0].position + m_players[1].position + m_players[2].position) / 3;
-        //  
-        //    float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
-        //    float f_dist1_3 = Vector3.Distance(m_players[0].position, m_players[2].position);
-        //    float f_dist1_4 = Vector3.Distance(m_players[1].position, m_players[2].position);
+        else if(m_players.Length == 3)
+        {
+            middlePoint = (m_players[0].position + m_players[1].position + m_players[2].position) / 3;
+          
+            float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
+            float f_dist1_3 = Vector3.Distance(m_players[0].position, m_players[2].position);
+            float f_dist2_3 = Vector3.Distance(m_players[1].position, m_players[2].position);
 
-        //  
-        //    m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist2_3);
-
-
+          
+            m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist2_3);
+        }
 
         //if 4 player
-//        middlePoint = (m_players[0].position + m_players[1].position + m_players[2].position + m_players[3].position) / 4;
-//       
-//        float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
-//        float f_dist1_3 = Vector3.Distance(m_players[0].position, m_players[2].position);
-//        float f_dist1_4 = Vector3.Distance(m_players[0].position, m_players[3].position);
-//        float f_dist2_3 = Vector3.Distance(m_players[1].position, m_players[2].position);
-//        float f_dist2_4 = Vector3.Distance(m_players[1].position, m_players[3].position);
-//        float f_dist3_4 = Vector3.Distance(m_players[2].position, m_players[3].position);
-//      
-//        m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist1_4, f_dist2_3, f_dist2_4, f_dist3_4);
+        else if(m_players.Length == 4)
+        {
+        middlePoint = (m_players[0].position + m_players[1].position + m_players[2].position + m_players[3].position) / 4;
+       
+        float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
+        float f_dist1_3 = Vector3.Distance(m_players[0].position, m_players[2].position);
+        float f_dist1_4 = Vector3.Distance(m_players[0].position, m_players[3].position);
+        float f_dist2_3 = Vector3.Distance(m_players[1].position, m_players[2].position);
+        float f_dist2_4 = Vector3.Distance(m_players[1].position, m_players[3].position);
+        float f_dist3_4 = Vector3.Distance(m_players[2].position, m_players[3].position);
+      
+        m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist1_4, f_dist2_3, f_dist2_4, f_dist3_4);
+        }
+
+
       
 
 
