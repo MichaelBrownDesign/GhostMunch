@@ -97,6 +97,9 @@ public class Possessible : MonoBehaviour
         // Mark as thown.
         m_bThown = true;
 
+        // Set collision layer to "Flying Prop"
+        gameObject.layer = 13;
+
         // Set throw direction used for knock-out knockback.
         m_v3ThrowDirection = v3ThrowDir;
 
@@ -159,6 +162,9 @@ public class Possessible : MonoBehaviour
 
         // Mark as thrown no longer.
         m_bThown = false;
+
+        // Reset collision layer to default.
+        gameObject.layer = 0;
     }
 
     // Sets whether or not the human is currently unavailable due to being possessed.

@@ -52,8 +52,11 @@ public class Player : MonoBehaviour
     public AudioClip m_possessClip;
     public AudioClip m_throwClip;
 
+    // Misc
+    [Header("Misc")]
+    public GameObject m_meshRoot;
+
     // This object.
-    private MeshRenderer m_renderer;
     private PlayerInput m_input;
     private PlayerMovement m_movement;
     private CharacterController m_controller;
@@ -81,7 +84,6 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        m_renderer = GetComponentInChildren<MeshRenderer>();
         m_input = GetComponent<PlayerInput>();
         m_movement = GetComponent<PlayerMovement>();
         m_controller = GetComponent<CharacterController>();
@@ -305,8 +307,8 @@ public class Player : MonoBehaviour
     {
         m_bIsPossessing = false;
 
-        // Disable the player's renderer.
-        m_renderer.enabled = false;
+        // Disable the player's meshes.
+        m_meshRoot.SetActive(false);
 
         // Allow player movement again.
         m_movement.enabled = true;
@@ -341,8 +343,8 @@ public class Player : MonoBehaviour
     {
         m_bIsPossessing = false;
 
-        // Disable the player's renderer.
-        m_renderer.enabled = false;
+        // Disable the player's meshes.
+        m_meshRoot.SetActive(false);
 
         // Disable look pointer.
         m_pointer.SetActive(false);
@@ -367,8 +369,8 @@ public class Player : MonoBehaviour
 
     public void KickFromHuman(Vector3 v3PropDirection)
     {
-        // Enable the player's renderer.
-        m_renderer.enabled = true;
+        // Enable the player's meshes.
+        m_meshRoot.SetActive(true);
 
         // Enable look pointer.
         m_pointer.SetActive(true);
@@ -405,8 +407,8 @@ public class Player : MonoBehaviour
     */
     private void ThrowPossessed()
     {
-        // Re-enable object renderer.
-        m_renderer.enabled = true;
+        // Re-enable object meshes.
+        m_meshRoot.SetActive(true);
 
         // Ensure the pointer is active when the object is thrown.
         m_pointer.SetActive(true);
