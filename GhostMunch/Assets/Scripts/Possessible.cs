@@ -81,7 +81,7 @@ public class Possessible : MonoBehaviour
 
         for(int i = 0; i < allMats.Length; ++i)
         {
-            if(allMats[i].name == "M_Prop (Instance)")
+            if(allMats[i].name.Contains("M_Prop"))
             {
                 m_material = allMats[i];
                 break;

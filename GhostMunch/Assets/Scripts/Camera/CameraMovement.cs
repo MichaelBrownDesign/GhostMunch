@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Camera))]
+[RequireComponent(typeof(Camera)), ExecuteInEditMode]
 public class CameraMovement : MonoBehaviour {
 
     public Transform[] m_players;
@@ -44,6 +44,12 @@ public class CameraMovement : MonoBehaviour {
         m_Camera = GetComponent<Camera>();
         aspectRatio = Screen.width / Screen.height;
         tanFov = Mathf.Tan(Mathf.Deg2Rad * m_Camera.fieldOfView / 2.0f);
+
+        GameObject[] playersInScene = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < m_players.Length; ++i)
+        {
+            m_players[i] = playersInScene[i].transform;
+        }
 	}
 	
 	// Update is called once per frame
