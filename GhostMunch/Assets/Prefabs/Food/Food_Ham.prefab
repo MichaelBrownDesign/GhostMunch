@@ -116,6 +116,12 @@ MonoBehaviour:
     type: 2}
   m_fRespawnTime: 10
   m_nScoreValue: 10
+  m_audioOnEat: {fileID: 0}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 1804796143139536, guid: 6a34c37c534b48b438a8d849adf787de,
+    type: 2}
 --- !u!135 &135534721693109246
 SphereCollider:
   m_ObjectHideFlags: 1

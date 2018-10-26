@@ -23,6 +23,7 @@ public class OptionsGUI : MonoBehaviour
     public Button m_applyButton;
     public StandaloneInputModule m_guiInput;
     public GameObject m_darkPanel;
+    public EventSystem m_events;
     public string[] m_buttonNames;
     public string[] m_axisNames;
 
@@ -50,6 +51,9 @@ public class OptionsGUI : MonoBehaviour
 
         m_currentData = m_bindingData[0];
         m_eCurrentPlayer = PlayerIndex.One;
+
+        ResetBindings(false);
+        m_bChangesMade = false;
     }
 
     // Update is called once per frame
@@ -179,12 +183,10 @@ public class OptionsGUI : MonoBehaviour
         if ((KeyCode)key == KeyCode.Escape)
         {
             m_eWaitState = InputWaitState.INPUT_NONE;
-            m_currentData.m_keys[m_nControlIndex] = (KeyCode)(-1);
-            m_keyboardButtonTexts[m_nControlIndex].GetComponentInChildren<Text>().text = "NO BINDING";
 
-            m_bChangesMade = true;
-
+            // Detactivate darken panel and re-enable the button.
             m_darkPanel.SetActive(false);
+            m_keyboardButtonTexts[m_nControlIndex].GetComponentInParent<Button>().interactable = true;
 
             return;
         }
@@ -200,21 +202,23 @@ public class OptionsGUI : MonoBehaviour
             m_nWaitFrames = 2;
             m_bChangesMade = true;
 
+            // Detactivate darken panel and re-enable the button.
             m_darkPanel.SetActive(false);
+            m_keyboardButtonTexts[m_nControlIndex].GetComponentInParent<Button>().interactable = true;
         }
     }
 
     void AssignController()
     {
-        if (m_prevGpdState.Buttons.Back == ButtonState.Released && m_gpdState.Buttons.Back == ButtonState.Pressed)
+        if ((m_prevGpdState.Buttons.Back == ButtonState.Released && m_gpdState.Buttons.Back == ButtonState.Pressed)
+            || Input.GetKeyDown(KeyCode.Escape))
         {
             m_eWaitState = InputWaitState.INPUT_NONE;
-            m_currentData.m_axes[m_nControlIndex] = (PlayerInput.EGamePadAxis)(-1);
-            m_controllerButtonTexts[m_nControlIndex].text = "NO BINDING";
 
-            m_bChangesMade = true;
-
+            // Detactivate darken panel, re-enable the button and select it.
             m_darkPanel.SetActive(false);
+            m_controllerButtonTexts[m_nControlIndex].GetComponentInParent<Button>().interactable = true;
+            m_events.SetSelectedGameObject(m_controllerButtonTexts[m_nControlIndex].transform.parent.gameObject);
 
             return;
         }
@@ -226,30 +230,42 @@ public class OptionsGUI : MonoBehaviour
         // Assign button or axis if detected.
         if (button > -1)
         {
+            // Set data to be written to a file.
             m_currentData.m_buttons[m_nControlIndex] = (PlayerInput.EGamePadButton)button;
             m_currentData.m_bIsButton[m_nControlIndex] = true;
 
             m_controllerButtonTexts[m_nControlIndex].text = m_buttonNames[button];
 
+            // Disable wait state and refuse input for 2 more frames.
             m_nWaitFrames = 2;
             m_eWaitState = InputWaitState.INPUT_NONE;
+            // Mark as changes made.
             m_bChangesMade = true;
 
+            // Detactivate darken panel, re-enable the button and select it.
             m_darkPanel.SetActive(false);
+            m_controllerButtonTexts[m_nControlIndex].GetComponentInParent<Button>().interactable = true;
+            m_events.SetSelectedGameObject(m_controllerButtonTexts[m_nControlIndex].transform.parent.gameObject);
 
             return;
         }
         else if (axis > -1)
         {
+            // Set data to be written to a file.
             m_currentData.m_axes[m_nControlIndex] = (PlayerInput.EGamePadAxis)axis;
 
             m_controllerButtonTexts[m_nControlIndex].text = m_axisNames[axis];
 
+            // Disable wait state and refuse input for 2 more frames.
             m_nWaitFrames = 2;
             m_eWaitState = InputWaitState.INPUT_NONE;
+            // Mark as changes made.
             m_bChangesMade = true;
 
+            // Detactivate darken panel, re-enable the button and select it.
             m_darkPanel.SetActive(false);
+            m_controllerButtonTexts[m_nControlIndex].GetComponentInParent<Button>().interactable = true;
+            m_events.SetSelectedGameObject(m_controllerButtonTexts[m_nControlIndex].transform.parent.gameObject);
         }
     }
 
@@ -258,8 +274,11 @@ public class OptionsGUI : MonoBehaviour
         if (m_nWaitFrames > 0)
             return;
 
+        // Activate darken panel and disable button.
         m_darkPanel.SetActive(true);
+        m_keyboardButtonTexts[nIndex].GetComponentInParent<Button>().interactable = false;
 
+        // Set keyboard input wait state and refuse input for two frames (to prevent last input from being read).
         m_eWaitState = InputWaitState.INPUT_KEYBOARD;
         m_nWaitFrames = 2;
         m_nControlIndex = nIndex;
@@ -270,8 +289,11 @@ public class OptionsGUI : MonoBehaviour
         if (m_nWaitFrames > 0)
             return;
 
+        // Activate darken panel and disable button.
         m_darkPanel.SetActive(true);
+        m_controllerButtonTexts[nIndex].GetComponentInParent<Button>().interactable = false;
 
+        // Set controller input wait state and refuse input for two frames (to prevent last input from being read).
         m_eWaitState = InputWaitState.INPUT_CONTROLLER;
         m_nWaitFrames = 2;
         m_nControlIndex = nIndex;
@@ -282,23 +304,28 @@ public class OptionsGUI : MonoBehaviour
         if (m_bChangesMade)
         {
             // Write bindings to file.
-            SaveBindings();
+            SaveBindings(false);
 
             // Reset changes made.
             m_bChangesMade = false;
         }
     }
 
-    public void ResetBindings()
+    public void ResetBindings(bool bReset)
     {
-        LoadBindings();
+        bool bSuccess = LoadBindings(bReset);
+
+        if(!bSuccess)
+        {
+            LoadBindings(!bReset);
+        }
 
         // Set button texts...
 
         // Keyboard buttons...
         for(int i = 0; i < m_keyboardButtonTexts.Length; ++i)
         {
-            m_keyboardButtonTexts[i].text = ((KeyCode)(m_bindingData[(int)m_eCurrentPlayer].m_keys[i])).ToString();
+            m_keyboardButtonTexts[i].text = (m_bindingData[(int)m_eCurrentPlayer].m_keys[i]).ToString();
         }
 
         // Controller buttons...
@@ -321,13 +348,25 @@ public class OptionsGUI : MonoBehaviour
         m_bChangesMade = true;
     }
 
-    void SaveBindings()
+    void SaveBindings(bool bDefaults)
     {
+        string fileName;
+
+        if(bDefaults)
+        {
+            fileName = "/defaultBindings.dat";
+        }
+        else
+        {
+            fileName = "/bindings.dat";
+        }
+
         // Open or create file.
         FileStream fs = null;
         try
         {
-            fs = new FileStream(Application.temporaryCachePath + "/bindings.dat", FileMode.OpenOrCreate);
+            fs = new FileStream(Application.dataPath + fileName, FileMode.Create);
+            Debug.Log("Successfully opened file: " + Application.dataPath + fileName);
         }
         catch (FileNotFoundException e)
         {
@@ -341,6 +380,7 @@ public class OptionsGUI : MonoBehaviour
         try
         {
             formatter.Serialize(fs, m_bindingData);
+            Debug.Log("Successfully saved to file: " + Application.dataPath + fileName);
         }
         catch (SerializationException e)
         {
@@ -352,18 +392,30 @@ public class OptionsGUI : MonoBehaviour
         }
     }
 
-    void LoadBindings()
+    bool LoadBindings(bool bDefaults)
     {
+        string fileName;
+
+        if (bDefaults)
+        {
+            fileName = "/defaultBindings.dat";
+        }
+        else
+        {
+            fileName = "/bindings.dat";
+        }
+
         // Create file object and load from file.
         FileStream fs = null;
         try
         {
-            fs = new FileStream(Application.temporaryCachePath + "/bindings.dat", FileMode.Open);
+            fs = new FileStream(Application.dataPath + fileName, FileMode.Open);
+            Debug.Log("Successfully opened file: " + Application.dataPath + fileName);
         }
         catch (FileNotFoundException e)
         {
             Debug.LogError("Could not find bindings file, reason: " + e.Message);
-            return;
+            return false;
         }
 
         BinaryFormatter formatter = new BinaryFormatter();
@@ -372,16 +424,19 @@ public class OptionsGUI : MonoBehaviour
         try
         {
             m_bindingData = (BindingData[])formatter.Deserialize(fs);
+            Debug.Log("Successfully loaded from file: " + Application.dataPath + fileName);
         }
         catch (SerializationException e)
         {
             Debug.LogError("Could not load bindings file, reason: " + e.Message);
-            return;
+            return false;
         } 
         finally
         {
             fs.Close();
         }
+
+        return true;
     }
 }
 

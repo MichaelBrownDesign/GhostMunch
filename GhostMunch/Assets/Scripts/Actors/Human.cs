@@ -66,7 +66,7 @@ public class Human : MonoBehaviour
             // Footstep effects.
             m_fFootstepTime -= m_movement.GetMovementMagnitude() * Time.deltaTime;
 
-            if (m_fFootstepTime <= 0.0f)
+            if (m_audio != null && m_fFootstepTime <= 0.0f)
             {
                 // Play random sound from footstep sound array.
                 int nRandSoundIndex = Random.Range(0, m_footsteps.Length);
@@ -149,17 +149,22 @@ public class Human : MonoBehaviour
         return m_bPossessed;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void AddToScore(int nScore)
     {
-        // Detect food items and query if they are within eating range. If they are within range, eat them.
-        if (other.gameObject.tag == "Food" && m_ownerPScript != null)
-        {
-            // Get food item script.
-            FoodScript script = other.GetComponent<FoodScript>();
-
-            // Eat item and add score.
-            script.Eat();
-            m_ownerPScript.AddToScore(script.GetScoreValue());
-        }
+        m_ownerPScript.AddToScore(nScore);
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    // Detect food items and query if they are within eating range. If they are within range, eat them.
+    //    if (other.gameObject.tag == "Food" && m_ownerPScript != null)
+    //    {
+    //        // Get food item script.
+    //        FoodScript script = other.GetComponent<FoodScript>();
+    //
+    //        // Eat item and add score.
+    //        script.Eat();
+    //        m_ownerPScript.AddToScore(script.GetScoreValue());
+    //    }
+    //}
 }

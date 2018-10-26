@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhostMunch", "GhostMunch.csproj", "{401C4013-CA6C-8948-1DBB-387825288779}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhostMunch.Editor", "GhostMunch.Editor.csproj", "{FF3C9D83-FAFD-C4B1-BD75-B30790C0F365}"
