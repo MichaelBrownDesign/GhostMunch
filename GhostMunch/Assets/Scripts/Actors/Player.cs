@@ -131,9 +131,18 @@ public class Player : MonoBehaviour
         {
             if(m_bIsPossessing) // While lerping to the object to possess...
             {
-                transform.position = Vector3.Lerp(transform.position, m_possessedObj.transform.position, 0.2f);
+                // Keep same Y position.
+                float y = transform.position.y;
 
-                float fDistanceToObj = (m_possessedObj.transform.position - transform.position).magnitude;
+                transform.position = Vector3.Lerp(transform.position, m_possessedObj.transform.position, 0.2f);
+                transform.position = new Vector3(transform.position.x, y, transform.position.z);
+
+                //float fDistanceToObj = (m_possessedObj.transform.position - transform.position).magnitude;
+                float fDistanceToObj = Vector2.Distance
+                (
+                    new Vector2(m_possessedObj.transform.position.x, m_possessedObj.transform.position.z), 
+                    new Vector2(transform.position.x, transform.position.z)
+                );
 
                 // Take control of object once within range.
                 if(fDistanceToObj < 1.1f)
@@ -251,10 +260,8 @@ public class Player : MonoBehaviour
         if(m_input.StartPressed())
         {
             PauseMenu pauseScript = m_gui.GetComponent<PauseMenu>();
-            Debug.Log("its working");
             pauseScript.SetPaused(!pauseScript.GetIsPaused());
         }
-
     }
 
     /*
