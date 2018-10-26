@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1178481204504500}
   m_LocalRotation: {x: -0, y: 0.000000104308114, z: -0, w: -1}
-  m_LocalPosition: {x: -0.39084333, y: 1, z: 2.1274097}
+  m_LocalPosition: {x: -2.1901987, y: 1.025, z: 23.637287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4764682828430380}
@@ -213,8 +213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bUseKeyboard: 0
   m_ePlayerIndex: 0
-  m_buttonBindings: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
-  m_buttonKeyBindings: 2000000000000000610000007300000077000000610000007300000064000000090000001b000000
+  m_buttonBindings: 00000000010000000400000004000000040000000500000006000000070000000800000009000000
+  m_buttonKeyBindings: 2000000065000000300100007300000077000000610000007300000064000000090000001b000000
   m_axisBindings: 010000000000000002000000040000000300000005000000
 --- !u!114 &114655756117000882
 MonoBehaviour:
@@ -228,6 +228,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_pointer: {fileID: 1273191647432984}
+  m_footsteps: []
+  m_hitClip: {fileID: 0}
+  m_fFootstepInterval: 0
+  m_fMinPitch: 0.8
+  m_fMaxPitch: 1
 --- !u!114 &114759389131749738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,6 +258,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   m_fRollSpeed: 25
+  m_fRecoveryPoint: 75
+  m_fRecoveryStrength: 1
   m_fRollTime: 0.15
   m_fRollDelay: 1
   m_fRotationLerpT: 0.3

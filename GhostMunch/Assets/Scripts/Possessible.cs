@@ -12,6 +12,7 @@ public class Possessible : MonoBehaviour
     public GameObject m_possessEffect;
     public GameObject m_breakEffect;
 
+    public Material m_material;
     private ParticleSystem m_possessEffectInst;
     private ParticleSystem m_breakEffectInst;
 
@@ -39,6 +40,8 @@ public class Possessible : MonoBehaviour
     private Quaternion m_respawnRotation;
     private Vector3 m_v3ThrowDirection;
     private float m_fCurrentRespawnTimer;
+    private float m_fPossessFade;
+    private float m_fCurrentPossessFade;
     private bool m_bThown;
     private bool m_bPossessed;
 
@@ -73,6 +76,17 @@ public class Possessible : MonoBehaviour
             m_breakEffectInst = Instantiate(m_breakEffect).GetComponent<ParticleSystem>();
 
         m_audioSource = GetComponent<AudioSource>();
+
+        Material[] allMats = m_renderer.materials;
+
+        for(int i = 0; i < allMats.Length; ++i)
+        {
+            if(allMats[i].name == "M_Prop (Instance)")
+            {
+                m_material = allMats[i];
+                break;
+            }
+        }
 	}
 	
 	// Update is called once per frame
@@ -85,7 +99,11 @@ public class Possessible : MonoBehaviour
             // Respawn...
             Respawn();
         }
-	}
+
+        m_fCurrentPossessFade = Mathf.Lerp(m_fCurrentPossessFade, m_fPossessFade, 0.1f);
+        if (m_material != null)
+            m_material.SetFloat("_Possessed", m_fCurrentPossessFade);
+    }
 
     // Marks this object as thrown so it will respawn after colliding.
     public void SetThown(CharacterController ownerController, BoxCollider ownerDetector, Vector3 v3ThrowDir)
@@ -105,6 +123,9 @@ public class Possessible : MonoBehaviour
 
         // Set respawn timer.
         m_fCurrentRespawnTimer = 5.0f;
+
+        // Disable possessed effect.
+        m_fPossessFade = 0.0f;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -164,7 +185,7 @@ public class Possessible : MonoBehaviour
         m_bThown = false;
 
         // Reset collision layer to default.
-        gameObject.layer = 0;
+        gameObject.layer = 11;
     }
 
     // Sets whether or not the human is currently unavailable due to being possessed.
@@ -177,6 +198,13 @@ public class Possessible : MonoBehaviour
             // Play Possession effect.
             m_possessEffectInst.gameObject.transform.position = transform.position;
             m_possessEffectInst.Play();
+
+            // Enable shader effect.
+            m_fPossessFade = 1.0f;
+        }
+        else if(m_material != null)
+        {
+            m_fPossessFade = 0.0f;
         }
     }
 
@@ -216,5 +244,17 @@ public class Possessible : MonoBehaviour
     public float GetThrowZOffset()
     {
         return m_fThrowZOffset;
+    }
+
+    public void SetEffectFloat(bool bRunEffect)
+    {
+        if(bRunEffect)
+        {
+            m_fPossessFade = 1.0f;
+        }
+        else
+        {
+            m_fPossessFade = 0.0f;
+        }
     }
 }

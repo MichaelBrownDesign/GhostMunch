@@ -168,6 +168,8 @@ public class Player : MonoBehaviour
 
                     fFinalRotationZ = Mathf.LerpAngle(v3EulerRotation.z, fFinalRotation, 0.2f);
 
+                    m_possessedScript.SetEffectFloat(true);
+
                     // Show pointer when the player is moving.
                     m_pointer.SetActive(true);
                 }
@@ -175,6 +177,7 @@ public class Player : MonoBehaviour
                 {
                     fFinalPosY = Mathf.Lerp(v3LocalPos.y, -1.0f, 0.1f);
                     fFinalRotationZ = Mathf.LerpAngle(v3EulerRotation.z, 0.0f, 0.05f);
+                    m_possessedScript.SetEffectFloat(false);
 
                     // Hide pointer when the player is still.
                     m_pointer.SetActive(false);

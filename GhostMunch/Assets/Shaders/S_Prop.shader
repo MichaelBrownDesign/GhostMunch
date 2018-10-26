@@ -169,8 +169,7 @@ Shader "Shader Forge/S_Prop" {
                 float3 specularColor = _Metallic;
                 float specularMonochrome;
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 node_6343 = (_MainTex_var.rgb*_Color.rgb);
-                float3 diffuseColor = node_6343; // Need this for specular when using metallic
+                float3 diffuseColor = (_MainTex_var.rgb*_Color.rgb); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -210,13 +209,12 @@ Shader "Shader Forge/S_Prop" {
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
                 float node_7201 = 0.0;
-                float4 node_9779 = _Time + _TimeEditor;
-                float2 node_3853 = (i.uv0+node_9779.g*float2(0.1,0.1));
+                float4 node_6855 = _Time + _TimeEditor;
+                float2 node_3853 = (i.uv0+node_6855.g*float2(0.1,0.1));
                 float4 node_8597 = tex2D(_Noise,TRANSFORM_TEX(node_3853, _Noise));
-                float2 node_7018 = (i.uv0+node_9779.g*float2(-0.1,-0.1));
+                float2 node_7018 = (i.uv0+node_6855.g*float2(-0.1,-0.1));
                 float4 node_5791 = tex2D(_Noise,TRANSFORM_TEX(node_7018, _Noise));
-                float node_6900 = pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp);
-                float3 emissive = (lerp(float3(node_7201,node_7201,node_7201),(_Green.rgb*node_8597.rgb*node_5791.rgb*node_6900),_Possessed)*_EmissionStrength);
+                float3 emissive = (lerp(float3(node_7201,node_7201,node_7201),(_Green.rgb*node_8597.rgb*node_5791.rgb*pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp)),_Possessed)*_EmissionStrength);
 /// Final Color:
                 float3 finalColor = diffuse + specular + emissive;
                 fixed4 finalRGBA = fixed4(finalColor,1);
@@ -323,8 +321,7 @@ Shader "Shader Forge/S_Prop" {
                 float3 specularColor = _Metallic;
                 float specularMonochrome;
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 node_6343 = (_MainTex_var.rgb*_Color.rgb);
-                float3 diffuseColor = node_6343; // Need this for specular when using metallic
+                float3 diffuseColor = (_MainTex_var.rgb*_Color.rgb); // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -427,17 +424,15 @@ Shader "Shader Forge/S_Prop" {
                 UNITY_INITIALIZE_OUTPUT( UnityMetaInput, o );
                 
                 float node_7201 = 0.0;
-                float4 node_6200 = _Time + _TimeEditor;
-                float2 node_3853 = (i.uv0+node_6200.g*float2(0.1,0.1));
+                float4 node_6109 = _Time + _TimeEditor;
+                float2 node_3853 = (i.uv0+node_6109.g*float2(0.1,0.1));
                 float4 node_8597 = tex2D(_Noise,TRANSFORM_TEX(node_3853, _Noise));
-                float2 node_7018 = (i.uv0+node_6200.g*float2(-0.1,-0.1));
+                float2 node_7018 = (i.uv0+node_6109.g*float2(-0.1,-0.1));
                 float4 node_5791 = tex2D(_Noise,TRANSFORM_TEX(node_7018, _Noise));
-                float node_6900 = pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp);
-                o.Emission = (lerp(float3(node_7201,node_7201,node_7201),(_Green.rgb*node_8597.rgb*node_5791.rgb*node_6900),_Possessed)*_EmissionStrength);
+                o.Emission = (lerp(float3(node_7201,node_7201,node_7201),(_Green.rgb*node_8597.rgb*node_5791.rgb*pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp)),_Possessed)*_EmissionStrength);
                 
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 node_6343 = (_MainTex_var.rgb*_Color.rgb);
-                float3 diffColor = node_6343;
+                float3 diffColor = (_MainTex_var.rgb*_Color.rgb);
                 float specularMonochrome;
                 float3 specColor;
                 diffColor = DiffuseAndSpecularFromMetallic( diffColor, _Metallic, specColor, specularMonochrome );
