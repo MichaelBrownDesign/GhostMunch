@@ -6,9 +6,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 
     public Transform[] m_players;
-//    public Transform Player2;
-//    public Transform Player3;
-//    public Transform Player4;
+
 
     public float lerpSpeed = 2.0f;
 
