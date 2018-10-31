@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Animation")]
+    public Animator m_AnimationController;
+
     [Header("Movement")]
     [Tooltip("The rate of increase in falling velocity due to gravity in m/s")]
     public float m_fGravityScale = 9.81f;
@@ -61,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
         m_fRollRecoveryPoint = m_fRollTime - ((m_fRecoveryPoint / 100.0f) * m_fRollTime);
 
         m_bUseInput = true;
+
+        if(m_AnimationController == null)
+        {
+            Debug.Log("PlayerMovement is missing AnimationController reference!");
+        }
 	}
 	
 	// Update is called once per frame
@@ -141,6 +149,12 @@ public class PlayerMovement : MonoBehaviour
 
             m_fCurrentRollTime -= Time.fixedDeltaTime;
             m_bIsRolling = m_fCurrentRollTime > 0.0f;
+
+            m_AnimationController.SetFloat("DashTime", 1.0f - m_fCurrentRollTime);
+
+            //Set Animation Parameters
+            if(!m_bIsRolling)
+                m_AnimationController.SetBool("IsDashing", false);
         }
 
         // Clamp input magnitude to 1..
@@ -238,6 +252,9 @@ public class PlayerMovement : MonoBehaviour
             m_fCurrentRollTime = m_fRollTime;
             m_v2RollDirection = m_v2InputMovement;
             m_v2RollRecoveryVel = Vector2.zero;
+
+            //Set Animation Parameters
+            m_AnimationController.SetBool("IsDashing", true);
         }
 
         // Update rotation.
