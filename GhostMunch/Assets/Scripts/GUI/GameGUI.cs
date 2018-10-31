@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameGUI : MonoBehaviour
 {
@@ -22,7 +23,11 @@ public class GameGUI : MonoBehaviour
     public RectTransform[] m_fullHungerBars;
     public GameObject m_gameOverPanel;
     public GameObject m_gameOverTextObj;
+    public GameObject m_playAgainButton;
     private Text m_gameOverText;
+
+    [Header("Misc")]
+    public EventSystem m_events;
 
 	// Use this for initialization
 	void Awake()
@@ -55,8 +60,8 @@ public class GameGUI : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		
-	}
+
+    }
 
     /*
     Description: Adjust the hunger bar display for the specified player to match the input value.

@@ -8,10 +8,10 @@ public class NewCameraMovement : MonoBehaviour
     public Transform[] m_players;
     public Transform m_mapOrigin;
 
-    public float m_fDist;
+    public float m_fDist = 1.0f;
     public float m_fEdgeGap;
 
-    private Vector3 m_v3OriginalPos;
+    private float m_fOriginalXRotation;
 
     private float m_fXMax;
     private float m_fXMin;
@@ -22,7 +22,7 @@ public class NewCameraMovement : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        m_v3OriginalPos = transform.position;
+        m_fOriginalXRotation = transform.rotation.eulerAngles.x;
 	}
 	
 	// Update is called once per frame
@@ -74,24 +74,30 @@ public class NewCameraMovement : MonoBehaviour
 
         Vector3 v3Dir = -transform.forward;
 
-        transform.position = Vector3.zero;
+        Vector3 v3LastFramePos = transform.position;
+
+        transform.position = Vector3.up * m_fDist;
+        transform.rotation = Quaternion.Euler(90, 0, 0);
 
         Vector3 v3ScreenDimensions = Camera.main.WorldToScreenPoint(v3BoundingDimensions);
 
-        float fZoomFactor = v3ScreenDimensions.magnitude / new Vector2(Screen.width, Screen.height).magnitude;
+        float fZoomFactorX = v3ScreenDimensions.x / Screen.width;
+        float fZoomFactorY = v3ScreenDimensions.y / Screen.height;
 
-        float fFinalFactor = fZoomFactor * m_fDist;
+        float fFinalFactor = 0.0f;
 
-        //if(fZoomFactorX >= fZoomFactorY)
-        //{
-        //    fFinalFactor = fZoomFactorX * m_fDist;
-        //}
-        //else
-        //{
-        //    fFinalFactor = fZoomFactorY * m_fDist;
-        //}
+        float fHalfDist = m_fDist * 2;
 
-        transform.position = v3MidPoint + (v3Dir * fFinalFactor);
+        if(fZoomFactorX >= fZoomFactorY)
+        {
+            fFinalFactor = fZoomFactorX * m_fDist * 2;
+        }
+        else
+        {
+            fFinalFactor = fZoomFactorY * m_fDist * 2;
+        }
 
+        transform.rotation = Quaternion.Euler(m_fOriginalXRotation, 0, 0);
+        transform.position = Vector3.Lerp(v3LastFramePos, v3MidPoint + (v3Dir * (fFinalFactor)), 0.1f); 
     }
 }

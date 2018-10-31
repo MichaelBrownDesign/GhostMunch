@@ -2,126 +2,90 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Camera)), ExecuteInEditMode]
-public class CameraMovement : MonoBehaviour {
-
+public class CameraMovement : MonoBehaviour
+{
+    [Header("Transforms")]
     public Transform[] m_players;
+    public Transform m_mapOrigin;
+
+    public float m_fZoomOutMult = 1.0f;
+
+    private float m_fOriginalXRotation;
+
+    // Min max X and Z values to calculate the player bounding box.
+    private float m_fXMax;
+    private float m_fXMin;
+    private float m_fZMax;
+    private float m_fZMin;
 
 
-    public float lerpSpeed = 2.0f;
-
-
-    //extra zoom out so that the units dont clip off the edge
-    public float DISTANCE_MARGIN = 10.0f;
-
-    private float m_fzoom;
-
-    private Vector3 middlePoint;
-    private float cameraDistance;
-    private float aspectRatio;
-    private float tanFov;
-
-    private float distanceBetweenPlayers;
-
-    private float m_timer;
-    private float m_fdist;
-
-    private float lerpDistance;
-
-    public float zCorrection = 15;
-    public float yCorrection = 20;
-
-    //private float 
-
-    private Camera m_Camera;
-
-
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Awake()
     {
-        m_Camera = GetComponent<Camera>();
-        aspectRatio = Screen.width / Screen.height;
-        tanFov = Mathf.Tan(Mathf.Deg2Rad * m_Camera.fieldOfView / 2.0f);
+        m_fOriginalXRotation = transform.rotation.eulerAngles.x;
+    }
 
-        GameObject[] playersInScene = GameObject.FindGameObjectsWithTag("Player");
+    // Update is called once per frame
+    void Update()
+    {
+        m_fXMax = 0.0f;
+        m_fXMin = 0.0f;
+        m_fZMax = 0.0f;
+        m_fZMin = 0.0f;
+
+        // Get min/max x/z offsets from the map origin of all players.
         for (int i = 0; i < m_players.Length; ++i)
         {
-            m_players[i] = playersInScene[i].transform;
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        m_timer = Time.deltaTime;
-        float interpolation = lerpSpeed * m_timer;
-        //positioning the camera
-        Vector3 newCameraPos = transform.position;
+            float fXDist = m_players[i].transform.position.x - m_mapOrigin.transform.position.x;
+            float fZDist = m_players[i].transform.position.z - m_mapOrigin.transform.position.z;
 
+            if (fXDist < m_fXMin)
+                m_fXMin = fXDist;
 
-        newCameraPos.x = Mathf.Lerp(this.transform.position.x, middlePoint.x, interpolation);
-        newCameraPos.z = Mathf.Lerp(this.transform.position.z, middlePoint.z - zCorrection, interpolation);
-        newCameraPos.y = Mathf.Lerp(this.transform.position.y, middlePoint.y + yCorrection, interpolation);
+            if (fXDist > m_fXMax)
+                m_fXMax = fXDist;
 
+            if (fZDist < m_fZMin)
+                m_fZMin = fZDist;
 
-        transform.position = newCameraPos;
-
-        //finding the middlepoint between players
-
-
-
-
-        //if 2 player
-        if (m_players.Length == 2)
-        {
-            middlePoint = (m_players[0].position + m_players[1].position) / 2;
-
-            float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
-
-            m_fzoom = f_dist1_2;
+            if (fZDist > m_fZMax)
+                m_fZMax = fZDist;
         }
 
-        //if 3 player
-        else if(m_players.Length == 3)
-        {
-            middlePoint = (m_players[0].position + m_players[1].position + m_players[2].position) / 3;
-          
-            float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
-            float f_dist1_3 = Vector3.Distance(m_players[0].position, m_players[2].position);
-            float f_dist2_3 = Vector3.Distance(m_players[1].position, m_players[2].position);
+        // Calculate new centre for the camera.
+        Vector3 v3MidPoint = Vector3.zero;
 
-          
-            m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist2_3);
-        }
+        v3MidPoint.x = (m_fXMax + m_fXMin) / 2;
+        v3MidPoint.z = (m_fZMax + m_fZMin) / 2;
 
-        //if 4 player
-        else if(m_players.Length == 4)
-        {
-        middlePoint = (m_players[0].position + m_players[1].position + m_players[2].position + m_players[3].position) / 4;
-       
-        float f_dist1_2 = Vector3.Distance(m_players[0].position, m_players[1].position);
-        float f_dist1_3 = Vector3.Distance(m_players[0].position, m_players[2].position);
-        float f_dist1_4 = Vector3.Distance(m_players[0].position, m_players[3].position);
-        float f_dist2_3 = Vector3.Distance(m_players[1].position, m_players[2].position);
-        float f_dist2_4 = Vector3.Distance(m_players[1].position, m_players[3].position);
-        float f_dist3_4 = Vector3.Distance(m_players[2].position, m_players[3].position);
-      
-        m_fzoom = Mathf.Max(f_dist1_2, f_dist1_3, f_dist1_4, f_dist2_3, f_dist2_4, f_dist3_4);
-        }
+        // Add map origin to midpoint to translate it to the correct position.
+        v3MidPoint += m_mapOrigin.transform.position;
 
+        // Calculate the bounding box all players reside within.
+        Vector3 v3BoundingDimensions = Vector3.zero;
 
-      
+        v3BoundingDimensions.x = Mathf.Sqrt(Mathf.Pow(m_fXMin, 2) + Mathf.Pow(m_fXMax, 2));
+        v3BoundingDimensions.z = Mathf.Sqrt(Mathf.Pow(m_fZMin, 2) + Mathf.Pow(m_fZMax, 2));
 
+        // Get position from last frame for later use.
+        Vector3 v3LastFramePos = transform.position;
 
-        //calculating the new distance
-        cameraDistance = (m_fzoom / 2.0f / aspectRatio) / tanFov;
-        //setting the camera to the new position
-        Vector3 dir = (transform.position - middlePoint).normalized;
+        // Temporarily move the camera to the origin and look down to get accuratre screen space values for the bounding box.
+        transform.position = Vector3.up * m_fZoomOutMult;
+        transform.rotation = Quaternion.Euler(90, 0, 0);
 
-        Vector3 v3FinalTarget = middlePoint + dir * (cameraDistance + DISTANCE_MARGIN);
+        // Get screen space dimensions of the box.
+        Vector3 v3ScreenDimensions = Camera.main.WorldToScreenPoint(v3BoundingDimensions);
 
+        // Get X and Y zoom factors.
+        float fZoomFactorX = v3ScreenDimensions.x / Screen.width;
+        float fZoomFactorY = v3ScreenDimensions.y / Screen.height;
 
-        transform.position = Vector3.Lerp(transform.position, v3FinalTarget, interpolation); 
+        // Use the highest zoom factor and multiply by the zoom out multiplier.
+        float fFinalFactor = Mathf.Max(fZoomFactorX, fZoomFactorY) * m_fZoomOutMult * 2;
 
-
+        // Reset rotation and lerp between the last frame position and the new position.
+        transform.rotation = Quaternion.Euler(m_fOriginalXRotation, 0, 0);
+        transform.position = Vector3.Lerp(v3LastFramePos, v3MidPoint + (-transform.forward * fFinalFactor), 0.1f);
     }
 }
