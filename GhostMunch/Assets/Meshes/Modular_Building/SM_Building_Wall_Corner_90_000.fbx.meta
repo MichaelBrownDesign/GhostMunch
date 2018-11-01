@@ -1,20 +1,17 @@
 fileFormatVersion: 2
-guid: e1e3381e1ac1c9345843d71aa4bafa08
-timeCreated: 1538712376
+guid: 3bd945e333b77c44ba2df88b185e16e8
+timeCreated: 1541046838
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: SM_Wall90
-    2100002: Wall_90_Lower
-    2100004: Wall_90_Top
-    2100006: blinn3
+    2100000: StingrayPBS47
+    2100002: StingrayPBS48
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_Wall90_000
-    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -89,7 +86,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

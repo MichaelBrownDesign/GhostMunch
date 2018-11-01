@@ -100,7 +100,7 @@ public class PostEffect : MonoBehaviour
         Graphics.Blit(currentSource, _destination, m_Bloom, m_ApplyBloomPass);
 
         RenderTexture.ReleaseTemporary(currentSource);
-
+        
 
         ///////
 

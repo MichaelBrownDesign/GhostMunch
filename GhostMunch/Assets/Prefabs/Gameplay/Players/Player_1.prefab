@@ -4956,7 +4956,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696843715224924}
   m_LocalRotation: {x: -0, y: 0.09070304, z: -0, w: 0.995878}
-  m_LocalPosition: {x: -38.79, y: 0.8, z: 25.26}
+  m_LocalPosition: {x: -4.24, y: 0.8, z: 13.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4651898375543646}
@@ -5704,7 +5704,7 @@ Animator:
   m_GameObject: {fileID: 1588795345700538}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 3b61feb0b4280c448b6b6d78e1487038, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88740546df5aad2419750d92bc53a852, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5723,7 +5723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3fbb01c5044a94da1252a2b62a8ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bUseKeyboard: 1
+  m_bUseKeyboard: 0
   m_ePlayerIndex: 0
   m_buttonBindings: 00000000010000000400000004000000040000000500000006000000070000000800000009000000
   m_buttonKeyBindings: 2000000065000000300100007300000077000000610000007300000064000000090000001b000000
@@ -5754,7 +5754,7 @@ MonoBehaviour:
   m_fStunForce: 10
   m_possessClip: {fileID: 8300000, guid: 49c7abf31b5572948a6ea7524731038c, type: 3}
   m_throwClip: {fileID: 0}
-  m_meshRoot: {fileID: 0}
+  m_meshRoot: {fileID: 1588795345700538}
 --- !u!114 &114806850577273404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5766,7 +5766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AnimationController: {fileID: 0}
+  m_AnimationController: {fileID: 95517552055764120}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 7
@@ -5841,7 +5841,7 @@ SkinnedMeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   serializedVersion: 2
-  m_Quality: 0
+  m_Quality: 4
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300004, guid: 3b61feb0b4280c448b6b6d78e1487038, type: 3}
