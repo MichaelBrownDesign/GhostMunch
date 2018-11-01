@@ -315,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 44698509}
   - component: {fileID: 44698510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2048,6 +2048,91 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &277475779 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1819324356341412, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3,
+    type: 2}
+  m_PrefabInternal: {fileID: 780777264}
+--- !u!82 &277475785
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277475779}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0.7
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &278113709
 Prefab:
   m_ObjectHideFlags: 0
@@ -2142,7 +2227,7 @@ GameObject:
   - component: {fileID: 278406944}
   - component: {fileID: 278406946}
   - component: {fileID: 278406945}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_000 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2713,6 +2798,91 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 4.2534285, z: 4.0003767}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &339463030 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1819324356341412, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1913698404}
+--- !u!82 &339463036
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339463030}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0.7
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &356992653
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,7 +3056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400100116}
   - component: {fileID: 400100117}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3204,7 +3374,7 @@ GameObject:
   - component: {fileID: 437113909}
   - component: {fileID: 437113911}
   - component: {fileID: 437113910}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_Corner_90_000 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3290,6 +3460,91 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1.2
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!1 &451251785 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1819324356341412, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1284897550}
+--- !u!82 &451251791
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451251785}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0.7
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -3814,7 +4069,7 @@ GameObject:
   - component: {fileID: 493670758}
   - component: {fileID: 493670760}
   - component: {fileID: 493670759}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_000 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4146,7 +4401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510872158}
   - component: {fileID: 510872159}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4354,7 +4609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 547412029}
   - component: {fileID: 547412030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4992,11 +5247,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4366616204855386, guid: 63a1df32b5e6e4d4d98b04668cbec1f2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 22.786354
+      value: 21.313614
       objectReference: {fileID: 0}
     - target: {fileID: 4366616204855386, guid: 63a1df32b5e6e4d4d98b04668cbec1f2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 11.183414
+      value: 11.674325
       objectReference: {fileID: 0}
     - target: {fileID: 4366616204855386, guid: 63a1df32b5e6e4d4d98b04668cbec1f2, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7114,7 +7369,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.8966398
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7122,7 +7377,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -8.11492
+      value: -4.76
       objectReference: {fileID: 0}
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7149,6 +7404,11 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114950351074793602, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3,
+        type: 2}
+      propertyPath: m_audioOnEat
+      value: 
+      objectReference: {fileID: 8300000, guid: 65e889f871413024d97f4b26ec730846, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
   m_IsPrefabParent: 0
@@ -7162,7 +7422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 781763223}
   - component: {fileID: 781763224}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8429,7 +8689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897408276}
   - component: {fileID: 897408277}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8915,7 +9175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 968638708}
   - component: {fileID: 968638709}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9034,7 +9294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983975820}
   - component: {fileID: 983975821}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9330,7 +9590,7 @@ GameObject:
   - component: {fileID: 1030182751}
   - component: {fileID: 1030182753}
   - component: {fileID: 1030182752}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_Cap_000 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10040,7 +10300,7 @@ GameObject:
   - component: {fileID: 1094336817}
   - component: {fileID: 1094336819}
   - component: {fileID: 1094336818}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_000 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10359,7 +10619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1113251545}
   - component: {fileID: 1113251546}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10599,7 +10859,7 @@ GameObject:
   - component: {fileID: 1133852105}
   - component: {fileID: 1133852107}
   - component: {fileID: 1133852106}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_000 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10758,7 +11018,7 @@ GameObject:
   - component: {fileID: 1148929710}
   - component: {fileID: 1148929712}
   - component: {fileID: 1148929711}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_000 (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11828,7 +12088,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.0990057
+      value: 18.29
       objectReference: {fileID: 0}
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -11836,7 +12096,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.116873
+      value: -3.95
       objectReference: {fileID: 0}
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -11867,6 +12127,11 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114950351074793602, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3,
+        type: 2}
+      propertyPath: m_audioOnEat
+      value: 
+      objectReference: {fileID: 8300000, guid: 65e889f871413024d97f4b26ec730846, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
   m_IsPrefabParent: 0
@@ -11880,7 +12145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1285401865}
   - component: {fileID: 1285401866}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12487,7 +12752,7 @@ GameObject:
   - component: {fileID: 1408042036}
   - component: {fileID: 1408042038}
   - component: {fileID: 1408042037}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_Cap_000 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12623,7 +12888,7 @@ GameObject:
   - component: {fileID: 1414873506}
   - component: {fileID: 1414873508}
   - component: {fileID: 1414873507}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_Cap_000 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15577,7 +15842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1715349627}
   - component: {fileID: 1715349628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16322,7 +16587,7 @@ GameObject:
   - component: {fileID: 1758045598}
   - component: {fileID: 1758045600}
   - component: {fileID: 1758045599}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_000 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17839,7 +18104,7 @@ GameObject:
   - component: {fileID: 1900463558}
   - component: {fileID: 1900463560}
   - component: {fileID: 1900463559}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_Cap_000 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17915,7 +18180,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.0990057
+      value: 15.19
       objectReference: {fileID: 0}
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -17923,7 +18188,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10.116873
+      value: -12.19
       objectReference: {fileID: 0}
     - target: {fileID: 4420510547959160, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -17954,6 +18219,11 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114950351074793602, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3,
+        type: 2}
+      propertyPath: m_audioOnEat
+      value: 
+      objectReference: {fileID: 8300000, guid: 65e889f871413024d97f4b26ec730846, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c726faa5472cdf4ea2cce2cfbfd9eb3, type: 2}
   m_IsPrefabParent: 0
@@ -18062,7 +18332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1922905360}
   - component: {fileID: 1922905361}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19118,7 +19388,7 @@ GameObject:
   - component: {fileID: 2027057123}
   - component: {fileID: 2027057125}
   - component: {fileID: 2027057124}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_000 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19278,7 +19548,7 @@ GameObject:
   - component: {fileID: 2045730229}
   - component: {fileID: 2045730231}
   - component: {fileID: 2045730230}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_000 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19571,7 +19841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2070717459}
   - component: {fileID: 2070717460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20117,7 +20387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2126573565}
   - component: {fileID: 2126573566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
