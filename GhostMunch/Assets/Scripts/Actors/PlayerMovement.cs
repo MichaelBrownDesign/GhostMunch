@@ -220,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
 
             m_v3TargetRotation.z = 0.0f;
         }
-        else // Rotate to face movement direction (If free look is disabled).
+        else if(m_fInputMagnitude > 0.07f)// Rotate to face movement direction (If free look is disabled).
         {
             m_v3TargetRotation.x = 0.0f;
 

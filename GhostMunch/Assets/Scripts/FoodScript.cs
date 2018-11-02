@@ -34,7 +34,10 @@ public class FoodScript : MonoBehaviour
     public float m_fUndoRate = 0.2f;
     public GameObject m_eatUIPrefab;
 
+    [Header("GUI")]
     private GameObject m_eatUIInstance;
+    private Transform m_eatUINode;
+    private RectTransform[] m_eatUIImages;
     private Image m_progressImage;
     private float m_fEatProgress;
 
@@ -82,12 +85,21 @@ public class FoodScript : MonoBehaviour
         m_eatUIInstance = Instantiate(m_eatUIPrefab);
         m_eatUIInstance.transform.position = transform.position;
         m_eatUIInstance.SetActive(false);
+
+        m_eatUINode = m_eatUIInstance.transform.GetChild(1);
+
+        m_eatUIImages = new RectTransform[3];
+
+        for(int i = 0; i < 3; ++i)
+        {
+            m_eatUIImages[i] = m_eatUIInstance.transform.GetChild(0).transform.GetChild(i).GetComponent<RectTransform>();
+        }
+
         m_progressImage = m_eatUIInstance.GetComponentsInChildren<Image>()[1];
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update()    {
         // Respawning...
         m_fCurrentRspwnTime -= Time.deltaTime;
 
@@ -109,10 +121,22 @@ public class FoodScript : MonoBehaviour
 
         if (fDistFromHuman < m_fEatRadius && !m_bEaten)
         {
+            // Scale eat UI based on camera zoom.
+            float fCamZoomfactor = CameraMovement.GetZoomFactor() / 9.0f;
+
+            m_eatUIInstance.transform.localScale = new Vector3(fCamZoomfactor, fCamZoomfactor, 1.0f);
+
             // Ensure eat UI is shown when within the eat radius.
             if(!m_eatUIInstance.activeInHierarchy)
                 m_eatUIInstance.SetActive(true);
+
             m_eatUIInstance.transform.position = transform.position;
+
+            Vector3 v3ScreenSpaceUIPos = Camera.main.WorldToScreenPoint(m_eatUINode.transform.position);
+            for(int i = 0; i < 3; ++i)
+            {
+                m_eatUIImages[i].position = v3ScreenSpaceUIPos;
+            }
 
             // Check for input.
             bool bInputPassed = (!m_humanInput.m_bUseKeyboard && m_humanInput.GetAxisLast(0) < 0.2f && m_humanInput.GetAxis(0) >= 0.2f)

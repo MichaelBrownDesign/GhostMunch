@@ -18,6 +18,7 @@ public class Possessible : MonoBehaviour
 
     // Object flight
     [Header("Flight")]
+    public Collider m_thrownCollider;
     public float m_fHeightOffset;
     public float m_fRotationSpeed = 5.0f;
     public bool m_bRotateX = true;
@@ -126,6 +127,17 @@ public class Possessible : MonoBehaviour
 
         // Disable possessed effect.
         m_fPossessFade = 0.0f;
+
+        // Swap colliders.
+        if (m_thrownCollider != null)
+        {
+            m_collider.enabled = false;
+            m_thrownCollider.enabled = true;
+        }
+        else
+        {
+            m_collider.enabled = true;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -136,6 +148,9 @@ public class Possessible : MonoBehaviour
             m_rigidbody.isKinematic = true;
             m_renderer.enabled = false;
             m_collider.enabled = false;
+
+            if (m_thrownCollider != null)
+                m_thrownCollider.enabled = false;
 
             if(m_breakEffect != null)
             {
@@ -175,14 +190,18 @@ public class Possessible : MonoBehaviour
         // Enable rendering.
         m_renderer.enabled = true;
 
-        // Enable collision.
-        m_collider.enabled = true;
-
         // Mark as possessed no longer.
         m_bPossessed = false;
 
         // Mark as thrown no longer.
         m_bThown = false;
+
+        // Reset colliders.
+        m_collider.enabled = true;
+        if (m_collider != null && m_thrownCollider != null)
+        {
+            m_thrownCollider.enabled = false;
+        }
 
         // Reset collision layer to default.
         gameObject.layer = 11;

@@ -18,6 +18,7 @@ public class CameraMovement : MonoBehaviour
     private float m_fZMax;
     private float m_fZMin;
 
+    private static float m_fFinalZoomFactor = 0.0f;
 
     // Use this for initialization
     void Awake()
@@ -81,11 +82,18 @@ public class CameraMovement : MonoBehaviour
         float fZoomFactorX = v3ScreenDimensions.x / Screen.width;
         float fZoomFactorY = v3ScreenDimensions.y / Screen.height;
 
+        m_fFinalZoomFactor = Mathf.Max(fZoomFactorX, fZoomFactorY);
+
         // Use the highest zoom factor and multiply by the zoom out multiplier.
-        float fFinalFactor = Mathf.Max(fZoomFactorX, fZoomFactorY) * m_fZoomOutMult * 2;
+        float fFinalFactor = m_fFinalZoomFactor * m_fZoomOutMult * 2;
 
         // Reset rotation and lerp between the last frame position and the new position.
         transform.rotation = Quaternion.Euler(m_fOriginalXRotation, 0, 0);
         transform.position = Vector3.Lerp(v3LastFramePos, v3MidPoint + (-transform.forward * fFinalFactor), 0.1f);
+    }
+
+    public static float GetZoomFactor()
+    {
+        return m_fFinalZoomFactor;
     }
 }

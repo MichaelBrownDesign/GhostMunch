@@ -107,8 +107,8 @@ public class BackgroundCamera : MonoBehaviour
 
         m_BackgroundMaterial.SetTexture("_BlurTex", m_OriginalSource);
         m_BackgroundMaterial.SetTexture("_MainTex", bloomFinal);
-        Graphics.Blit(bloomFinal, _destination, m_BackgroundMaterial);
-
+        Graphics.Blit(m_OriginalSource, _destination, m_BackgroundMaterial);
+        m_OriginalSource = bloomFinal;
         RenderTexture.ReleaseTemporary(bloomFinal);
         //RenderTexture.ReleaseTemporary(originalSource);
         RenderTexture.ReleaseTemporary(currentSource);

@@ -229,7 +229,7 @@ public class Player : MonoBehaviour
 
         bool bHit = Physics.BoxCast
         (
-            transform.position, m_v3PossessionBox, 
+            transform.position - Vector3.up, m_v3PossessionBox, 
             transform.forward, 
             out hit, 
             Quaternion.LookRotation(transform.forward), m_fPossessionRange / 2.5f, -1, QueryTriggerInteraction.Ignore
@@ -237,7 +237,7 @@ public class Player : MonoBehaviour
 
         if(bHit)
         {
-            Debug.DrawLine(transform.position, hit.point);
+            Debug.DrawLine(transform.position - Vector3.up, hit.point);
 
             bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
 
@@ -430,9 +430,6 @@ public class Player : MonoBehaviour
         m_possessedObj.transform.parent = null;
         m_objectRigidbody.isKinematic = false;
         m_objectRigidbody.useGravity = false;
-
-        // Enable object collision...
-        m_objectCollider.enabled = true;
 
         // Thow object.
         m_objectRigidbody.velocity = transform.forward * m_fThrowForce;
