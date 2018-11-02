@@ -20,6 +20,10 @@ public class CameraMovement : MonoBehaviour
 
     private static float m_fFinalZoomFactor = 0.0f;
 
+    public float m_fZoomSpeed = 0.1f;
+    public float m_fMinDistance = 10.0f;
+    public float m_fMaxDistance = 50.0f;
+
     // Use this for initialization
     void Awake()
     {
@@ -89,7 +93,7 @@ public class CameraMovement : MonoBehaviour
 
         // Reset rotation and lerp between the last frame position and the new position.
         transform.rotation = Quaternion.Euler(m_fOriginalXRotation, 0, 0);
-        transform.position = Vector3.Lerp(v3LastFramePos, v3MidPoint + (-transform.forward * fFinalFactor), 0.1f);
+        transform.position = Vector3.Lerp(v3LastFramePos, v3MidPoint + (-transform.forward * Mathf.Clamp(fFinalFactor, m_fMinDistance, m_fMaxDistance)), m_fZoomSpeed);
     }
 
     public static float GetZoomFactor()

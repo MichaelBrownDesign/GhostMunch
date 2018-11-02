@@ -258,6 +258,8 @@ public class Player : MonoBehaviour
             PauseMenu pauseScript = m_gui.GetComponent<PauseMenu>();
             pauseScript.SetPaused(!pauseScript.GetIsPaused());
         }
+
+        m_movement.m_AnimationController.SetBool("IsStunned", m_bStunned);
     }
 
     /*

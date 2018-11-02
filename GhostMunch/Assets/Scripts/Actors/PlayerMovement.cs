@@ -230,6 +230,8 @@ public class PlayerMovement : MonoBehaviour
 
             m_v3TargetRotation.z = 0.0f;
         }
+
+        m_AnimationController.SetFloat("Speed", m_fInputMagnitude);
     }
 
     void Update()

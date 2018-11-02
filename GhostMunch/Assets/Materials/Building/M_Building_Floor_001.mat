@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M_Building_Floor_000
+  m_Name: M_Building_Floor_001
   m_Shader: {fileID: 4800000, guid: 89bdc92b750b7ac4d835c31f9850e2f5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -36,7 +36,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Diffuse:
         m_Texture: {fileID: 2800000, guid: 6960b57eebb46b6429516efe723c6631, type: 3}
-        m_Scale: {x: 3, y: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}

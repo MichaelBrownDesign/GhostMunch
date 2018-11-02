@@ -43,6 +43,7 @@ public class PostEffect : MonoBehaviour
         //Graphics.Blit(_source, _destination, m_PostEffect);
 
         
+
         if (m_Bloom == null)
         {
             m_Bloom = new Material(m_BloomShader);
