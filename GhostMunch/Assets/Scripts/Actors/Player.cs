@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     // Possession
     [Header("Possession")]
     public float m_fPossessionRange = 7.0f;
-    public Vector3 m_v3PossessionBox = Vector3.one;
 
     // Throwing
     [Header("Throwing")]
@@ -118,9 +117,6 @@ public class Player : MonoBehaviour
         // Set to player 4 for controller input if using keyboard.
         if (m_input.m_bUseKeyboard)
             m_input.m_ePlayerIndex = XInputDotNetPure.PlayerIndex.Four;
-
-        // Ensure the possession box z is 0.1, otherwise the box cast may behave incorrectly.
-        m_v3PossessionBox.z = 0.1f;
     }
 
     // Update is called once per frame
@@ -227,17 +223,17 @@ public class Player : MonoBehaviour
         // Perform a box cast to check for the closest possessible object.
         RaycastHit hit;
 
-        bool bHit = Physics.BoxCast
+        bool bHit = Physics.Raycast
         (
-            transform.position - Vector3.up, m_v3PossessionBox, 
+            transform.position, 
             transform.forward, 
             out hit, 
-            Quaternion.LookRotation(transform.forward), m_fPossessionRange / 2.5f, -1, QueryTriggerInteraction.Ignore
+            15
         );
 
         if(bHit)
         {
-            Debug.DrawLine(transform.position - Vector3.up, hit.point);
+            Debug.DrawLine(transform.position, hit.point);
 
             bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
 

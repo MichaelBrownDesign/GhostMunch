@@ -4955,15 +4955,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696843715224924}
-  m_LocalRotation: {x: -0, y: 0.09070304, z: -0, w: 0.995878}
-  m_LocalPosition: {x: -4.24, y: 0.8, z: 13.54}
+  m_LocalRotation: {x: -0, y: 0.99968165, z: -0, w: -0.025230488}
+  m_LocalPosition: {x: 2.0615032, y: 0.69, z: 1.9810395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4651898375543646}
   - {fileID: 4715362642734972}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 10.408001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 182.892, z: 0}
 --- !u!4 &4772521746350166
 Transform:
   m_ObjectHideFlags: 1
@@ -5723,10 +5723,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3fbb01c5044a94da1252a2b62a8ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bUseKeyboard: 0
+  m_bUseKeyboard: 1
   m_ePlayerIndex: 0
   m_buttonBindings: 00000000010000000400000004000000040000000500000006000000070000000800000009000000
-  m_buttonKeyBindings: 2000000065000000300100007300000077000000610000007300000064000000090000001b000000
+  m_buttonKeyBindings: 6500000020000000300100007300000077000000610000007300000064000000090000001b000000
   m_axisBindings: 010000000000000002000000040000000300000005000000
 --- !u!114 &114597232834359116
 MonoBehaviour:
@@ -5741,7 +5741,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nScore: 0
   m_fPossessionRange: 7
-  m_v3PossessionBox: {x: 1, y: 1, z: 1}
   m_fThrowForce: 25
   m_fThrowCooldown: 0.5
   m_pointer: {fileID: 1635078813018058}

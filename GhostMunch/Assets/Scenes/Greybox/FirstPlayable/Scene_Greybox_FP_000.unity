@@ -231,6 +231,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -583,6 +584,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 8300000, guid: a6e82560c7294d74cade8f534e8b1588, type: 3}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &9298164
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1828,8 +1833,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 47240195}
-  m_LocalRotation: {x: 0.5000001, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: -17.18, y: 10, z: -10}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: -13.211441, y: 16.564186, z: -16.642693}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 161481762}
@@ -1866,14 +1871,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_players:
-  - {fileID: 2078812399}
-  - {fileID: 1023178435}
   - {fileID: 161481761}
+  - {fileID: 1023178435}
   - {fileID: 1094632739}
-  lerpSpeed: 2
-  DISTANCE_MARGIN: 0
-  zCorrection: 15
-  yCorrection: 20
+  - {fileID: 2078812399}
+  m_mapOrigin: {fileID: 94290927}
+  m_fZoomOutMult: 1
 --- !u!81 &47240199
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2423,6 +2426,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -2599,6 +2603,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -2933,8 +2938,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 94290926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.63, y: -3.7761002, z: -5.179001}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: -48.63, y: 0, z: -5.179001}
+  m_LocalScale: {x: 100, y: 10, z: 100}
   m_Children:
   - {fileID: 1870992395}
   m_Father: {fileID: 2031208142}
@@ -4326,7 +4331,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1132991012}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -106.49, y: 7.23, z: 100.7}
+  m_LocalPosition: {x: -144.9, y: 3.3, z: 100.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 47240196}
@@ -5505,6 +5510,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 0}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &216166546
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6339,6 +6348,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -7112,6 +7122,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -8498,6 +8509,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -8692,6 +8704,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -9107,6 +9120,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -9608,6 +9622,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -10304,6 +10319,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 0}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &416796252
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10865,6 +10884,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -11109,6 +11129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 3
@@ -11955,6 +11976,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -12591,6 +12613,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 8300000, guid: a6e82560c7294d74cade8f534e8b1588, type: 3}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &478267310
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13799,6 +13825,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -14555,6 +14582,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -15179,6 +15207,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 8300000, guid: a6e82560c7294d74cade8f534e8b1588, type: 3}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &570876737
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16144,6 +16176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 5
@@ -17210,6 +17243,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 1
   m_fRotationSpeed: 5
   m_bRotateX: 1
@@ -18053,6 +18087,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -20914,6 +20949,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -22957,6 +22993,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -23488,6 +23525,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -23829,6 +23867,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -24513,6 +24552,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -24728,6 +24768,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -25183,7 +25224,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 907937971}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -108.76587, y: 8.693259, z: 96.65}
+  m_LocalPosition: {x: -108.76587, y: 0, z: 96.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2031208142}
@@ -26029,6 +26070,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -27321,6 +27363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 6
@@ -27398,6 +27441,7 @@ MonoBehaviour:
   m_fStunForce: 10
   m_possessClip: {fileID: 8300000, guid: 8e50651a5b528794f92db969e8f9d8a7, type: 3}
   m_throwClip: {fileID: 8300000, guid: d5847b58ad56c2e4d8fd1d2d68ec1053, type: 3}
+  m_meshRoot: {fileID: 0}
 --- !u!143 &975638006
 CharacterController:
   m_ObjectHideFlags: 0
@@ -28409,6 +28453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 6
@@ -28486,6 +28531,7 @@ MonoBehaviour:
   m_fStunForce: 10
   m_possessClip: {fileID: 8300000, guid: 8e50651a5b528794f92db969e8f9d8a7, type: 3}
   m_throwClip: {fileID: 8300000, guid: d5847b58ad56c2e4d8fd1d2d68ec1053, type: 3}
+  m_meshRoot: {fileID: 0}
 --- !u!143 &1023178434
 CharacterController:
   m_ObjectHideFlags: 0
@@ -29701,6 +29747,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 0}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &1067984513
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30350,6 +30400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 6
@@ -30427,6 +30478,7 @@ MonoBehaviour:
   m_fStunForce: 10
   m_possessClip: {fileID: 8300000, guid: 8e50651a5b528794f92db969e8f9d8a7, type: 3}
   m_throwClip: {fileID: 8300000, guid: d5847b58ad56c2e4d8fd1d2d68ec1053, type: 3}
+  m_meshRoot: {fileID: 0}
 --- !u!143 &1094632738
 CharacterController:
   m_ObjectHideFlags: 0
@@ -30635,6 +30687,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -30827,6 +30880,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -31795,6 +31849,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -32193,6 +32248,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -32598,6 +32654,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -32941,6 +32998,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -34072,6 +34130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 5
@@ -34155,6 +34214,7 @@ MonoBehaviour:
   m_fStunForce: 10
   m_possessClip: {fileID: 0}
   m_throwClip: {fileID: 0}
+  m_meshRoot: {fileID: 0}
 --- !u!143 &1226457459
 CharacterController:
   m_ObjectHideFlags: 0
@@ -35932,6 +35992,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -37209,6 +37270,8 @@ MonoBehaviour:
   - {fileID: 496994152}
   m_gameOverPanel: {fileID: 988497849}
   m_gameOverTextObj: {fileID: 1680528344}
+  m_playAgainButton: {fileID: 0}
+  m_events: {fileID: 0}
 --- !u!114 &1355963499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38363,12 +38426,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pointer: {fileID: 329830849}
   m_footsteps:
-  - {fileID: 8300000, guid: 8549a495eb7e45847afd721d4bdff608, type: 3}
-  - {fileID: 8300000, guid: 10af7cd149a986b43aae21f538ed32dc, type: 3}
-  - {fileID: 8300000, guid: e4d584bc25f2f624390b59ea59f7041a, type: 3}
-  - {fileID: 8300000, guid: 7644d719ff293b347a819e830e6b1cb7, type: 3}
-  - {fileID: 8300000, guid: cc61eab2b1b55dd48a903003d2b120c2, type: 3}
-  - {fileID: 8300000, guid: c240ca0904b94ef42b9b1a47a7d1eb1f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_hitClip: {fileID: 8300000, guid: 37841efff7d0b8749aca1568ebf35146, type: 3}
   m_fFootstepInterval: 0.3
   m_fMinPitch: 0.8
@@ -38385,6 +38448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 6
@@ -38954,6 +39018,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -39225,6 +39290,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -39456,6 +39522,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 0}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &1409382449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39830,6 +39900,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -40111,6 +40182,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -40732,6 +40804,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -42555,6 +42628,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -42627,10 +42701,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_players: []
-  lerpSpeed: 2
-  DISTANCE_MARGIN: 10
-  zCorrection: 15
-  yCorrection: 20
+  m_mapOrigin: {fileID: 0}
+  m_fZoomOutMult: 1
 --- !u!81 &1567054939
 AudioListener:
   m_ObjectHideFlags: 0
@@ -42966,6 +43038,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -43204,6 +43277,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -43999,6 +44073,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -45101,6 +45176,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 8300000, guid: a6e82560c7294d74cade8f534e8b1588, type: 3}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &1625969671
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -47143,6 +47222,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -47467,6 +47547,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -47912,6 +47993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 3
@@ -47995,6 +48077,7 @@ MonoBehaviour:
   m_fStunForce: 10
   m_possessClip: {fileID: 0}
   m_throwClip: {fileID: 0}
+  m_meshRoot: {fileID: 0}
 --- !u!143 &1706392562
 CharacterController:
   m_ObjectHideFlags: 0
@@ -52862,6 +52945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 3
@@ -52945,6 +53029,7 @@ MonoBehaviour:
   m_fStunForce: 10
   m_possessClip: {fileID: 0}
   m_throwClip: {fileID: 0}
+  m_meshRoot: {fileID: 0}
 --- !u!143 &1757621151
 CharacterController:
   m_ObjectHideFlags: 0
@@ -57599,6 +57684,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -57785,10 +57871,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_players: []
-  lerpSpeed: 2
-  DISTANCE_MARGIN: 0
-  zCorrection: 15
-  yCorrection: 20
+  m_mapOrigin: {fileID: 0}
+  m_fZoomOutMult: 1
 --- !u!81 &1836775049
 AudioListener:
   m_ObjectHideFlags: 0
@@ -57930,6 +58014,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 0}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &1852208178
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -58669,6 +58757,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -59765,6 +59854,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -59900,6 +59990,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -60865,6 +60956,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -61069,6 +61161,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -62330,6 +62423,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 1
   m_fRotationSpeed: 5
   m_bRotateX: 1
@@ -62616,6 +62710,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -63453,6 +63548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 5
@@ -63536,6 +63632,7 @@ MonoBehaviour:
   m_fStunForce: 10
   m_possessClip: {fileID: 0}
   m_throwClip: {fileID: 0}
+  m_meshRoot: {fileID: 0}
 --- !u!143 &2040540126
 CharacterController:
   m_ObjectHideFlags: 0
@@ -64063,6 +64160,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -64867,6 +64965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 6
@@ -64944,6 +65043,7 @@ MonoBehaviour:
   m_fStunForce: 10
   m_possessClip: {fileID: 8300000, guid: 8e50651a5b528794f92db969e8f9d8a7, type: 3}
   m_throwClip: {fileID: 8300000, guid: d5847b58ad56c2e4d8fd1d2d68ec1053, type: 3}
+  m_meshRoot: {fileID: 0}
 --- !u!143 &2078812398
 CharacterController:
   m_ObjectHideFlags: 0
@@ -65218,6 +65318,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -65364,6 +65465,10 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 0}
+  m_fMashStrength: 0.3
+  m_fEatRadius: 2
+  m_fUndoRate: 0.2
+  m_eatUIPrefab: {fileID: 0}
 --- !u!54 &2088256563
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -65633,6 +65738,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1
@@ -66798,6 +66904,7 @@ MonoBehaviour:
     type: 2}
   m_breakEffect: {fileID: 1217013916747224, guid: eb62b0ec41f15fa488f941d44e058ceb,
     type: 2}
+  m_material: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 750
   m_bRotateX: 1

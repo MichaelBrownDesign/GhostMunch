@@ -234,17 +234,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Jumping (Had to put this in Update instead of FixedUpdate() due to jumping sometimes failing due to mismatching framerates between the two functions).
-        if (m_bIsGrounded && m_bAllowJump && m_bUseInput && m_input.GetButton(1))
-        {
-            m_v3Velocity.y = m_fJumpForce;
-        }
-
         // Count down roll delay.
         m_fCurrentRollDelay -= Time.deltaTime;
 
         // Rolling...
-        if(!m_bIsRolling && m_bIsGrounded && m_bIsMoving && m_bUseInput && m_fCurrentRollDelay <= 0.0f && m_input.GetButton(0))
+        if(!m_bIsRolling && m_bIsGrounded && m_bIsMoving && m_bUseInput && m_fCurrentRollDelay <= 0.0f && m_input.GetButton(1))
         {
             m_bIsRolling = true;
 

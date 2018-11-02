@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1178481204504500}
   m_LocalRotation: {x: -0, y: 0.000000104308114, z: -0, w: -1}
-  m_LocalPosition: {x: -2.1901987, y: 1.025, z: 23.637287}
+  m_LocalPosition: {x: 4.32, y: 1.024649, z: -7.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4764682828430380}
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_bUseKeyboard: 0
   m_ePlayerIndex: 0
   m_buttonBindings: 00000000010000000400000004000000040000000500000006000000070000000800000009000000
-  m_buttonKeyBindings: 2000000065000000300100007300000077000000610000007300000064000000090000001b000000
+  m_buttonKeyBindings: 6500000020000000300100007300000077000000610000007300000064000000090000001b000000
   m_axisBindings: 010000000000000002000000040000000300000005000000
 --- !u!114 &114655756117000882
 MonoBehaviour:
@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 7

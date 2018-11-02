@@ -4090,15 +4090,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1489131605161270}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.09, y: 0.54, z: 9.53}
+  m_LocalRotation: {x: -0, y: 0.6852227, z: -0, w: 0.7283337}
+  m_LocalPosition: {x: -6.35, y: 0.54, z: -6.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4221011180292264}
   - {fileID: 4645717981070290}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 10.408001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 86.506004, z: 0}
 --- !u!4 &4462990435195584
 Transform:
   m_ObjectHideFlags: 1
@@ -5645,7 +5645,7 @@ MonoBehaviour:
   m_bUseKeyboard: 0
   m_ePlayerIndex: 1
   m_buttonBindings: 00000000010000000400000004000000040000000500000006000000070000000800000009000000
-  m_buttonKeyBindings: 2000000065000000300100007300000077000000610000007300000064000000090000001b000000
+  m_buttonKeyBindings: 6500000020000000300100007300000077000000610000007300000064000000090000001b000000
   m_axisBindings: 010000000000000002000000040000000300000005000000
 --- !u!114 &114435626755772920
 MonoBehaviour:
@@ -5660,7 +5660,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nScore: 0
   m_fPossessionRange: 7
-  m_v3PossessionBox: {x: 1, y: 1, z: 1}
   m_fThrowForce: 25
   m_fThrowCooldown: 0.5
   m_pointer: {fileID: 1333568129064652}
@@ -5685,6 +5684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfc1a9fc53a47344a8390153712a67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AnimationController: {fileID: 95063503177547736}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
   m_fMoveSpeed: 7

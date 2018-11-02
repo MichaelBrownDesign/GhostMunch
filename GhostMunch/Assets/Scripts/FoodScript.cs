@@ -139,7 +139,7 @@ public class FoodScript : MonoBehaviour
             }
 
             // Check for input.
-            bool bInputPassed = (!m_humanInput.m_bUseKeyboard && m_humanInput.GetAxisLast(0) < 0.2f && m_humanInput.GetAxis(0) >= 0.2f)
+            bool bInputPassed = (!m_humanInput.m_bUseKeyboard && m_humanInput.GetButton(0))
                 || (m_humanInput.m_bUseKeyboard && m_humanInput.GetButton(2));
 
             if (bInputPassed)
