@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using XInputDotNetPure;
 
+[RequireComponent(typeof(AudioSource))]
 
 public class PauseMenu : MonoBehaviour {
 
@@ -14,14 +15,24 @@ public class PauseMenu : MonoBehaviour {
     public EventSystem m_events;
     private bool m_bPaused;
 
-	// Use this for initialization
-	void Awake()
+    [Header("Audio")]
+
+    public AudioClip m_audioOnResume;
+    public AudioClip m_audioOnRestart;
+    public AudioClip m_audioOnOptions;
+    public AudioClip m_audioOnMainMenu;
+
+    private AudioSource m_audioSource;
+
+    // Use this for initialization
+    void Awake()
     {
-        
+        m_audioSource = GetComponent<AudioSource>();
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
         if (m_bPaused && m_events.currentSelectedGameObject == null)
         {
@@ -36,6 +47,9 @@ public class PauseMenu : MonoBehaviour {
 
     public void Resume()
     {
+        if (m_audioOnResume != null)
+            m_audioSource.PlayOneShot(m_audioOnResume);
+
         SetPaused(false);
     }
 

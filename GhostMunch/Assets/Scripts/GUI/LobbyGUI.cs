@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using XInputDotNetPure;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class LobbyGUI : MonoBehaviour
 {
     // GUI
+    public GameObject m_lobbyGui;
     public GameObject m_mainMenuCanvas;
     public GameObject[] m_playerPanels;
     public Button m_playButton;
@@ -19,9 +22,20 @@ public class LobbyGUI : MonoBehaviour
     private GamePadState[] m_prevPlayerStates;
     private Text[] m_textObjs;
 
+    [Header("Audio")]
+    public AudioClip m_audioOnPlay;
+    public AudioClip m_audioOnBack;
+    public AudioClip m_audioOnJoin;
+    public AudioClip m_audioOnLeave;
+    private AudioSource m_audioSource;
+
     private void Awake()
     {
+
         m_players = new LinkedList<int>();
+
+        m_audioSource = GetComponent<AudioSource>();
+
 
         // Initialize arrays.
         m_playerStates = new GamePadState[4];
@@ -64,11 +78,17 @@ public class LobbyGUI : MonoBehaviour
                 if (bSpacePressed && i == 4) // If potential keyboard player...
                 {
                     // I is added and will function as the controller player index if it is not the 5th player (index of 4).
+                    if (m_audioOnJoin != null)
+                        m_audioSource.PlayOneShot(m_audioOnJoin);
+
                     m_players.AddLast(i);
                 }
                 else if (i != 4 && bAPressed)
                 {
                     // I is added and will function as the controller player index if it is not the 5th player (index of 4).
+                    if (m_audioOnJoin != null)
+                        m_audioSource.PlayOneShot(m_audioOnJoin);
+
                     m_players.AddLast(i);
                 }
             }
@@ -77,11 +97,17 @@ public class LobbyGUI : MonoBehaviour
                 if (bSpacePressed && i == 4) // Remove potential keyboard player...
                 {
                     // I is added and will function as the controller player index if it is not the 5th player (index of 4).
+                    if (m_audioOnLeave != null)
+                        m_audioSource.PlayOneShot(m_audioOnLeave);
+
                     m_players.Remove(i);
                 }
                 else if (i != 4 && bAPressed)
                 {
                     // I is added and will function as the controller player index if it is not the 5th player (index of 4).
+                    if (m_audioOnLeave != null)
+                        m_audioSource.PlayOneShot(m_audioOnLeave);
+
                     m_players.Remove(i);
                 }
             }
@@ -114,6 +140,9 @@ public class LobbyGUI : MonoBehaviour
 
     public void BackButton()
     {
+        if (m_audioOnBack != null)
+            m_audioSource.PlayOneShot(m_audioOnBack);
+
         // Reset panel text.
         for (int i = 0; i < 4; ++i)
         {
@@ -125,11 +154,14 @@ public class LobbyGUI : MonoBehaviour
 
         // Activate main menu canvas and deactivate this one.
         m_mainMenuCanvas.SetActive(true);
-        gameObject.SetActive(false);
+        m_lobbyGui.SetActive(false);
     }
 
     public void PlayButton()
     {
+    //    if (m_audioOnPlay != null)
+    //        m_audioSource.PlayOneShot(m_audioOnPlay);
+
         // Set player count.
         PlayerManager.SetPlayerCount(m_players.Count);
 
