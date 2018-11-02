@@ -31,14 +31,22 @@ public class BackgroundCamera : MonoBehaviour
     const int m_BoxUpPass = 2;
     const int m_ApplyBloomPass = 3;
 
+    static RenderTexture m_OriginalSource;
+
     void Start ()
     {
         m_Camera = GetComponent<Camera>();
     }
 
+    public static RenderTexture GetBackgroundTexture()
+    {
+        return m_OriginalSource;
+    }
+
     private void OnRenderImage(RenderTexture _source, RenderTexture _destination)
     {
-        RenderTexture originalSource = _source;
+        m_OriginalSource = _source;
+
         if (m_Bloom == null)
         {
             m_Bloom = new Material(m_BloomShader);
@@ -97,7 +105,7 @@ public class BackgroundCamera : MonoBehaviour
         RenderTexture bloomFinal = RenderTexture.GetTemporary(_source.width, _source.height);
         Graphics.Blit(currentSource, bloomFinal, m_Bloom, m_ApplyBloomPass);
 
-        m_BackgroundMaterial.SetTexture("_BlurTex", originalSource);
+        m_BackgroundMaterial.SetTexture("_BlurTex", m_OriginalSource);
         m_BackgroundMaterial.SetTexture("_MainTex", bloomFinal);
         Graphics.Blit(bloomFinal, _destination, m_BackgroundMaterial);
 
