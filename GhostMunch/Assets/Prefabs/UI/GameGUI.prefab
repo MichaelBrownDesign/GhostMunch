@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 222229749535265966}
   - component: {fileID: 114726902234416020}
   m_Layer: 5
-  m_Name: Text
+  m_Name: PauseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,9 +582,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f85c6022370c584b8a52c05370d844a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pausePanel: {fileID: 0}
-  m_resumeButton: {fileID: 0}
-  m_events: {fileID: 0}
+  m_pausePanel: {fileID: 1461254037444474}
+  m_resumeButton: {fileID: 1134724956082634}
+  m_events: {fileID: 114893640684105078}
+  m_audioOnResume: {fileID: 0}
+  m_audioOnRestart: {fileID: 0}
+  m_audioOnOptions: {fileID: 0}
+  m_audioOnMainMenu: {fileID: 0}
 --- !u!114 &114026301141585238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1710,6 +1714,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   m_human: {fileID: 0}
 --- !u!114 &114893640684105078
 MonoBehaviour:
@@ -1751,6 +1756,7 @@ MonoBehaviour:
   - {fileID: 224655635867144084}
   m_gameOverPanel: {fileID: 1567869869006488}
   m_gameOverTextObj: {fileID: 1851621163463848}
+  m_playAgainButton: {fileID: 1975320955271286}
 --- !u!114 &114965328687058394
 MonoBehaviour:
   m_ObjectHideFlags: 1

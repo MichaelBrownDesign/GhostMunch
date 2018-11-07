@@ -20,22 +20,16 @@ public class GameGUI : MonoBehaviour
     public GameObject m_inGameUI;
     public GameObject m_gameOverUI;
     public GameObject[] m_hungerBars;
+    public RectTransform[] m_fullHungerBars;
     public GameObject m_gameOverPanel;
     public GameObject m_gameOverTextObj;
     public GameObject m_playAgainButton;
     private Text m_gameOverText;
 
-    private RectTransform[] m_fullHungerBars;
-
-    [Header("Misc")]
-    public EventSystem m_events;
-
 	// Use this for initialization
 	void Awake()
     {
         m_nPlayerCount = PlayerManager.GetPlayerCount();
-
-        m_fullHungerBars = new RectTransform[m_hungerBars.Length];
 
         m_nHungerValues = new float[4];
 
@@ -44,10 +38,8 @@ public class GameGUI : MonoBehaviour
         // Get hunger bar width...
         m_fBarWidth = m_hungerBars[0].GetComponent<RectTransform>().sizeDelta.x;
 
-        // Get full hunger bars (Appearance of these will depend on player scores).
         for(int i = 0; i < m_fullHungerBars.Length; ++i)
         {
-            m_fullHungerBars[i] = m_hungerBars[i].transform.GetChild(0).gameObject.GetComponent<RectTransform>();
             m_fullHungerBars[i].sizeDelta = new Vector2(0.0f, m_fullHungerBars[i].sizeDelta.y);
         }
 
