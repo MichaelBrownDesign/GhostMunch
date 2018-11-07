@@ -11,6 +11,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1563353883945360}
   m_IsPrefabParent: 1
+--- !u!1 &1037606938449050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4363591473887826}
+  - component: {fileID: 65157883156914416}
+  m_Layer: 11
+  m_Name: Collision_Thrown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1563353883945360
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,23 +40,37 @@ GameObject:
   - component: {fileID: 33351637465387094}
   - component: {fileID: 23415562100538992}
   - component: {fileID: 54756632879270740}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Prop_Clock
   m_TagString: Possessible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4363591473887826
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1037606938449050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4676258767416284}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4676258767416284
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1563353883945360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.4, y: 7.7950735, z: -0.99}
+  m_LocalScale: {x: 1.352625, y: 1.3526248, z: 1.9199673}
+  m_Children:
+  - {fileID: 4363591473887826}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,6 +130,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65157883156914416
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1037606938449050}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.51, y: 1.89, z: 0.34}
+  m_Center: {x: -0.5, y: 1.25, z: 0.32}
 --- !u!65 &65814973800939822
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -124,8 +166,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
-  m_possessEffect: {fileID: 0}
-  m_breakEffect: {fileID: 0}
+  m_possessEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+    type: 2}
+  m_breakEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+    type: 2}
+  m_material: {fileID: 0}
+  m_thrownCollider: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 5
   m_bRotateX: 1

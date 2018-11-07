@@ -225,15 +225,15 @@ public class Player : MonoBehaviour
 
         bool bHit = Physics.Raycast
         (
-            transform.position, 
+            transform.position + (Vector3.down * 0.8f), 
             transform.forward, 
-            out hit, 
+            out hit,
             15
         );
 
         if(bHit)
         {
-            Debug.DrawLine(transform.position, hit.point);
+            Debug.DrawLine(transform.position + (Vector3.down * 0.8f), hit.point);
 
             bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
 

@@ -24,9 +24,25 @@ GameObject:
   - component: {fileID: 54251008109005750}
   - component: {fileID: 65707940256751144}
   - component: {fileID: 114435466169677418}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Prop_BookShelf
   m_TagString: Possessible
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1777510897637980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4933741105531424}
+  - component: {fileID: 65758526577458926}
+  m_Layer: 11
+  m_Name: Collision_Thrown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,11 +53,25 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1264284969958176}
+  m_LocalRotation: {x: -0, y: -0.92387915, z: -0, w: 0.38268444}
+  m_LocalPosition: {x: -10.769705, y: 7.9350734, z: 7.2628527}
+  m_LocalScale: {x: 1.2191374, y: 1.2191367, z: 1.2191372}
+  m_Children:
+  - {fileID: 4933741105531424}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -135, z: 0}
+--- !u!4 &4933741105531424
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777510897637980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4312514392023002}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23518142008492184
@@ -114,6 +144,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8657013, y: 3.5559683, z: 1.1314623}
   m_Center: {x: 0.000000074505806, y: 1.7727535, z: 0.000000029802322}
+--- !u!65 &65758526577458926
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777510897637980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79, y: 1.67, z: 0.6}
+  m_Center: {x: 0, y: 1.78, z: 0}
 --- !u!114 &114435466169677418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,3 +170,11 @@ MonoBehaviour:
   m_fRespawnTime: 5
   m_possessEffect: {fileID: 0}
   m_breakEffect: {fileID: 0}
+  m_material: {fileID: 0}
+  m_thrownCollider: {fileID: 0}
+  m_fHeightOffset: 0
+  m_fRotationSpeed: 5
+  m_bRotateX: 1
+  m_bRotateY: 1
+  m_bRotateZ: 1
+  m_audioOnBreak: {fileID: 0}

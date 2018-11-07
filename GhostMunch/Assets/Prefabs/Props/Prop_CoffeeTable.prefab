@@ -24,9 +24,25 @@ GameObject:
   - component: {fileID: 114793730310298188}
   - component: {fileID: 65694164297351532}
   - component: {fileID: 54227201129448086}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Prop_CoffeeTable
   m_TagString: Possessible
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1813577729920998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4530167055004766}
+  - component: {fileID: 65630483304982190}
+  m_Layer: 11
+  m_Name: Collision_Thrown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,13 +53,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578183695686866}
-  m_LocalRotation: {x: -0, y: -0.79335225, z: -0, w: 0.60876286}
-  m_LocalPosition: {x: 0.33307794, y: -1.3841014, z: -2.6055708}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_LocalRotation: {x: -0, y: -0.9926117, z: -0, w: 0.12133439}
+  m_LocalPosition: {x: 0.1302948, y: 7.87, z: -5.4071474}
+  m_LocalScale: {x: 1.4931928, y: 1.4931924, z: 1.4931929}
+  m_Children:
+  - {fileID: 4530167055004766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -105.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -166.06201, z: 0}
+--- !u!4 &4530167055004766
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1813577729920998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.653, z: 0}
+  m_LocalScale: {x: 1.7331164, y: 0.49573076, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4419877768350454}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23329076799154088
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -58,7 +88,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0f171f498c2f2884993608d6e5d03088, type: 2}
+  - {fileID: 2100000, guid: 49ad607902f048044b5359443ac383cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,6 +130,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65630483304982190
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1813577729920998}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65694164297351532
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -124,8 +166,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
-  m_possessEffect: {fileID: 0}
-  m_breakEffect: {fileID: 0}
+  m_possessEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+    type: 2}
+  m_breakEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+    type: 2}
+  m_material: {fileID: 0}
+  m_thrownCollider: {fileID: 65630483304982190}
   m_fHeightOffset: 0
   m_fRotationSpeed: 5
   m_bRotateX: 1

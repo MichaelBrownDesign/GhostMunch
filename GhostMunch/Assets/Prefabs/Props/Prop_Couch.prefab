@@ -24,26 +24,56 @@ GameObject:
   - component: {fileID: 54678577466135512}
   - component: {fileID: 65540885650632158}
   - component: {fileID: 114441992068715662}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Prop_Couch
   m_TagString: Possessible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1728383176809484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4473776074165902}
+  - component: {fileID: 65173758673577540}
+  m_Layer: 11
+  m_Name: Collision_Thrown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4473776074165902
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728383176809484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4793341581573742}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4793341581573742
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1458764847532430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.7071058, z: -0, w: 0.7071078}
+  m_LocalPosition: {x: -0.319705, y: 6.44108, z: -12.710001}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4473776074165902}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!23 &23067821847986092
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -101,6 +131,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65173758673577540
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728383176809484}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2.25}
+  m_Center: {x: 0, y: 0.56, z: 0}
 --- !u!65 &65540885650632158
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -125,8 +167,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
-  m_possessEffect: {fileID: 0}
-  m_breakEffect: {fileID: 0}
+  m_possessEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+    type: 2}
+  m_breakEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+    type: 2}
+  m_material: {fileID: 0}
+  m_thrownCollider: {fileID: 65173758673577540}
   m_fHeightOffset: 0
   m_fRotationSpeed: 5
   m_bRotateX: 1
