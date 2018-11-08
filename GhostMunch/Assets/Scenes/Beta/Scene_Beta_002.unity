@@ -5222,6 +5222,11 @@ Prefab:
       propertyPath: m_human
       value: 
       objectReference: {fileID: 2056416025}
+    - target: {fileID: 114884672712346566, guid: 25b5c168342c8fa4aac79059623c83e0,
+        type: 2}
+      propertyPath: m_bDebugMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25b5c168342c8fa4aac79059623c83e0, type: 2}
   m_IsPrefabParent: 0
@@ -5598,6 +5603,16 @@ Prefab:
         type: 2}
       propertyPath: m_fPossessionRange
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114396225267782478, guid: 97f333eb767949844b2a752ac77de3aa,
+        type: 2}
+      propertyPath: m_bUseKeyboard
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114662037572158924, guid: 97f333eb767949844b2a752ac77de3aa,
+        type: 2}
+      propertyPath: m_fRollTime
+      value: 0.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97f333eb767949844b2a752ac77de3aa, type: 2}
@@ -6740,7 +6755,7 @@ Prefab:
     - target: {fileID: 114350117739758202, guid: 02f0306ae4d80ae418823d84f4afc2c3,
         type: 2}
       propertyPath: m_bUseKeyboard
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114350117739758202, guid: 02f0306ae4d80ae418823d84f4afc2c3,
         type: 2}
