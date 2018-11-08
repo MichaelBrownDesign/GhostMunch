@@ -11,11 +11,13 @@ public class MenuActor : MonoBehaviour
     public Scene[] scenes;
 
     public GameObject m_lobbyCanvas;
+    public GameObject m_optionsGUI;
 
     public GameObject m_mainMenuGUI;
 
     [Header("Audio")]
     public AudioClip m_audioOnPlay;
+    public AudioClip m_audioOnOptions;
     public AudioClip m_audioOnQuit;
     private AudioSource m_audioSource;
 
@@ -41,6 +43,15 @@ public class MenuActor : MonoBehaviour
         m_lobbyCanvas.SetActive(true);
         m_mainMenuGUI.SetActive(false);
         //gameObject.SetActive(false);
+    }
+
+    public void OnOptionsClick()
+    {
+        if (m_audioOnPlay != null)
+            m_audioSource.PlayOneShot(m_audioOnOptions);
+
+        m_optionsGUI.SetActive(true);
+        m_mainMenuGUI.SetActive(false);
     }
 
     public void Quit()
