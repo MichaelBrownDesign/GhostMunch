@@ -11,6 +11,8 @@ ModelImporter:
     2100002: Wall_Door_Lower
     2100004: Wall_Door_Top
     2100006: blinn4
+    2100008: StingrayPBS65
+    2100010: StingrayPBS64
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_WallDoor_000
