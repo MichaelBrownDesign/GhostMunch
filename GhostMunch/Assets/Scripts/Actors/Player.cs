@@ -132,7 +132,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Posession input.
-        bool bInputPassed = (!m_input.m_bUseKeyboard && (m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || m_input.GetButton(2)) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
+        bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetButton(2)) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
 
         // Object throwing
         if (m_possessedObj != null)
