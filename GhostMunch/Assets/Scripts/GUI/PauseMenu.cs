@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour {
 
     public AudioClip m_audioOnResume;
     public AudioClip m_audioOnRestart;
-    public AudioClip m_audioOnOptions;
+//    public AudioClip m_audioOnOptions;
     public AudioClip m_audioOnMainMenu;
 
     private AudioSource m_audioSource;

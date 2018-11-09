@@ -15,6 +15,8 @@ public enum InputWaitState
     INPUT_CONTROLLER
 }
 
+[RequireComponent(typeof(AudioSource))]
+
 public class OptionsGUI : MonoBehaviour
 {
     public float m_fAxisDeadzone = 0.2f;
@@ -39,9 +41,21 @@ public class OptionsGUI : MonoBehaviour
 
     private static PlayerIndex m_eCurrentPlayer;
 
+    [Header("Audio")]
+
+    public AudioClip m_audioOnApply;
+    public AudioClip m_audioOnBack;
+    public AudioClip m_audioOnReset;
+    public AudioClip m_audioOnLoad;
+
+    private AudioSource m_audioSource;
+
     // Use this for initialization
     void Awake()
     {
+        m_audioSource = GetComponent<AudioSource>();
+
+
         m_bindingData = new BindingData[4];
 
         for (int i = 0; i < m_bindingData.Length; ++i)

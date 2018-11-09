@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(AudioSource))]
 
 public class MenuActor : MonoBehaviour
 {
+
+
     public Scene[] scenes;
 
     public GameObject m_lobbyCanvas;
@@ -17,7 +20,7 @@ public class MenuActor : MonoBehaviour
 
     [Header("Audio")]
     public AudioClip m_audioOnPlay;
-    public AudioClip m_audioOnOptions;
+//    public AudioClip m_audioOnOptions;
     public AudioClip m_audioOnQuit;
     private AudioSource m_audioSource;
 
@@ -34,6 +37,8 @@ public class MenuActor : MonoBehaviour
         
     }
 
+
+
     public void OnPlayClick()
     {
         // Swap between main menu and lobby interfaces.
@@ -47,8 +52,8 @@ public class MenuActor : MonoBehaviour
 
     public void OnOptionsClick()
     {
-        if (m_audioOnPlay != null)
-            m_audioSource.PlayOneShot(m_audioOnOptions);
+//       if (m_audioOnPlay != null)
+//            m_audioSource.PlayOneShot(m_audioOnOptions);
 
         m_optionsGUI.SetActive(true);
         m_mainMenuGUI.SetActive(false);
