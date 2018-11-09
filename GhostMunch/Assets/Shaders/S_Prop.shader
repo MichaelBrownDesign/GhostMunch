@@ -203,10 +203,10 @@ Shader "Shader Forge/S_Prop" {
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
                 float node_7201 = 0.0;
-                float4 node_4460 = _Time + _TimeEditor;
-                float2 node_3853 = (i.uv0+node_4460.g*float2(0.1,0.1));
+                float4 node_316 = _Time + _TimeEditor;
+                float2 node_3853 = (i.uv0+node_316.g*float2(0.1,0.1));
                 float4 node_8597 = tex2D(_Noise,TRANSFORM_TEX(node_3853, _Noise));
-                float2 node_7018 = (i.uv0+node_4460.g*float2(-0.1,-0.1));
+                float2 node_7018 = (i.uv0+node_316.g*float2(-0.1,-0.1));
                 float4 node_5791 = tex2D(_Noise,TRANSFORM_TEX(node_7018, _Noise));
                 float3 emissive = (lerp(float3(node_7201,node_7201,node_7201),(_Green.rgb*node_8597.rgb*node_5791.rgb*pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp)),_Possessed)*_EmissionStrength);
 /// Final Color:
@@ -412,10 +412,10 @@ Shader "Shader Forge/S_Prop" {
                 UNITY_INITIALIZE_OUTPUT( UnityMetaInput, o );
                 
                 float node_7201 = 0.0;
-                float4 node_8427 = _Time + _TimeEditor;
-                float2 node_3853 = (i.uv0+node_8427.g*float2(0.1,0.1));
+                float4 node_3324 = _Time + _TimeEditor;
+                float2 node_3853 = (i.uv0+node_3324.g*float2(0.1,0.1));
                 float4 node_8597 = tex2D(_Noise,TRANSFORM_TEX(node_3853, _Noise));
-                float2 node_7018 = (i.uv0+node_8427.g*float2(-0.1,-0.1));
+                float2 node_7018 = (i.uv0+node_3324.g*float2(-0.1,-0.1));
                 float4 node_5791 = tex2D(_Noise,TRANSFORM_TEX(node_7018, _Noise));
                 o.Emission = (lerp(float3(node_7201,node_7201,node_7201),(_Green.rgb*node_8597.rgb*node_5791.rgb*pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp)),_Possessed)*_EmissionStrength);
                 

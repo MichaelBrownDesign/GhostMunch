@@ -40,10 +40,6 @@ public class PostEffect : MonoBehaviour
     
     void OnRenderImage(RenderTexture _source, RenderTexture _destination)
     {
-        //Graphics.Blit(_source, _destination, m_PostEffect);
-
-        
-
         if (m_Bloom == null)
         {
             m_Bloom = new Material(m_BloomShader);
@@ -98,8 +94,8 @@ public class PostEffect : MonoBehaviour
         //Graphics.Blit(currentSource, _destination, m_Bloom, m_BoxUpPass);
 
         m_Bloom.SetTexture("_SourceTex", _source);
-        Graphics.Blit(currentSource, _destination, m_Bloom, m_ApplyBloomPass);
-
+        Graphics.Blit(currentSource, _source, m_Bloom, m_ApplyBloomPass);
+        Graphics.Blit(_source, _destination, m_PostEffect);
         RenderTexture.ReleaseTemporary(currentSource);
         
 

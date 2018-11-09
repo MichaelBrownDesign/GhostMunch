@@ -61,11 +61,11 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _DepthScale: 0.0114
+    - _DepthScale: 0.0054
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FogBrightness: 0.58
-    - _FogDistance: 0.94
+    - _FogBrightness: 0.1
+    - _FogDistance: 0.1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
