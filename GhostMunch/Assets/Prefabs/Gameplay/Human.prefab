@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114596569093364242}
   - component: {fileID: 114759389131749738}
   - component: {fileID: 114655756117000882}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Human
   m_TagString: Human
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4764682828430380}
   - component: {fileID: 33418693627544166}
   - component: {fileID: 23643158523224188}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: LookDirectionCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 4708959878385378}
   - component: {fileID: 33298366587133116}
   - component: {fileID: 23853545587917780}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: SM_Pointer_001_P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bUseKeyboard: 0
   m_ePlayerIndex: 0
-  m_buttonBindings: 00000000010000000400000004000000040000000500000006000000070000000800000009000000
+  m_buttonBindings: 01000000010000000000000004000000040000000500000006000000070000000800000009000000
   m_buttonKeyBindings: 6500000020000000300100007300000077000000610000007300000064000000090000001b000000
   m_axisBindings: 010000000000000002000000040000000300000005000000
 --- !u!114 &114655756117000882
@@ -290,9 +290,9 @@ MonoBehaviour:
   m_AnimationController: {fileID: 0}
   m_fGravityScale: 30
   m_fTerminalFallVelocity: 53
-  m_fMoveSpeed: 7
-  m_fAcceleration: 50
-  m_fDecelleration: 30
+  m_fMoveSpeed: 7.5
+  m_fAcceleration: 150
+  m_fDecelleration: 150
   m_bAllowJump: 1
   m_fJumpForce: 5
   m_rollCurve:
@@ -301,20 +301,8 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.027315488
-      value: 0.9946745
-      inSlope: -2.451779
-      outSlope: -2.451779
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.99542236
-      value: 0.0070381165
-      inSlope: 0.0050482797
-      outSlope: 0.0050482797
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -324,7 +312,7 @@ MonoBehaviour:
   m_fRecoveryStrength: 1
   m_fRollTime: 0.5
   m_fRollDelay: 0.5
-  m_fRotationLerpT: 0.3
+  m_fRotationLerpT: 0.15
   m_fFreeLookDeadZone: 0.2
   m_bAllowFreeLook: 0
 --- !u!143 &143169528431003748

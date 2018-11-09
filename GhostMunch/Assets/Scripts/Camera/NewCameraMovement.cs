@@ -86,7 +86,7 @@ public class NewCameraMovement : MonoBehaviour
 
         float fFinalFactor = 0.0f;
 
-        float fHalfDist = m_fDist * 2;
+        //float fHalfDist = m_fDist * 2;
 
         if(fZoomFactorX >= fZoomFactorY)
         {

@@ -6,7 +6,7 @@ using UnityEngine;
 public class BackgroundCamera : MonoBehaviour
 {
 
-    Camera m_Camera;
+    //Camera m_Camera;
     Material m_Bloom;
 
     [SerializeField]
@@ -35,7 +35,7 @@ public class BackgroundCamera : MonoBehaviour
 
     void Start ()
     {
-        m_Camera = GetComponent<Camera>();
+        ///m_Camera = GetComponent<Camera>();
     }
 
     public static RenderTexture GetBackgroundTexture()

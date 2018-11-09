@@ -99,7 +99,8 @@ public class FoodScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()    {
+    void Update()
+    {
         // Respawning...
         m_fCurrentRspwnTime -= Time.deltaTime;
 
@@ -119,13 +120,8 @@ public class FoodScript : MonoBehaviour
         // Eating...
         float fDistFromHuman = Vector3.Distance(m_human.transform.position, transform.position);
 
-        if (fDistFromHuman < m_fEatRadius && !m_bEaten)
+        if (fDistFromHuman < m_fEatRadius && m_humanScript.GetPossessed() && !m_bEaten)
         {
-            // Scale eat UI based on camera zoom.
-            float fCamZoomfactor = CameraMovement.GetZoomFactor() / 9.0f;
-
-            m_eatUIInstance.transform.localScale = new Vector3(fCamZoomfactor, fCamZoomfactor, 1.0f);
-
             // Ensure eat UI is shown when within the eat radius.
             if(!m_eatUIInstance.activeInHierarchy)
                 m_eatUIInstance.SetActive(true);

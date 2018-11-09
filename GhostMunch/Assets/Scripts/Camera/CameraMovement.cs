@@ -8,6 +8,10 @@ public class CameraMovement : MonoBehaviour
     public Transform[] m_players;
     public Transform m_mapOrigin;
 
+    [Header("Zooming")]
+    public float m_fZoomSpeed = 0.1f;
+    public float m_fMinDistance = 10.0f;
+    public float m_fMaxDistance = 100.0f;
     public float m_fZoomOutMult = 1.0f;
 
     private float m_fOriginalXRotation;
@@ -19,10 +23,6 @@ public class CameraMovement : MonoBehaviour
     private float m_fZMin;
 
     private static float m_fFinalZoomFactor = 0.0f;
-
-    public float m_fZoomSpeed = 0.1f;
-    public float m_fMinDistance = 10.0f;
-    public float m_fMaxDistance = 50.0f;
 
     // Use this for initialization
     void Awake()
@@ -91,9 +91,13 @@ public class CameraMovement : MonoBehaviour
         // Use the highest zoom factor and multiply by the zoom out multiplier.
         float fFinalFactor = m_fFinalZoomFactor * m_fZoomOutMult * 2;
 
+        // Clamp final zoom level.
+        fFinalFactor = Mathf.Clamp(fFinalFactor, m_fMinDistance, m_fMaxDistance);
+
         // Reset rotation and lerp between the last frame position and the new position.
         transform.rotation = Quaternion.Euler(m_fOriginalXRotation, 0, 0);
-        transform.position = Vector3.Lerp(v3LastFramePos, v3MidPoint + (-transform.forward * Mathf.Clamp(fFinalFactor, m_fMinDistance, m_fMaxDistance)), m_fZoomSpeed);
+
+        transform.position = Vector3.Lerp(v3LastFramePos, v3MidPoint + (-transform.forward * fFinalFactor), m_fZoomSpeed);
     }
 
     public static float GetZoomFactor()

@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     [Header("Possession")]
     public float m_fPossessionRange = 7.0f;
 
+    private int m_nPossessionMask;
+
     // Throwing
     [Header("Throwing")]
     public float m_fThrowForce = 1.0f;
@@ -117,11 +119,21 @@ public class Player : MonoBehaviour
         // Set to player 4 for controller input if using keyboard.
         if (m_input.m_bUseKeyboard)
             m_input.m_ePlayerIndex = XInputDotNetPure.PlayerIndex.Four;
+
+        // Set up possession layer mask.
+        int nPossessibleLayer = 1 << 11;
+        int nHumanLayer = 1 << 15;
+        int nInteriorWall = 1 << 10;
+
+        m_nPossessionMask = nPossessibleLayer | nHumanLayer | nInteriorWall;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Posession input.
+        bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
+
         // Object throwing
         if (m_possessedObj != null)
         {
@@ -133,7 +145,6 @@ public class Player : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, m_possessedObj.transform.position, 0.2f);
                 transform.position = new Vector3(transform.position.x, y, transform.position.z);
 
-                //float fDistanceToObj = (m_possessedObj.transform.position - transform.position).magnitude;
                 float fDistanceToObj = Vector2.Distance
                 (
                     new Vector2(m_possessedObj.transform.position.x, m_possessedObj.transform.position.z), 
@@ -149,7 +160,7 @@ public class Player : MonoBehaviour
                         PossessHuman();
                 }
             }
-            else if(m_possessedObj != m_human)// Runs while the object is possessed...
+            else if(m_possessedObj != m_human) // Runs while the object is possessed...
             {
                 Vector3 v3LocalPos = m_possessedObj.transform.localPosition;
                 Vector3 v3EulerRotation = m_possessedObj.transform.localRotation.eulerAngles;
@@ -192,7 +203,6 @@ public class Player : MonoBehaviour
                 m_possessedObj.transform.localRotation = Quaternion.Euler(new Vector3(v3EulerRotation.x, v3EulerRotation.y, fFinalRotationZ));
 
                 // Thowing input.
-                bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
 
                 if (m_input.GetAxisLast(0) < 0.2f && m_possessedObj != m_human && bInputPassed)
                 {
@@ -216,38 +226,57 @@ public class Player : MonoBehaviour
             m_bStunned = false;
             m_input.enabled = true;
 
+            m_movement.m_AnimationController.SetBool("IsStunned", false);
+
             // Can collide with human again.
             Physics.IgnoreCollision(m_controller, m_humanController, false);
         }
-
-        // Perform a box cast to check for the closest possessible object.
-        RaycastHit hit;
-
-        bool bHit = Physics.Raycast
-        (
-            transform.position + (Vector3.down * 0.8f), 
-            transform.forward, 
-            out hit,
-            15
-        );
-
-        if(bHit)
+        
+        // Possession detection.
+        if(bInputPassed)
         {
-            Debug.DrawLine(transform.position + (Vector3.down * 0.8f), hit.point);
+            RaycastHit hit;
+            RaycastHit humanRayHit;
 
-            bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetAxisLast(0) < 0.2f && m_input.GetAxis(0) >= 0.2f) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
+            bool bHit = Physics.Raycast
+            (
+                transform.position + (Vector3.down * 0.7f),
+                transform.forward,
+                out hit,
+                m_fPossessionRange,
+                m_nPossessionMask
+            );
 
-            // Detect targets using trigger collider and allow posession if the input and misc conditions are corret.
-            if (hit.collider.tag == "Possessible" && m_possessedObj == null && m_fCurrentThrowCD <= 0.0f && bInputPassed)
+            bool bHumanHit = Physics.Raycast
+            (
+                transform.position,
+                transform.forward,
+                out humanRayHit,
+                m_fPossessionRange,
+                m_nPossessionMask
+            );
+
+            if (bHumanHit)
             {
-                PursuePossess(hit.collider.gameObject);
-            }
-            else if (hit.collider.gameObject == m_human && m_fCurrentThrowCD <= 0.0f && m_possessedObj == null && bInputPassed)
-            {
-                // Human cannot be possessed if there is another ghost in him that has not been knocked out.
-                if (m_humanScript.GetIsSusceptible())
+                if (humanRayHit.collider.gameObject == m_human && m_fCurrentThrowCD <= 0.0f && m_possessedObj == null)
                 {
-                    PursuePossess(m_human);
+                    // Human cannot be possessed if there is another ghost in him that has not been knocked out.
+                    if (m_humanScript.GetIsSusceptible())
+                    {
+                        PursuePossess(m_human);
+                    }
+                }
+            }
+
+            if (bHit)
+            {
+                Debug.DrawLine(transform.position + (Vector3.down * 0.8f), hit.point);
+                Debug.Log(hit.collider.gameObject.name);
+
+                // Detect targets using trigger collider and allow posession if the input and misc conditions are corret.
+                if (hit.collider.tag == "Possessible" && m_possessedObj == null && m_fCurrentThrowCD <= 0.0f)
+                {
+                    PursuePossess(hit.collider.gameObject);
                 }
             }
         }
@@ -258,8 +287,6 @@ public class Player : MonoBehaviour
             PauseMenu pauseScript = m_gui.GetComponent<PauseMenu>();
             pauseScript.SetPaused(!pauseScript.GetIsPaused());
         }
-
-        m_movement.m_AnimationController.SetBool("IsStunned", m_bStunned);
     }
 
     /*
@@ -450,6 +477,8 @@ public class Player : MonoBehaviour
     {
         m_fCurrentStunTime = m_fStunTime;
         m_bStunned = true;
+
+        m_movement.m_AnimationController.SetBool("IsStunned", true);
     }
 
     // Set the score of the individual player and update GUI.

@@ -150,11 +150,12 @@ public class PlayerMovement : MonoBehaviour
             m_fCurrentRollTime -= Time.fixedDeltaTime;
             m_bIsRolling = m_fCurrentRollTime > 0.0f;
 
-            m_AnimationController.SetFloat("DashTime", 1.0f - m_fCurrentRollTime);
+            if(m_AnimationController)
+                m_AnimationController.SetFloat("DashTime", 1.0f - m_fCurrentRollTime);
 
             //Set Animation Parameters
-            if(!m_bIsRolling)
-                m_AnimationController.SetBool("IsDashing", false);
+            if(m_AnimationController)
+                m_AnimationController.SetBool("IsDashing", m_bIsRolling);
         }
 
         // Clamp input magnitude to 1..
@@ -231,7 +232,8 @@ public class PlayerMovement : MonoBehaviour
             m_v3TargetRotation.z = 0.0f;
         }
 
-        m_AnimationController.SetFloat("Speed", m_fInputMagnitude);
+        if(m_AnimationController)
+            m_AnimationController.SetFloat("Speed", m_fInputMagnitude);
     }
 
     void Update()

@@ -140,11 +140,12 @@ Shader "Shader Forge/DepthTest" {
                     return o;
                 }
                 void displacement (inout VertexInput v){
+                    float node_5894 = 1.0;
                     float4 node_3036 = _Time + _TimeEditor;
                     float node_3100 = (node_3036.g*_FogSpeed);
-                    float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( 1.0, 1.0 );
+                    float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( node_5894, 1.0 );
                     float node_7469_ty = floor(node_3100 * node_7469_tc_rcp.x);
-                    float node_7469_tx = node_3100 - 1.0 * node_7469_ty;
+                    float node_7469_tx = node_3100 - node_5894 * node_7469_ty;
                     float2 node_7469 = (v.texcoord0 + float2(node_7469_tx, node_7469_ty)) * node_7469_tc_rcp;
                     float4 _Noise_var = tex2Dlod(_Noise,float4(TRANSFORM_TEX(node_7469, _Noise),0.0,0));
                     v.vertex.xyz += ((_Noise_var.rgb*float3(0,1,0))*_HeightScale);
@@ -254,11 +255,12 @@ Shader "Shader Forge/DepthTest" {
                 float3 directDiffuse = max( 0.0, NdotL) * attenColor;
                 float3 indirectDiffuse = float3(0,0,0);
                 indirectDiffuse += gi.indirect.diffuse;
+                float node_5894 = 1.0;
                 float4 node_3036 = _Time + _TimeEditor;
                 float node_3100 = (node_3036.g*_FogSpeed);
-                float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( 1.0, 1.0 );
+                float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( node_5894, 1.0 );
                 float node_7469_ty = floor(node_3100 * node_7469_tc_rcp.x);
-                float node_7469_tx = node_3100 - 1.0 * node_7469_ty;
+                float node_7469_tx = node_3100 - node_5894 * node_7469_ty;
                 float2 node_7469 = (i.uv0 + float2(node_7469_tx, node_7469_ty)) * node_7469_tc_rcp;
                 float4 _Noise_var = tex2D(_Noise,TRANSFORM_TEX(node_7469, _Noise));
                 float3 diffuseColor = _Noise_var.rgb;
@@ -371,11 +373,12 @@ Shader "Shader Forge/DepthTest" {
                     return o;
                 }
                 void displacement (inout VertexInput v){
+                    float node_5894 = 1.0;
                     float4 node_3036 = _Time + _TimeEditor;
                     float node_3100 = (node_3036.g*_FogSpeed);
-                    float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( 1.0, 1.0 );
+                    float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( node_5894, 1.0 );
                     float node_7469_ty = floor(node_3100 * node_7469_tc_rcp.x);
-                    float node_7469_tx = node_3100 - 1.0 * node_7469_ty;
+                    float node_7469_tx = node_3100 - node_5894 * node_7469_ty;
                     float2 node_7469 = (v.texcoord0 + float2(node_7469_tx, node_7469_ty)) * node_7469_tc_rcp;
                     float4 _Noise_var = tex2Dlod(_Noise,float4(TRANSFORM_TEX(node_7469, _Noise),0.0,0));
                     v.vertex.xyz += ((_Noise_var.rgb*float3(0,1,0))*_HeightScale);
@@ -441,11 +444,12 @@ Shader "Shader Forge/DepthTest" {
 /////// Diffuse:
                 NdotL = max(0.0,dot( normalDirection, lightDirection ));
                 float3 directDiffuse = max( 0.0, NdotL) * attenColor;
+                float node_5894 = 1.0;
                 float4 node_3036 = _Time + _TimeEditor;
                 float node_3100 = (node_3036.g*_FogSpeed);
-                float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( 1.0, 1.0 );
+                float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( node_5894, 1.0 );
                 float node_7469_ty = floor(node_3100 * node_7469_tc_rcp.x);
-                float node_7469_tx = node_3100 - 1.0 * node_7469_ty;
+                float node_7469_tx = node_3100 - node_5894 * node_7469_ty;
                 float2 node_7469 = (i.uv0 + float2(node_7469_tx, node_7469_ty)) * node_7469_tc_rcp;
                 float4 _Noise_var = tex2D(_Noise,TRANSFORM_TEX(node_7469, _Noise));
                 float3 diffuseColor = _Noise_var.rgb;
@@ -546,11 +550,12 @@ Shader "Shader Forge/DepthTest" {
                     return o;
                 }
                 void displacement (inout VertexInput v){
+                    float node_5894 = 1.0;
                     float4 node_3036 = _Time + _TimeEditor;
                     float node_3100 = (node_3036.g*_FogSpeed);
-                    float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( 1.0, 1.0 );
+                    float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( node_5894, 1.0 );
                     float node_7469_ty = floor(node_3100 * node_7469_tc_rcp.x);
-                    float node_7469_tx = node_3100 - 1.0 * node_7469_ty;
+                    float node_7469_tx = node_3100 - node_5894 * node_7469_ty;
                     float2 node_7469 = (v.texcoord0 + float2(node_7469_tx, node_7469_ty)) * node_7469_tc_rcp;
                     float4 _Noise_var = tex2Dlod(_Noise,float4(TRANSFORM_TEX(node_7469, _Noise),0.0,0));
                     v.vertex.xyz += ((_Noise_var.rgb*float3(0,1,0))*_HeightScale);
@@ -689,11 +694,12 @@ Shader "Shader Forge/DepthTest" {
                     return o;
                 }
                 void displacement (inout VertexInput v){
+                    float node_5894 = 1.0;
                     float4 node_3036 = _Time + _TimeEditor;
                     float node_3100 = (node_3036.g*_FogSpeed);
-                    float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( 1.0, 1.0 );
+                    float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( node_5894, 1.0 );
                     float node_7469_ty = floor(node_3100 * node_7469_tc_rcp.x);
-                    float node_7469_tx = node_3100 - 1.0 * node_7469_ty;
+                    float node_7469_tx = node_3100 - node_5894 * node_7469_ty;
                     float2 node_7469 = (v.texcoord0 + float2(node_7469_tx, node_7469_ty)) * node_7469_tc_rcp;
                     float4 _Noise_var = tex2Dlod(_Noise,float4(TRANSFORM_TEX(node_7469, _Noise),0.0,0));
                     v.vertex.xyz += ((_Noise_var.rgb*float3(0,1,0))*_HeightScale);
@@ -744,11 +750,12 @@ Shader "Shader Forge/DepthTest" {
                 
                 o.Emission = 0;
                 
+                float node_5894 = 1.0;
                 float4 node_3036 = _Time + _TimeEditor;
                 float node_3100 = (node_3036.g*_FogSpeed);
-                float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( 1.0, 1.0 );
+                float2 node_7469_tc_rcp = float2(1.0,1.0)/float2( node_5894, 1.0 );
                 float node_7469_ty = floor(node_3100 * node_7469_tc_rcp.x);
-                float node_7469_tx = node_3100 - 1.0 * node_7469_ty;
+                float node_7469_tx = node_3100 - node_5894 * node_7469_ty;
                 float2 node_7469 = (i.uv0 + float2(node_7469_tx, node_7469_ty)) * node_7469_tc_rcp;
                 float4 _Noise_var = tex2D(_Noise,TRANSFORM_TEX(node_7469, _Noise));
                 float3 diffColor = _Noise_var.rgb;
