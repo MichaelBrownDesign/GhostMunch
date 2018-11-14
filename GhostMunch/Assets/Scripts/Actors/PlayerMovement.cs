@@ -252,7 +252,8 @@ public class PlayerMovement : MonoBehaviour
             m_v2RollRecoveryVel = Vector2.zero;
 
             //Set Animation Parameters
-            m_AnimationController.SetBool("IsDashing", true);
+            if(m_AnimationController)
+                m_AnimationController.SetBool("IsDashing", true);
         }
 
         // Update rotation.

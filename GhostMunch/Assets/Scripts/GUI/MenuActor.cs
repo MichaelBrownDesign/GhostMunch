@@ -9,12 +9,10 @@ using UnityEngine.EventSystems;
 
 public class MenuActor : MonoBehaviour
 {
-
-
     public Scene[] scenes;
 
     public GameObject m_lobbyCanvas;
-    public GameObject m_optionsGUI;
+    public GameObject m_helpGUI;
 
     public GameObject m_mainMenuGUI;
 
@@ -50,12 +48,12 @@ public class MenuActor : MonoBehaviour
         //gameObject.SetActive(false);
     }
 
-    public void OnOptionsClick()
+    public void OnHelpClick()
     {
 //       if (m_audioOnPlay != null)
 //            m_audioSource.PlayOneShot(m_audioOnOptions);
 
-        m_optionsGUI.SetActive(true);
+        m_helpGUI.SetActive(true);
         m_mainMenuGUI.SetActive(false);
     }
 

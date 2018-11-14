@@ -132,7 +132,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Posession input.
-        bool bInputPassed = (!m_input.m_bUseKeyboard && m_input.GetButton(2)) || (m_input.m_bUseKeyboard && m_input.GetButton(2));
+        bool bThrowInput = m_input.GetButton(2);
+        bool bDropInput = m_input.GetButton(1);
 
         // Object throwing
         if (m_possessedObj != null)
@@ -204,9 +205,13 @@ public class Player : MonoBehaviour
 
                 // Thowing input.
 
-                if (m_input.GetAxisLast(0) < 0.2f && m_possessedObj != m_human && bInputPassed)
+                if (m_possessedObj != m_human && bThrowInput)
                 {
                     ThrowPossessed();
+                }
+                else if(m_possessedObj != m_human && bDropInput)
+                {
+                    DropPossessed();
                 }
             }
         }
@@ -233,14 +238,14 @@ public class Player : MonoBehaviour
         }
         
         // Possession detection.
-        if(bInputPassed)
+        if(bThrowInput)
         {
             RaycastHit hit;
             RaycastHit humanRayHit;
 
             bool bHit = Physics.Raycast
             (
-                transform.position + (Vector3.down * 0.7f),
+                transform.position - transform.forward + (Vector3.down * 0.7f),
                 transform.forward,
                 out hit,
                 m_fPossessionRange,
@@ -249,7 +254,7 @@ public class Player : MonoBehaviour
 
             bool bHumanHit = Physics.Raycast
             (
-                transform.position,
+                transform.position - transform.forward,
                 transform.forward,
                 out humanRayHit,
                 m_fPossessionRange,
@@ -271,7 +276,6 @@ public class Player : MonoBehaviour
             if (bHit)
             {
                 Debug.DrawLine(transform.position + (Vector3.down * 0.8f), hit.point);
-                Debug.Log(hit.collider.gameObject.name);
 
                 // Detect targets using trigger collider and allow posession if the input and misc conditions are corret.
                 if (hit.collider.tag == "Possessible" && m_possessedObj == null && m_fCurrentThrowCD <= 0.0f)
@@ -470,6 +474,31 @@ public class Player : MonoBehaviour
 
         if (m_throwClip != null)
             m_audio.PlayOneShot(m_throwClip);
+    }
+
+    void DropPossessed()
+    {
+        // Re-enable object meshes.
+        m_meshRoot.SetActive(true);
+
+        // Ensure the pointer is active when the object is thrown.
+        m_pointer.SetActive(true);
+
+        // Free object.
+        m_possessedScript.SetPossessed(false);
+        m_possessedScript.SwapColliders();
+        m_possessedObj.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        m_possessedObj.transform.parent = null;
+        m_objectRigidbody.isKinematic = false;
+        m_objectRigidbody.useGravity = true;
+
+        // Reset throw cooldown.
+        m_fCurrentThrowCD = m_fThrowCooldown;
+
+        // Set object values to null.
+        m_objectRigidbody = null;
+        m_objectCollider = null;
+        m_possessedObj = null;
     }
 
     // Suspends player movement input for a short period of time.

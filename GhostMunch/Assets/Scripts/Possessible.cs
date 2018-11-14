@@ -197,14 +197,19 @@ public class Possessible : MonoBehaviour
         m_bThown = false;
 
         // Reset colliders.
-        m_collider.enabled = true;
-        if (m_collider != null && m_thrownCollider != null)
-        {
-            m_thrownCollider.enabled = false;
-        }
+        SwapColliders();
 
         // Reset collision layer to default.
         gameObject.layer = 11;
+    }
+
+    public void SwapColliders()
+    {
+        m_collider.enabled = !m_collider.enabled;
+        if (m_collider != null && m_thrownCollider != null)
+        {
+            m_thrownCollider.enabled = !m_thrownCollider.enabled;
+        }
     }
 
     // Sets whether or not the human is currently unavailable due to being possessed.

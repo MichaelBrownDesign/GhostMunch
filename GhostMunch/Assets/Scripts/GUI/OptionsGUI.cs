@@ -48,13 +48,9 @@ public class OptionsGUI : MonoBehaviour
     public AudioClip m_audioOnReset;
     public AudioClip m_audioOnLoad;
 
-    private AudioSource m_audioSource;
-
     // Use this for initialization
     void Awake()
     {
-        m_audioSource = GetComponent<AudioSource>();
-
 
         m_bindingData = new BindingData[4];
 
