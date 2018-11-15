@@ -57,7 +57,7 @@ Material:
     - _Noise:
         m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
         m_Scale: {x: 2, y: 2}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 0.4, y: 0.8}
     - _Normal:
         m_Texture: {fileID: 2800000, guid: fbb421094972c0841ad7445a7e9cc5bc, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -80,7 +80,8 @@ Material:
     - _Gloss_copy: 0.5
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HeightScale: 3.14
+    - _HeightScale: 1.5
+    - _HillScale: -15
     - _Metallic: 0.573
     - _Mode: 0
     - _OcclusionStrength: 1

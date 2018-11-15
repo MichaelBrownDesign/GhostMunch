@@ -6,13 +6,68 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: polySurface150
+    100004: polySurface152
+    100006: polySurface155
+    100008: polySurface161
+    100010: polySurface193
+    100012: polySurface194
+    100014: polySurface196
+    100016: SM_Bed_000
+    100018: transform1
+    100020: transform2
+    100022: transform3
+    100024: transform4
+    100026: transform5
+    100028: transform6
+    100030: transform7
     400000: //RootNode
+    400002: polySurface150
+    400004: polySurface152
+    400006: polySurface155
+    400008: polySurface161
+    400010: polySurface193
+    400012: polySurface194
+    400014: polySurface196
+    400016: SM_Bed_000
+    400018: transform1
+    400020: transform2
+    400022: transform3
+    400024: transform4
+    400026: transform5
+    400028: transform6
+    400030: transform7
     2100000: lambert1
     2100002: SM_Bed_000_StingrayPBS14
     2100004: SM_Bed_000_StingrayPBS15
+    2100006: StingrayPBS63
     2300000: //RootNode
+    2300002: polySurface150
+    2300004: polySurface152
+    2300006: polySurface155
+    2300008: polySurface161
+    2300010: polySurface193
+    2300012: polySurface194
+    2300014: polySurface196
+    2300016: SM_Bed_000
     3300000: //RootNode
+    3300002: polySurface150
+    3300004: polySurface152
+    3300006: polySurface155
+    3300008: polySurface161
+    3300010: polySurface193
+    3300012: polySurface194
+    3300014: polySurface196
+    3300016: SM_Bed_000
     4300000: SM_Bed_000:polySurface50
+    4300002: polySurface150
+    4300004: polySurface193
+    4300006: polySurface194
+    4300008: polySurface155
+    4300010: polySurface161
+    4300012: polySurface152
+    4300014: polySurface196
+    4300016: SM_Bed_000
   externalObjects: {}
   materials:
     importMaterials: 1

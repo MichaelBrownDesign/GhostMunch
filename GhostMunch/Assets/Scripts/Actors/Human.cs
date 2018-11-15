@@ -14,6 +14,7 @@ public class Human : MonoBehaviour
     // This object.
     [Header("Display")]
     public GameObject m_pointer;
+    public Animator m_animationController;
 
     // Audio
     [Header("Audio")]
@@ -38,6 +39,9 @@ public class Human : MonoBehaviour
 
     // Determines if the human is susceptible to posession.
     private bool m_bSusceptible;
+
+    // If the human was hit this frame
+    bool m_bIsHit = false;
 
     // Use this for initialization
     void Awake()
@@ -79,8 +83,31 @@ public class Human : MonoBehaviour
                 m_fFootstepTime = m_fFootstepInterval;
             }
         }
-            
-	}
+
+        //Set animation walk speed
+        m_animationController.SetFloat("Speed", m_movement.GetMovementMagnitude());
+
+        m_animationController.SetBool("IsHit", m_bIsHit);
+
+        m_animationController.SetBool("IsPossessed", m_bPossessed);
+        
+    }
+
+    public void OnStep(int _foot)
+    {
+        Debug.Log("OnStep!!");
+    }
+
+    private void LateUpdate()
+    {
+        m_animationController.SetBool("IsEating", false);
+        m_bIsHit = false;
+    }
+
+    public void OnEat()
+    {
+        m_animationController.SetBool("IsEating", true);
+    }
 
     // Returns if the Human is susceptible to getting possessed.
     public bool GetIsSusceptible()
@@ -135,6 +162,9 @@ public class Human : MonoBehaviour
         // Play hit sound.
         if (m_hitClip != null)
             m_audio.PlayOneShot(m_hitClip);
+
+        m_bIsHit = true;
+
     }
 
     // Sets whether or not the human is currently unavailable due to being possessed.

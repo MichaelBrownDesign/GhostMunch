@@ -63,14 +63,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1836721870701586}
-  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -13.5, y: 2.515, z: -12.11}
-  m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 0.79999995}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.0000047087665}
+  m_LocalPosition: {x: 0.76, y: 2.7556362, z: 6.36}
+  m_LocalScale: {x: 0.35555556, y: 0.79999995, z: 0.35555556}
   m_Children:
   - {fileID: 4085212563942278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -539.999, z: 0}
 --- !u!23 &23350982577355348
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -85,7 +85,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c27c88d830f4c124cbbd70fe26a7a4fd, type: 2}
+  - {fileID: 2100000, guid: d8673393bc2709b478b13569236e4471, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,8 +122,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.44852942, g: 0.28999746, b: 0.16819853, a: 1}
-  m_Intensity: 10
-  m_Range: 5
+  m_Intensity: 5
+  m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:

@@ -9,9 +9,11 @@ ModelImporter:
     400000: //RootNode
     2100000: lambert3
     2100002: lambert1
+    2100004: StingrayPBS40
     2300000: //RootNode
     3300000: //RootNode
     4300000: polySurface53
+    4300002: SM_BookShelf_000
   externalObjects: {}
   materials:
     importMaterials: 1

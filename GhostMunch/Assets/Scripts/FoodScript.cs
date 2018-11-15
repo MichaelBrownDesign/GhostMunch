@@ -141,7 +141,8 @@ public class FoodScript : MonoBehaviour
             if (bInputPassed)
             {
                 m_fEatProgress += m_fMashStrength;
-
+                m_humanScript.OnEat();
+                
                 // If the eat progress has maxed out the food is eaten. Add to score and despawn this food item.
                 if(m_fEatProgress >= 1.0f)
                 {

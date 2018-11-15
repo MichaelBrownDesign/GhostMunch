@@ -25,13 +25,13 @@ MonoBehaviour:
         motionVectorsResolution: 24
         motionVectorsAmplitude: 64
   fog:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       excludeSkybox: 1
   antialiasing:
     m_Enabled: 0
     m_Settings:
-      method: 0
+      method: 1
       fxaaSettings:
         preset: 2
       taaSettings:
@@ -53,10 +53,10 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       reflection:
-        blendType: 0
-        reflectionQuality: 2
-        maxDistance: 100
-        iterationCount: 256
+        blendType: 1
+        reflectionQuality: 0
+        maxDistance: 111
+        iterationCount: 274
         stepSize: 3
         widthModifier: 0.5
         reflectionBlur: 1
@@ -69,21 +69,21 @@ MonoBehaviour:
       screenEdgeMask:
         intensity: 0.03
   depthOfField:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       focusDistance: 10
-      aperture: 32
+      aperture: 0.3
       focalLength: 50
       useCameraFov: 1
       kernelSize: 1
   motionBlur:
     m_Enabled: 0
     m_Settings:
-      shutterAngle: 270
+      shutterAngle: 360
       sampleCount: 10
-      frameBlending: 0
+      frameBlending: 1
   eyeAdaptation:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       lowPercent: 45
       highPercent: 95
@@ -289,7 +289,7 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       colored: 1
-      intensity: 0
+      intensity: 1
       size: 1
       luminanceContribution: 0.8
   vignette:

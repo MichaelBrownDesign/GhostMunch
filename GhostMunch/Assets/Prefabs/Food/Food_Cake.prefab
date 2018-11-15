@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4420510547959160}
   - component: {fileID: 33287299463882008}
   - component: {fileID: 23100484288219724}
+  - component: {fileID: 135596326410484954}
   - component: {fileID: 54309225536968542}
   - component: {fileID: 114950351074793602}
-  - component: {fileID: 65410839371650220}
   m_Layer: 8
   m_Name: Food_Cake
   m_TagString: Food
@@ -37,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819324356341412}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.203148, y: 1.32, z: -21.047878}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.9358025, y: 6.036965, z: 0.22245407}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,7 +59,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 119e761231aa0294d875c516470c6923, type: 2}
-  - {fileID: 2100000, guid: a591cc4258017584483f5c05f5926b10, type: 2}
+  - {fileID: 2100000, guid: 119e761231aa0294d875c516470c6923, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819324356341412}
-  m_Mesh: {fileID: 4300000, guid: 7ac17c0b917717c4cb4d149e565c2305, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 7ac17c0b917717c4cb4d149e565c2305, type: 3}
 --- !u!54 &54309225536968542
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -101,18 +101,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65410839371650220
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819324356341412}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6267981, y: 0.17007501, z: 0.5000001}
-  m_Center: {x: 0.06339905, y: 0.087034844, z: 0}
 --- !u!114 &114950351074793602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,8 +117,20 @@ MonoBehaviour:
   m_fRespawnTime: 10
   m_nScoreValue: 10
   m_audioOnEat: {fileID: 0}
-  m_fMashStrength: 0.2
+  m_fMashStrength: 0.3
   m_fEatRadius: 3
   m_fUndoRate: 0.5
   m_eatUIPrefab: {fileID: 1804796143139536, guid: 6a34c37c534b48b438a8d849adf787de,
     type: 2}
+--- !u!135 &135596326410484954
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819324356341412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.25, z: 0}
