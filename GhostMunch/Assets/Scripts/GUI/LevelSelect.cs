@@ -43,7 +43,7 @@ public class LevelSelect : MonoBehaviour
         }
 
         // removes the main menu from the list so the user cant access it, so only actual levels can be seen
-        sceneList.RemoveAt(0);
+       // sceneList.RemoveAt(0);
         
     }
 
@@ -84,6 +84,12 @@ public class LevelSelect : MonoBehaviour
     {
         SceneManager.LoadScene(selectedString);
         Time.timeScale = 1.0f;
+    }
+
+    public void RandomScene()
+    {
+        int randSceneIndx = Random.Range(1, numOfScenes);
+        SceneManager.LoadScene(randSceneIndx);
     }
 
 }

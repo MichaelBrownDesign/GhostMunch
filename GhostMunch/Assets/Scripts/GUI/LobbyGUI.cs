@@ -50,6 +50,7 @@ public class LobbyGUI : MonoBehaviour
         {
             sceneList.Add(System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i)));
         }
+        numOfScenes = numOfScenes - 1;
 
         // removes the main menu scene from the list so the users cant select the main menu  
         sceneList.RemoveAt(0);
