@@ -22,6 +22,14 @@ public class LobbyGUI : MonoBehaviour
     private GamePadState[] m_prevPlayerStates;
     private Text[] m_textObjs;
 
+
+    //level select
+    public Text textSceneName;
+    private int numOfScenes;
+    private string selectedString;
+    private int selectionNumber = 0;
+    private List<string> sceneList = new List<string>();
+
     [Header("Audio")]
     public AudioClip m_audioOnPlay;
     public AudioClip m_audioOnBack;
@@ -36,6 +44,15 @@ public class LobbyGUI : MonoBehaviour
 
         m_audioSource = GetComponent<AudioSource>();
 
+        //level select
+        numOfScenes = UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings;
+        for (int i = 0; i < numOfScenes; i++)
+        {
+            sceneList.Add(System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i)));
+        }
+
+        // removes the main menu scene from the list so the users cant select the main menu  
+        sceneList.RemoveAt(0);
 
         // Initialize arrays.
         m_playerStates = new GamePadState[4];
@@ -136,6 +153,35 @@ public class LobbyGUI : MonoBehaviour
 
         // Play button management
         m_playButton.interactable = m_players.Count > 1;
+
+        //level select
+        textSceneName.text = sceneList[selectionNumber];
+        selectedString = sceneList[selectionNumber];
+    }
+
+    // changes the selected level to the next or previous level
+    public void LeftButton()
+    {
+        if (selectionNumber == 0)
+        {
+            selectionNumber = numOfScenes - 1;
+        }
+        else
+        {
+            selectionNumber -= 1;
+        }
+    }
+
+    public void RightButton()
+    {
+        if (selectionNumber == numOfScenes - 1)
+        {
+            selectionNumber = 0;
+        }
+        else
+        {
+            selectionNumber += 1;
+        }
     }
 
     public void BackButton()
@@ -175,6 +221,8 @@ public class LobbyGUI : MonoBehaviour
         }
 
         // Transition to game scene.
-        SceneManager.LoadScene(1);
+        //        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(selectedString);
+        Time.timeScale = 1.0f;
     }
 }

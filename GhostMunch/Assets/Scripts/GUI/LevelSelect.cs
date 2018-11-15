@@ -11,7 +11,7 @@ public class LevelSelect : MonoBehaviour
 {
     public Text textSceneName;
     private int numOfScenes;
-    public string subFolder;
+  //  public string subFolder;
 
     private string selectedString;
     private int selectionNumber = 0;
@@ -42,6 +42,8 @@ public class LevelSelect : MonoBehaviour
             sceneList.Add(System.IO.Path.GetFileNameWithoutExtension(UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex(i)));
         }
 
+        // removes the main menu from the list so the user cant access it, so only actual levels can be seen
+        sceneList.RemoveAt(0);
         
     }
 
@@ -52,6 +54,8 @@ public class LevelSelect : MonoBehaviour
         selectedString = sceneList[selectionNumber];
     }
 
+
+    // changes the selected level to the next or previous level
     public void LeftButton()
     {
         if(selectionNumber == 0)
