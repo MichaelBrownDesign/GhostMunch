@@ -12,6 +12,9 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject m_pausePanel;
     public GameObject m_resumeButton;
+    public GameObject m_inGameGUI;
+    public GameObject m_helpGUI;
+    public GameObject m_pauseGUI;
     public EventSystem m_events;
     private bool m_bPaused;
 
@@ -57,6 +60,13 @@ public class PauseMenu : MonoBehaviour {
     {
         SetPaused(false);
         SceneManager.LoadScene(1);
+    }
+
+    public void HelpButton()
+    {
+        m_helpGUI.SetActive(true);
+        m_inGameGUI.SetActive(false);
+        m_pauseGUI.SetActive(false);
     }
 
     public void MainMenuButton()
