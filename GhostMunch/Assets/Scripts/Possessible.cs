@@ -70,11 +70,17 @@ public class Possessible : MonoBehaviour
         m_respawnRotation = transform.rotation;
         m_fCurrentRespawnTimer = m_fRespawnTime;
 
-        if(m_possessEffect != null)
+        if (m_possessEffect != null)
+        {
             m_possessEffectInst = Instantiate(m_possessEffect).GetComponent<ParticleSystem>();
+            m_possessEffectInst.gameObject.transform.parent = transform;
+        }
 
-        if(m_breakEffect != null)
+        if (m_breakEffect != null)
+        {
             m_breakEffectInst = Instantiate(m_breakEffect).GetComponent<ParticleSystem>();
+            m_breakEffectInst.gameObject.transform.parent = transform;
+        }
 
         m_audioSource = GetComponent<AudioSource>();
 

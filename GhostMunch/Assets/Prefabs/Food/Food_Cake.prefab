@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4420510547959160}
   - component: {fileID: 33287299463882008}
   - component: {fileID: 23100484288219724}
-  - component: {fileID: 135596326410484954}
   - component: {fileID: 54309225536968542}
   - component: {fileID: 114950351074793602}
+  - component: {fileID: 65410839371650220}
   m_Layer: 8
   m_Name: Food_Cake
   m_TagString: Food
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819324356341412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.335646, y: 0.72, z: 19.301952}
+  m_LocalPosition: {x: -12.203148, y: 1.32, z: -21.047878}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,6 +101,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65410839371650220
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819324356341412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6267981, y: 0.17007501, z: 0.5000001}
+  m_Center: {x: 0.06339905, y: 0.087034844, z: 0}
 --- !u!114 &114950351074793602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,15 +134,3 @@ MonoBehaviour:
   m_fUndoRate: 0.5
   m_eatUIPrefab: {fileID: 1804796143139536, guid: 6a34c37c534b48b438a8d849adf787de,
     type: 2}
---- !u!135 &135596326410484954
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819324356341412}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4
-  m_Center: {x: 0, y: 0, z: 0}
