@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private bool m_bIsGrounded;
     private bool m_bIsMoving;
     private bool m_bIsRolling;
-    private bool m_bUseInput;
+    private bool m_bInputEnabled;
 
     private Vector2 m_v2InputMovement;
     private Vector2 m_v2InputLook;
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_fRollRecoveryPoint = m_fRollTime - ((m_fRecoveryPoint / 100.0f) * m_fRollTime);
 
-        m_bUseInput = true;
+        m_bInputEnabled = true;
 
         if(m_AnimationController == null)
         {
@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         // Look direction this frame.
         m_v2InputLook = Vector2.zero;
 
-        if(!m_input.m_bUseKeyboard)
+        if(!m_input.m_bUseKeyboard && m_input.enabled)
         {
             // Controller input...
             // Move direction
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
                 m_input.GetAxis(4)
             );
         }
-        else
+        else if(m_input.enabled)
         {
             // PC movement direction input.
             if(m_input.GetButtonPressed(4))
@@ -162,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         if (m_fInputMagnitude > 1.0f)
             m_fInputMagnitude = 1.0f;
 
-        m_bIsMoving = m_fInputMagnitude != 0.0f && m_bUseInput;
+        m_bIsMoving = m_fInputMagnitude != 0.0f && m_bInputEnabled;
 
         if(!m_bIsRolling) // Does not apply when rolling...
         {
@@ -176,13 +176,18 @@ public class PlayerMovement : MonoBehaviour
                 if (m_fCurrentSpeed > m_fMoveSpeed)
                     m_fCurrentSpeed = m_fMoveSpeed;
             }
-            else
+            else if(m_bInputEnabled)
             {
                 m_fCurrentSpeed -= m_fDecelleration * Time.deltaTime;
 
                 // Clamp speed...
                 if (m_fCurrentSpeed < 0.0f)
                     m_fCurrentSpeed = 0.0f;
+            }
+            else
+            {
+                m_v3Velocity.x = Mathf.Lerp(m_v3Velocity.x, 0.0f, 0.05f);
+                m_v3Velocity.z = Mathf.Lerp(m_v3Velocity.z, 0.0f, 0.05f);
             }
 
             // Clamp velocity to current speed...
@@ -204,6 +209,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Detect if on ground using a raycast (Unity's player controller isGrounded variable is unreliable).
         Debug.DrawLine(transform.position, transform.position - (new Vector3(0.0f, (m_controller.height * 0.5f) + 0.5f, 0.0f)), Color.red);
+
         m_bIsGrounded = Physics.Raycast(transform.position, Vector3.down, (m_controller.height * 0.5f) + 0.5f);
 
         // While the character controller does stop falling it does not stop the falling velocity from increasing...
@@ -242,7 +248,7 @@ public class PlayerMovement : MonoBehaviour
         m_fCurrentRollDelay -= Time.deltaTime;
 
         // Rolling...
-        if(!m_bIsRolling && m_bIsGrounded && m_bIsMoving && m_bUseInput && m_fCurrentRollDelay <= 0.0f && m_input.GetButton(1))
+        if(!m_bIsRolling && m_bIsGrounded && m_bIsMoving && m_bInputEnabled && m_fCurrentRollDelay <= 0.0f && m_input.GetButton(1))
         {
             m_bIsRolling = true;
 
@@ -264,9 +270,9 @@ public class PlayerMovement : MonoBehaviour
         m_controller.Move(m_v3Velocity * Time.deltaTime);
     }
 
-    public void Freeze(bool bFreeze)
+    public void DisableInput(bool bFreeze)
     {
-        m_bUseInput = !bFreeze;
+        m_bInputEnabled = !bFreeze;
     }
 
     public float GetMovementMagnitude()
@@ -286,7 +292,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddForce(Vector3 v3Force)
     {
         m_v3Velocity += v3Force;
-        m_fCurrentSpeed = v3Force.magnitude;
+        m_fCurrentSpeed = m_v3Velocity.magnitude;
     }
 
     public bool GetIsMoving()

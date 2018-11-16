@@ -225,7 +225,7 @@ public class Player : MonoBehaviour
         if (m_fCurrentStunTime < 0.0f && m_bStunned)
         {
             // Unfreeze player input.
-            m_movement.Freeze(false);
+            m_movement.DisableInput(false);
 
             // No longer stunned.
             m_bStunned = false;
@@ -429,11 +429,12 @@ public class Player : MonoBehaviour
         m_movement.enabled = true;
         m_controller.enabled = true;
 
-        v3PropDirection.y = 1.0f;
+        v3PropDirection.y = 0.0f;
 
         // Add direction vector to up force, normalize and multiply by stun force and add the force.
-        m_movement.ResetVelocity(); // Ensure any previouse velocity of the ghost doesn't remain.
+        m_movement.ResetVelocity(); // Ensure any previous velocity of the ghost doesn't remain.
         m_movement.AddForce(v3PropDirection * m_fStunForce);
+        m_movement.AddForce(Vector3.up * m_fStunForce);
 
         // Mark human as not possessed.
         m_humanScript.SetPossessed(false);
@@ -506,6 +507,8 @@ public class Player : MonoBehaviour
     {
         m_fCurrentStunTime = m_fStunTime;
         m_bStunned = true;
+
+        m_movement.DisableInput(true);
 
         m_movement.m_AnimationController.SetBool("IsStunned", true);
     }

@@ -2696,8 +2696,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1674942862700920}
-  m_LocalRotation: {x: -0, y: -0.71153325, z: -0, w: 0.7026525}
-  m_LocalPosition: {x: 0.7594156, y: -0.09000003, z: -10.822243}
+  m_LocalRotation: {x: 0, y: -0.6844765, z: -0, w: -0.729035}
+  m_LocalPosition: {x: -23.598118, y: 1.17, z: -22.599072}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4847941872993602}
@@ -3058,8 +3058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3fbb01c5044a94da1252a2b62a8ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bUseKeyboard: 1
-  m_ePlayerIndex: 3
+  m_bUseKeyboard: 0
+  m_ePlayerIndex: 2
   m_buttonBindings: 00000000010000000000000004000000040000000500000006000000070000000800000009000000
   m_buttonKeyBindings: 6500000020000000300100007300000077000000610000007300000064000000090000001b000000
   m_axisBindings: 010000000000000002000000040000000300000005000000
