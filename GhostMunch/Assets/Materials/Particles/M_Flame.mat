@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M_WallMaster
-  m_Shader: {fileID: 4800000, guid: 89bdc92b750b7ac4d835c31f9850e2f5, type: 3}
+  m_Name: M_Flame
+  m_Shader: {fileID: 4800000, guid: bbc8334d234c19c49be2f64b7edf5e3f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -34,20 +34,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Diffuse:
-        m_Texture: {fileID: 2800000, guid: dada2de548a539e41b851ad15151e534, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: cc8d6bebfd3b52a4c8b522b4305c4793, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cc8d6bebfd3b52a4c8b522b4305c4793, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: 28c7aad1372ff114b90d330f8a2dd938, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -58,25 +58,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: 1
+    - _Amplitude: 0.004
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Dot: 0.1
     - _DstBlend: 0
-    - _FadeDistance: 0
-    - _FadeFactor: 5000
-    - _FadeFallOff: 0.9
-    - _FadeLevel: 9
-    - _FadePower: 5
-    - _Gloss: 0
-    - _GlossMapScale: 0
-    - _Glossiness: 0
+    - _Frequency: 0.096
+    - _Gloss: 0.8
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -84,12 +75,11 @@ Material:
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Speed: 146
     - _SrcBlend: 1
     - _UVSec: 0
+    - _WaveScale: 0.169
     - _ZWrite: 1
     m_Colors:
-    - _AmbientLightColor: {r: 0.15257353, g: 0.55347365, b: 0.6102941, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 500, g: 0, b: 0, a: 1}
-    - _FadeAxisBias: {r: 2, g: 0, b: 0.5, a: 1}
-    - _SpecColor: {r: 0.03676468, g: 0.03676468, b: 0.03676468, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
