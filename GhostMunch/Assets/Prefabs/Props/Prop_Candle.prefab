@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114551316930011060}
   - component: {fileID: 54443504837737364}
   - component: {fileID: 65466765941714198}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Prop_Candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472714727443154}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.6482625, y: -1.0999334, z: 2.2468748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -126,6 +126,8 @@ MonoBehaviour:
   m_fRespawnTime: 0
   m_possessEffect: {fileID: 0}
   m_breakEffect: {fileID: 0}
+  m_material: {fileID: 0}
+  m_thrownCollider: {fileID: 0}
   m_fHeightOffset: 0
   m_fRotationSpeed: 5
   m_bRotateX: 1
