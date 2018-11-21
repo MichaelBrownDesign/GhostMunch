@@ -69,7 +69,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _Dot: 0.1
     - _DstBlend: 0
-    - _FadeDistance: 0
+    - _FadeDistance: 1000
     - _FadeFactor: 5000
     - _FadeFallOff: 0.9
     - _FadeLevel: 9

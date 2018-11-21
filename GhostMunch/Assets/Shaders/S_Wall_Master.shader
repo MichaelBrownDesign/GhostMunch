@@ -79,10 +79,7 @@ Shader "Shader Forge/S_Wall_Master" {
                 float node_7782 = max(0,dot(lightDirection,normalDirection)); // Lambert
                 float3 finalColor = emissive + (((_Diffuse_var.rgb*node_7782)+(node_7782*pow(max(0,dot(normalDirection,halfDirection)),exp2(lerp(1,11,_Gloss)))*_SpecColor.rgb))*_LightColor0.rgb*attenuation);
                 float3 node_865 = float3(1,0,1);
-                float3 node_6129 = ((i.posWorld.rgb*node_865)-(_WorldSpaceCameraPos*node_865));
-                float node_4962 = (pow(length((viewDirection*node_6129*_FadeAxisBias.rgb)),_FadeFallOff)/_FadeLevel);
-                float node_9037 = saturate(node_4962);
-                fixed4 finalRGBA = fixed4(finalColor,node_9037);
+                fixed4 finalRGBA = fixed4(finalColor,saturate((pow(length((viewDirection*((i.posWorld.rgb*node_865)-(_WorldSpaceCameraPos*node_865))*_FadeAxisBias.rgb)),_FadeFallOff)/_FadeLevel)));
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
                 return finalRGBA;
             }
@@ -149,10 +146,7 @@ Shader "Shader Forge/S_Wall_Master" {
                 float node_7782 = max(0,dot(lightDirection,normalDirection)); // Lambert
                 float3 finalColor = (((_Diffuse_var.rgb*node_7782)+(node_7782*pow(max(0,dot(normalDirection,halfDirection)),exp2(lerp(1,11,_Gloss)))*_SpecColor.rgb))*_LightColor0.rgb*attenuation);
                 float3 node_865 = float3(1,0,1);
-                float3 node_6129 = ((i.posWorld.rgb*node_865)-(_WorldSpaceCameraPos*node_865));
-                float node_4962 = (pow(length((viewDirection*node_6129*_FadeAxisBias.rgb)),_FadeFallOff)/_FadeLevel);
-                float node_9037 = saturate(node_4962);
-                fixed4 finalRGBA = fixed4(finalColor * node_9037,0);
+                fixed4 finalRGBA = fixed4(finalColor * saturate((pow(length((viewDirection*((i.posWorld.rgb*node_865)-(_WorldSpaceCameraPos*node_865))*_FadeAxisBias.rgb)),_FadeFallOff)/_FadeLevel)),0);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
                 return finalRGBA;
             }
