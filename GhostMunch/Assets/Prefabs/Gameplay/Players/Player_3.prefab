@@ -2038,7 +2038,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1575686679030194}
   m_LocalRotation: {x: -0, y: -0.7071073, z: -0, w: 0.7071063}
-  m_LocalPosition: {x: 13.1, y: 0.13, z: 9.33}
+  m_LocalPosition: {x: -10.53, y: 1.43, z: -13.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4889789875592810}
@@ -3124,6 +3124,7 @@ MonoBehaviour:
   m_possessClip: {fileID: 0}
   m_throwClip: {fileID: 0}
   m_meshRoot: {fileID: 1737974040072204}
+  m_wallMat: {fileID: 2100000, guid: 75cceb4b29cc6c24ea97f1b0d794a2c0, type: 2}
 --- !u!114 &114319912460263266
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -82,6 +82,10 @@ public class Player : MonoBehaviour
     // GUI
     GameGUI m_gui;
 
+    // Misc
+    public Material m_wallMat;
+    private string m_shaderUniformHandle;
+
     // Use this for initialization
     void Awake()
     {
@@ -126,11 +130,22 @@ public class Player : MonoBehaviour
         int nInteriorWall = 1 << 10;
 
         m_nPossessionMask = nPossessibleLayer | nHumanLayer | nInteriorWall;
+
+        // Get wall shader position handle.
+        if (m_wallMat)
+            m_shaderUniformHandle = "_Player" + ((int)m_input.m_ePlayerIndex + 1) + "Pos";
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Update wall fade shader position.
+        if (m_wallMat)
+        {
+            Vector4 v4ShaderPos = transform.position;
+            m_wallMat.SetVector(m_shaderUniformHandle, v4ShaderPos);
+        }
+
         // Posession input.
         bool bThrowInput = m_input.GetButton(2);
         bool bDropInput = m_input.GetButton(1);

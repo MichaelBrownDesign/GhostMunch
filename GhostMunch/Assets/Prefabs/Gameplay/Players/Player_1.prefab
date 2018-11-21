@@ -2584,8 +2584,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1696843715224924}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.68, z: 0}
+  m_LocalRotation: {x: -0, y: -0.7247222, z: -0, w: -0.6890412}
+  m_LocalPosition: {x: -10.53, y: 1.43, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4651898375543646}
@@ -2593,7 +2593,7 @@ Transform:
   - {fileID: 4274911861331426}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 182.892, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 452.891, z: 0}
 --- !u!4 &4772210750082406
 Transform:
   m_ObjectHideFlags: 1
@@ -3139,7 +3139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3fbb01c5044a94da1252a2b62a8ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bUseKeyboard: 1
+  m_bUseKeyboard: 0
   m_ePlayerIndex: 0
   m_buttonBindings: 00000000010000000000000000000000040000000500000006000000070000000800000009000000
   m_buttonKeyBindings: 6500000020000000300100007300000077000000610000007300000064000000090000001b000000
@@ -3170,6 +3170,7 @@ MonoBehaviour:
   m_possessClip: {fileID: 8300000, guid: 49c7abf31b5572948a6ea7524731038c, type: 3}
   m_throwClip: {fileID: 0}
   m_meshRoot: {fileID: 1791719797502380}
+  m_wallMat: {fileID: 2100000, guid: 75cceb4b29cc6c24ea97f1b0d794a2c0, type: 2}
 --- !u!114 &114806850577273404
 MonoBehaviour:
   m_ObjectHideFlags: 1
