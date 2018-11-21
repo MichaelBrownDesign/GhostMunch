@@ -168,13 +168,13 @@ public class PlayerMovement : MonoBehaviour
         {
             if (m_bIsMoving)
             {
-                // Prevent further acceleration if speed percentage matches input magnitude.
+                // Accelerate to match desired speed.
                 if (m_fCurrentSpeed < m_fMoveSpeed * m_fInputMagnitude)
                     m_fCurrentSpeed += m_fAcceleration * Time.deltaTime;
 
                 // Clamp speed...
-                if (m_fCurrentSpeed > m_fMoveSpeed)
-                    m_fCurrentSpeed = m_fMoveSpeed;
+                if (m_fCurrentSpeed > m_fMoveSpeed * m_fInputMagnitude)
+                    m_fCurrentSpeed = m_fMoveSpeed * m_fInputMagnitude;
             }
             else if(m_bInputEnabled)
             {
