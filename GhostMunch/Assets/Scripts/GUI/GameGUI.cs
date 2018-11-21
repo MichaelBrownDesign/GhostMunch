@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class GameGUI : MonoBehaviour
 {
     // Misc
     PlayerManager m_manager;
+
+    private string m_sceneName;
 
     // Stats
     public int m_nMaxHungerValue;
@@ -105,7 +108,10 @@ public class GameGUI : MonoBehaviour
 
     public void PlayAgainButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+
+        m_sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(m_sceneName);
     }
 
     public void MainMenuButton()
