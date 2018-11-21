@@ -29,7 +29,6 @@ public class Plane : MonoBehaviour
         m_Indices = new List<int>();
 
         float triSize = (float)m_PlaneSize / (float)m_VertexCount;
-        float halfSize = m_PlaneSize * 0.5f;
 
         for (int y = 0; y < m_VertexCount; ++y)
         {

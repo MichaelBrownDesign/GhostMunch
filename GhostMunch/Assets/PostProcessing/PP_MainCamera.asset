@@ -69,7 +69,7 @@ MonoBehaviour:
       screenEdgeMask:
         intensity: 0.03
   depthOfField:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       focusDistance: 10
       aperture: 0.3
@@ -83,7 +83,7 @@ MonoBehaviour:
       sampleCount: 10
       frameBlending: 1
   eyeAdaptation:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       lowPercent: 45
       highPercent: 95
@@ -290,15 +290,15 @@ MonoBehaviour:
     m_Settings:
       colored: 1
       intensity: 1
-      size: 1
-      luminanceContribution: 0.8
+      size: 3
+      luminanceContribution: 0
   vignette:
     m_Enabled: 1
     m_Settings:
       mode: 0
       color: {r: 0.2352941, g: 0.2352941, b: 0.2352941, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.148
+      intensity: 0.08
       smoothness: 1
       roundness: 1
       mask: {fileID: 0}

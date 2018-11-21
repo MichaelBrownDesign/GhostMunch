@@ -52,7 +52,6 @@ public class Possessible : MonoBehaviour
 
     // Ghost
     private CharacterController m_ownerController;
-    private BoxCollider m_ownerDetector;
 
     // Use this for initialization
     void Awake()
@@ -113,11 +112,10 @@ public class Possessible : MonoBehaviour
     }
 
     // Marks this object as thrown so it will respawn after colliding.
-    public void SetThown(CharacterController ownerController, BoxCollider ownerDetector, Vector3 v3ThrowDir)
+    public void SetThown(CharacterController ownerController, Vector3 v3ThrowDir)
     {
         // Set player colliders. (Used for respawning)
         m_ownerController = ownerController;
-        m_ownerDetector = ownerDetector;
 
         // Mark as thown.
         m_bThown = true;
@@ -185,7 +183,6 @@ public class Possessible : MonoBehaviour
 
         // Re-enable collisions between previous owner and this object.
         Physics.IgnoreCollision(m_ownerController, m_collider, false);
-        Physics.IgnoreCollision(m_ownerDetector, m_collider, false);
 
         // Enable gravity and reset velocity.
         m_rigidbody.useGravity = true;

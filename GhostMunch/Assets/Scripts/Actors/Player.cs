@@ -8,7 +8,6 @@ RequireComponent(typeof(MeshRenderer)),
 RequireComponent(typeof(PlayerInput)),
 RequireComponent(typeof(PlayerMovement)),
 RequireComponent(typeof(CharacterController)),
-RequireComponent(typeof(BoxCollider)),
 RequireComponent(typeof(AudioSource))
 ]
 
@@ -61,7 +60,6 @@ public class Player : MonoBehaviour
     private PlayerInput m_input;
     private PlayerMovement m_movement;
     private CharacterController m_controller;
-    private BoxCollider m_collider;
     private AudioSource m_audio;
     private float m_fCurrentThrowCD;
     private bool m_bIsPossessing;
@@ -92,7 +90,6 @@ public class Player : MonoBehaviour
         m_input = GetComponent<PlayerInput>();
         m_movement = GetComponent<PlayerMovement>();
         m_controller = GetComponent<CharacterController>();
-        m_collider = GetComponent<BoxCollider>();
         m_audio = GetComponent<AudioSource>();
 
         m_human = GameObject.FindGameObjectWithTag("Human");
@@ -469,7 +466,7 @@ public class Player : MonoBehaviour
         m_pointer.SetActive(true);
 
         // Free object.
-        m_possessedScript.SetThown(m_controller, m_collider, transform.forward);
+        m_possessedScript.SetThown(m_controller, transform.forward);
         m_possessedObj.transform.localPosition = new Vector3(0.0f, m_possessedScript.GetHeightOffset(), m_possessedScript.GetThrowZOffset());
         m_possessedObj.transform.localRotation = Quaternion.Euler(Vector3.zero);
         m_possessedObj.transform.parent = null;

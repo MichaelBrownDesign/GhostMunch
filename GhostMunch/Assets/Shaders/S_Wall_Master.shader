@@ -83,7 +83,11 @@ Shader "Shader Forge/S_Wall_Master" {
 		float4 posWorld : TEXCOORD1;
 		float3 normalDir : TEXCOORD2;
 
-		float3 chosenPos : COLOR;
+		float3 player1Dist : COLOR0;
+		float3 player2Dist : COLOR1;
+		float3 player3Dist : COLOR2;
+		float3 player4Dist : COLOR3;
+
 
 		UNITY_FOG_COORDS(3)
 	};
@@ -95,12 +99,10 @@ Shader "Shader Forge/S_Wall_Master" {
 		float3 lightColor = _LightColor0.rgb;
 		o.pos = UnityObjectToClipPos(v.vertex);
 
-		float3 player1Dist = _Player1Pos.rgb - o.posWorld.rgb;
-		float3 player2Dist = _Player2Pos.rgb - o.posWorld.rgb;
-		float3 player3Dist = _Player3Pos.rgb - o.posWorld.rgb;
-		float3 player4Dist = _Player4Pos.rgb - o.posWorld.rgb;
-
-		o.chosenPos = Function_node_9186(player1Dist, player2Dist, player3Dist, player4Dist) + o.posWorld.rgb;
+		o.player1Dist = _Player1Pos.rgb - o.posWorld.rgb;
+		o.player2Dist = _Player2Pos.rgb - o.posWorld.rgb;
+		o.player3Dist = _Player3Pos.rgb - o.posWorld.rgb;
+		o.player4Dist = _Player4Pos.rgb - o.posWorld.rgb;
 
 		UNITY_TRANSFER_FOG(o,o.pos);
 		return o;
@@ -120,7 +122,11 @@ Shader "Shader Forge/S_Wall_Master" {
 	float node_7782 = max(0,dot(lightDirection,normalDirection)); // Lambert
 	float3 finalColor = emissive + (((_Diffuse_var.rgb*node_7782) + (node_7782*pow(max(0,dot(normalDirection,halfDirection)),exp2(lerp(1,11,_Gloss)))*_SpecColor.rgb))*_LightColor0.rgb*attenuation);
 	float3 node_865 = float3(1,0,1);
-	fixed4 finalRGBA = fixed4(finalColor,clamp((pow(length(((((i.chosenPos)*node_865) - (i.posWorld.rgb*node_865))*_FadeAxisBias.rgb)),_FadeFallOff) / _FadeLevel),_MinAlpha,1.0));
+
+	float3 chosenPos = Function_node_9186(i.player1Dist, i.player2Dist, i.player3Dist, i.player4Dist) + i.posWorld.rgb;
+
+	fixed4 finalRGBA = fixed4(finalColor,clamp((pow(length(((((chosenPos)*node_865) - (i.posWorld.rgb*node_865))*_FadeAxisBias.rgb)),_FadeFallOff) / _FadeLevel),_MinAlpha,1.0));
+
 	UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
 	return finalRGBA;
 	}
@@ -186,8 +192,6 @@ Shader "Shader Forge/S_Wall_Master" {
 		float4 posWorld : TEXCOORD1;
 		float3 normalDir : TEXCOORD2;
 
-		float3 chosenPos : COLOR;
-
 		LIGHTING_COORDS(3,4)
 			UNITY_FOG_COORDS(5)
 	};
@@ -198,13 +202,6 @@ Shader "Shader Forge/S_Wall_Master" {
 		o.posWorld = mul(unity_ObjectToWorld, v.vertex);
 		float3 lightColor = _LightColor0.rgb;
 		o.pos = UnityObjectToClipPos(v.vertex);
-
-		float3 player1Dist = _Player1Pos.rgb - o.posWorld.rgb;
-		float3 player2Dist = _Player2Pos.rgb - o.posWorld.rgb;
-		float3 player3Dist = _Player3Pos.rgb - o.posWorld.rgb;
-		float3 player4Dist = _Player4Pos.rgb - o.posWorld.rgb;
-
-		o.chosenPos = Function_node_9186(player1Dist, player2Dist, player3Dist, player4Dist) + o.posWorld.rgb;
 
 		UNITY_TRANSFER_FOG(o,o.pos);
 		TRANSFER_VERTEX_TO_FRAGMENT(o)
@@ -224,7 +221,15 @@ Shader "Shader Forge/S_Wall_Master" {
 	float3 finalColor = (((_Diffuse_var.rgb*node_7782) + (node_7782*pow(max(0,dot(normalDirection,halfDirection)),exp2(lerp(1,11,_Gloss)))*_SpecColor.rgb))*_LightColor0.rgb*attenuation);
 	float3 node_865 = float3(1,0,1);
 
-	fixed4 finalRGBA = fixed4(finalColor * clamp((pow(length(((((i.chosenPos)*node_865) - (i.posWorld.rgb*node_865))*_FadeAxisBias.rgb)),_FadeFallOff) / _FadeLevel),_MinAlpha,1.0),0);
+
+	float3 player1Dist = _Player1Pos.rgb - i.posWorld.rgb;
+	float3 player2Dist = _Player2Pos.rgb - i.posWorld.rgb;
+	float3 player3Dist = _Player3Pos.rgb - i.posWorld.rgb;
+	float3 player4Dist = _Player4Pos.rgb - i.posWorld.rgb;
+
+	float3 chosenPos = Function_node_9186(player1Dist, player2Dist, player3Dist, player4Dist) + i.posWorld.rgb;
+
+	fixed4 finalRGBA = fixed4(finalColor * clamp((pow(length(((((chosenPos)*node_865) - (i.posWorld.rgb*node_865))*_FadeAxisBias.rgb)),_FadeFallOff) / _FadeLevel),_MinAlpha,1.0),0);
 
 	UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
 	return finalRGBA;
