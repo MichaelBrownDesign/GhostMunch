@@ -6,14 +6,15 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: M_WallMaster
-  m_Shader: {fileID: 4800000, guid: 89bdc92b750b7ac4d835c31f9850e2f5, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_Name: Star
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _ALPHABLEND_ON _EMISSION
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -34,16 +35,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Diffuse:
-        m_Texture: {fileID: 2800000, guid: dada2de548a539e41b851ad15151e534, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: cc8d6bebfd3b52a4c8b522b4305c4793, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cc8d6bebfd3b52a4c8b522b4305c4793, type: 3}
+        m_Texture: {fileID: 2800000, guid: 37f7bff588dfbac418e0175a35b16d13, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -58,43 +55,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Dot: 0.1
-    - _DstBlend: 0
-    - _FadeDistance: 1000
-    - _FadeFactor: 5000
-    - _FadeFallOff: 2
-    - _FadeLevel: 993
-    - _FadePower: 5
-    - _Gloss: 0
-    - _GlossMapScale: 0
+    - _DstBlend: 10
+    - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
-    - _MinAlpha: 0.3
-    - _Mode: 0
+    - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _UVSec: 0
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
-    - _AmbientLightColor: {r: 0.15257353, g: 0.55347365, b: 0.6102941, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 500, g: 0, b: 0, a: 1}
-    - _FadeAxisBias: {r: 9.08, g: 0, b: -6.08, a: 1}
-    - _Player1Pos: {r: -14.241617, g: 1.0801829, b: -1.8496398, a: 0}
-    - _Player2Pos: {r: -10.576014, g: 1.5703629, b: -15.6, a: 0}
-    - _Player3Pos: {r: -10.5760145, g: 1.5703629, b: -13.4, a: 0}
-    - _Player4Pos: {r: 12.314428, g: 1.0801829, b: 23.344402, a: 0}
-    - _SpecColor: {r: 0.03676468, g: 0.03676468, b: 0.03676468, a: 1}
+    - _Color: {r: 0.9921569, g: 0.65882355, b: 0.16078432, a: 1}
+    - _EmissionColor: {r: 0.6493525, g: 0.682, b: 0.09026471, a: 1}
