@@ -71,14 +71,15 @@ Material:
     - _DstBlend: 0
     - _FadeDistance: 1000
     - _FadeFactor: 5000
-    - _FadeFallOff: 0.9
-    - _FadeLevel: 9
+    - _FadeFallOff: 2
+    - _FadeLevel: 993
     - _FadePower: 5
     - _Gloss: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _Metallic: 0
+    - _MinAlpha: 0.3
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -91,5 +92,9 @@ Material:
     - _AmbientLightColor: {r: 0.15257353, g: 0.55347365, b: 0.6102941, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 500, g: 0, b: 0, a: 1}
-    - _FadeAxisBias: {r: 2, g: 0, b: 0.5, a: 1}
+    - _FadeAxisBias: {r: 9.08, g: 0, b: -6.08, a: 1}
+    - _Player1Pos: {r: -10.575902, g: 1.5703629, b: -18, a: 0}
+    - _Player2Pos: {r: -10.576014, g: 1.5703629, b: -15.6, a: 0}
+    - _Player3Pos: {r: -10.5760145, g: 1.5703629, b: -13.4, a: 0}
+    - _Player4Pos: {r: -13.779084, g: 1.5703629, b: -14.139849, a: 0}
     - _SpecColor: {r: 0.03676468, g: 0.03676468, b: 0.03676468, a: 1}
