@@ -27,6 +27,8 @@ public class PauseMenu : MonoBehaviour {
 
     private AudioSource m_audioSource;
 
+    private string m_sceneName;
+
     // Use this for initialization
     void Awake()
     {
@@ -58,8 +60,12 @@ public class PauseMenu : MonoBehaviour {
 
     public void RestartButton()
     {
+        m_sceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(m_sceneName);
+        
         SetPaused(false);
-        SceneManager.LoadScene(1);
+
+
     }
 
     public void HelpButton()
