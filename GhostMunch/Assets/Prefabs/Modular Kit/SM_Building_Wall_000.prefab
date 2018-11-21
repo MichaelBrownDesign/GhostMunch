@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33070729712884280}
   - component: {fileID: 23530988301992056}
   - component: {fileID: 65515783772869310}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Building_Wall_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470709425573358}
-  m_LocalRotation: {x: -0, y: -0.70710963, z: -0, w: -0.707104}
-  m_LocalPosition: {x: -16, y: 0.00018310547, z: -20}
+  m_LocalRotation: {x: -0, y: -0.0000039637084, z: -0, w: -1}
+  m_LocalPosition: {x: -28.34, y: 0.44036, z: -14.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
 --- !u!23 &23530988301992056
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -56,8 +56,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ada138053fd195544849178cc7ecc8aa, type: 2}
-  - {fileID: 2100000, guid: ee466d760423ed94f80619df0ab3d691, type: 2}
+  - {fileID: 2100000, guid: 75cceb4b29cc6c24ea97f1b0d794a2c0, type: 2}
+  - {fileID: 2100000, guid: 75cceb4b29cc6c24ea97f1b0d794a2c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

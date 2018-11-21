@@ -81,13 +81,11 @@ Shader "Shader Forge/S_Background_Terrain" {
                 o.normalDir = UnityObjectToWorldNormal(v.normal);
                 o.tangentDir = normalize( mul( unity_ObjectToWorld, float4( v.tangent.xyz, 0.0 ) ).xyz );
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
-                float2 node_6732 = sin(((o.uv0-float2(0.5,0.5))*2.0));
-                float node_93 = length(node_6732);
                 float4 _MainTex_var = tex2Dlod(_MainTex,float4(TRANSFORM_TEX(o.uv0, _MainTex),0.0,0));
                 float4 _BlurTex_var = tex2Dlod(_BlurTex,float4(TRANSFORM_TEX(o.uv0, _BlurTex),0.0,0));
                 float3 node_4948 = (_MainTex_var.rgb-_BlurTex_var.rgb);
                 float4 node_359 = tex2Dlod(_Noise,float4(TRANSFORM_TEX(o.uv0, _Noise),0.0,0));
-                v.vertex.xyz += ((node_93*float3(0,1,0)*_HillScale)+(node_4948*float3(0,1,0)*_HeightScale*node_359.rgb));
+                v.vertex.xyz += ((length(sin(((o.uv0-float2(0.5,0.5))*2.0)))*float3(0,1,0)*_HillScale)+(node_4948*float3(0,1,0)*_HeightScale*node_359.rgb));
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
@@ -253,13 +251,11 @@ Shader "Shader Forge/S_Background_Terrain" {
                 o.normalDir = UnityObjectToWorldNormal(v.normal);
                 o.tangentDir = normalize( mul( unity_ObjectToWorld, float4( v.tangent.xyz, 0.0 ) ).xyz );
                 o.bitangentDir = normalize(cross(o.normalDir, o.tangentDir) * v.tangent.w);
-                float2 node_6732 = sin(((o.uv0-float2(0.5,0.5))*2.0));
-                float node_93 = length(node_6732);
                 float4 _MainTex_var = tex2Dlod(_MainTex,float4(TRANSFORM_TEX(o.uv0, _MainTex),0.0,0));
                 float4 _BlurTex_var = tex2Dlod(_BlurTex,float4(TRANSFORM_TEX(o.uv0, _BlurTex),0.0,0));
                 float3 node_4948 = (_MainTex_var.rgb-_BlurTex_var.rgb);
                 float4 node_359 = tex2Dlod(_Noise,float4(TRANSFORM_TEX(o.uv0, _Noise),0.0,0));
-                v.vertex.xyz += ((node_93*float3(0,1,0)*_HillScale)+(node_4948*float3(0,1,0)*_HeightScale*node_359.rgb));
+                v.vertex.xyz += ((length(sin(((o.uv0-float2(0.5,0.5))*2.0)))*float3(0,1,0)*_HillScale)+(node_4948*float3(0,1,0)*_HeightScale*node_359.rgb));
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
@@ -409,13 +405,11 @@ Shader "Shader Forge/S_Background_Terrain" {
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
                 o.uv0 = v.texcoord0;
-                float2 node_6732 = sin(((o.uv0-float2(0.5,0.5))*2.0));
-                float node_93 = length(node_6732);
                 float4 _MainTex_var = tex2Dlod(_MainTex,float4(TRANSFORM_TEX(o.uv0, _MainTex),0.0,0));
                 float4 _BlurTex_var = tex2Dlod(_BlurTex,float4(TRANSFORM_TEX(o.uv0, _BlurTex),0.0,0));
                 float3 node_4948 = (_MainTex_var.rgb-_BlurTex_var.rgb);
                 float4 node_359 = tex2Dlod(_Noise,float4(TRANSFORM_TEX(o.uv0, _Noise),0.0,0));
-                v.vertex.xyz += ((node_93*float3(0,1,0)*_HillScale)+(node_4948*float3(0,1,0)*_HeightScale*node_359.rgb));
+                v.vertex.xyz += ((length(sin(((o.uv0-float2(0.5,0.5))*2.0)))*float3(0,1,0)*_HillScale)+(node_4948*float3(0,1,0)*_HeightScale*node_359.rgb));
                 o.pos = UnityObjectToClipPos( v.vertex );
                 TRANSFER_SHADOW_CASTER(o)
                 return o;
@@ -548,13 +542,11 @@ Shader "Shader Forge/S_Background_Terrain" {
             VertexOutput vert (VertexInput v) {
                 VertexOutput o = (VertexOutput)0;
                 o.uv0 = v.texcoord0;
-                float2 node_6732 = sin(((o.uv0-float2(0.5,0.5))*2.0));
-                float node_93 = length(node_6732);
                 float4 _MainTex_var = tex2Dlod(_MainTex,float4(TRANSFORM_TEX(o.uv0, _MainTex),0.0,0));
                 float4 _BlurTex_var = tex2Dlod(_BlurTex,float4(TRANSFORM_TEX(o.uv0, _BlurTex),0.0,0));
                 float3 node_4948 = (_MainTex_var.rgb-_BlurTex_var.rgb);
                 float4 node_359 = tex2Dlod(_Noise,float4(TRANSFORM_TEX(o.uv0, _Noise),0.0,0));
-                v.vertex.xyz += ((node_93*float3(0,1,0)*_HillScale)+(node_4948*float3(0,1,0)*_HeightScale*node_359.rgb));
+                v.vertex.xyz += ((length(sin(((o.uv0-float2(0.5,0.5))*2.0)))*float3(0,1,0)*_HillScale)+(node_4948*float3(0,1,0)*_HeightScale*node_359.rgb));
                 o.pos = UnityMetaVertexPosition(v.vertex, v.texcoord1.xy, v.texcoord2.xy, unity_LightmapST, unity_DynamicLightmapST );
                 return o;
             }

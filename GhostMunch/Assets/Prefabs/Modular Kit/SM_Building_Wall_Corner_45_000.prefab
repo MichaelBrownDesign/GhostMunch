@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4534075781814244}
   - component: {fileID: 65875261867786194}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4998154960555316}
   - component: {fileID: 33653512835781490}
   - component: {fileID: 23732769584713232}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Building_Wall_Corner_45_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4038034698856178}
   - component: {fileID: 65997853603075104}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4118319614297466}
   - component: {fileID: 65883073606532348}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,8 +121,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295929270707090}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000052154064}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.00000037252897, z: -0, w: 1}
+  m_LocalPosition: {x: 1.66, y: 0.44036, z: -20.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4534075781814244}
@@ -130,7 +130,7 @@ Transform:
   - {fileID: 4038034698856178}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23732769584713232
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -145,8 +145,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ee466d760423ed94f80619df0ab3d691, type: 2}
-  - {fileID: 2100000, guid: ee466d760423ed94f80619df0ab3d691, type: 2}
+  - {fileID: 2100000, guid: ada138053fd195544849178cc7ecc8aa, type: 2}
+  - {fileID: 2100000, guid: ada138053fd195544849178cc7ecc8aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

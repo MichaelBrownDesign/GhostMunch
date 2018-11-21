@@ -223,7 +223,7 @@ public class LobbyGUI : MonoBehaviour
 
         // Transition to game scene.
         //        SceneManager.LoadScene(1);
+		Time.timeScale = 1.0f;
         SceneManager.LoadScene(selectedString);
-        Time.timeScale = 1.0f;
     }
 }
