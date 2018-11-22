@@ -6,7 +6,6 @@ public class CameraMovement : MonoBehaviour
 {
     [Header("Transforms")]
     public Transform[] m_players;
-    public Transform m_mapOrigin;
 
     [Header("Zooming")]
     public float m_fZoomSpeed = 0.1f;
@@ -33,16 +32,32 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_players.Length == 0)
+            return;
+
         m_fXMax = 0.0f;
         m_fXMin = 0.0f;
         m_fZMax = 0.0f;
         m_fZMin = 0.0f;
 
+        // Find midpoint between all players.
+        Vector3 v3MidPoint = Vector3.zero;
+
+        for (int i = 0; i < m_players.Length; ++i)
+        {
+            v3MidPoint += m_players[i].position;
+        }
+        
+        v3MidPoint.y = 0;
+        v3MidPoint /= m_players.Length;
+
+        Debug.DrawLine(v3MidPoint, v3MidPoint + Vector3.up * 10, Color.green);
+
         // Get min/max x/z offsets from the map origin of all players.
         for (int i = 0; i < m_players.Length; ++i)
         {
-            float fXDist = m_players[i].transform.position.x - m_mapOrigin.transform.position.x;
-            float fZDist = m_players[i].transform.position.z - m_mapOrigin.transform.position.z;
+            float fXDist = m_players[i].transform.position.x - v3MidPoint.x;
+            float fZDist = m_players[i].transform.position.z - v3MidPoint.z;
 
             if (fXDist < m_fXMin)
                 m_fXMin = fXDist;
@@ -58,13 +73,13 @@ public class CameraMovement : MonoBehaviour
         }
 
         // Calculate new centre for the camera.
-        Vector3 v3MidPoint = Vector3.zero;
+        Vector3 v3FinalPos = Vector3.zero;
 
-        v3MidPoint.x = (m_fXMax + m_fXMin) / 2;
-        v3MidPoint.z = (m_fZMax + m_fZMin) / 2;
+        v3FinalPos.x = (m_fXMax + m_fXMin) / 2;
+        v3FinalPos.z = (m_fZMax + m_fZMin) / 2;
 
         // Add map origin to midpoint to translate it to the correct position.
-        v3MidPoint += m_mapOrigin.transform.position;
+        v3FinalPos += v3MidPoint;
 
         // Calculate the bounding box all players reside within.
         Vector3 v3BoundingDimensions = Vector3.zero;
@@ -97,7 +112,7 @@ public class CameraMovement : MonoBehaviour
         // Reset rotation and lerp between the last frame position and the new position.
         transform.rotation = Quaternion.Euler(m_fOriginalXRotation, 0, 0);
 
-        transform.position = Vector3.Lerp(v3LastFramePos, v3MidPoint + (-transform.forward * fFinalFactor), m_fZoomSpeed);
+        transform.position = Vector3.Lerp(v3LastFramePos, v3FinalPos + (-transform.forward * fFinalFactor), m_fZoomSpeed);
     }
 
     public static float GetZoomFactor()
