@@ -99,23 +99,23 @@ public class Player : MonoBehaviour
         m_gui = GameObject.Find("GameGUI").GetComponent<GameGUI>();
 
         // Find player ID.
-        m_nID = (int)m_input.m_ePlayerIndex;
+        //m_nID = (int)m_input.m_ePlayerIndex;
 
         // Find all players...
         GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
 
-        bool bHasKeyboardPlayer = false;
+        //bool bHasKeyboardPlayer = false;
 
         // Detect if any player is using the keyboard.
-        for(int i = 0; i < allPlayers.Length; ++i)
-        {
-            if (allPlayers[i].GetComponent<PlayerInput>().m_bUseKeyboard)
-                bHasKeyboardPlayer = true;
-        }
+        //for(int i = 0; i < allPlayers.Length; ++i)
+        //{
+        //    if (allPlayers[i].GetComponent<PlayerInput>().m_bUseKeyboard)
+        //        bHasKeyboardPlayer = true;
+        //}
 
         // If a player is using the keyboard and this is not that player. Add 1 to the ID.
-        if (bHasKeyboardPlayer && !m_input.m_bUseKeyboard)
-            m_nID++;
+        //if (bHasKeyboardPlayer && !m_input.m_bUseKeyboard)
+            //m_nID++;
 
         // Set to player 4 for controller input if using keyboard.
         if (m_input.m_bUseKeyboard)
@@ -130,7 +130,9 @@ public class Player : MonoBehaviour
 
         // Get wall shader position handle.
         if (m_wallMat)
-            m_shaderUniformHandle = "_Player" + ((int)m_input.m_ePlayerIndex + 1) + "Pos";
+            m_shaderUniformHandle = "_Player" + (m_nID + 1) + "Pos";
+
+        Debug.Log(m_shaderUniformHandle);
     }
 
     // Update is called once per frame
@@ -537,5 +539,10 @@ public class Player : MonoBehaviour
     {
         m_nScore += nScore;
         m_gui.SetHunger(m_nID, m_nScore);
+    }
+
+    public void SetID(int nID)
+    {
+        m_nID = nID;
     }
 }

@@ -41,8 +41,18 @@ public class PlayerManager : MonoBehaviour
             // Set player input indices.
             PlayerInput input = m_players[i].GetComponent<PlayerInput>();
 
-            input.m_ePlayerIndex = (PlayerIndex)m_nPlayerIndices[i];
-            input.m_bUseKeyboard = m_nPlayerIndices[i] == 4;
+            if(m_nPlayerIndices[i] == 4)
+            {
+                input.m_bUseKeyboard = true;
+                input.m_ePlayerIndex = (PlayerIndex)i;
+                m_players[i].GetComponent<Player>().SetID(i);
+            }
+            else
+            {
+                input.m_bUseKeyboard = false;
+                input.m_ePlayerIndex = (PlayerIndex)m_nPlayerIndices[i];
+                m_players[i].GetComponent<Player>().SetID(i);
+            }
         }
 	}
 	
