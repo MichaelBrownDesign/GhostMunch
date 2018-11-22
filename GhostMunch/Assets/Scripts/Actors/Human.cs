@@ -84,6 +84,9 @@ public class Human : MonoBehaviour
             }
         }
 
+        // Disable player movement while eating.
+        m_movement.DisableInput(m_animationController.GetCurrentAnimatorStateInfo(0).IsName("Eat"), false);
+
         //Set animation walk speed
         m_animationController.SetFloat("Speed", m_movement.GetMovementMagnitude());
 

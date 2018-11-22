@@ -520,7 +520,7 @@ public class Player : MonoBehaviour
         m_fCurrentStunTime = m_fStunTime;
         m_bStunned = true;
 
-        m_movement.DisableInput(true);
+        m_movement.DisableInput(true, true);
 
         m_movement.m_AnimationController.SetBool("IsStunned", true);
     }

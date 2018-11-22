@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278696265885062}
   m_LocalRotation: {x: -0, y: 0.0000007301568, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.422, z: 0}
+  m_LocalPosition: {x: -22.91, y: 1.4, z: -19.277998}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278696265885062}
-  m_Mesh: {fileID: 4300000, guid: 3eb2990dff3bb6343a86b69d0912b7c5, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ba63ddd61cdfb02468c81733567d4e3d, type: 3}
 --- !u!54 &54814243606702576
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -122,6 +122,9 @@ MonoBehaviour:
   m_fUndoRate: 0.2
   m_eatUIPrefab: {fileID: 1804796143139536, guid: 6a34c37c534b48b438a8d849adf787de,
     type: 2}
+  m_fAnimSpeed: 1
+  m_fBobAmplitude: 0.3
+  m_fRotationSpeed: 35
 --- !u!135 &135534721693109246
 SphereCollider:
   m_ObjectHideFlags: 1

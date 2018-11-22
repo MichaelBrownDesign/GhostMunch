@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private bool m_bIsMoving;
     private bool m_bIsRolling;
     private bool m_bInputEnabled;
+    private bool m_bStopAcceleration;
 
     private Vector2 m_v2InputMovement;
     private Vector2 m_v2InputLook;
@@ -80,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         // Look direction this frame.
         m_v2InputLook = Vector2.zero;
 
-        if(!m_input.m_bUseKeyboard && m_input.enabled)
+        if(!m_input.m_bUseKeyboard && m_input.enabled && m_bInputEnabled)
         {
             // Controller input...
             // Move direction
@@ -97,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
                 m_input.GetAxis(4)
             );
         }
-        else if(m_input.enabled)
+        else if(m_input.enabled && m_bInputEnabled)
         {
             // PC movement direction input.
             if(m_input.GetButtonPressed(4))
@@ -176,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
                 if (m_fCurrentSpeed > m_fMoveSpeed * m_fInputMagnitude)
                     m_fCurrentSpeed = m_fMoveSpeed * m_fInputMagnitude;
             }
-            else if(m_bInputEnabled)
+            else if(!m_bStopAcceleration)
             {
                 m_fCurrentSpeed -= m_fDecelleration * Time.deltaTime;
 
@@ -270,9 +271,10 @@ public class PlayerMovement : MonoBehaviour
         m_controller.Move(m_v3Velocity * Time.deltaTime);
     }
 
-    public void DisableInput(bool bFreeze)
+    public void DisableInput(bool bFreeze, bool bStopAcceleration = false)
     {
         m_bInputEnabled = !bFreeze;
+        m_bStopAcceleration = bStopAcceleration && bFreeze;
     }
 
     public float GetMovementMagnitude()

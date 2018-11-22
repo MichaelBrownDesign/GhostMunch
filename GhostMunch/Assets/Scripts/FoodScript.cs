@@ -34,6 +34,15 @@ public class FoodScript : MonoBehaviour
     public float m_fUndoRate = 0.2f;
     public GameObject m_eatUIPrefab;
 
+
+    [Header("Effects")]
+    public float m_fAnimSpeed = 1.0f;
+    public float m_fBobAmplitude = 0.3f;
+    public float m_fRotationSpeed = 35.0f;
+
+    private float m_fAnimPivotY;
+    private float m_fAnimProgress;
+
     [Header("GUI")]
     private GameObject m_eatUIInstance;
     private Transform m_eatUINode;
@@ -96,6 +105,8 @@ public class FoodScript : MonoBehaviour
         }
 
         m_progressImage = m_eatUIInstance.GetComponentsInChildren<Image>()[1];
+
+        m_fAnimPivotY = transform.position.y + 0.5f;
     }
 
     // Update is called once per frame
@@ -165,6 +176,15 @@ public class FoodScript : MonoBehaviour
             m_fEatProgress = 0.0f;
 
         m_progressImage.fillAmount = m_fEatProgress;
+
+        // Animation...
+        m_fAnimProgress += Time.deltaTime * m_fAnimSpeed;
+
+        float fCurrentY = m_fAnimPivotY + (Mathf.Sin(m_fAnimProgress) * m_fBobAmplitude);
+        float fCurrentRotY = transform.rotation.eulerAngles.y + m_fRotationSpeed * Time.deltaTime;
+
+        transform.position = new Vector3(transform.position.x, fCurrentY, transform.position.z);
+        transform.rotation = Quaternion.Euler(0.0f, fCurrentRotY, 0.0f);
 	}
 
     // Get the score value of the food item.
