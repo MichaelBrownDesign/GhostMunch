@@ -175,7 +175,7 @@ ModelImporter:
     4300012: Botie
     4300014: Button_Mid
     4300016: Button_Bot
-    7400000: Take 001
+    7400000: ANIM_Human_Run
     9500000: //RootNode
     13700000: Body
     13700002: Botie
@@ -214,7 +214,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: ANIM_Human_Run
       takeName: Take 001
       firstFrame: 0
       lastFrame: 24

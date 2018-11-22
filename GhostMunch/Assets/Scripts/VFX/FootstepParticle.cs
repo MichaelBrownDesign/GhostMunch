@@ -9,9 +9,18 @@ public class FootstepParticle : MonoBehaviour
 
     public int m_ParticlesPerStep = 10;
 
+    AudioSource m_AudioSource;
+
+    public List<AudioClip> m_FootstepSoundEffects;
+
+    void Start()
+    {
+        m_AudioSource = GetComponent<AudioSource>();
+    }
+
     public void OnStep(int _foot)
     {
-        if(_foot == 0)
+        if (_foot == 0)
         {
             m_PSFootstepLeft.Emit(m_ParticlesPerStep);
         }
@@ -19,7 +28,8 @@ public class FootstepParticle : MonoBehaviour
         {
             m_PSFootstepRight.Emit(m_ParticlesPerStep);
         }
-        Debug.Log("OnStep: " + _foot.ToString());
+
+        m_AudioSource.PlayOneShot(m_FootstepSoundEffects[Random.Range(0, m_FootstepSoundEffects.Count-1)]);
 
     }
 }

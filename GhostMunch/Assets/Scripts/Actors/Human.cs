@@ -19,6 +19,7 @@ public class Human : MonoBehaviour
     // Audio
     [Header("Audio")]
     public AudioClip[] m_footsteps;
+    public AudioClip[] m_EatSoundEffect;
     public AudioClip m_hitClip;
     [Tooltip("The amount of time waited between footstep sounds when running.")]
     public float m_fFootstepInterval;
@@ -77,7 +78,7 @@ public class Human : MonoBehaviour
                 float fRandPitch = Random.Range(m_fMinPitch, m_fMaxPitch);
 
                 m_audio.pitch = fRandPitch;
-                m_audio.PlayOneShot(m_footsteps[nRandSoundIndex]);
+                //m_audio.PlayOneShot(m_footsteps[nRandSoundIndex]);
 
                 // Reset timer.
                 m_fFootstepTime = m_fFootstepInterval;
@@ -110,6 +111,7 @@ public class Human : MonoBehaviour
     public void OnEat()
     {
         m_animationController.SetBool("IsEating", true);
+        m_audio.PlayOneShot(m_EatSoundEffect[Random.Range(0, m_EatSoundEffect.Length)]);
     }
 
     // Returns if the Human is susceptible to getting possessed.

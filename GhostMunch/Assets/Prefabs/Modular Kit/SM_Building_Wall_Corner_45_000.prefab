@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4534075781814244}
   - component: {fileID: 65875261867786194}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Collision_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4998154960555316}
   - component: {fileID: 33653512835781490}
   - component: {fileID: 23732769584713232}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: SM_Building_Wall_Corner_45_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4038034698856178}
   - component: {fileID: 65997853603075104}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Collision_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4118319614297466}
   - component: {fileID: 65883073606532348}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Collision_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,16 +121,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1295929270707090}
-  m_LocalRotation: {x: -0, y: -0.00000037252897, z: -0, w: 1}
-  m_LocalPosition: {x: 1.66, y: 0.44036, z: -20.06}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000044703478}
+  m_LocalPosition: {x: -18, y: -0.050691, z: 14}
+  m_LocalScale: {x: 1.0000017, y: 1, z: 1.0000017}
   m_Children:
   - {fileID: 4534075781814244}
   - {fileID: 4118319614297466}
   - {fileID: 4038034698856178}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
 --- !u!23 &23732769584713232
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -145,7 +145,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ada138053fd195544849178cc7ecc8aa, type: 2}
+  - {fileID: 2100000, guid: 75cceb4b29cc6c24ea97f1b0d794a2c0, type: 2}
   - {fileID: 2100000, guid: ada138053fd195544849178cc7ecc8aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

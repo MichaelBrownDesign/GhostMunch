@@ -145,7 +145,10 @@ public class PlayerInput : MonoBehaviour
         catch(ArgumentException e) // If there are duplicate bindings are found an argument exception will be thrown.
         {
             if(e.GetType() == typeof(ArgumentException))
-                Debug.Log("PlayerInput.cs: Multiple inputs detected with the same binding.");
+            {
+                //Always logging, fix me
+                //Debug.Log("PlayerInput.cs: Multiple inputs detected with the same binding.");
+            }
         }
     }
 
