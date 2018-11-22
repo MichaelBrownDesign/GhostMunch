@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: M_Ghost_Purple
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: a848a43f7a53e3e4faf028038b6c0a2e, type: 3}
   m_ShaderKeywords: _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _SPECGLOSSMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -43,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Emmision:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: adfbc9245967b5849bd3e915d1389060, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -96,7 +96,7 @@ Material:
     - _DepthThresold: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EmissionStrength: 1.08
+    - _EmissionStrength: 0.6
     - _FresnelExp: 5.2
     - _GlossMapScale: 1
     - _Glossiness: 0.5

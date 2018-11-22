@@ -3412,15 +3412,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4587257136754856, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.98
+      value: -8.49
       objectReference: {fileID: 0}
     - target: {fileID: 4587257136754856, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.406
       objectReference: {fileID: 0}
     - target: {fileID: 4587257136754856, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -12.48
+      value: -16.42
       objectReference: {fileID: 0}
     - target: {fileID: 4587257136754856, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3442,36 +3442,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114759389131749738, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2,
-        type: 2}
-      propertyPath: m_fMoveSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114596569093364242, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2,
-        type: 2}
-      propertyPath: m_buttonBindings.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114596569093364242, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2,
-        type: 2}
-      propertyPath: m_buttonBindings.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114759389131749738, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2,
-        type: 2}
-      propertyPath: m_fRotationLerpT
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114596569093364242, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2,
-        type: 2}
-      propertyPath: m_buttonBindings.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 137810217024149664, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f0e6803c55cbf214e8cd05b19e5c66ce, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e2c44a284a7aa940ac7b54f4ca9b7f2, type: 2}
   m_IsPrefabParent: 0
