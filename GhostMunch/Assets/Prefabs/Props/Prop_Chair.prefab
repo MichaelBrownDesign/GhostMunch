@@ -37,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1669444517626092}
-  m_LocalRotation: {x: 0.0000005271286, y: -0.96592677, z: 0.00000018253921, w: -0.25881574}
-  m_LocalPosition: {x: -8.375683, y: -2.3784866, z: 15.165872}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.878439, y: -1.9131261, z: 1.2108736}
   m_LocalScale: {x: 1.250001, y: 1.25, z: 1.250001}
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,8 +124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
-  m_possessEffect: {fileID: 0}
-  m_breakEffect: {fileID: 0}
+  m_possessEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+    type: 2}
+  m_breakEffect: {fileID: 1076811099397532, guid: 13663464e18170b4ea6b2efae2d2f804,
+    type: 2}
   m_material: {fileID: 0}
   m_thrownCollider: {fileID: 0}
   m_fHeightOffset: 0
