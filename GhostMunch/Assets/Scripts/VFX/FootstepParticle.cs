@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[
+RequireComponent(typeof(AudioSource))    
+]
+
 public class FootstepParticle : MonoBehaviour
 {
     public ParticleSystem m_PSFootstepLeft;
@@ -9,7 +13,7 @@ public class FootstepParticle : MonoBehaviour
 
     public int m_ParticlesPerStep = 10;
 
-    AudioSource m_AudioSource;
+    public AudioSource m_AudioSource;
 
     public List<AudioClip> m_FootstepSoundEffects;
 
@@ -18,9 +22,9 @@ public class FootstepParticle : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
     }
 
-    public void OnStep(int _foot)
+    public void OnStep(int nFoot)
     {
-        if (_foot == 0)
+        if (nFoot == 0)
         {
             m_PSFootstepLeft.Emit(m_ParticlesPerStep);
         }
@@ -29,7 +33,7 @@ public class FootstepParticle : MonoBehaviour
             m_PSFootstepRight.Emit(m_ParticlesPerStep);
         }
 
-        m_AudioSource.PlayOneShot(m_FootstepSoundEffects[Random.Range(0, m_FootstepSoundEffects.Count-1)]);
-
+        // Play random footstep audio clip.
+        m_AudioSource.PlayOneShot(m_FootstepSoundEffects[Random.Range(0, m_FootstepSoundEffects.Count - 1)]);
     }
 }
