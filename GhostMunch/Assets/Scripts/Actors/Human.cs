@@ -15,6 +15,7 @@ public class Human : MonoBehaviour
     [Header("Display")]
     public GameObject m_pointer;
     public Animator m_animationController;
+    public Material m_material;
 
     // Audio
     [Header("Audio")]
@@ -53,7 +54,11 @@ public class Human : MonoBehaviour
         m_input.enabled = false;
         m_movement.enabled = false;
         m_bSusceptible = true;
-	}
+
+        // Enable glow effect.
+        if(m_material)
+            m_material.SetFloat("_EmissionStrength", 1.0f);
+    }
 	
 	// Update is called once per frame
 	void Update()
@@ -123,6 +128,10 @@ public class Human : MonoBehaviour
 
         // Enable look pointer.
         m_pointer.SetActive(true);
+
+        // Disable glow effect.
+        if(m_material)
+            m_material.SetFloat("_EmissionStrength", 0.0f);
     }
 
     public void Separate(Vector3 v3PropDirectopn)
@@ -149,6 +158,9 @@ public class Human : MonoBehaviour
 
         m_bIsHit = true;
 
+        // Enable glow effect.\
+        if(m_material)
+            m_material.SetFloat("_EmissionStrength", 1.0f);
     }
 
     // Sets whether or not the human is currently unavailable due to being possessed.

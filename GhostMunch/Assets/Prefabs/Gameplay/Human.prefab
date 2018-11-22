@@ -2866,6 +2866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pointer: {fileID: 1827079341966632}
   m_animationController: {fileID: 95211999250103072}
+  m_material: {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_footsteps: []
   m_EatSoundEffect:
   - {fileID: 0}
@@ -3276,7 +3277,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f0e6803c55cbf214e8cd05b19e5c66ce, type: 2}
+  - {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
