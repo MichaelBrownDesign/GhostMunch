@@ -13,6 +13,7 @@ RequireComponent(typeof(AudioSource))
 
 public class Player : MonoBehaviour
 {
+
     // Score
     [Header("Score")]
     public int m_nScore;
@@ -55,6 +56,8 @@ public class Player : MonoBehaviour
     // Misc
     [Header("Misc")]
     public GameObject m_meshRoot;
+
+    public PauseMenu m_pauseScript;
 
     // This object.
     private PlayerInput m_input;
@@ -300,10 +303,10 @@ public class Player : MonoBehaviour
         }
 
         // Pause
-        if(m_input.StartPressed())
+        if(m_input.StartPressed() && !m_input.m_bUseKeyboard)
         {
-            PauseMenu pauseScript = m_gui.GetComponent<PauseMenu>();
-            pauseScript.SetPaused(!pauseScript.GetIsPaused());
+             PauseMenu m_pauseScript = m_gui.GetComponent<PauseMenu>();
+             m_pauseScript.SetPaused(!m_pauseScript.GetIsPaused());
         }
     }
 

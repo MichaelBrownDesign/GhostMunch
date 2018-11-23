@@ -899,9 +899,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Help
-
-'
+  m_Text: Help
 --- !u!222 &602856930
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3659,14 +3657,17 @@ Prefab:
     - target: {fileID: 114957277291640556, guid: 65d54d36c8ffa1748938ddc9189731c9,
         type: 2}
       propertyPath: m_Text
-      value: 'Help
-
-'
+      value: Help
       objectReference: {fileID: 0}
     - target: {fileID: 114957277291640556, guid: 65d54d36c8ffa1748938ddc9189731c9,
         type: 2}
       propertyPath: m_FontData.m_Alignment
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114957277291640556, guid: 65d54d36c8ffa1748938ddc9189731c9,
+        type: 2}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65d54d36c8ffa1748938ddc9189731c9, type: 2}

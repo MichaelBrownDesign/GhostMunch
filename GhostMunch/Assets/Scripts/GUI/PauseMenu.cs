@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour {
     public GameObject m_pauseGUI;
     public EventSystem m_events;
     private bool m_bPaused;
+    private bool m_bLocked;
 
     [Header("Audio")]
 
@@ -34,6 +35,7 @@ public class PauseMenu : MonoBehaviour {
     {
         m_audioSource = GetComponent<AudioSource>();
 
+        m_bLocked = false;
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class PauseMenu : MonoBehaviour {
             m_events.SetSelectedGameObject(m_resumeButton);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) )
         {
             SetPaused(!GetIsPaused());
         }
@@ -73,6 +75,8 @@ public class PauseMenu : MonoBehaviour {
         m_helpGUI.SetActive(true);
         m_inGameGUI.SetActive(false);
         m_pauseGUI.SetActive(false);
+
+        m_bLocked = true;
     }
 
     public void MainMenuButton()
@@ -89,9 +93,12 @@ public class PauseMenu : MonoBehaviour {
 
     public void SetPaused(bool bPause)
     {
-        m_bPaused = bPause;
-        //    pausePanel.SetActive(m_bPaused);
+        if (m_bLocked)
+            return;
 
+        m_bPaused = bPause;
+
+        Debug.Log("paused");
 
         if (bPause)
         {
@@ -110,5 +117,15 @@ public class PauseMenu : MonoBehaviour {
     public bool GetIsPaused()
     {
         return m_bPaused;
+    }
+
+    public void SetLocked(bool bLocked)
+    {
+        m_bLocked = bLocked;
+    }
+
+    public bool GetLocked()
+    {
+        return m_bLocked;
     }
 }
