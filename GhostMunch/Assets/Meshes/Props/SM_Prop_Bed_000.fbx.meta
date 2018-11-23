@@ -10,9 +10,11 @@ ModelImporter:
     2100000: lambert1
     2100002: SM_Bed_000_StingrayPBS14
     2100004: SM_Bed_000_StingrayPBS15
+    2100006: StingrayPBS88
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_Bed_003
+    4300002: SM_bed_000
   externalObjects: {}
   materials:
     importMaterials: 1

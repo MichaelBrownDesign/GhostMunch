@@ -8,9 +8,11 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: Stair_Rail
+    2100002: StingrayPBS82
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_StairRail_000
+    4300002: SM_BaulastradeStair_000
     9500000: //RootNode
   externalObjects: {}
   materials:
