@@ -10,6 +10,8 @@ public class GameGUI : MonoBehaviour
     // Misc
     PlayerManager m_manager;
 
+    public PauseMenu m_pauseScript;
+
     private string m_sceneName;
 
     // Stats
@@ -76,6 +78,8 @@ public class GameGUI : MonoBehaviour
             m_nHungerValues[nPlayerIndex] = m_nMaxHungerValue;
 
             m_manager.DisablePlayerInput();
+
+            m_pauseScript.SetLocked(true);
 
             m_inGameUI.SetActive(false);
             m_gameOverUI.SetActive(true);

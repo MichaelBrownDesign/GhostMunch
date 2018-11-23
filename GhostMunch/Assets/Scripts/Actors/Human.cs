@@ -32,7 +32,10 @@ public class Human : MonoBehaviour
     private CharacterController m_controller;
     private AudioSource m_audio;
     private bool m_bPossessed;
-    
+
+    // Misc
+    PauseMenu m_pauseRef;
+
     // Possessor
     private Player m_ownerPScript;
 
@@ -49,6 +52,8 @@ public class Human : MonoBehaviour
         m_movement = GetComponent<PlayerMovement>();
         m_controller = GetComponent<CharacterController>();
         m_audio = GetComponent<AudioSource>();
+
+        m_pauseRef = GameObject.Find("GameGUI").GetComponent<PauseMenu>();
 
         // Human starts off not possessed, and simply dead on the floor.
         m_input.enabled = false;
@@ -67,6 +72,13 @@ public class Human : MonoBehaviour
         if(m_ownerPScript != null)
         {
             m_ownerPScript.gameObject.transform.position = transform.position;
+        }
+
+        // Pause
+        if (m_input.StartPressed() && !m_input.m_bUseKeyboard)
+        {
+            PauseMenu m_pauseScript = m_pauseRef.GetComponent<PauseMenu>();
+            m_pauseScript.SetPaused(!m_pauseScript.GetIsPaused());
         }
 
         // Disable player movement while eating.
