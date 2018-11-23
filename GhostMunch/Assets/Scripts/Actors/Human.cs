@@ -35,6 +35,7 @@ public class Human : MonoBehaviour
 
     // Misc
     PauseMenu m_pauseRef;
+    float m_fOriginalHeight;
 
     // Possessor
     private Player m_ownerPScript;
@@ -63,6 +64,8 @@ public class Human : MonoBehaviour
         // Enable glow effect.
         if(m_material)
             m_material.SetFloat("_EmissionStrength", 1.0f);
+
+        m_fOriginalHeight = transform.position.y;
     }
 	
 	// Update is called once per frame
@@ -173,6 +176,8 @@ public class Human : MonoBehaviour
         // Enable glow effect.\
         if(m_material)
             m_material.SetFloat("_EmissionStrength", 1.0f);
+
+        transform.position = new Vector3(transform.position.x, m_fOriginalHeight, transform.position.z);
     }
 
     // Sets whether or not the human is currently unavailable due to being possessed.
