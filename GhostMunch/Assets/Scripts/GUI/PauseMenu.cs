@@ -98,7 +98,7 @@ public class PauseMenu : MonoBehaviour {
 
         m_bPaused = bPause;
 
-        Debug.Log("paused");
+    //    Debug.Log("paused");
 
         if (bPause)
         {

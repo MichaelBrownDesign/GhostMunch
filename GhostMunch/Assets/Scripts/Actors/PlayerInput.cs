@@ -233,7 +233,7 @@ public class PlayerInput : MonoBehaviour
     // Returns true when the specified button is pressed and released. (PC buttons activate when first pressed but that usually makes little difference).
     public bool GetButton(int nButtonIndex)
     {
-        return (!m_buttons[m_buttonBindings[nButtonIndex]](m_prevGpdState) && m_buttons[m_buttonBindings[nButtonIndex]](m_gpdState)) 
+        return (!m_buttons[m_buttonBindings[nButtonIndex]](m_prevGpdState) && m_buttons[m_buttonBindings[nButtonIndex]](m_gpdState) && !m_bUseKeyboard) 
             || (Input.GetKeyDown(m_buttonKeyBindings[nButtonIndex]) && m_bUseKeyboard);
     }
     // -------------------------------------------------------------------------------
