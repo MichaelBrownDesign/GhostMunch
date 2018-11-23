@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198401069234669400}
   - component: {fileID: 199655250602088284}
   m_Layer: 0
-  m_Name: PS_Break_000 1
+  m_Name: PS_Books
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

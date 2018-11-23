@@ -93,9 +93,7 @@ Shader "Shader Forge/S_Flame" {
                 float4 objPos = mul ( unity_ObjectToWorld, float4(0,0,0,1) );
                 float4 node_3660 = _Time + _TimeEditor;
                 float3 node_1143 = sin(normalize((mul(unity_ObjectToWorld, v.vertex).rgb-objPos.rgb)));
-                float3 node_3855 = (float3(1,0,0)*sin(node_3660.g)*_Amplitude*node_1143);
-                float3 node_5322 = (float3(0,0,1)*cos(node_3660.g)*_Amplitude*node_1143);
-                v.vertex.xyz += (node_3855+node_5322);
+                v.vertex.xyz += ((float3(1,0,0)*sin(node_3660.g)*_Amplitude*node_1143)+(float3(0,0,1)*cos(node_3660.g)*_Amplitude*node_1143));
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
@@ -281,9 +279,7 @@ Shader "Shader Forge/S_Flame" {
                 float4 objPos = mul ( unity_ObjectToWorld, float4(0,0,0,1) );
                 float4 node_3660 = _Time + _TimeEditor;
                 float3 node_1143 = sin(normalize((mul(unity_ObjectToWorld, v.vertex).rgb-objPos.rgb)));
-                float3 node_3855 = (float3(1,0,0)*sin(node_3660.g)*_Amplitude*node_1143);
-                float3 node_5322 = (float3(0,0,1)*cos(node_3660.g)*_Amplitude*node_1143);
-                v.vertex.xyz += (node_3855+node_5322);
+                v.vertex.xyz += ((float3(1,0,0)*sin(node_3660.g)*_Amplitude*node_1143)+(float3(0,0,1)*cos(node_3660.g)*_Amplitude*node_1143));
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 float3 lightColor = _LightColor0.rgb;
                 o.pos = UnityObjectToClipPos( v.vertex );
@@ -398,9 +394,7 @@ Shader "Shader Forge/S_Flame" {
                 float4 objPos = mul ( unity_ObjectToWorld, float4(0,0,0,1) );
                 float4 node_3660 = _Time + _TimeEditor;
                 float3 node_1143 = sin(normalize((mul(unity_ObjectToWorld, v.vertex).rgb-objPos.rgb)));
-                float3 node_3855 = (float3(1,0,0)*sin(node_3660.g)*_Amplitude*node_1143);
-                float3 node_5322 = (float3(0,0,1)*cos(node_3660.g)*_Amplitude*node_1143);
-                v.vertex.xyz += (node_3855+node_5322);
+                v.vertex.xyz += ((float3(1,0,0)*sin(node_3660.g)*_Amplitude*node_1143)+(float3(0,0,1)*cos(node_3660.g)*_Amplitude*node_1143));
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 o.pos = UnityObjectToClipPos( v.vertex );
                 TRANSFER_SHADOW_CASTER(o)
@@ -466,9 +460,7 @@ Shader "Shader Forge/S_Flame" {
                 float4 objPos = mul ( unity_ObjectToWorld, float4(0,0,0,1) );
                 float4 node_3660 = _Time + _TimeEditor;
                 float3 node_1143 = sin(normalize((mul(unity_ObjectToWorld, v.vertex).rgb-objPos.rgb)));
-                float3 node_3855 = (float3(1,0,0)*sin(node_3660.g)*_Amplitude*node_1143);
-                float3 node_5322 = (float3(0,0,1)*cos(node_3660.g)*_Amplitude*node_1143);
-                v.vertex.xyz += (node_3855+node_5322);
+                v.vertex.xyz += ((float3(1,0,0)*sin(node_3660.g)*_Amplitude*node_1143)+(float3(0,0,1)*cos(node_3660.g)*_Amplitude*node_1143));
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
                 o.pos = UnityMetaVertexPosition(v.vertex, v.texcoord1.xy, v.texcoord2.xy, unity_LightmapST, unity_DynamicLightmapST );
                 return o;
