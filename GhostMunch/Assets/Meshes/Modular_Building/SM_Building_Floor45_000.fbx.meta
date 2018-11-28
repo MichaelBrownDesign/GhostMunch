@@ -1,21 +1,16 @@
 fileFormatVersion: 2
-guid: 36a68ec2e3c827f408ec11206d0cb711
-timeCreated: 1538627328
+guid: 4ee7300a930fc69428ac27a768b68f36
+timeCreated: 1543374162
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: StingrayPBS14
-    2100002: lambert1
-    2100004: StingrayPBS42
+    2100000: StingrayPBS42
     2300000: //RootNode
     3300000: //RootNode
-    4300000: SM__Floor__001
-    4300002: SM_Building_Floor_000
-    4300004: SM_Floor_000
-    9500000: //RootNode
+    4300000: SM_Floor45_000
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -90,7 +85,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
