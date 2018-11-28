@@ -17,9 +17,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Beta/Scene_Beta_003_Nic.unity
     guid: b4d1eda84d95d684a97221a53339b577
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Beta/Scene_Beta_005.unity
     guid: f865d9ca190627240a10a334735d65a6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Beta/Scene_Beta_006_JN.unity
     guid: c0f2a2890c5335b469b7096e728dbe25
+  - enabled: 1
+    path: Assets/Scenes/Beta/Scene_Beta_007_JN.unity
+    guid: 4d0b559cbc4f13540a12d6a57a13fdd0
