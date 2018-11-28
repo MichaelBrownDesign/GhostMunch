@@ -80,8 +80,8 @@ Material:
     - _Gloss_copy: 0.5
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HeightScale: 4.71
-    - _HillScale: -5
+    - _HeightScale: 5
+    - _HillScale: -10
     - _Metallic: 0.573
     - _Mode: 0
     - _OcclusionStrength: 1
