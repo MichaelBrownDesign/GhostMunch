@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797e23d8dac60c64987e866a53a6013b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_eatEffect: {fileID: 1789424761925036, guid: 194e3b790fb4b8641a3d9ae1aef5e165,
+  m_eatEffect: {fileID: 1782035640485550, guid: 77e4209608a6ce741af846b770c6080e,
     type: 2}
   m_fRespawnTime: 10
   m_nScoreValue: 10

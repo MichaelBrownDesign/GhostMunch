@@ -35,7 +35,6 @@ public class Human : MonoBehaviour
 
     // Misc
     PauseMenu m_pauseRef;
-    float m_fOriginalHeight;
 
     // Possessor
     private Player m_ownerPScript;
@@ -64,8 +63,6 @@ public class Human : MonoBehaviour
         // Enable glow effect.
         if(m_material)
             m_material.SetFloat("_EmissionStrength", 1.0f);
-
-        m_fOriginalHeight = transform.position.y;
     }
 	
 	// Update is called once per frame
@@ -94,6 +91,15 @@ public class Human : MonoBehaviour
 
         m_animationController.SetBool("IsPossessed", m_bPossessed);
         
+    }
+
+    private void FixedUpdate()
+    {
+        if(m_ownerPScript == null)
+        {
+            // Move human down to floor if they are floating.
+            m_controller.Move(Vector3.down * Time.deltaTime * 3.0f);
+        }
     }
 
     public void OnStep(int _foot)
@@ -149,7 +155,7 @@ public class Human : MonoBehaviour
             m_material.SetFloat("_EmissionStrength", 0.0f);
     }
 
-    public void Separate(Vector3 v3PropDirectopn)
+    public void Separate(Vector3 v3PropDirection)
     {
         if (m_bSusceptible)
             return;
@@ -160,7 +166,7 @@ public class Human : MonoBehaviour
         m_bSusceptible = true;
 
         // Kick player out of human.
-        m_ownerPScript.KickFromHuman(v3PropDirectopn);
+        m_ownerPScript.KickFromHuman(v3PropDirection);
 
         // Disable look pointer.
         m_pointer.SetActive(false);
@@ -176,11 +182,9 @@ public class Human : MonoBehaviour
         // Enable glow effect.\
         if(m_material)
             m_material.SetFloat("_EmissionStrength", 1.0f);
-
-        transform.position = new Vector3(transform.position.x, m_fOriginalHeight, transform.position.z);
     }
 
-    // Sets whether or not the human is currently unavailable due to being possessed.
+    // Sets whether or not the humfan is currently unavailable due to being possessed.
     public void SetPossessed(bool bPossessed)
     {
         m_bPossessed = bPossessed;

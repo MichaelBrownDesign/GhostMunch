@@ -146,83 +146,16 @@ public class Player : MonoBehaviour
         bool bDropInput = m_input.GetButton(1);
 
         // Object throwing
-        if (m_possessedObj != null)
+        if (m_possessedObj != null && m_possessedObj != m_human)
         {
-            if(m_bIsPossessing) // While lerping to the object to possess...
+            // Thowing input.
+            if (m_possessedObj != m_human && bThrowInput)
             {
-                // Keep same Y position.
-                float y = transform.position.y;
-
-                transform.position = Vector3.Lerp(transform.position, m_possessedObj.transform.position, 0.2f);
-                transform.position = new Vector3(transform.position.x, y, transform.position.z);
-
-                float fDistanceToObj = Vector2.Distance
-                (
-                    new Vector2(m_possessedObj.transform.position.x, m_possessedObj.transform.position.z), 
-                    new Vector2(transform.position.x, transform.position.z)
-                );
-
-                // Take control of object once within range.
-                if(fDistanceToObj < 1.1f)
-                {
-                    if (m_possessedObj != m_human)
-                        PossessObject();
-                    else
-                        PossessHuman();
-                }
+                ThrowPossessed();
             }
-            else if(m_possessedObj != m_human) // Runs while the object is possessed...
+            else if(m_possessedObj != m_human && bDropInput)
             {
-                Vector3 v3LocalPos = m_possessedObj.transform.localPosition;
-                Vector3 v3EulerRotation = m_possessedObj.transform.localRotation.eulerAngles;
-                float fFinalPosY = 0.0f;
-                float fFinalRotationZ = 0.0f;
-
-                // Bobbing effect.
-                if (m_movement.GetIsMoving())
-                {
-                    float fMovementMag = m_movement.GetMovementMagnitude();
-
-                    // Animation progression...
-                    m_fBobProgress += Time.deltaTime * m_fBobSpeed + (m_fBobMoveSpeedInc * fMovementMag);
-                    m_fTiltProgress += Time.deltaTime * m_fTiltSpeed + (m_fTiltMoveSpeedInc * fMovementMag);
-
-                    // Calculate sin values and apply animation to Pos Y.
-                    fFinalPosY = Mathf.Lerp(v3LocalPos.y, Mathf.Sin(m_fBobProgress) * (m_fObjectHeight * 0.25f), 0.2f);
-
-                    // Calculate sin of Z rotation and apply.
-                    float fFinalRotation = Mathf.Sin(m_fTiltProgress) * m_fTiltStrength;
-
-                    fFinalRotationZ = Mathf.LerpAngle(v3EulerRotation.z, fFinalRotation, 0.2f);
-
-                    m_possessedScript.SetEffectFloat(true);
-
-                    // Show pointer when the player is moving.
-                    m_pointer.SetActive(true);
-                }
-                else
-                {
-                    fFinalPosY = Mathf.Lerp(v3LocalPos.y, -1.0f, 0.1f);
-                    fFinalRotationZ = Mathf.LerpAngle(v3EulerRotation.z, 0.0f, 0.05f);
-                    m_possessedScript.SetEffectFloat(false);
-
-                    // Hide pointer when the player is still.
-                    m_pointer.SetActive(false);
-                }
-
-                m_possessedObj.transform.localPosition = new Vector3(v3LocalPos.x, fFinalPosY, v3LocalPos.z);
-                m_possessedObj.transform.localRotation = Quaternion.Euler(new Vector3(v3EulerRotation.x, v3EulerRotation.y, fFinalRotationZ));
-
-                // Thowing input.
-
-                if (m_possessedObj != m_human && bThrowInput)
-                {
-                    ThrowPossessed();
-                }
-                else if(m_possessedObj != m_human && bDropInput)
-                {
-                    DropPossessed();
-                }
+                DropPossessed();
             }
         }
 
@@ -302,7 +235,7 @@ public class Player : MonoBehaviour
              m_pauseScript.SetPaused(!m_pauseScript.GetIsPaused());
         }
 
-        if(m_dashParticles)
+        if(m_dashParticles && m_possessedObj == null)
         {
             // Play dash particles while dashing.
             if (m_possessedObj == null && m_movement.GetIsRolling())
@@ -321,11 +254,83 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (m_possessedObj != null)
+        {
+            if (m_bIsPossessing) // While lerping to the object to possess...
+            {
+                // Keep same Y position.
+                float y = transform.position.y;
+
+                transform.position = Vector3.Lerp(transform.position, m_possessedObj.transform.position, 0.2f);
+                transform.position = new Vector3(transform.position.x, y, transform.position.z);
+
+                float fDistanceToObj = Vector2.Distance
+                (
+                    new Vector2(m_possessedObj.transform.position.x, m_possessedObj.transform.position.z),
+                    new Vector2(transform.position.x, transform.position.z)
+                );
+
+                // Take control of object once within range.
+                if (fDistanceToObj < 1.1f)
+                {
+                    if (m_possessedObj != m_human)
+                        PossessObject();
+                    else
+                        PossessHuman();
+                }
+            }
+            else if(m_possessedObj != m_human)
+            {
+                Vector3 v3LocalPos = m_possessedObj.transform.localPosition;
+                Vector3 v3EulerRotation = m_possessedObj.transform.localRotation.eulerAngles;
+                float fFinalPosY = 0.0f;
+                float fFinalRotationZ = 0.0f;
+
+                // Bobbing effect.
+                if (m_movement.GetIsMoving())
+                {
+                    float fMovementMag = m_movement.GetMovementMagnitude();
+
+                    // Animation progression...
+                    m_fBobProgress += Time.deltaTime * m_fBobSpeed + (m_fBobMoveSpeedInc * fMovementMag);
+                    m_fTiltProgress += Time.deltaTime * m_fTiltSpeed + (m_fTiltMoveSpeedInc * fMovementMag);
+
+                    // Calculate sin values and apply animation to Pos Y.
+                    fFinalPosY = Mathf.Lerp(v3LocalPos.y, Mathf.Sin(m_fBobProgress) * (m_fObjectHeight * 0.25f), 0.2f);
+
+                    // Calculate sin of Z rotation and apply.
+                    float fFinalRotation = Mathf.Sin(m_fTiltProgress) * m_fTiltStrength;
+
+                    fFinalRotationZ = Mathf.LerpAngle(v3EulerRotation.z, fFinalRotation, 0.2f);
+
+                    m_possessedScript.SetEffectFloat(true);
+
+                    // Show pointer when the player is moving.
+                    m_pointer.SetActive(true);
+                }
+                else
+                {
+                    fFinalPosY = Mathf.Lerp(v3LocalPos.y, -1.0f, 0.1f);
+                    fFinalRotationZ = Mathf.LerpAngle(v3EulerRotation.z, 0.0f, 0.05f);
+                    m_possessedScript.SetEffectFloat(false);
+
+                    // Hide pointer when the player is still.
+                    m_pointer.SetActive(false);
+                }
+
+                m_possessedObj.transform.localPosition = new Vector3(v3LocalPos.x, fFinalPosY, v3LocalPos.z);
+                m_possessedObj.transform.localRotation = Quaternion.Euler(new Vector3(v3EulerRotation.x, v3EulerRotation.y, fFinalRotationZ));
+            }
+        }
+    }
+
     /*
     Description: Initiate movement into object to possess.
     Params:
         GameObject obj: The object to pursue.
-    */ 
+    */
     public void PursuePossess(GameObject obj)
     {
         if (m_possessedObj != null)
@@ -363,6 +368,16 @@ public class Player : MonoBehaviour
         // Play possess sound.
         if (m_possessClip != null)
             m_audio.PlayOneShot(m_possessClip);
+
+        // Play dash effect.
+        if (m_dashParticles && !m_dashParticles.isPlaying)
+        {
+            m_dashParticles.transform.localPosition = Vector3.zero;
+            ParticleSystem.MainModule dashMain = m_dashParticles.main;
+            dashMain.startRotationY = (transform.rotation.eulerAngles.y) / 180.0f * Mathf.PI;
+
+            m_dashParticles.Play();
+        }
     }
 
     /*
@@ -399,6 +414,10 @@ public class Player : MonoBehaviour
 
         // Reset throw cooldown.
         m_fCurrentThrowCD = m_fThrowCooldown;
+
+        // Stop dash effect.
+        if (m_dashParticles)
+            m_dashParticles.Stop();
     }
 
     /*
@@ -436,6 +455,10 @@ public class Player : MonoBehaviour
         // Play possess particle effect.
         if (m_possessParticles)
             m_possessParticles.GetComponent<PossessParticleController>().PlayEffects();
+
+        // Stop dash effect.
+        if (m_dashParticles)
+            m_dashParticles.Stop();
     }
 
     public void KickFromHuman(Vector3 v3PropDirection)
