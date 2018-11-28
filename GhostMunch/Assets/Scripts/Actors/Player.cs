@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     // Effects
     [Header("Effects")]
     public GameObject m_possessParticles;
-    private GameObject m_possessParticlesInst;
+    public ParticleSystem m_dashParticles;
 
     // Misc
     [Header("Misc")]
@@ -106,9 +106,8 @@ public class Player : MonoBehaviour
 
         if (m_possessParticles)
         {
-            m_possessParticlesInst = Instantiate(m_possessParticles);
-            m_possessParticlesInst.transform.parent = transform;
-            m_possessParticlesInst.transform.localPosition = Vector3.zero;
+            m_possessParticles.transform.parent = transform;
+            m_possessParticles.transform.localPosition = Vector3.zero;
         }
 
         m_gui = GameObject.Find("GameGUI").GetComponent<GameGUI>();
@@ -302,6 +301,24 @@ public class Player : MonoBehaviour
              PauseMenu m_pauseScript = m_gui.GetComponent<PauseMenu>();
              m_pauseScript.SetPaused(!m_pauseScript.GetIsPaused());
         }
+
+        if(m_dashParticles)
+        {
+            // Play dash particles while dashing.
+            if (m_possessedObj == null && m_movement.GetIsRolling())
+            {
+                if(!m_dashParticles.isPlaying)
+                    m_dashParticles.Play();
+
+                ParticleSystem.MainModule dashMain = m_dashParticles.main;
+                dashMain.startRotationY = (transform.rotation.eulerAngles.y) / 180.0f * Mathf.PI;
+            }
+            else
+            {
+                if(m_dashParticles.isPlaying)
+                    m_dashParticles.Stop();
+            }
+        }
     }
 
     /*
@@ -417,8 +434,8 @@ public class Player : MonoBehaviour
         m_humanScript.SetOwner(this, m_input, m_input.GetPlayer());
 
         // Play possess particle effect.
-        if (m_possessParticlesInst)
-            m_possessParticlesInst.GetComponent<PossessParticleController>().PlayEffects();
+        if (m_possessParticles)
+            m_possessParticles.GetComponent<PossessParticleController>().PlayEffects();
     }
 
     public void KickFromHuman(Vector3 v3PropDirection)

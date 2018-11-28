@@ -301,4 +301,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return m_bIsMoving;
     }
+
+    public bool GetIsRolling()
+    {
+        return m_bIsRolling;
+    }
 }
