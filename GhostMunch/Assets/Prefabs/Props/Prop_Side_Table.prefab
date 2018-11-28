@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560732235877270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.524027, y: -1.9131261, z: 13.262149}
+  m_LocalPosition: {x: 9.31909, y: -1.8881236, z: -6.9409113}
   m_LocalScale: {x: 2.0114107, y: 1.2347285, z: 1.2347285}
   m_Children:
   - {fileID: 4580712078445636}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_fRespawnTime: 15
   m_possessEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
     type: 2}
-  m_breakEffect: {fileID: 1076811099397532, guid: 13663464e18170b4ea6b2efae2d2f804,
+  m_breakEffect: {fileID: 1791231192869352, guid: b09dbb320759c744bbfcb418d6fdb684,
     type: 2}
   m_material: {fileID: 0}
   m_thrownCollider: {fileID: 0}

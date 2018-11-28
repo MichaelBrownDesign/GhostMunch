@@ -66,14 +66,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1458764847532430}
-  m_LocalRotation: {x: -0, y: 0.9659253, z: -0, w: 0.25882137}
-  m_LocalPosition: {x: -17.135683, y: -2.1892796, z: -8.594129}
+  m_LocalRotation: {x: -0, y: 0.4668051, z: -0, w: -0.88436025}
+  m_LocalPosition: {x: 0.8543172, y: -1.7084866, z: 3.4058714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4473776074165902}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 150, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 304.346, z: 0}
 --- !u!23 &23067821847986092
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_fRespawnTime: 5
   m_possessEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
     type: 2}
-  m_breakEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+  m_breakEffect: {fileID: 1791231192869352, guid: b09dbb320759c744bbfcb418d6fdb684,
     type: 2}
   m_material: {fileID: 0}
   m_thrownCollider: {fileID: 65173758673577540}

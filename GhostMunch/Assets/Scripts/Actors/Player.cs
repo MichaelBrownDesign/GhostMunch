@@ -53,6 +53,11 @@ public class Player : MonoBehaviour
     public AudioClip m_possessClip;
     public AudioClip m_throwClip;
 
+    // Effects
+    [Header("Effects")]
+    public GameObject m_possessParticles;
+    private GameObject m_possessParticlesInst;
+
     // Misc
     [Header("Misc")]
     public GameObject m_meshRoot;
@@ -99,26 +104,17 @@ public class Player : MonoBehaviour
         m_humanController = m_human.GetComponent<CharacterController>();
         m_humanScript = m_human.GetComponent<Human>();
 
-        m_gui = GameObject.Find("GameGUI").GetComponent<GameGUI>();
+        if (m_possessParticles)
+        {
+            m_possessParticlesInst = Instantiate(m_possessParticles);
+            m_possessParticlesInst.transform.parent = transform;
+            m_possessParticlesInst.transform.localPosition = Vector3.zero;
+        }
 
-        // Find player ID.
-        //m_nID = (int)m_input.m_ePlayerIndex;
+        m_gui = GameObject.Find("GameGUI").GetComponent<GameGUI>();
 
         // Find all players...
         GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
-
-        //bool bHasKeyboardPlayer = false;
-
-        // Detect if any player is using the keyboard.
-        //for(int i = 0; i < allPlayers.Length; ++i)
-        //{
-        //    if (allPlayers[i].GetComponent<PlayerInput>().m_bUseKeyboard)
-        //        bHasKeyboardPlayer = true;
-        //}
-
-        // If a player is using the keyboard and this is not that player. Add 1 to the ID.
-        //if (bHasKeyboardPlayer && !m_input.m_bUseKeyboard)
-            //m_nID++;
 
         // Set to player 4 for controller input if using keyboard.
         if (m_input.m_bUseKeyboard)
@@ -134,8 +130,6 @@ public class Player : MonoBehaviour
         // Get wall shader position handle.
         if (m_wallMat)
             m_shaderUniformHandle = "_Player" + (m_nID + 1) + "Pos";
-
-        Debug.Log(m_shaderUniformHandle);
     }
 
     // Update is called once per frame
@@ -421,6 +415,10 @@ public class Player : MonoBehaviour
 
         // Make this player have ownership of the human and control him.
         m_humanScript.SetOwner(this, m_input, m_input.GetPlayer());
+
+        // Play possess particle effect.
+        if (m_possessParticlesInst)
+            m_possessParticlesInst.GetComponent<PossessParticleController>().PlayEffects();
     }
 
     public void KickFromHuman(Vector3 v3PropDirection)
