@@ -14,13 +14,17 @@ public class LobbyGUI : MonoBehaviour
     public GameObject m_lobbyGui;
     public GameObject m_mainMenuCanvas;
     public GameObject[] m_playerPanels;
+    public Image[] m_contollerIcons;
+    public Image[] m_keyboardIcons;
+    public Image[] m_portaits;
+    public Sprite[] m_portraitGlowSprites;
+    public Sprite[] m_portraitEmptySprites;
     public Button m_playButton;
     public Button m_joinButton;
 
     LinkedList<int> m_players;
     private GamePadState[] m_playerStates;
     private GamePadState[] m_prevPlayerStates;
-    private Text[] m_textObjs;
 
 
     //level select
@@ -58,14 +62,6 @@ public class LobbyGUI : MonoBehaviour
         // Initialize arrays.
         m_playerStates = new GamePadState[4];
         m_prevPlayerStates = new GamePadState[4];
-
-        m_textObjs = new Text[4];
-
-        // Find text scripts on GUI panels.
-        for (int i = 0; i < 4; ++i)
-        {
-            m_textObjs[i] = m_playerPanels[i].GetComponentInChildren<Text>();
-        }
     }
 
     private void Update()
@@ -137,15 +133,24 @@ public class LobbyGUI : MonoBehaviour
         {
             if (m_currentNode != null && m_currentNode.Value == 4) // If the player exists and is the keyboard player...
             {
-                m_textObjs[i].text = "  Player " + (i + 1) + " [Keyboard]";
+                m_keyboardIcons[i].enabled = true;
+                m_contollerIcons[i].enabled = false;
+
+                m_portaits[i].sprite = m_portraitGlowSprites[i];
             }
             else if (m_currentNode != null) // If the player exists and is not the keyboard player...
             {
-                m_textObjs[i].text = "  Player " + (i + 1) + " [Controller" + m_currentNode.Value + "]";
+                m_contollerIcons[i].enabled = true;
+                m_keyboardIcons[i].enabled = false;
+
+                m_portaits[i].sprite = m_portraitGlowSprites[i];
             }
             else // If the player does not exist...
             {
-                m_textObjs[i].text = "  Join";
+                m_keyboardIcons[i].enabled = false;
+                m_contollerIcons[i].enabled = false;
+
+                m_portaits[i].sprite = m_portraitEmptySprites[i];
             }
 
             if (m_currentNode != null)
@@ -193,7 +198,10 @@ public class LobbyGUI : MonoBehaviour
         // Reset panel text.
         for (int i = 0; i < 4; ++i)
         {
-            m_textObjs[i].text = "  Join";
+            m_keyboardIcons[i].enabled = false;
+            m_contollerIcons[i].enabled = false;
+
+            m_portaits[i].sprite = m_portraitEmptySprites[i];
         }
 
         // Remove all player data.
