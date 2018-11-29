@@ -39,8 +39,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse:
-        m_Texture: {fileID: 2800000, guid: 7126422d5af90994a901b945efaab830, type: 3}
-        m_Scale: {x: 20, y: 20}
+        m_Texture: {fileID: 2800000, guid: 092e36542645ab24fb4e5fcb7c570207, type: 3}
+        m_Scale: {x: 15, y: 15}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0.4, y: 0.8}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: fbb421094972c0841ad7445a7e9cc5bc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 092e36542645ab24fb4e5fcb7c570207, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -80,9 +80,9 @@ Material:
     - _Gloss_copy: 0.5
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HeightScale: 5
-    - _HillScale: -10
-    - _Metallic: 0.573
+    - _HeightScale: 1.58
+    - _HillScale: -15
+    - _Metallic: 0.221
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -93,6 +93,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.25016108, g: 0.32352942, b: 0.22123703, a: 1}
+    - _Color: {r: 0.30882353, g: 0.30882353, b: 0.30882353, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0, g: 0, b: 0, a: 1}

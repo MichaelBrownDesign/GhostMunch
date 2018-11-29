@@ -6,11 +6,17 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: polySurface16
     400000: //RootNode
+    400002: polySurface16
     2100000: StingrayPBS81
+    2100002: StingrayPBS80
     2300000: //RootNode
+    2300002: polySurface16
     3300000: //RootNode
+    3300002: polySurface16
     4300000: SM_Candel_000
+    4300002: polySurface16
   externalObjects: {}
   materials:
     importMaterials: 1

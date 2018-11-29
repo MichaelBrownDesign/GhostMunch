@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 5
-  m_possessEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+  m_possessEffect: {fileID: 1194578819411620, guid: 9c862f95af85379458a51aaef0c19485,
     type: 2}
   m_breakEffect: {fileID: 1791231192869352, guid: b09dbb320759c744bbfcb418d6fdb684,
     type: 2}

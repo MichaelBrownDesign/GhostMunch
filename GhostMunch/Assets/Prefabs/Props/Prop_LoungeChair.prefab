@@ -67,13 +67,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524162183304846}
   m_LocalRotation: {x: -0, y: -0.7451252, z: -0, w: 0.6669246}
-  m_LocalPosition: {x: 1.3843174, y: -1.7984867, z: -3.0941286}
+  m_LocalPosition: {x: 1.3843174, y: -0.973, z: -3.0941286}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4047060610672090}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -96.340004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -404.999, z: 0}
 --- !u!23 &23708382125784238
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -141,8 +141,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0290697, y: 1.7929034, z: 2.268508}
-  m_Center: {x: -0.1518346, y: 0.70850766, z: -0.11251411}
+  m_Size: {x: 1.4768211, y: 1.7925066, z: 2.233752}
+  m_Center: {x: 0.17426683, y: 0, z: 0.024861341}
 --- !u!65 &65970966220435990
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -167,12 +167,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 15
-  m_possessEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+  m_possessEffect: {fileID: 1194578819411620, guid: 9c862f95af85379458a51aaef0c19485,
     type: 2}
   m_breakEffect: {fileID: 1791231192869352, guid: b09dbb320759c744bbfcb418d6fdb684,
     type: 2}
   m_material: {fileID: 0}
-  m_thrownCollider: {fileID: 0}
+  m_thrownCollider: {fileID: 65970966220435990}
   m_fHeightOffset: 0
   m_fRotationSpeed: 5
   m_bRotateX: 1

@@ -53,14 +53,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560732235877270}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.31909, y: -1.8881236, z: -6.9409113}
-  m_LocalScale: {x: 2.0114107, y: 1.2347285, z: 1.2347285}
+  m_LocalRotation: {x: -0, y: 0.050283846, z: -0, w: 0.99873495}
+  m_LocalPosition: {x: 10.024, y: -2.0612, z: -7.51}
+  m_LocalScale: {x: 2.01141, y: 1.23473, z: 1.23473}
   m_Children:
   - {fileID: 4580712078445636}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 5.7650003, z: 0}
 --- !u!4 &4580712078445636
 Transform:
   m_ObjectHideFlags: 1
@@ -88,7 +88,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0f171f498c2f2884993608d6e5d03088, type: 2}
+  - {fileID: 2100000, guid: b82040e02436a944188a316d558891c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fRespawnTime: 15
-  m_possessEffect: {fileID: 1623265911611766, guid: 869d9e0cdb27c7645b23db0b5b123330,
+  m_possessEffect: {fileID: 1194578819411620, guid: 9c862f95af85379458a51aaef0c19485,
     type: 2}
   m_breakEffect: {fileID: 1791231192869352, guid: b09dbb320759c744bbfcb418d6fdb684,
     type: 2}

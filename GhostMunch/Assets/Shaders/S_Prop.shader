@@ -1,7 +1,7 @@
 // Shader created with Shader Forge v1.37 
 // Shader Forge (c) Neat Corporation / Joachim Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.37;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:1,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:33333,y:32755,varname:node_2865,prsc:2|diff-6343-OUT,spec-5293-OUT,emission-2383-OUT;n:type:ShaderForge.SFN_Multiply,id:6343,x:32617,y:32417,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:32219,y:32548,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:32424,y:32325,ptovrint:True,ptlb:Diffuse,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:358,x:32460,y:32801,ptovrint:False,ptlb:Specular,ptin:_Specular,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Lerp,id:7762,x:32544,y:33081,varname:node_7762,prsc:2|A-7201-OUT,B-6389-OUT,T-3801-OUT;n:type:ShaderForge.SFN_Vector1,id:7201,x:32245,y:33040,varname:node_7201,prsc:2,v1:0;n:type:ShaderForge.SFN_Slider,id:3801,x:32167,y:33284,ptovrint:False,ptlb:Possessed,ptin:_Possessed,varname:node_3801,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Tex2dAsset,id:5419,x:31345,y:33167,ptovrint:False,ptlb:Noise,ptin:_Noise,varname:node_5419,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:8597,x:31724,y:33005,varname:node_8597,prsc:2,ntxv:0,isnm:False|UVIN-3853-UVOUT,TEX-5419-TEX;n:type:ShaderForge.SFN_TexCoord,id:1422,x:31345,y:33005,varname:node_1422,prsc:2,uv:0,uaff:False;n:type:ShaderForge.SFN_Panner,id:3853,x:31536,y:33005,varname:node_3853,prsc:2,spu:0.1,spv:0.1|UVIN-1422-UVOUT;n:type:ShaderForge.SFN_Multiply,id:6389,x:32228,y:33116,varname:node_6389,prsc:2|A-2103-OUT,B-8597-RGB,C-5791-RGB,D-6900-OUT;n:type:ShaderForge.SFN_Tex2d,id:5791,x:31724,y:33203,varname:node_5791,prsc:2,ntxv:0,isnm:False|UVIN-7018-UVOUT,TEX-5419-TEX;n:type:ShaderForge.SFN_Panner,id:7018,x:31536,y:33203,varname:node_7018,prsc:2,spu:-0.1,spv:-0.1|UVIN-1422-UVOUT;n:type:ShaderForge.SFN_ValueProperty,id:6263,x:32547,y:33232,ptovrint:False,ptlb:EmissionStrength,ptin:_EmissionStrength,varname:node_6263,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:1;n:type:ShaderForge.SFN_Multiply,id:2383,x:32770,y:33150,varname:node_2383,prsc:2|A-7762-OUT,B-6263-OUT;n:type:ShaderForge.SFN_NormalVector,id:1437,x:31724,y:33333,prsc:2,pt:False;n:type:ShaderForge.SFN_Fresnel,id:6900,x:31969,y:33399,varname:node_6900,prsc:2|NRM-1437-OUT,EXP-9712-OUT;n:type:ShaderForge.SFN_Slider,id:9712,x:31567,y:33531,ptovrint:False,ptlb:FresnelExp,ptin:_FresnelExp,varname:node_9712,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:10;n:type:ShaderForge.SFN_Multiply,id:5293,x:32808,y:32698,varname:node_5293,prsc:2|A-653-RGB,B-358-OUT;n:type:ShaderForge.SFN_Color,id:653,x:32586,y:32620,ptovrint:False,ptlb:SpecularColor,ptin:_SpecularColor,varname:node_653,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:0,c3:0,c4:1;n:type:ShaderForge.SFN_Vector3,id:2103,x:31706,y:32857,varname:node_2103,prsc:2,v1:0,v2:1,v3:0;proporder:7736-5419-6665-358-653-3801-6263-9712;pass:END;sub:END;*/
+/*SF_DATA;ver:1.37;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:1,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:33333,y:32755,varname:node_2865,prsc:2|diff-6343-OUT,spec-5293-OUT,emission-3563-OUT;n:type:ShaderForge.SFN_Multiply,id:6343,x:32478,y:32399,varname:node_6343,prsc:2|A-7736-RGB,B-6665-RGB;n:type:ShaderForge.SFN_Color,id:6665,x:32219,y:32548,ptovrint:False,ptlb:Color,ptin:_Color,varname:_Color,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5019608,c2:0.5019608,c3:0.5019608,c4:1;n:type:ShaderForge.SFN_Tex2d,id:7736,x:32225,y:32268,ptovrint:True,ptlb:Diffuse,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Slider,id:358,x:32460,y:32801,ptovrint:False,ptlb:Specular,ptin:_Specular,varname:node_358,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Lerp,id:7762,x:32544,y:33081,varname:node_7762,prsc:2|A-7201-OUT,B-6389-OUT,T-3801-OUT;n:type:ShaderForge.SFN_Vector1,id:7201,x:32245,y:33040,varname:node_7201,prsc:2,v1:0;n:type:ShaderForge.SFN_Slider,id:3801,x:32167,y:33284,ptovrint:False,ptlb:Possessed,ptin:_Possessed,varname:node_3801,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Tex2dAsset,id:5419,x:31345,y:33167,ptovrint:False,ptlb:Noise,ptin:_Noise,varname:node_5419,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Tex2d,id:8597,x:31724,y:33005,varname:node_8597,prsc:2,ntxv:0,isnm:False|UVIN-3853-UVOUT,TEX-5419-TEX;n:type:ShaderForge.SFN_TexCoord,id:1422,x:31345,y:33005,varname:node_1422,prsc:2,uv:0,uaff:False;n:type:ShaderForge.SFN_Panner,id:3853,x:31536,y:33005,varname:node_3853,prsc:2,spu:0.1,spv:0.1|UVIN-1422-UVOUT;n:type:ShaderForge.SFN_Multiply,id:6389,x:32228,y:33116,varname:node_6389,prsc:2|A-2103-OUT,B-8597-RGB,C-5791-RGB,D-6900-OUT;n:type:ShaderForge.SFN_Tex2d,id:5791,x:31724,y:33203,varname:node_5791,prsc:2,ntxv:0,isnm:False|UVIN-7018-UVOUT,TEX-5419-TEX;n:type:ShaderForge.SFN_Panner,id:7018,x:31536,y:33203,varname:node_7018,prsc:2,spu:-0.1,spv:-0.1|UVIN-1422-UVOUT;n:type:ShaderForge.SFN_ValueProperty,id:6263,x:32547,y:33232,ptovrint:False,ptlb:EmissionStrength,ptin:_EmissionStrength,varname:node_6263,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:1;n:type:ShaderForge.SFN_Multiply,id:2383,x:32770,y:33150,varname:node_2383,prsc:2|A-7762-OUT,B-6263-OUT;n:type:ShaderForge.SFN_NormalVector,id:1437,x:31724,y:33333,prsc:2,pt:False;n:type:ShaderForge.SFN_Fresnel,id:6900,x:31969,y:33399,varname:node_6900,prsc:2|NRM-1437-OUT,EXP-9712-OUT;n:type:ShaderForge.SFN_Slider,id:9712,x:31567,y:33531,ptovrint:False,ptlb:FresnelExp,ptin:_FresnelExp,varname:node_9712,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:10;n:type:ShaderForge.SFN_Multiply,id:5293,x:32808,y:32698,varname:node_5293,prsc:2|A-653-RGB,B-358-OUT;n:type:ShaderForge.SFN_Color,id:653,x:32586,y:32620,ptovrint:False,ptlb:SpecularColor,ptin:_SpecularColor,varname:node_653,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:0,c3:0,c4:1;n:type:ShaderForge.SFN_Vector3,id:2103,x:31706,y:32857,varname:node_2103,prsc:2,v1:0,v2:1,v3:0;n:type:ShaderForge.SFN_Multiply,id:3563,x:33044,y:32852,varname:node_3563,prsc:2|A-6434-OUT,B-2383-OUT;n:type:ShaderForge.SFN_ValueProperty,id:3782,x:32753,y:32581,ptovrint:False,ptlb:EmissivePower,ptin:_EmissivePower,varname:node_3782,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,v1:1;n:type:ShaderForge.SFN_Multiply,id:6434,x:32998,y:32604,varname:node_6434,prsc:2|A-7736-RGB,B-3782-OUT;proporder:7736-5419-6665-358-653-3801-6263-9712-3782;pass:END;sub:END;*/
 
 Shader "Shader Forge/S_Prop" {
     Properties {
@@ -13,6 +13,7 @@ Shader "Shader Forge/S_Prop" {
         _Possessed ("Possessed", Range(0, 1)) = 0
         _EmissionStrength ("EmissionStrength", Float ) = 1
         _FresnelExp ("FresnelExp", Range(0, 10)) = 0
+        _EmissivePower ("EmissivePower", Float ) = 1
     }
     SubShader {
         Tags {
@@ -52,6 +53,7 @@ Shader "Shader Forge/S_Prop" {
             uniform float _EmissionStrength;
             uniform float _FresnelExp;
             uniform float4 _SpecularColor;
+            uniform float _EmissivePower;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -169,12 +171,12 @@ Shader "Shader Forge/S_Prop" {
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
                 float node_7201 = 0.0;
-                float4 node_6772 = _Time + _TimeEditor;
-                float2 node_3853 = (i.uv0+node_6772.g*float2(0.1,0.1));
+                float4 node_1310 = _Time + _TimeEditor;
+                float2 node_3853 = (i.uv0+node_1310.g*float2(0.1,0.1));
                 float4 node_8597 = tex2D(_Noise,TRANSFORM_TEX(node_3853, _Noise));
-                float2 node_7018 = (i.uv0+node_6772.g*float2(-0.1,-0.1));
+                float2 node_7018 = (i.uv0+node_1310.g*float2(-0.1,-0.1));
                 float4 node_5791 = tex2D(_Noise,TRANSFORM_TEX(node_7018, _Noise));
-                float3 emissive = (lerp(float3(node_7201,node_7201,node_7201),(float3(0,1,0)*node_8597.rgb*node_5791.rgb*pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp)),_Possessed)*_EmissionStrength);
+                float3 emissive = ((_MainTex_var.rgb*_EmissivePower)*(lerp(float3(node_7201,node_7201,node_7201),(float3(0,1,0)*node_8597.rgb*node_5791.rgb*pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp)),_Possessed)*_EmissionStrength));
 /// Final Color:
                 float3 finalColor = diffuse + specular + emissive;
                 fixed4 finalRGBA = fixed4(finalColor,1);
@@ -218,6 +220,7 @@ Shader "Shader Forge/S_Prop" {
             uniform float _EmissionStrength;
             uniform float _FresnelExp;
             uniform float4 _SpecularColor;
+            uniform float _EmissivePower;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -321,6 +324,7 @@ Shader "Shader Forge/S_Prop" {
             uniform float _EmissionStrength;
             uniform float _FresnelExp;
             uniform float4 _SpecularColor;
+            uniform float _EmissivePower;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -353,15 +357,15 @@ Shader "Shader Forge/S_Prop" {
                 UnityMetaInput o;
                 UNITY_INITIALIZE_OUTPUT( UnityMetaInput, o );
                 
-                float node_7201 = 0.0;
-                float4 node_1946 = _Time + _TimeEditor;
-                float2 node_3853 = (i.uv0+node_1946.g*float2(0.1,0.1));
-                float4 node_8597 = tex2D(_Noise,TRANSFORM_TEX(node_3853, _Noise));
-                float2 node_7018 = (i.uv0+node_1946.g*float2(-0.1,-0.1));
-                float4 node_5791 = tex2D(_Noise,TRANSFORM_TEX(node_7018, _Noise));
-                o.Emission = (lerp(float3(node_7201,node_7201,node_7201),(float3(0,1,0)*node_8597.rgb*node_5791.rgb*pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp)),_Possessed)*_EmissionStrength);
-                
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
+                float node_7201 = 0.0;
+                float4 node_8823 = _Time + _TimeEditor;
+                float2 node_3853 = (i.uv0+node_8823.g*float2(0.1,0.1));
+                float4 node_8597 = tex2D(_Noise,TRANSFORM_TEX(node_3853, _Noise));
+                float2 node_7018 = (i.uv0+node_8823.g*float2(-0.1,-0.1));
+                float4 node_5791 = tex2D(_Noise,TRANSFORM_TEX(node_7018, _Noise));
+                o.Emission = ((_MainTex_var.rgb*_EmissivePower)*(lerp(float3(node_7201,node_7201,node_7201),(float3(0,1,0)*node_8597.rgb*node_5791.rgb*pow(1.0-max(0,dot(i.normalDir, viewDirection)),_FresnelExp)),_Possessed)*_EmissionStrength));
+                
                 float3 diffColor = (_MainTex_var.rgb*_Color.rgb);
                 float3 specColor = (_SpecularColor.rgb*_Specular);
                 o.Albedo = diffColor + specColor * 0.125; // No gloss connected. Assume it's 0.5

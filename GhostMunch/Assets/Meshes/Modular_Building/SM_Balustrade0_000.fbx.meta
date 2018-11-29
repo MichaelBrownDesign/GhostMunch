@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 19812de506708f34b843e3670002f01a
-timeCreated: 1540358833
+timeCreated: 1543447420
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -9,6 +9,7 @@ ModelImporter:
     400000: //RootNode
     2100000: SM_Balustradelow45_000_Railing_0
     2100002: static
+    2100004: StingrayPBS84
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_Balustrade0_000

@@ -161,10 +161,7 @@ public class Possessible : MonoBehaviour
             m_renderer.enabled = false;
             m_collider.enabled = false;
 
-            foreach(Transform child in m_Children)
-            {
-                child.gameObject.SetActive(false);
-            }
+
 
             if (m_thrownCollider != null)
                 m_thrownCollider.enabled = false;
@@ -184,6 +181,11 @@ public class Possessible : MonoBehaviour
             if(collision.gameObject == m_human)
             {
                 m_humanScript.Separate(m_v3ThrowDirection);
+            }
+
+            foreach (Transform child in m_Children)
+            {
+                child.gameObject.SetActive(false);
             }
         }
     }
