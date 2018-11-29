@@ -5038,17 +5038,17 @@ Prefab:
     - target: {fileID: 224387860340536958, guid: af2f3928a173fb842a7da347d953a4b6,
         type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224387860340536958, guid: af2f3928a173fb842a7da347d953a4b6,
         type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224387860340536958, guid: af2f3928a173fb842a7da347d953a4b6,
         type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224387860340536958, guid: af2f3928a173fb842a7da347d953a4b6,
         type: 2}
@@ -5112,6 +5112,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114972482460492754, guid: af2f3928a173fb842a7da347d953a4b6,
         type: 2}
+      propertyPath: m_pauseScript
+      value: 
+      objectReference: {fileID: 2110797493}
+    - target: {fileID: 114972482460492754, guid: af2f3928a173fb842a7da347d953a4b6,
+        type: 2}
       propertyPath: m_inGameGUICanvas
       value: 
       objectReference: {fileID: 1208199114}
@@ -5120,11 +5125,10 @@ Prefab:
       propertyPath: m_mainMenuCanvas
       value: 
       objectReference: {fileID: 1054835616}
-    - target: {fileID: 114972482460492754, guid: af2f3928a173fb842a7da347d953a4b6,
-        type: 2}
-      propertyPath: m_pauseScript
-      value: 
-      objectReference: {fileID: 2110797493}
+    - target: {fileID: 1192981111398774, guid: af2f3928a173fb842a7da347d953a4b6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af2f3928a173fb842a7da347d953a4b6, type: 2}
   m_IsPrefabParent: 0
@@ -7317,11 +7321,6 @@ Prefab:
       propertyPath: m_helpGUI
       value: 
       objectReference: {fileID: 1845462576}
-    - target: {fileID: 114934716169711908, guid: 25b5c168342c8fa4aac79059623c83e0,
-        type: 2}
-      propertyPath: m_pauseScript
-      value: 
-      objectReference: {fileID: 2110797493}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25b5c168342c8fa4aac79059623c83e0, type: 2}
   m_IsPrefabParent: 0

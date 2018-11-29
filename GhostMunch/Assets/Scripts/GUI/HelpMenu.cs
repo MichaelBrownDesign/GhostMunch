@@ -22,6 +22,7 @@ public class HelpMenu : MonoBehaviour
 
         m_thisCanvas.SetActive(false);
 
-        m_pauseScript.SetLocked(false);
+        if(m_pauseScript)
+            m_pauseScript.SetLocked(false);
     }
 }
