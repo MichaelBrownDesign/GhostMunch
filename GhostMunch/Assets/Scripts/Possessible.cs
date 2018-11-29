@@ -53,6 +53,8 @@ public class Possessible : MonoBehaviour
     // Ghost
     private CharacterController m_ownerController;
 
+    List<Transform> m_Children;
+
     // Use this for initialization
     void Awake()
     {
@@ -92,6 +94,12 @@ public class Possessible : MonoBehaviour
                 m_material = allMats[i];
                 break;
             }
+        }
+
+        m_Children = new List<Transform>();
+        for(int i = 0; i < transform.childCount; ++i)
+        {
+            m_Children.Add(transform.GetChild(i));
         }
 	}
 	
@@ -153,6 +161,11 @@ public class Possessible : MonoBehaviour
             m_renderer.enabled = false;
             m_collider.enabled = false;
 
+            foreach(Transform child in m_Children)
+            {
+                child.gameObject.SetActive(false);
+            }
+
             if (m_thrownCollider != null)
                 m_thrownCollider.enabled = false;
 
@@ -204,6 +217,11 @@ public class Possessible : MonoBehaviour
 
         // Reset collision layer to default.
         gameObject.layer = 11;
+
+        foreach (Transform child in m_Children)
+        {
+            child.gameObject.SetActive(true);
+        }
     }
 
     public void SwapColliders()
