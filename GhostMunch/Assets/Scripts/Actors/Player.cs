@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     // Effects
     [Header("Effects")]
     public GameObject m_possessParticles;
+    public ParticleSystem m_stunParticles;
     public ParticleSystem m_dashParticles;
 
     // Misc
@@ -111,9 +112,6 @@ public class Player : MonoBehaviour
         }
 
         m_gui = GameObject.Find("GameGUI").GetComponent<GameGUI>();
-
-        // Find all players...
-        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
 
         // Set to player 4 for controller input if using keyboard.
         if (m_input.m_bUseKeyboard)
@@ -173,6 +171,10 @@ public class Player : MonoBehaviour
             // No longer stunned.
             m_bStunned = false;
             m_input.enabled = true;
+
+            // Stop effect.
+            if(m_stunParticles)
+                m_stunParticles.Stop();
 
             m_movement.m_AnimationController.SetBool("IsStunned", false);
 
@@ -562,6 +564,10 @@ public class Player : MonoBehaviour
     {
         m_fCurrentStunTime = m_fStunTime;
         m_bStunned = true;
+
+        // Start effect.
+        if(m_stunParticles)
+            m_stunParticles.Play();
 
         m_movement.DisableInput(true, true);
 

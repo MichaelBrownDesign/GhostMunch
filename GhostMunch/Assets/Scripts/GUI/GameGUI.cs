@@ -25,7 +25,7 @@ public class GameGUI : MonoBehaviour
     public GameObject m_inGameUI;
     public GameObject m_gameOverUI;
     public GameObject[] m_hungerBars;
-    public RectTransform[] m_fullHungerBars;
+    public Image[] m_fullHungerBars;
     public GameObject m_gameOverPanel;
     public GameObject m_gameOverTextObj;
     public GameObject m_playAgainButton;
@@ -43,16 +43,15 @@ public class GameGUI : MonoBehaviour
         // Get hunger bar width...
         m_fBarWidth = m_hungerBars[0].GetComponent<RectTransform>().sizeDelta.x;
 
-        for(int i = 0; i < m_fullHungerBars.Length; ++i)
+        for (int i = 0; i < m_fullHungerBars.Length; ++i)
         {
-            m_fullHungerBars[i].sizeDelta = new Vector2(0.0f, m_fullHungerBars[i].sizeDelta.y);
+            m_fullHungerBars[i].fillAmount = 0;
         }
 
         // Disable unused widgets.
         for(int i = 3; i > m_nPlayerCount - 1; --i)
         {
-            m_hungerBars[i].GetComponent<RectTransform>().localScale = Vector3.zero;
-            m_fullHungerBars[i].GetComponent<RectTransform>().localScale = Vector3.zero;
+            m_hungerBars[i].SetActive(false);
         }
 
         m_manager = GetComponent<PlayerManager>();
@@ -94,14 +93,8 @@ public class GameGUI : MonoBehaviour
             m_nHungerValues[nPlayerIndex] = nNewHunger;
         }
 
-        // Get scale vector of bar.
-        Vector2 v2BarScale = m_fullHungerBars[nPlayerIndex].sizeDelta;
-
         // Set x value based on hunger value.
-        v2BarScale.x = (m_nHungerValues[nPlayerIndex] / m_nMaxHungerValue) * m_fBarWidth;
-
-        // Apply changes.
-        m_fullHungerBars[nPlayerIndex].sizeDelta = v2BarScale;
+        m_fullHungerBars[nPlayerIndex].fillAmount = m_nHungerValues[nPlayerIndex] / m_nMaxHungerValue;
     }
 
     // Used by the lobby GUI to set the player count that is carried on between scenes.

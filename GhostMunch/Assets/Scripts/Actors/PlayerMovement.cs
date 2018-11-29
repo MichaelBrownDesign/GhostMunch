@@ -239,7 +239,11 @@ public class PlayerMovement : MonoBehaviour
             m_v3TargetRotation.z = 0.0f;
         }
 
-        if(m_AnimationController)
+        // Update rotation.
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(m_v3TargetRotation), m_fRotationLerpT);
+        transform.rotation = Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f);
+
+        if (m_AnimationController)
             m_AnimationController.SetFloat("Speed", m_fInputMagnitude);
     }
 
@@ -262,10 +266,6 @@ public class PlayerMovement : MonoBehaviour
             if(m_AnimationController)
                 m_AnimationController.SetBool("IsDashing", true);
         }
-
-        // Update rotation.
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(m_v3TargetRotation), m_fRotationLerpT);
-        transform.rotation = Quaternion.Euler(0.0f, transform.rotation.eulerAngles.y, 0.0f);
 
         // Update velocity.
         m_controller.Move(m_v3Velocity * Time.deltaTime);
