@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 95211999250103072}
   - component: {fileID: 114429008423185920}
   - component: {fileID: 82889528905914512}
+  - component: {fileID: 82350955720625726}
   m_Layer: 0
   m_Name: SK_Human_001
   m_TagString: Untagged
@@ -1975,8 +1976,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1178481204504500}
-  m_LocalRotation: {x: -0, y: 0.000000104308114, z: -0, w: -1}
-  m_LocalPosition: {x: -3.79, y: 0.61, z: 0.82}
+  m_LocalRotation: {x: -0, y: 0.99968165, z: -0, w: 0.025230592}
+  m_LocalPosition: {x: -10.384425, y: 1.036, z: -10.383664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4764682828430380}
@@ -2638,6 +2639,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5, y: 1, z: 2}
   m_Center: {x: 3.0108057e-15, y: 0, z: 1.0190667}
+--- !u!82 &82350955720625726
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1094063938184254}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82889528905914512
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2737,8 +2818,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 1.0996566
+  MaxDistance: 289083.9
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2831,12 +2912,15 @@ MonoBehaviour:
   m_ParticlesPerStep: 5
   m_AudioSource: {fileID: 82889528905914512}
   m_FootstepSoundEffects:
-  - {fileID: 8300000, guid: 5eaefd70fe40b41428885cff46dc0a30, type: 3}
-  - {fileID: 8300000, guid: 48dc927de93c357489c6a9177a38b151, type: 3}
-  - {fileID: 8300000, guid: 23853b6c9ec165a40b71ce02b3c16930, type: 3}
-  - {fileID: 8300000, guid: 99796cf1406f9754a97a76c89f08b2ee, type: 3}
-  - {fileID: 8300000, guid: ea836ecad3866274e80b9fbd316d0ec2, type: 3}
-  - {fileID: 8300000, guid: c790059a06837b34e84b6a9a78478335, type: 3}
+  - {fileID: 8300000, guid: 9269dca753b0f694cb5b23b74378327a, type: 3}
+  - {fileID: 8300000, guid: 14cecb6f479b91c438fb6328e16367fe, type: 3}
+  - {fileID: 8300000, guid: 6267863ace9a42846996a2f52f83c090, type: 3}
+  - {fileID: 8300000, guid: 9a67f904e66f863498691140f3095aed, type: 3}
+  - {fileID: 8300000, guid: 180625f391e6eeb439348c304590eb2f, type: 3}
+  - {fileID: 8300000, guid: 1e64c971c7fb33f42aae7943f8b90a4e, type: 3}
+  - {fileID: 8300000, guid: f58984b3ddc563444963bafb154e49d5, type: 3}
+  - {fileID: 8300000, guid: 3850f3173eaee0048b7d56d044589eca, type: 3}
+  - {fileID: 8300000, guid: 6a883789c9d71554eab0c089f0dbe925, type: 3}
 --- !u!114 &114596569093364242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2869,7 +2953,8 @@ MonoBehaviour:
   m_material: {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_footsteps: []
   m_EatSoundEffect:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: ec3b03ec1a26e0a4ea9690c35edd07df, type: 3}
+  - {fileID: 8300000, guid: a3f2d4da98e8f3f4a90bc96bfa2d294d, type: 3}
   m_hitClip: {fileID: 8300000, guid: da448a899dfc1364494471bd016294b1, type: 3}
   m_fMinPitch: 0.8
   m_fMaxPitch: 1
@@ -2904,11 +2989,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  m_fRollSpeed: 30
-  m_fRecoveryPoint: 75
-  m_fRecoveryStrength: 1
-  m_fRollTime: 0.5
-  m_fRollDelay: 0.5
+  m_fRollSpeed: 0
+  m_fRecoveryPoint: 0
+  m_fRecoveryStrength: 0
+  m_fRollTime: 0
+  m_fRollDelay: 0
   m_fRotationLerpT: 0.3
   m_fFreeLookDeadZone: 0.2
   m_bAllowFreeLook: 0
@@ -2926,7 +3011,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 76cf2ef4acae65d4a9b6e7c826119465, type: 3}
+  - {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2973,7 +3058,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 76cf2ef4acae65d4a9b6e7c826119465, type: 3}
+  - {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3020,7 +3105,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 76cf2ef4acae65d4a9b6e7c826119465, type: 3}
+  - {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3068,7 +3153,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 76cf2ef4acae65d4a9b6e7c826119465, type: 3}
+  - {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3182,7 +3267,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 76cf2ef4acae65d4a9b6e7c826119465, type: 3}
+  - {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3229,7 +3314,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 76cf2ef4acae65d4a9b6e7c826119465, type: 3}
+  - {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3391,7 +3476,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 76cf2ef4acae65d4a9b6e7c826119465, type: 3}
+  - {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3438,7 +3523,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 76cf2ef4acae65d4a9b6e7c826119465, type: 3}
+  - {fileID: 2100000, guid: 371e92cbff004634fbf4be0d7538194f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3615,7 +3700,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -634313710
+  randomSeed: -1503086157
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3767,8 +3852,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.67
-      minScalar: 0.52
+      scalar: 0.8
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4274,9 +4359,9 @@ ParticleSystem:
           tangentMode: 0
         - serializedVersion: 2
           time: 0.62855
-          value: 0.91024363
-          inSlope: -0.6353855
-          outSlope: -0.6353855
+          value: 0.26976013
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
         - serializedVersion: 2
           time: 1
@@ -6982,7 +7067,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1556314654
+  randomSeed: -1503086157
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7134,8 +7219,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.67
-      minScalar: 0.52
+      scalar: 0.8
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7641,9 +7726,9 @@ ParticleSystem:
           tangentMode: 0
         - serializedVersion: 2
           time: 0.62855
-          value: 0.91024363
-          inSlope: -0.6353855
-          outSlope: -0.6353855
+          value: 0.26976013
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
         - serializedVersion: 2
           time: 1
