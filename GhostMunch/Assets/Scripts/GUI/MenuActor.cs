@@ -11,6 +11,9 @@ public class MenuActor : MonoBehaviour
 {
     public Scene[] scenes;
 
+    public GameObject m_playButton;
+    public EventSystem m_mainMenuEvents;
+
     public GameObject m_lobbyCanvas;
     public GameObject m_helpGUI;
     public GameObject m_creditsGUI;
@@ -30,10 +33,15 @@ public class MenuActor : MonoBehaviour
         m_audioSource = GetComponent<AudioSource>();
     }
 
+    private void Start()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
@@ -67,6 +75,8 @@ public class MenuActor : MonoBehaviour
     public void OnBackClick()
     {
         m_mainMenuGUI.SetActive(true);
+     //   m_mainMenuEvents.SetSelectedGameObject(m_playButton);
+
         m_creditsGUI.SetActive(false);
     }
 
