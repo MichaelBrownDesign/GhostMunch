@@ -13,6 +13,7 @@ public class MenuActor : MonoBehaviour
 
     public GameObject m_lobbyCanvas;
     public GameObject m_helpGUI;
+    public GameObject m_creditsGUI;
 
     public GameObject m_mainMenuGUI;
 
@@ -55,6 +56,18 @@ public class MenuActor : MonoBehaviour
 
         m_helpGUI.SetActive(true);
         m_mainMenuGUI.SetActive(false);
+    }
+
+    public void OnCreditsClick()
+    {
+        m_creditsGUI.SetActive(true);
+        m_mainMenuGUI.SetActive(false);
+    }
+
+    public void OnBackClick()
+    {
+        m_mainMenuGUI.SetActive(true);
+        m_creditsGUI.SetActive(false);
     }
 
     public void Quit()
