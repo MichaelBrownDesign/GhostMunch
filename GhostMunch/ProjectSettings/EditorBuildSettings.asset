@@ -26,3 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Beta/Scene_Beta_007_JN.unity
     guid: 4d0b559cbc4f13540a12d6a57a13fdd0
+  - enabled: 0
+    path: Assets/Scenes/Beta/Scene_Beta_007_Nic.unity
+    guid: 7638397d874c8f04eb374dc78949120b

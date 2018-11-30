@@ -102,8 +102,12 @@ public class Player : MonoBehaviour
         m_audio = GetComponent<AudioSource>();
 
         m_human = GameObject.FindGameObjectWithTag("Human");
-        m_humanController = m_human.GetComponent<CharacterController>();
-        m_humanScript = m_human.GetComponent<Human>();
+
+        if(m_human)
+        {
+            m_humanController = m_human.GetComponent<CharacterController>();
+            m_humanScript = m_human.GetComponent<Human>();
+        }
 
         if (m_possessParticles)
         {
@@ -111,7 +115,10 @@ public class Player : MonoBehaviour
             m_possessParticles.transform.localPosition = Vector3.zero;
         }
 
-        m_gui = GameObject.Find("GameGUI").GetComponent<GameGUI>();
+        GameObject guiObj = GameObject.Find("GameGUI");
+
+        if(guiObj)
+            m_gui = guiObj.GetComponent<GameGUI>();
 
         // Set to player 4 for controller input if using keyboard.
         if (m_input.m_bUseKeyboard)

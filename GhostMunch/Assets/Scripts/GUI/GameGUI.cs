@@ -16,9 +16,10 @@ public class GameGUI : MonoBehaviour
 
     // Stats
     public int m_nMaxHungerValue;
-    private float m_fBarWidth;
+    public float m_fGOInputDelay = 2.0f;
     private float[] m_nHungerValues;
     private static int m_nPlayerCount;
+    private float m_fGOInputDelayCurrent;
 
     // Widgets
     [Header("Widgets")]
@@ -28,20 +29,20 @@ public class GameGUI : MonoBehaviour
     public Image[] m_fullHungerBars;
     public GameObject m_gameOverPanel;
     public GameObject m_gameOverTextObj;
+    public GameObject m_gameOverRestartButton;
+    public EventSystem m_gameOverEvents;
     public GameObject m_playAgainButton;
     private Text m_gameOverText;
+    private bool m_bGOButtonSet = false;
 
-	// Use this for initialization
-	void Awake()
+    // Use this for initialization
+    void Awake()
     {
         m_nPlayerCount = PlayerManager.GetPlayerCount();
 
         m_nHungerValues = new float[4];
 
         m_gameOverText = m_gameOverTextObj.GetComponent<Text>();
-
-        // Get hunger bar width...
-        m_fBarWidth = m_hungerBars[0].GetComponent<RectTransform>().sizeDelta.x;
 
         for (int i = 0; i < m_fullHungerBars.Length; ++i)
         {
@@ -56,11 +57,19 @@ public class GameGUI : MonoBehaviour
 
         m_manager = GetComponent<PlayerManager>();
 	}
-	
-	// Update is called once per frame
-	void Update()
-    {
 
+    private void Update()
+    {
+        m_fGOInputDelayCurrent -= Time.unscaledDeltaTime;
+
+        m_gameOverEvents.enabled = m_fGOInputDelayCurrent < 0.0f;
+
+        if(!m_bGOButtonSet && m_gameOverEvents.enabled)
+        {
+            m_gameOverEvents.SetSelectedGameObject(m_gameOverRestartButton);
+
+            m_bGOButtonSet = true;
+        }
     }
 
     /*
@@ -84,9 +93,13 @@ public class GameGUI : MonoBehaviour
             m_gameOverUI.SetActive(true);
 
             // Since a player has reached full hunger, it is game over.
+            m_fGOInputDelayCurrent = m_fGOInputDelay;
+
             m_gameOverPanel.SetActive(true);
             m_gameOverTextObj.SetActive(true);
             m_gameOverText.text = "Player " + (nPlayerIndex + 1) + " is victorious!";
+
+            Time.timeScale = 0.0f;
         }
         else
         {
@@ -106,6 +119,7 @@ public class GameGUI : MonoBehaviour
     public void PlayAgainButton()
     {
         //UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        Time.timeScale = 1.0f;
 
         m_sceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(m_sceneName);
@@ -113,6 +127,8 @@ public class GameGUI : MonoBehaviour
 
     public void MainMenuButton()
     {
+        Time.timeScale = 1.0f;
+
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 

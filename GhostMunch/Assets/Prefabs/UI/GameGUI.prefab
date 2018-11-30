@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef164cd5efac0ae44857f3087cca43d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bDebugMode: 1
+  m_bDebugMode: 0
   m_players:
   - {fileID: 0}
   - {fileID: 0}
@@ -1971,6 +1971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pauseScript: {fileID: 114009465296667456}
   m_nMaxHungerValue: 100
+  m_fGOInputDelay: 1.5
   m_inGameUI: {fileID: 1015493649752864}
   m_gameOverUI: {fileID: 1995245940074432}
   m_hungerBars:
@@ -1985,6 +1986,8 @@ MonoBehaviour:
   - {fileID: 114202321561166486}
   m_gameOverPanel: {fileID: 1567869869006488}
   m_gameOverTextObj: {fileID: 1851621163463848}
+  m_gameOverRestartButton: {fileID: 1975320955271286}
+  m_gameOverEvents: {fileID: 114391903178836888}
   m_playAgainButton: {fileID: 1975320955271286}
 --- !u!114 &114960487374494376
 MonoBehaviour:

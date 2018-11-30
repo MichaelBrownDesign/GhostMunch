@@ -65,7 +65,9 @@ public class Possessible : MonoBehaviour
         m_fThrowZOffset = m_collider.bounds.extents.z;
 
         m_human = GameObject.FindGameObjectWithTag("Human");
-        m_humanScript = m_human.GetComponent<Human>();
+
+        if(m_human)
+            m_humanScript = m_human.GetComponent<Human>();
 
         m_v3RespawnPosition = transform.position;
         m_respawnRotation = transform.rotation;
@@ -166,17 +168,6 @@ public class Possessible : MonoBehaviour
             if (m_thrownCollider != null)
                 m_thrownCollider.enabled = false;
 
-            if(m_breakEffect != null)
-            {
-                // Play break effect.
-                m_breakEffectInst.gameObject.transform.position = transform.position;
-                m_breakEffectInst.Play();
-
-                //play break audio
-                if(m_audioOnBreak != null)
-                    m_audioSource.PlayOneShot(m_audioOnBreak);
-            }
-
             // Separate ghost from human if the collision is with the human.
             if(collision.gameObject == m_human)
             {
@@ -186,6 +177,19 @@ public class Possessible : MonoBehaviour
             foreach (Transform child in m_Children)
             {
                 child.gameObject.SetActive(false);
+            }
+
+            if (m_breakEffect != null)
+            {
+                // Play break effect.
+
+                m_breakEffectInst.gameObject.SetActive(true);
+                m_breakEffectInst.gameObject.transform.position = transform.position;
+                m_breakEffectInst.Play();
+
+                //play break audio
+                if (m_audioOnBreak != null)
+                    m_audioSource.PlayOneShot(m_audioOnBreak);
             }
         }
     }
